@@ -887,6 +887,177 @@ function FillOrderPageFields(json){
 	
 	$.mobile.loading( "hide" );
 }
+
+function FillPersonalPageFields(json){
+	
+	if(json.IsAuthorized != "Y"){
+		MobileUser.LoginPromt();
+	}
+
+	if(json.user_datas!= undefined){
+		if(json.user_datas.NameF!= undefined){
+			$("#personal_NameF").val(json.user_datas.NameF);
+		}
+		if(json.user_datas.NameI!= undefined){
+			$("#personal_NameI").val(json.user_datas.NameI);
+			$("#personal_fio_name").html(json.user_datas.NameI);
+		}
+		if(json.user_datas.NameO!= undefined){
+			$("#personal_NameO").val(json.user_datas.NameO);
+		}
+
+		if(json.user_datas.Gender!= undefined){
+			if(json.user_datas.Gender=='Женский'){
+				$("#GenderF").prop('checked', true);
+			}else{
+				$("#GenderM").prop('checked', true);
+			}
+		}
+		
+		if(json.user_datas.NameI==""){
+			$("#personal_fio_none_contaner").show();
+			$("#personal_fio_name_contaner").hide();
+			$(".personal-info-module-anketa").addClass('warrity_icon');
+			$("#personal_NameF").addClass('error');
+			moduletoggle($('.personal-info-module-anketa'));
+		}else{
+			$("#personal_fio_none_contaner").hide();
+			$("#personal_fio_name_contaner").show();
+		}
+		
+		if(json.user_datas.Email!= undefined)
+		$("#personal_email").val(json.user_datas.Email);
+		
+		if(json.user_datas.MobilePhone!= undefined){
+			MobileUser.mobile_phone = json.user_datas.MobilePhone;
+		}
+
+		if((json.user_datas.BirthDate_d!= undefined)&&(json.user_datas.BirthDate_m!= undefined)&&(json.user_datas.BirthDate_y!= undefined)){
+			$("#personal_BirthDate").val(json.user_datas.BirthDate_d+'.'+json.user_datas.BirthDate_m+'.'+json.user_datas.BirthDate_y);
+		}
+
+		if(json.user_datas.region_options!= undefined){
+			title_set = 0;
+			$.each( json.user_datas.region_options, function(key, val){
+				checked=(val.status==1)?'selected="selected"':'';
+				if(val.status==1){
+					$("#Region-button span.bf_select").html(val.name);
+					title_set++;
+				}
+				$("#Region").append('<option value="'+val.value+'" '+checked+' >'+val.name+'</option>');
+			});
+			if(title_set==0){
+				$("#Region-button span.bf_select").html('Выберите область');
+			}
+		}
+
+		if(json.user_datas.city_options!= undefined){
+			title_set = 0;
+			$.each( json.user_datas.city_options, function(key, val){
+				checked=(val.status==1)?'selected="selected"':'';
+				if(val.status==1){
+					$("#City-button span.bf_select").html(val.name);
+					title_set++;
+				}
+				$("#City").append('<option value="'+val.value+'" '+checked+' >'+val.name+'</option>');
+			});
+			if(title_set==0){
+				$("#City-button span.bf_select").html('Выберите город');
+			}
+		}
+
+		if(json.user_datas.shops_options!= undefined){
+			title_set = 0;
+			$("#PointOfSaleCode").empty();
+			$.each( json.user_datas.shops_options, function(key, val){
+				checked=(val.status==1)?'selected="selected"':'';
+				if(val.status==1){
+					$("#PointOfSaleCode-button span.bf_select").html(val.name);
+					title_set++;
+				}
+				$("#PointOfSaleCode").append('<option value="'+val.value+'" '+checked+' >'+val.name+'</option>');
+			});
+			if(title_set==0){
+				$("#PointOfSaleCode-button span.bf_select").html('Выберите где вы хотите обслуживаться');
+			}
+		}
+
+
+		if(json.user_datas.AddressStreet!= undefined){
+			$("#personal_AddressStreet").val(json.user_datas.AddressStreet);
+		}
+
+		if(json.user_datas.AddressHomeNum!= undefined){
+			$("#personal_AddressHomeNum").val(json.user_datas.AddressHomeNum);
+		}
+
+		if(json.user_datas.AddressRoomNum!= undefined){
+			$("#personal_AddressRoomNum").val(json.user_datas.AddressRoomNum);
+		}
+
+		var personal_user_bonus_box = 0;
+		if((json.user_datas.user_bonus.base!= undefined)&&(json.user_datas.user_bonus.base!= 0)){
+			$("#personal_user_bonus_base").html(json.user_datas.user_bonus.base);
+			$("#personal_user_bonus_base_box").show();
+			personal_user_bonus_box++;
+		}
+		if((json.user_datas.user_bonus.special!= undefined)&&(json.user_datas.user_bonus.special!= 0)){
+			$("#personal_user_bonus_special").html(json.user_datas.user_bonus.special);
+			$("#personal_user_bonus_special_box").show();
+			personal_user_bonus_box++;
+		}
+		if(personal_user_bonus_box>0){
+			$("#personal_user_bonus_box").show();
+		}
+	}
+	
+	$.mobile.loading( "hide" );
+}
+
+function UpdateUserInfoTry(){
+	var user_info = '',
+		ff=[];
+	$.each( $('#personal_anketa_box input, #personal_anketa_box select '), function(key, val){
+		var v=$(val);
+		user_info = user_info +'&'+v.attr('name')+'='+ v.val();
+		ff[v.attr('name')] = v.val();
+		if(v.val()==''&&v.attr('rq')=='1'){v.closest('div').addClass('error');}
+		if(v.val()<1&&v.attr('rqq')=='1'){v.closest('div').addClass('error');ff[v.attr('name')] = '';}
+	});
+
+	user_info = ($('#GenderF').is(':checked')) ? user_info+'&Genders=1' : user_info+'&Genders=2';
+	if(ff.personal_NameF!=''&&ff.personal_NameI!=''&&ff.personal_NameO!=''&&ff.personal_email!=''&&ff.personal_BirthDate!=''&&ff.City!=''){
+	 	MobileUser.UpdateUserInfo(user_info, OnUpdateUserInfo);
+	}else{
+		$('#personal_fio_none_contaner').show();
+		$(".personal-info-module-anketa").addClass('warrity_icon');
+		moduletoggle($('.personal-info-module-anketa'));moduletoggle($('.personal-info-module-anketa'));
+	}
+}
+
+function OnUpdateUserInfo(json){
+	if(json){
+		if(json.error=='Y'){
+			$('#personal_fio_none_contaner').show();	
+			return;
+		}
+		
+		$('#personal_save_success').show();	
+		$('#personal_fio_none_contaner').hide();
+		$(".personal-info-module-anketa").removeClass('warrity_icon');
+		moduletoggle($('.personal-info-module-anketa'));
+
+		if(json.user_datas.NameI!= undefined){
+			$("#personal_fio_name").html(json.user_datas.NameI);
+		}
+
+		$.mobile.changePage("#page-personal",{changeHash:false});
+	}else{
+		alert("Приносим свои изменения. При сохранение произошла ошибка. Попробуйте позже еще раз.");
+		$.mobile.changePage("#main",{changeHash:true});
+	}
+}
+
 function StartMakeOrderTry(){
 
     GA_event('OrderCreate', 'TryOrderCreate');

@@ -98,6 +98,45 @@ $( document ).on( "pageshow", "#page-order", function() {
 	MobileUser.UserInfo(FillOrderPageFields);
 		
 });
+$( document ).on( "pageshow", "#page-personal", function() {
+	ShowLoading();
+	MobileUser.UserInfo(FillPersonalPageFields);
+});
+
+$( document ).on( "pagehide", "#page-personal", function() {
+	$('.personal-info-module-anketa').parent().removeClass("module-open").addClass("module-close").find(".product-card-info-content").slideUp();
+});
+
+$( document ).on( "pageshow", "#page-preorders", function() {
+	ShowLoading();
+	MobileUser.GetUserPreOrders(getUserPreOrdersList);
+});
+
+$( document ).on( "pageshow", "#page-orders", function() {
+	ShowLoading();
+	MobileUser.GetUserOrders(getUserOrdersList);
+});
+
+$( document ).on( "pageshow", "#order-page", function() {
+	// Cтраница заказа
+		var Id = "";
+		var u = $.mobile.path.parseUrl( document.URL );
+		if(u.href.search("id=") !== -1){			
+			if(u.hash != undefined){										 
+				 var Id = u.hash.replace( /.*id=/, "" );	
+				 var data ="";
+				 if(u.href.search("detail_text=Y") !== -1){
+				 	data ="&detail_text=Y";
+				 }								
+				 //LoadOrderPage(Id,data);
+				 MobileUser.GetUserOrder(Id, getUserOrdersContentList);
+			}else{
+				alert("404");
+			}
+		}else{
+			alert("404");
+		}
+});
 $( document ).on( "pageshow", "#news-page", function() {
 	
 	InitNews();
