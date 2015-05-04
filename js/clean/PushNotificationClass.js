@@ -106,8 +106,13 @@ function AfterRegisterDevice(data){
     console.log(data);
 }
 
-function RegisterDevice(key,provider){
-    var phone = "";
+function RegisterDevice(key,provider,phone){
+	var phone = phone || '';
+	if(key==''){
+		key = localStorage.getItem('device_key');
+	}else{
+		localStorage.setItem('device_key', key);
+	}
     var php_path = "device.php";
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
 
