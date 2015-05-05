@@ -949,7 +949,7 @@ border-bottom: 1px solid #C8C7CC;
 
 .pub_box:after{
 	content: "";
-	background-image: url(/img/svg/gray/arrow.svg);
+	background-image: url(../img/svg/gray/arrow.svg);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	position: absolute;
@@ -994,13 +994,13 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 .personal-info-module:after{
-	background-image: url(/img/svg/gray/arrow.svg)!important;
+	background-image: url(../img/svg/gray/arrow.svg)!important;
 	margin-top: -8px!important;
 	top: 50%!important;
 }
 
 .module-open .personal-info-module:after{
-	background-image:url(/img/svg/gray/arrow_down.svg)!important;
+	background-image:url(../img/svg/gray/arrow_down.svg)!important;
 	margin-top: -5px!important;
 	right: 19px!important;
 }
@@ -1094,7 +1094,7 @@ border-bottom: 1px solid #C8C7CC;
 #personal_user_orders_list li a{
 	padding-left: 65px;
 /*	background:url('/img/png/shopping-bag.png') no-repeat 15px 15px transparent;*/
-	background-image:url(/img/png/shopping-bag.png);
+	background-image:url(../img/png/shopping-bag.png);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position-x: 15px;
@@ -1119,7 +1119,7 @@ border-bottom: 1px solid #C8C7CC;
 	width: 20px;
 	height: 20px;
 	display: inline-block;
-	background-image: url(/img/svg/caution-icon.svg);
+	background-image: url(../img/svg/caution-icon.svg);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position-x: 0;
@@ -1134,7 +1134,7 @@ border-bottom: 1px solid #C8C7CC;
 	width: 20px;
 	height: 20px;
 	display: inline-block;
-	background-image: url(/img/svg/caution-icon.svg);
+	background-image: url(../img/svg/caution-icon.svg);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position-x: 0;
@@ -1226,7 +1226,7 @@ border-bottom: 1px solid #C8C7CC;
 	position: absolute;
 	right: 30px;
 	top: 19px;
-	background-image: url(/img/png/shopping-bag.png);
+	background-image: url(../img/png/shopping-bag.png);
 	background-repeat: no-repeat;
 	background-color: transparent;
 }
@@ -1336,7 +1336,7 @@ border-bottom: 1px solid #C8C7CC;
 }*/
 
 #page-personal .ui-icon-calendar:after{
-	background-image: url(/img/svg/date-icon.svg)!important;
+	background-image: url(../img/svg/date-icon.svg)!important;
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-size:34px 34px;
@@ -1369,83 +1369,4 @@ border-bottom: 1px solid #C8C7CC;
 
 .page-orders-hr{
 	border-color: #ddd;
-}
-
-.download_banner {
-    position: relative;
-    z-index: 1;
-	display: inline-block;
-	color:#fff;
-	padding: 10px 16px 5px 16px;
-	background-color: #6cc918;
-	height: 8rem;
-}
-
-.download_banner .bg {
-  position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background:url('/img/png/media-pattern-.png'); 
-    opacity: .2;
-    width: 100%;
-    height: 100%;
-}
-
-.download_banner .left {
-	font-size: 1rem;
-	font-weight: 500;
-	width: 100%;
-	text-align: left;
-	box-sizing: border-box;  
-    -moz-box-sizing: border-box;  
-    -webkit-box-sizing: border-box;  
-}
-
-.download_banner .left span {
-	font-size: 0.75rem;
-}
-
-.download_banner_top .c_close{
-	background:url('/img/png/close-icon.png') 4px 4px no-repeat;
-	width: 20px;
-	height: 20px;
-	display: inline-block;
-	position: absolute;
-	right: -6px;
-	top: 5px;
-	cursor: pointer;
-}
-
-.download_banner_top .c_close:after{
-	content: "";
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	background: #fff;
-	opacity: 0.2;
-}
-
-.download_banner{
-	display: none;
-}
-
-.c_downloads{
-	background:url('/img/svg/download-icon-r.svg') 5px 5px; 
-}
-
-.c_download_white{
-	background:url('/img/png/download-white-icon.png') 2px 6px no-repeat; 
-}
-
-#install-app-btn{
-	color: #000!important;
-	background: #fff!important;
-	text-decoration: none!important;
-	background-color: #fff!important;
-	-moz-box-shadow: inset 0 -2px rgba(255,255,255,0.1),inset 0 -3px rgba(0,0,0,0.1),0 1px rgba(0,0,0,0.05)!important;
-	-webkit-box-shadow: inset 0 -2px rgba(255,255,255,0.1),inset 0 -3px rgba(0,0,0,0.1),0 1px rgba(0,0,0,0.05)!important;
-	box-shadow: inset 0 -2px rgba(255,255,255,0.1),inset 0 -3px rgba(0,0,0,0.1),0 1px rgba(0,0,0,0.05)!important;
 }

@@ -690,10 +690,9 @@ function LoadMainPageData(){
 			 
 						
 				});
-                if(json.top_goods.length ==0){
+                if(json.isUkraineIp==0){
                     $('.world').hide();
                 }
-                $('.world').hide();
 				ProssedTapEvents();
 				$.mobile.loading( "hide" );
 			}
@@ -1026,7 +1025,6 @@ function UpdateUserInfoTry(){
 	});
 
 	user_info = ($('#GenderF').is(':checked')) ? user_info+'&Genders=1' : user_info+'&Genders=2';
-	console_log(ff);
 	if(ff.personal_NameF!=''&&ff.personal_NameI!=''&&ff.personal_NameO!=''&&ff.personal_email!=''&&ff.personal_BirthDate!=''&&ff.City!=''){
 	 	MobileUser.UpdateUserInfo(user_info, OnUpdateUserInfo);
 	}else{
