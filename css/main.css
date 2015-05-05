@@ -1093,12 +1093,12 @@ border-bottom: 1px solid #C8C7CC;
 
 #personal_user_orders_list li a{
 	padding-left: 65px;
-	background:url('/img/png/shopping-bag.png') no-repeat 15px 15px transparent;
-	/*background-image:url(/img/png/shopping-bag.png);
+/*	background:url('/img/png/shopping-bag.png') no-repeat 15px 15px transparent;*/
+	background-image:url(/img/png/shopping-bag.png);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position-x: 15px;
-	background-position-y: 15px;*/
+	background-position-y: 15px;
 }
 
 #personal_save_success{

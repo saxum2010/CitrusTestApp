@@ -1026,9 +1026,14 @@ function UpdateUserInfoTry(){
 	});
 
 	user_info = ($('#GenderF').is(':checked')) ? user_info+'&Genders=1' : user_info+'&Genders=2';
+	alert("1");
 	if(ff.personal_NameF!=''&&ff.personal_NameI!=''&&ff.personal_NameO!=''&&ff.personal_email!=''&&ff.personal_BirthDate!=''&&ff.City!=''){
+		alert("2");
 	 	MobileUser.UpdateUserInfo(user_info, OnUpdateUserInfo);
+		alert("3");
+		alert(ff);
 	}else{
+		alert("4");
 		$('#personal_fio_none_contaner').show();
 		$(".personal-info-module-anketa").addClass('warrity_icon');
 		moduletoggle($('.personal-info-module-anketa'));moduletoggle($('.personal-info-module-anketa'));
