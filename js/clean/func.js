@@ -1017,7 +1017,7 @@ function FillPersonalPageFields(json){
 function UpdateUserInfoTry(){
 	var user_info = '',
 		ff=[];
-	$.each( $('#personal_anketa_box input, #personal_anketa_box select '), function(key, val){
+	$.each( $('#personal_anketa_box input, #personal_anketa_box select'), function(key, val){
 		var v=$(val);
 		user_info = user_info +'&'+v.attr('name')+'='+ v.val();
 		ff[v.attr('name')] = v.val();
@@ -1026,14 +1026,10 @@ function UpdateUserInfoTry(){
 	});
 
 	user_info = ($('#GenderF').is(':checked')) ? user_info+'&Genders=1' : user_info+'&Genders=2';
-	alert("1");
+	console_log(ff);
 	if(ff.personal_NameF!=''&&ff.personal_NameI!=''&&ff.personal_NameO!=''&&ff.personal_email!=''&&ff.personal_BirthDate!=''&&ff.City!=''){
-		alert("2");
 	 	MobileUser.UpdateUserInfo(user_info, OnUpdateUserInfo);
-		alert("3");
-		alert(ff);
 	}else{
-		alert("4");
 		$('#personal_fio_none_contaner').show();
 		$(".personal-info-module-anketa").addClass('warrity_icon');
 		moduletoggle($('.personal-info-module-anketa'));moduletoggle($('.personal-info-module-anketa'));
