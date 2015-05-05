@@ -1482,3 +1482,115 @@ function console_log(text){
     }
 }
 
+function getPageName(){
+	 var page = document.location.hash;
+	 if(document.location.hash == ""){
+        page = "#main";
+     }
+	 return page;
+}
+
+function getUserOrdersList(json){
+	ShowLoading();
+	if(json){
+		var output = "";
+		 if(json.user_orders !== undefined )
+		 $.each( json.user_orders, function( key, value ) {
+			output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#order-page?id='+value.ID+'"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">Заказ № '+value.ORDER_NUM+' <span>от&nbsp;'+value.DATE_INSRERT+'</span></h2><div class="preview_text">'+value.COUNT_TOVS+' товара на сумму <span class=grn>'+value.SUMM_TOVS+'&nbsp;грн</span> <br>Статус:<span class="personal_order_status personal_order_status_code'+value.STATUS_CODE+'">'+value.STATUS+'</span></div></td></tr></table></a></li>';
+		 });	
+		$('#personal_user_orders_list').html(output);
+	}else{
+		$('#personal_user_orders_list').html("У Вас нет заказов");
+	}
+	$.mobile.loading( "hide" );
+	ProssedTapEvents();	
+}
+
+function getUserOrdersContentList(json){
+	ShowLoading();
+	if(json){
+		var output = "";
+		 if(json.order !== undefined ){
+			output += '<div class=order_content_detail> <span class="order_title">Заказ №'+json.order.ORDER_NUM+'</span> <span class="order_from">от&nbsp;'+json.order.DATE_INSRERT+'</span><br/><span class="order_status">Статус:<b>'+json.order.STATUS+'</b></span><br/><span class="order_pay">Способ оплаты:<b>'+json.order.PAY_SYSTEM_NAME+'</b></span><br/>';
+			
+			if(json.order.TTN_1C>0){output += '<span class="order_pay">Товарно-транспортная накладная <b>№'+json.order.TTN_1C+'</b></span><br/>';}
+
+			output += '<span class="order_summ">Сумма:<span class=grn>'+json.order.SUMM+'&nbsp;грн.</span></span></div><div class=order_content_detail_list>'; }
+
+		 if(json.order_items !== undefined ){
+			 $.each( json.order_items, function( key, value ) {
+					var image = "";
+					if(value.PIC != undefined){
+						image = '<img src="' + value.PIC + '" >';
+					}
+
+					if(value.NO_LINK == 1){
+						output += '<li><div class=order_list_item><table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">'+image+'</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">'+value.NAME+'</h2><div class="preview_text">'+value.QUANTITY+' x <span class=grn>'+value.PRICE+' грн </span></div></td> </tr></table></div></li>';
+					}else{
+					output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#product-card?product-id='+value.ID+'"> <table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">'+image+'</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">'+value.NAME+'</h2><div class="preview_text">'+value.QUANTITY+' x <span class=grn>'+value.PRICE+' грн </span></div></td> </tr></table> </a></li>';
+					}
+				});
+		 }
+		output += '</div>';
+		$('#order-page-content').html(output);
+	}else{
+		$('#order-page-content').html("У Вас нет заказов");
+	}
+	$.mobile.loading( "hide" );
+	ProssedTapEvents();	
+}
+
+function getUserPreOrdersList(json){
+	ShowLoading();
+	if(json){
+		
+	var output = "";
+	 if(json.preorders.CAN_BUY !== undefined ){
+		 $.each(json.preorders.CAN_BUY, function( key, value ) {
+				var image = "";
+				if(value.PRODUCT_PIC != undefined){
+					image = '<img src="' + value.PRODUCT_PIC + '" >';
+				}
+				output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#product-card?product-id='+value.PRODUCT_ID+'"> <table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">'+image+'</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">'+value.PRODUCT_NAME+'</h2><div class="preview_text">Предзаказ № P-'+value.PREORDER_ID+' от '+value.PREORDER_DATE+'</div><div class="product_status '+value.PRODUCT_STATUS_CLASS+'">'+value.PRODUCT_STATUS+'</div></td> </tr></table></a></li>';
+			});
+		$('#preorders-buy-content').html(output);output = "";
+	 }
+
+	 if(json.preorders.CANNOT_BUY !== undefined ){
+		 $.each(json.preorders.CANNOT_BUY, function( key, value ) {
+				var image = "";
+				if(value.PRODUCT_PIC != undefined){
+					image = '<img src="' + value.PRODUCT_PIC + '" >';
+				}
+				output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#product-card?product-id='+value.PRODUCT_ID+'"> <table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">'+image+'</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">'+value.PRODUCT_NAME+'</h2><div class="preview_text">Предзаказ № P-'+value.PREORDER_ID+' от '+value.PREORDER_DATE+'</div><div class="product_status '+value.PRODUCT_STATUS_CLASS+'">'+value.PRODUCT_STATUS+'</div></td> </tr></table></a></li>';
+			});
+		$('#preorders-notbuy-content').html(output);
+	 }
+	}else{
+		$('#order-page-content').html("У Вас нет заказов");
+	}
+	$.mobile.loading( "hide" );
+	ProssedTapEvents();	
+}
+
+
+function get_city_in_region(){
+	var region_id = $("#Region").val();
+	$.post( "/api/bpm/bpm_city.php", { region: region_id })
+	  .done(function( data ) {
+	   	$("#City").empty().append(data);
+	   	$("#City-button span.bf_select").html('Выберите город');
+		get_shops_in_city();
+		$("#District").val("");
+	  });
+}
+
+function get_shops_in_city(){
+var city_id = $("#City").val();
+$.post( "/api/bpm/bpm_city_shops.php", { city: city_id })
+  .done(function( data ) {
+  	$("#District").val("");
+   	$("#PointOfSaleCode").empty().append(data);
+   	$("#PointOfSaleCode-button span.bf_select").html('Выберите где вы хотите обслуживаться');
+  });
+}
