@@ -107,18 +107,12 @@ function AfterRegisterDevice(data){
 }
 
 function RegisterDevice(key,provider,phone){
-	alert("2");
 	var phone = phone || '';
 	if(key==''){
-		alert("3");
 		key = localStorage.getItem('device_key');
 	}else{
-		alert("4");
 		localStorage.setItem('device_key', key);
 	}
-		alert(key);
-		alert(phone);
-
     var php_path = "device.php";
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
 
@@ -127,7 +121,7 @@ function RegisterDevice(key,provider,phone){
         dataType: 'json',
         async: true,
         success: function( json ) {
-        	alert('ok');
+
             AfterRegisterDevice(json);
         },
         timeout: 8000 ,
