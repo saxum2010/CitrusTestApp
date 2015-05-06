@@ -58,6 +58,9 @@ background-position: 2px 2px;
 .c_basket_simple {
 background-image: url(../img/svg/white/ico-04.svg);
 }
+.c_basket_gray {
+background-image: url(../img/svg/gray/ico-04.svg);
+}
 .c_home {
 background-image: url(../img/svg/white/ico-22.svg);
     position: relative;
@@ -88,6 +91,9 @@ background-image: url(../img/svg/gray/ico-10.svg);
 .c_club{
 	background-image: url(../img/svg/white/ico-13.svg);
 }
+.c_club.gray{
+	background-image: url(../img/svg/gray/ico-13.svg);
+}
 .c_shops{
 	background-image: url(../img/svg/white/ico-33.svg);
 }
@@ -97,8 +103,14 @@ background-image: url(../img/svg/gray/ico-10.svg);
 .c_contactus{
 	background-image: url(../img/svg/white/ico-29.svg);
 }
+.c_contactus.gray{
+	background-image: url(../img/svg/gray/ico-29.svg);
+}
 .c_online{
 	background-image: url(../img/svg/white/ico-28.svg);
+}
+.c_online.gray{
+	background-image: url(../img/svg/gray/ico-28.svg);
 }
 
 .c_lider{
