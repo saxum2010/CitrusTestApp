@@ -142,7 +142,7 @@ $( document ).on( "pageshow", "#news-page", function() {
 	InitNews();
 		
 });
-$( document ).on( "pageshow", "#gadges-page", function() {
+$( document ).on( "pageshow", "#gadgets-page", function() {
 	
 	InitGadgets();
 		
