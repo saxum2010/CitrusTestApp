@@ -182,8 +182,9 @@ function LoadDefaultCatalog(category,position){
 					var row2 = '';
 					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
 						row2 = '<div class="price">'+value.price+' грн</div>';	
-					}
-					else{
+					}else if(parseInt(value.price) > 1){
+						row2 = '<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
+					}else{
 						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
 					}
 					
