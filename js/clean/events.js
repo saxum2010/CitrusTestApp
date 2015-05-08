@@ -142,6 +142,11 @@ $( document ).on( "pageshow", "#news-page", function() {
 	InitNews();
 		
 });
+$( document ).on( "pageshow", "#gadges-page", function() {
+	
+	InitGadgets();
+		
+});
 $( document ).on( "pageshow", "#actions-page", function() {
 	
 	InitActions();
