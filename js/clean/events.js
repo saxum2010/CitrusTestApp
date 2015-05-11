@@ -464,7 +464,7 @@ $(document).on('click', '.nativedatepicker', function() {
         var myNewDate = Date.parse(currentField.val()) || new Date();
 
         // Same handling for iPhone and Android
-        window.plugins.datePicker.show({
+        datePicker.show({
             date : myNewDate,
             mode : 'date', // date or time or blank for both
             allowOldDates : true
