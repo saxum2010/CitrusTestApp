@@ -459,22 +459,19 @@ function handleOpenURL(url) {
 }
 
 $(document).on('click', '#personal_BirthDate', function() {
-        var currentField = $(this);
-        var myNewDate = new Date();
+        var currentField = $(this),
+        	dateval = new Date($(this).val()),
+        	myNewDate = dateval?dateval:new Date();
         datePicker.show({
             date : myNewDate,
             mode : 'date',
             allowOldDates : true
         }, function(returnDate) {
-		alert(3);
-			var dates = new Date(returnDate);
-			var year = dates.getFullYear(), month = (dates.getMonth() + 1), day = dates.getDate();
-			if (month < 10){month = "0" + month;}
-			if (day < 10){day = "0" + day;} 
-
-			var properlyFormatted = day+"."+year +"."+ month;
-            alert(properlyFormatted);
+			var dates = new Date(returnDate),
+				year = dates.getFullYear(), month = (dates.getMonth() + 1), day = dates.getDate();
+			if(month<10){month="0"+month;}
+			if(day<10){day="0"+day;} 
+			var properlyFormatted=day+"."+month+"."+year;
             currentField.val(properlyFormatted);
-            alert(4);
         });
-    });
+});
