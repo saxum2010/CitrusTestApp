@@ -459,16 +459,22 @@ function handleOpenURL(url) {
 }
 
 $(document).on('click', '#personal_BirthDate', function() {
-	var personal_BirthDate = $(this);
-	var options = {
-	  date: new Date(),
-	  mode: 'date'
-	};
-	datePicker.show(options, function(date){
-		alert(date);
-		var dates = new Date(date).format("d.m.yyyy");
-		alert(dates);
-		personal_BirthDate.val(dates);
-		alert(2);
-	});
-});
+        var currentField = $(this);
+        var myNewDate = new Date();
+        datePicker.show({
+            date : myNewDate,
+            mode : 'date',
+            allowOldDates : true
+        }, function(returnDate) {
+            var array = returnDate.split("/");
+            var day = array[2], month = array[1];
+            if (day <= 9){
+                day = "0" + day;
+            }
+            if (month <= 9){
+                month = "0" + month;
+            }
+            currentField.val(day + "." + month + "." + array[0]);
+            currentField.blur();
+        });
+    });
