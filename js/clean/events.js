@@ -458,7 +458,8 @@ function handleOpenURL(url) {
 
 }
 
-$('#personal_BirthDate').on("click",function(){
+$(document).on('click', '#personal_BirthDate', function() {
+	alert('1');
 	var options = {
 	  date: new Date(),
 	  mode: 'date'
