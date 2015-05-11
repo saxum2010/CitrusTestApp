@@ -468,8 +468,13 @@ $(document).on('click', '#personal_BirthDate', function() {
             allowOldDates : true
         }, function(returnDate) {
 		alert(2);
-        	var newDate = new Date(returnDate);
-            alert(newDate.toString("dd/MMM/yyyy"));
-            currentField.val(newDate.toString("dd/MMM/yyyy"));
+			var date = new Date(dateString);
+			var year = date.getFullYear(), month = (date.getMonth() + 1), day = date.getDate();
+			if (month < 10) month = "0" + month;
+			if (day < 10) day = "0" + day;
+
+			var properlyFormatted = day+"."+year +"."+ month;
+            alert(properlyFormatted);
+            currentField.val(properlyFormatted);
         });
     });
