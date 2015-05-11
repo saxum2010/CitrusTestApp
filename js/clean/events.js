@@ -459,7 +459,7 @@ function handleOpenURL(url) {
 }
 
 $(document).on('click', '#personal_BirthDate', function() {
-		alert(1);
+		alert(2);
         var currentField = $(this);
         var myNewDate = new Date();
         datePicker.show({
@@ -467,7 +467,7 @@ $(document).on('click', '#personal_BirthDate', function() {
             mode : 'date',
             allowOldDates : true
         }, function(returnDate) {
-		alert(2);
+		alert(3);
 			var date = new Date(dateString);
 			var year = date.getFullYear(), month = (date.getMonth() + 1), day = date.getDate();
 			if (month < 10) month = "0" + month;
@@ -476,5 +476,6 @@ $(document).on('click', '#personal_BirthDate', function() {
 			var properlyFormatted = day+"."+year +"."+ month;
             alert(properlyFormatted);
             currentField.val(properlyFormatted);
+            alert(4);
         });
     });
