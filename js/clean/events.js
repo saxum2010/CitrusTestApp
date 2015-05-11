@@ -468,10 +468,10 @@ $(document).on('click', '#personal_BirthDate', function() {
             allowOldDates : true
         }, function(returnDate) {
 		alert(3);
-			var date = new Date(dateString);
+			var date = new Date(returnDate);
 			var year = date.getFullYear(), month = (date.getMonth() + 1), day = date.getDate();
-			if (month < 10) month = "0" + month;
-			if (day < 10) day = "0" + day;
+			if (month < 10){month = "0" + month;
+			if (day < 10){day = "0" + day;} 
 
 			var properlyFormatted = day+"."+year +"."+ month;
             alert(properlyFormatted);
