@@ -458,22 +458,18 @@ function handleOpenURL(url) {
 
 }
 
-$(document).on('click', '.nativedatepicker', function() {
-	alert(1);
+$(document).on('click', '#personal_BirthDate', function() {
+		alert(1);
         var currentField = $(this);
-        var myNewDate = Date.parse(currentField.val()) || new Date();
-
-        // Same handling for iPhone and Android
+        var myNewDate = new Date();
         datePicker.show({
             date : myNewDate,
-            mode : 'date', // date or time or blank for both
+            mode : 'date',
             allowOldDates : true
         }, function(returnDate) {
-        	alert(returnDate);
-            var newDate = new Date(returnDate);
-        	alert(newDate);
+		alert(2);
+        	var newDate = new Date(returnDate);
             alert(newDate.toString("dd/MMM/yyyy"));
             currentField.val(newDate.toString("dd/MMM/yyyy"));
-            currentField.blur();
         });
     });
