@@ -458,18 +458,19 @@ function handleOpenURL(url) {
 
 }
 
- $('.nativedatepicker').focus(function(event) {
+$(document).on('click', '.nativedatepicker', function() {
         var currentField = $(this);
         var myNewDate = Date.parse(currentField.val()) || new Date();
 
+        // Same handling for iPhone and Android
         window.plugins.datePicker.show({
             date : myNewDate,
-            mode : 'date',
+            mode : 'date', // date or time or blank for both
             allowOldDates : true
         }, function(returnDate) {
             var newDate = new Date(returnDate);
+            alert(newDate.toString("dd/MMM/yyyy"));
             currentField.val(newDate.toString("dd/MMM/yyyy"));
-			alert(newDate.toString("dd/MMM/yyyy"));
             currentField.blur();
         });
     });
