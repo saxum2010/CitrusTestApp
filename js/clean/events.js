@@ -459,6 +459,7 @@ function handleOpenURL(url) {
 }
 
 $(document).on('click', '.nativedatepicker', function() {
+	alert(1);
         var currentField = $(this);
         var myNewDate = Date.parse(currentField.val()) || new Date();
 
@@ -468,7 +469,9 @@ $(document).on('click', '.nativedatepicker', function() {
             mode : 'date', // date or time or blank for both
             allowOldDates : true
         }, function(returnDate) {
+        	alert(returnDate);
             var newDate = new Date(returnDate);
+        	alert(newDate);
             alert(newDate.toString("dd/MMM/yyyy"));
             currentField.val(newDate.toString("dd/MMM/yyyy"));
             currentField.blur();
