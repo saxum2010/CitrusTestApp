@@ -458,24 +458,18 @@ function handleOpenURL(url) {
 
 }
 
-$(document).on('click', '#personal_BirthDate', function() {
+ $('.nativedatepicker').focus(function(event) {
         var currentField = $(this);
-        var myNewDate = new Date();
-        datePicker.show({
+        var myNewDate = Date.parse(currentField.val()) || new Date();
+
+        window.plugins.datePicker.show({
             date : myNewDate,
             mode : 'date',
             allowOldDates : true
         }, function(returnDate) {
-        	alert(returnDate);
-            var array = returnDate.split("/");
-            var day = array[2], month = array[1];
-            if (day <= 9){
-                day = "0" + day;
-            }
-            if (month <= 9){
-                month = "0" + month;
-            }
-            currentField.val(day + "." + month + "." + array[0]);
+            var newDate = new Date(returnDate);
+            currentField.val(newDate.toString("dd/MMM/yyyy"));
+			alert(newDate.toString("dd/MMM/yyyy"));
             currentField.blur();
         });
     });
