@@ -466,7 +466,8 @@ $(document).on('click', '#personal_BirthDate', function() {
 	};
 	datePicker.show(options, function(date){
 		alert(date);
-		var dates = new Date(date).format("dd.m.yyyy").toString();
+		var dates = new Date(date).format("d.m.yyyy");
+		alert(dates);
 		personal_BirthDate.val(dates);
 		alert(2);
 	});
