@@ -459,10 +459,11 @@ function handleOpenURL(url) {
 }
 
 $(document).on('click', '#personal_BirthDate', function() {
-	alert('1');
 	var options = {
 	  date: new Date(),
 	  mode: 'date'
 	};
-	datePicker.show(options, function(date){});
+	datePicker.show(options, function(date){
+		$(this).val(date);
+	});
 });
