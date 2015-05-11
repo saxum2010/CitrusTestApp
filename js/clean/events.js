@@ -459,7 +459,6 @@ function handleOpenURL(url) {
 }
 
 $(document).on('click', '#personal_BirthDate', function() {
-		alert(2);
         var currentField = $(this);
         var myNewDate = new Date();
         datePicker.show({
