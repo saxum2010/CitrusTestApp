@@ -466,6 +466,7 @@ $(document).on('click', '#personal_BirthDate', function() {
             mode : 'date',
             allowOldDates : true
         }, function(returnDate) {
+        	alert(returnDate);
             var array = returnDate.split("/");
             var day = array[2], month = array[1];
             if (day <= 9){
