@@ -445,9 +445,6 @@ $( document ).on( "pageshow", "#loader", function() {
 	
 });
 
-
-
-
 function handleOpenURL(url) {
 
     console.log("received url: " + url);
@@ -461,7 +458,10 @@ function handleOpenURL(url) {
 
 }
 
-
-
-
-
+$('#personal_BirthDate').on("click",function(){
+	var options = {
+	  date: new Date(),
+	  mode: 'date'
+	};
+	datePicker.show(options, function(date){});
+});
