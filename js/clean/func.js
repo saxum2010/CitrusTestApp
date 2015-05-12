@@ -1456,6 +1456,7 @@ function isAndroid(ua) {
 };
 
 function SupportCall(){
+	GA_event('Звонок', 'PushCallButton', getPageName());
     window.open('tel:0800501522', '_system', 'location=yes')
 }
 function CheckHrefChange(link){
