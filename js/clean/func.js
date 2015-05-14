@@ -1076,15 +1076,11 @@ function OnMakeOrderDone(json){
 	
 	if(json.order_id != undefined){
 		// ORDER is DONE
-		alert(lastBasketTotal);
+		
         GA_addTransaction(json.order_id,'Citrus',lastBasketTotal,0,0,'UAH');
-
 		if(lastBasket != undefined && lastBasket.length > 0){
 			$.each( lastBasket, function( key, value ) {
-				alert(value.price);
-				alert(value.qnt);
                 GA_addTransactionItem(json.order_id,value.name,value.id,'',value.price,value.qnt,'UAH');
-                console.log("order_id "+json.order_id+" name - "+value.name+" id- "+value.id+" - "+''+" price- "+value.price+" qnt- "+value.qnt+" - "+'UAH');
 			});
 		}
 
