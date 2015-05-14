@@ -691,9 +691,18 @@ function LoadMainPageData(){
 			 
 						
 				});
-                if(json.isUkraineIp==0){
-                    $('.world').hide();
-                }
+
+				$.ajax({
+					url: "http://m.citrus.ua/ajax/on/status.php", 
+					dataType: 'json',
+					async: true, 
+					success: function(res){
+						if(res.CatalogAllow=='N'){
+			                $('.world').hide();
+			            }
+					}
+				});
+                
 				ProssedTapEvents();
 				$.mobile.loading( "hide" );
 			}
