@@ -82,6 +82,9 @@ background-image: url(../img/svg/gray/ico-10.svg);
 .c_action.gray{	
 	background-image: url(../img/svg/gray/ico-11.svg);
 }
+.c_gadgets{	
+	background-image: url(../img/svg/gadget-icon.svg);
+}
 .c_news{	
 	background-image: url(../img/svg/white/ico-27.svg);
 }
@@ -227,7 +230,9 @@ margin-top: -8px;
 	right: 19px;
 }
 
-
+.external-link-icon:after{
+	background-image: url(../img/svg/external-link-icon.svg);
+}
 
 /* Icons class for FOOTER  */
 
