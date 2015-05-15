@@ -1371,12 +1371,6 @@ border-bottom: 1px solid #C8C7CC;
 	border-color: #ddd;
 }
 
-.sms-page-btn-home{
-	width: 20%;
-	float: left;
-}
-
-.sms-page-btn-back{
-	width: 30%;
-	float: right;
+#wrongCodeSms{
+	color: red;
 }
