@@ -82,6 +82,12 @@ background-image: url(../img/svg/gray/ico-10.svg);
 .c_action.gray{	
 	background-image: url(../img/svg/gray/ico-11.svg);
 }
+.c_career{	
+	background-image: url(../img/svg/career-white.svg);
+}
+.c_career.gray{	
+	background-image: url(../img/svg/career-grey.svg);
+}
 .c_gadgets{	
 	background-image: url(../img/svg/gadget-icon-white.svg);
 }
