@@ -879,7 +879,9 @@
         </a>
         <h1><div class="c_main_logo"></div></h1>
         <div class="bnt-menu-panel-right">
-
+            <a link="#main" onclick="CheckHrefChange(this)" data-role="button" class="ui-noshadow vclick_link c_icon_contr">           
+                <i class="c_icon c_home"></i>           
+            </a>
         </div>
     </div>
     <div class="navPanelChild" id="nav-panel-sms-page"></div>
@@ -888,7 +890,7 @@
         <h3>Введите код из СМС</h2>
             <div><input type="tel" placeholder="" id="sms_code"  maxlength="4" autocomplete="off" ></div>
             <button id="sms-code-btn" class="ui-btn ui-corner-all  btn big green_btn"  onclick="MobileUser.AuthorizeByCode($(this).attr('phone'),$('#sms_code').val());">Войти</button>
-
+            <span class="send_more_code_message">Не получили SMS с кодом?<br/> <a href="#login-page" onclick="CheckHrefChange(this)" class="more_sms order_login_get_code">Отправить еще раз</a> или <a href="#login-page" onclick="CheckHrefChange(this)" class="order_login_get_new_phone">введите другой номер</a></span>
     </div>
 </div>
 <!-- / Страница вода sms_code  текст Конец-->
