@@ -1038,12 +1038,14 @@ border-bottom: 1px solid #C8C7CC;
 
 #page-personal #product-card-info,
 #page-personal #personal-order-info,
+#page-personal #personal-basket-info,
 #page-personal #personal-preorder-info{
 	padding-left: 0!important;
 }
 
 #page-personal #product-card-info .main_page_icon,
 #page-personal #personal-order-info .main_page_icon,
+#page-personal #personal-basket-info .main_page_icon,
 #page-personal #personal-preorder-info .main_page_icon{
 	width: 10px!important;
 }
