@@ -892,6 +892,7 @@
         <h3>Введите код из SMS</h2>
             <div><input type="tel" placeholder="" id="sms_code"  maxlength="4" autocomplete="off" ></div>
             <button id="sms-code-btn" class="ui-btn ui-corner-all  btn big green_btn"  onclick="MobileUser.AuthorizeByCode($(this).attr('phone'),$('#sms_code').val());">Войти</button>
+            <div id="wrongCodeSms"></div>
             <span class="send_more_code_message">Не получили SMS с кодом?<br/> <a href="#login-page" onclick="CheckHrefChange(this)" class="more_sms order_login_get_code">Отправить еще раз</a> или <a href="#login-page" onclick="CheckHrefChange(this)" class="order_login_get_new_phone">введите другой номер</a></span>
     </div>
 </div>
