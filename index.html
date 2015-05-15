@@ -71,12 +71,12 @@
             <li><a href="#main" onclick="CheckHrefChange(this)"  data-role="button" class="panel-menu-item"  ><i class="c_icon c_home"></i><div class="text">Главная</div></a></li>
             <li><a href="#page-personal" onclick="CheckHrefChange(this)"  data-role="button" class="panel-menu-item"  ><i class="c_icon c_user"></i><div class="text">Личный кабинет</div></a></li>
             <li class="world"><a href="#products-list" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"   ><i class="c_icon c_catalog"></i><div class="text">Каталог товаров</div></a></li>
-            <li ><a href="#search-page" onclick="CheckHrefChange(this)"    class="panel-menu-item"   data-role="button"  ><i class="c_icon c_search"></i><div class="text">Поиск</div></a></li>
+            <li class="world"><a href="#search-page" onclick="CheckHrefChange(this)"    class="panel-menu-item"   data-role="button"  ><i class="c_icon c_search"></i><div class="text">Поиск</div></a></li>
+            <li class="world"><a href="#page-cart" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Корзина</div></a></li>
             <li  class="world"><a href="#actions-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_action"></i><div class="text">Акции</div></a></li>
             <li><a href="#news-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_news"></i><div class="text">Новости</div></a></li>
             <li><a href="#gadgets-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_gadgets"></i><div class="text">Гаджетариум</div></a></li>
-            <li><a href="#page-cart" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Корзина</div></a></li>
-            <li><a onclick="Showtextpage(209622)" data-role="button" class="panel-menu-item"><i class="c_icon c_club"></i><div class="text">Цитрус клуб</div></a></li>
+            <li><a onclick="Showtextpage(209622)" data-role="button" class="panel-menu-item"><i class="c_icon c_club"></i><div class="text">Цитрус Клуб</div></a></li>
             <li><a href="#shoplist-page"  onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_shops"></i><div class="text">Магазины Цитрус</div></a></li>
             <li><a onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"  data-role="button"   class="panel-menu-item"  ><i class="c_icon c_contactus"></i><div class="text">Обратная связь</div></a></li>
             <li><a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"  target="_blank"  data-role="button"  class="panel-menu-item"  ><i class="c_icon c_online"></i><div class="text">Онлайн консультант</div></a></li>
@@ -151,10 +151,10 @@
             <a href="#shoplist-page"><div  class="product-card-module main-module module link"><i class="c_icon c_shops gray main_page_icon"></i>Наши магазины</div></a>
         </div>
         <div class="product-card-module-cr last">
-            <a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link  external-link-icon"><i class="c_icon c_online gray main_page_icon"></i>Онлайн консультант</div></a>
+            <a onclick="Showtextpage(209622)"><div class="product-card-module main-module module link"><i class="c_icon c_club gray main_page_icon"></i>Цитрус Клуб</div></a>
         </div>
         <div class="product-card-module-cr last">
-            <a onclick="Showtextpage(209622)"><div class="product-card-module main-module module link"><i class="c_icon c_club gray main_page_icon"></i>Цитрус клуб</div></a>
+            <a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link  external-link-icon"><i class="c_icon c_online gray main_page_icon"></i>Онлайн консультант</div></a>
         </div>
         <div class="product-card-module-cr last">
             <a  onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link external-link-icon"><i class="c_icon c_contactus gray main_page_icon"></i>Обратная связь</div></a>
@@ -552,7 +552,10 @@
                         </div>
                 </div>
             </div>
-
+            <div class="content-padding product-card-module-cr module-close">
+                <a href="#page-cart" class="btn ui-link"><div id="personal-cart-info-link" class="personal-info-module product-card-module main-module"  >Моя корзина</div></a>
+                <div class="product-card-info-content"></div>
+            </div>
             <div class="product-card-module-cr last">
                 <a href="#page-orders"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои заказы</div></a>
             </div>
@@ -887,7 +890,7 @@
     <div class="navPanelChild" id="nav-panel-sms-page"></div>
 
     <div data-role="content" class="content-padding" id="sms-page-content">
-        <h3>Введите код из СМС</h2>
+        <h3>Введите код из SMS</h2>
             <div><input type="tel" placeholder="" id="sms_code"  maxlength="4" autocomplete="off" ></div>
             <button id="sms-code-btn" class="ui-btn ui-corner-all  btn big green_btn"  onclick="MobileUser.AuthorizeByCode($(this).attr('phone'),$('#sms_code').val());">Войти</button>
             <span class="send_more_code_message">Не получили SMS с кодом?<br/> <a href="#login-page" onclick="CheckHrefChange(this)" class="more_sms order_login_get_code">Отправить еще раз</a> или <a href="#login-page" onclick="CheckHrefChange(this)" class="order_login_get_new_phone">введите другой номер</a></span>
