@@ -143,7 +143,7 @@
                 </ul>
             </div>
         </div>
-        <div class="product-card-module-cr ">
+        <div class="product-card-module-cr world">
             <a href="#actions-page"><div  class="product-card-module main-module module link"><i class="c_icon c_action gray main_page_icon"></i>Наши акции</div></a>
         </div>
         <div class="product-card-module-cr last">
@@ -151,6 +151,9 @@
         </div>
         <div class="product-card-module-cr last">
             <a href="#gadgets-page"><div class="product-card-module main-module module link"><i class="c_icon c_gadgets gray main_page_icon"></i>Гаджетариум</div></a>
+        </div>
+        <div class="product-card-module-cr last">
+            <a onclick="Showtextpage(209590)"><div class="product-card-module main-module module link"><i class="c_icon gray main_page_icon"></i>Цитрус Карьера</div></a>
         </div>
         <div class="product-card-module-cr last">
             <a href="#shoplist-page"><div  class="product-card-module main-module module link"><i class="c_icon c_shops gray main_page_icon"></i>Наши магазины</div></a>
@@ -890,7 +893,6 @@
     <div class="navPanelChild" id="nav-panel-sms-page"></div>
 
     <div data-role="content" class="content-padding" id="sms-page-content">
-
         <h3>Введите код из СМС</h2>
             <div><input type="tel" placeholder="" id="sms_code"  maxlength="4" autocomplete="off" ></div>
             <button id="sms-code-btn" class="ui-btn ui-corner-all  btn big green_btn"  onclick="MobileUser.AuthorizeByCode($(this).attr('phone'),$('#sms_code').val());">Войти</button>

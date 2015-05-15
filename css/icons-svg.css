@@ -79,11 +79,11 @@ background-image: url(../img/svg/gray/ico-10.svg);
 .c_action{	
 	background-image: url(../img/svg/white/ico-11.svg);
 }
+.c_action.gray{	
+	background-image: url(../img/svg/gray/ico-11.svg);
+}
 .c_gadgets{	
 	background-image: url(../img/svg/gadget-icon-white.svg);
-}
-.c_action.gray{	
-	background-image: url(../img/svg/gadget-icon.svg);
 }
 .c_gadgets.gray{	
 	background-image: url(../img/svg/gadget-icon.svg);
