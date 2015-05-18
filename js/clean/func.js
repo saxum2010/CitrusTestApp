@@ -1604,5 +1604,6 @@ $.post( "http://m.citrus.ua/api/bpm/bpm_city_shops.php", { city: city_id })
 }
 
 function set_PointOfSaleCode(select){
+	alert($(select).val());
 	$("#PointOfSaleCode").val($(select).val());
 }
