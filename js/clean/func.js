@@ -1602,3 +1602,7 @@ $.post( "http://m.citrus.ua/api/bpm/bpm_city_shops.php", { city: city_id })
    	$("#PointOfSaleCode-button span.bf_select").html('Выберите где вы хотите обслуживаться');
   });
 }
+
+function set_PointOfSaleCode(select){
+	$("#PointOfSaleCode").val($(select).val());
+}
