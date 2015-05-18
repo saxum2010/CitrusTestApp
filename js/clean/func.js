@@ -1584,20 +1584,18 @@ function getUserPreOrdersList(json){
 
 function get_city_in_region(){
 	var region_id = $("#Region").val();
-	alert(region_id);
-	$.post( "/api/bpm/bpm_city.php", { region: region_id })
+	$.post( "http://m.citrus.ua/api/bpm/bpm_city.php", { region: region_id })
 	  .done(function( data ) {
 	   	$("#City").empty().append(data);
 	   	$("#City-button span.bf_select").html('Выберите город');
 		get_shops_in_city();
 		$("#District").val("");
-		alert('---');
 	  });
 }
 
 function get_shops_in_city(){
 var city_id = $("#City").val();
-$.post( "/api/bpm/bpm_city_shops.php", { city: city_id })
+$.post( "http://m.citrus.ua/api/bpm/bpm_city_shops.php", { city: city_id })
   .done(function( data ) {
   	$("#District").val("");
    	$("#PointOfSaleCode").empty().append(data);
