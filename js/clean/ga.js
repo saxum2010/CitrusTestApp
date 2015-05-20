@@ -2,6 +2,10 @@ function InitGA(){
 
     document.addEventListener("deviceready", function(){
 
+    if(MobileUser.userID>0){
+        window.analytics.setUserId(MobileUser.userID);
+    }
+    
         window.analytics.startTrackerWithId('UA-2170097-21');
         console_log("GA Init");
     });
