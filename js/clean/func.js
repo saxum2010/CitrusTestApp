@@ -1599,11 +1599,7 @@ $.post( "http://m.citrus.ua/api/bpm/bpm_city_shops.php", { city: city_id })
   .done(function( data ) {
   	$("#District").val("");
    	$("#PointOfSaleCode").empty().append(data);
-   	$("#PointOfSaleCode-button span.bf_select").html('Выберите где вы хотите обслуживаться');
+   	var posc = $('#PointOfSaleCode option').size()||0;
+   	$("#PointOfSaleCode-button span.bf_select").html(posc==1?$('#PointOfSaleCode option').text():'Выберите где вы хотите обслуживаться');
   });
-}
-
-function set_PointOfSaleCode(select){
-	alert($(select).val());
-	$("#PointOfSaleCode").val($(select).val());
 }
