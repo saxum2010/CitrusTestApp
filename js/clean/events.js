@@ -246,6 +246,24 @@ $( document ).on( "pageshow", "#text-page", function() {
 			}
 });
 
+$( document ).on( "pageshow", "#reviews-page", function() {
+	// Страница с отзывами
+		var id = "", u = $.mobile.path.parseUrl( document.URL );
+		if(u.href.search("id=") !== -1){			
+			if( u.hash != undefined){										 
+				 var id = u.hash.replace( /.*id=/, "" ), data ="";
+				 if(u.href.search("detail_text=Y") !== -1){
+				 	data ="&detail_text=Y";
+				 }								
+				 LoadReviewsPage(id,data);						
+			}else{
+				alert("404");
+			}
+		}else{
+			alert("404");
+		}
+});
+
 $(document).on('click', '#main-search-input', function() {
 	$.mobile.changePage('#search-page');
 });

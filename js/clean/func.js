@@ -397,6 +397,15 @@ function loadProductCard(id,owl){
 					$.mobile.changePage("#text-page?id="+id,{transition: "slide",changeHash:true});
        			 	event.preventDefault();
 				});
+
+				$('#product-card-reviews-link').unbind();
+				$('#product-card-reviews-link').on("click",function(event){
+					$('#reviews-page-content').html('');
+					var loc = $.mobile.path.parseLocation();
+					window.location = "#reviews-page?id="+id;
+					//$.mobile.changePage("#reviews-page?id="+id,{transition: "slide",changeHash:true});
+       			 	event.preventDefault();
+				});
 				
 				$('#product-card-props-link').unbind();
 				$('#product-card-props-link').on("click",function(event){
@@ -850,6 +859,20 @@ function LoadTextPage(id,data){
 		  .done(function( data ) {
 		    $.mobile.loading( "hide" );
 			$('#text-page-content').html(data);
+		});
+	
+}
+function LoadReviewsPage(id,data){
+		var send_data = data || "";
+		$.ajax({
+		  url: "http://m.citrus.ua/ajax/on/reviews.php?app=1&id="+id+send_data,
+		  beforeSend: function( xhr ) {
+		   ShowLoading();
+		  }
+		})
+		  .done(function( data ) {
+		    $.mobile.loading( "hide" );
+			$('#reviews-page-content').html(data);
 		});
 	
 }
