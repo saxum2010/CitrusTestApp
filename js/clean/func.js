@@ -402,7 +402,8 @@ function loadProductCard(id,owl){
 				$('#product-card-reviews-link').on("click",function(event){
 					$('#reviews-page-content').html('');
 					var loc = $.mobile.path.parseLocation();
-					$.mobile.changePage("#reviews-page?id="+id,{transition: "slide",changeHash:true});
+					window.location =  "#reviews-page?id="+id;
+					//$.mobile.changePage("#reviews-page?id="+id,{transition: "slide",changeHash:true});
        			 	event.preventDefault();
 				});
 				
