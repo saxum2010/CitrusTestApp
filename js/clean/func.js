@@ -862,20 +862,6 @@ function LoadTextPage(id,data){
 		});
 	
 }
-function LoadReviewsPage(id,data){
-		var send_data = data || "";
-		$.ajax({
-		  url: "http://m.citrus.ua/ajax/on/reviews.php?app=1&id="+id+send_data,
-		  beforeSend: function( xhr ) {
-		   ShowLoading();
-		  }
-		})
-		  .done(function( data ) {
-		    $.mobile.loading( "hide" );
-			$('#reviews-page-content').html(data);
-		});
-	
-}
 function MakeOrder(){
 	if(MobileUser.IsAuthorized){
 
@@ -1625,4 +1611,32 @@ $.post( "http://m.citrus.ua/api/bpm/bpm_city_shops.php", { city: city_id })
    	var posc = $('#PointOfSaleCode option').size()||0;
    	$("#PointOfSaleCode-button span.bf_select").html(posc==1?$('#PointOfSaleCode option').text():'Выберите где вы хотите обслуживаться');
   });
+}
+
+function get_disqus(){
+var disqus_shortname = 'citrus-ua';
+    disqus_identifier = product_id;
+	disqus_url = "http://www.citrus.ua/apple/iphone-6",
+	disqus = document.createElement("script");
+	disqus.type = "text/javascript";
+	disqus.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+
+	var tt4 = document.getElementById('disqus_thread');
+	tt4.appendChild(disqus);
+}
+
+function LoadReviewsPage(id,data){
+		var send_data = data || "";
+		$.ajax({
+		  url: "http://m.citrus.ua/ajax/on/reviews.php?app=1&id="+id+send_data,
+		  beforeSend: function( xhr ) {
+		   ShowLoading();
+		  }
+		})
+		  .done(function( data ) {
+		    $.mobile.loading( "hide" );
+			$('#reviews-page-content').html(data);
+			get_disqus();
+		});
+	
 }
