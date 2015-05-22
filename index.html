@@ -341,7 +341,7 @@
 
 
 
-        <div class="product-card-module-cr first   module-close">
+        <div class="product-card-module-cr module-close">
             <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);">Бесплатная доставка</div>
             <div class="product-card-info-content">
                 <ul>
@@ -1123,6 +1123,44 @@
     </div>
 </div>
 <!-- / Страница debug Конец-->
+
+<!-- Страница Отзывы Начало -->
+<div data-role="page" id="reviews-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext"  class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()">         
+            <i class="c_icon c_user"></i>           
+            </a>
+            <a link="#page-cart"  data-role="button"   class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline  c_icon_contr">            
+            <i class="c_icon c_basket"></i>         
+            </a>
+        </div>  
+    </div>      
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="reviews-page-content"></div>       
+</div>
+<!-- / Страница Отзывы Конец-->
+
+<!-- Страница promo Начало -->
+<div data-role="page" id="promo" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr">          
+        <i class="c_icon c_basket"></i>         
+        </a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-promo-page"></div>
+        <div data-role="content" class="content-padding" id="promo-page-content">
+        </div>      
+</div>
+<!-- / Страница promo Конец-->
 
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
 

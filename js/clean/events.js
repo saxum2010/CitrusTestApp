@@ -137,6 +137,26 @@ $( document ).on( "pageshow", "#order-page", function() {
 			alert("404");
 		}
 });
+
+$( document ).on( "pageshow", "#promo", function() {
+	// Cтраница promo
+		var id = "", u = $.mobile.path.parseUrl( document.URL );
+		if(u.href.search("id=") !== -1){			
+			if(u.hash != undefined){										 
+				 var id = u.hash.replace( /.*id=/, "" ), data ="";
+				 if(u.href.search("detail_text=Y") !== -1){
+				 	data ="&detail_text=Y";
+				 }
+				 console.log(id);
+				 LoadPromosPage(id,data);
+			}else{
+				alert("404");
+			}
+		}else{
+			alert("404");
+		}
+});
+
 $( document ).on( "pageshow", "#news-page", function() {
 	
 	InitNews();
@@ -422,7 +442,13 @@ $(document).ready(function() {
 		  {
 		 			event.stopPropagation();
 		  }
-	  );		
+	  );	
+
+	$('body').on('click', '.click_ajax_new_link', function() {
+		window.location = $(this).attr('link');
+		//$.mobile.changePage( $(this).attr('link') );
+	});	
+
 	 $('.vclick_link').on(eventstring,function()
 			 	{
 					

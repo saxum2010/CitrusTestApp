@@ -1640,3 +1640,17 @@ function LoadReviewsPage(id,data){
 		});
 	
 }
+
+function LoadPromosPage(id,data){
+		var send_data = data || "";
+		$.ajax({
+		  url: "http://m.citrus.ua/ajax/on/promo.php?id="+id+send_data,
+		  beforeSend: function( xhr ) {
+		   ShowLoading();
+		  }
+		})
+		  .done(function( data ) {
+		    $.mobile.loading( "hide" );
+			$('#promo-page-content').html(data);
+		});
+}
