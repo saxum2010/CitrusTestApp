@@ -152,7 +152,8 @@ function JQueryMobileHandlePushRequest(event,id){
 		} 
 		break;
 		case "promolink":{
-			$.mobile.changePage("#promo?id="+id);
+			window.location = "#promo?id="+id;
+			//$.mobile.changePage("#promo?id="+id);
 		} 
 		break;
 		case "hrref":{
