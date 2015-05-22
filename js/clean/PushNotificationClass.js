@@ -151,6 +151,10 @@ function JQueryMobileHandlePushRequest(event,id){
 			$.mobile.changePage("#text-page?id="+id);
 		} 
 		break;
+		case "promolink":{
+			$.mobile.changePage("#promo?id="+id);
+		} 
+		break;
 		case "hrref":{
 			window.open(id, '_system', 'location=yes');return false;
 		} 
