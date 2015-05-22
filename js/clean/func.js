@@ -402,7 +402,8 @@ function loadProductCard(id,owl){
 				$('#product-card-reviews-link').on("click",function(event){
 					$('#reviews-page-content').html('');
 					var loc = $.mobile.path.parseLocation();
-					window.location =  "#reviews-page?id="+id;
+					window.open("http://m.citrus.ua/#reviews-page?id="+id, '_system', 'location=yes');
+					//window.location =  "#reviews-page?id="+id;
 					//$.mobile.changePage("#reviews-page?id="+id,{transition: "slide",changeHash:true});
        			 	event.preventDefault();
 				});
