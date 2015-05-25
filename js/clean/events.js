@@ -519,16 +519,3 @@ $(document).on('click', '#personal_BirthDate', function() {
             currentField.val(properlyFormatted);
         });
 });
-
-$( document ).on( "pageshow", "#debug", function() {	
-        console_log("test DeviceInformation");
-var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-        console_log("test 1");
-deviceInfo.get(function(result) {
-        console_log("result = " + result);
-    }, function() {
-        console_log("error");
-    });
-        console_log("test 2");
-});
-
