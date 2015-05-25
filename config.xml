@@ -50,6 +50,7 @@
     <gap:plugin name="nl.x-services.plugins.launchmyapp">
         <param name="URL_SCHEME" value="citrus" />
     </gap:plugin>
+    <gap:plugin name="com.vliesaputra.deviceinformation" version="1.0.1" />
 
 	
 	<preference name="StatusBarOverlaysWebView" value="false" />
