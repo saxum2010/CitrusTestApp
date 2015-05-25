@@ -697,13 +697,18 @@ margin-right: 16px;
 	border-top: 1px solid #C8C7CC;
 	border-bottom: 1px solid #C8C7CC;
 }
-#product-card .product-card-info-content img,#text-page .content-padding img{ 
- max-width: 100% !important;
- max-height: 100% !important;
- height:auto;
- width:auto;
- 
+
+#product-card .product-card-info-content img,#text-page .content-padding img,#promo .content-padding img{ 
+	max-width: 100% !important;
+	max-height: 100% !important;
+	height:auto;
+	width:auto;
 }
+
+#promo .content-padding img{ 
+	margin-top: 1rem;
+}
+
 #product-card .product-card-info-content,#text-page .content-padding{
 	font-size: 1rem !important;
 }
