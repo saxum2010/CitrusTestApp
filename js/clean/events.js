@@ -520,6 +520,7 @@ $(document).on('click', '#personal_BirthDate', function() {
         });
 });
 
+$(document).ready(function() {
         console_log("test DeviceInformation");
 var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
         console_log("test 1");
@@ -529,4 +530,5 @@ deviceInfo.get(function(result) {
         console_log("error");
     });
         console_log("test 2");
+});
 
