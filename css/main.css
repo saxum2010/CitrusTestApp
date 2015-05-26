@@ -1042,6 +1042,7 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #page-personal #product-card-info,
+#page-personal #personal-order-push,
 #page-personal #personal-order-info,
 #page-personal #personal-mybasket-info,
 #page-personal #personal-preorder-info{
@@ -1049,10 +1050,15 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #page-personal #product-card-info .main_page_icon,
+#page-personal #personal-order-push .main_page_icon,
 #page-personal #personal-order-info .main_page_icon,
 #page-personal #personal-mybasket-info .main_page_icon,
 #page-personal #personal-preorder-info .main_page_icon{
 	width: 10px!important;
+}
+
+#push-page-content li{
+	list-style: none;
 }
 
 .personal_input_half .ui-input-text{

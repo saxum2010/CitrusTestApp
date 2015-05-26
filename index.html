@@ -565,6 +565,10 @@
                 <a href="#page-preorders"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои предзаказы</div></a>
             </div>
 
+            <div class="product-card-module-cr last">
+                <a href="#page-push"><div class="product-card-module main-module module link personal-info-module" id="personal-order-push"><i class="c_icon gray main_page_icon"></i>Архив Сообщений</div></a>
+            </div>
+
             <div class="copy_links copy">
                 <a href="http://www.citrus.ua/personal/profile/?dmode=1">Полная версия</a>          
                 <a onclick="Showtextpage(154639)">Доставка и оплата</a>
@@ -1161,6 +1165,23 @@
         </div>      
 </div>
 <!-- / Страница promo Конец-->
+
+<!-- Страница pushList Начало -->
+<div data-role="page" id="page-push" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr">          
+        <i class="c_icon c_basket"></i>         
+        </a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-promo-page"></div>
+        <div data-role="content" class="content-padding" id="push-page-content">
+        </div>      
+</div>
+<!-- / Страница pushList Конец-->
 
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
 

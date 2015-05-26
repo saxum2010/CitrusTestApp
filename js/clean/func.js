@@ -238,7 +238,7 @@ function LoadDefaultCatalog(category,position){
 			 
 			  
 		 }, 
-	  timeout: 10000 ,
+	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
 		
 			
@@ -531,7 +531,7 @@ function loadProductCard(id,owl){
 			
 			
 		}, 
-	  timeout: 10000 ,
+	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
 		
 			
@@ -717,7 +717,7 @@ function LoadMainPageData(){
 				$.mobile.loading( "hide" );
 			}
 	  }, 
-	  timeout: 8000 ,
+	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
 	  	console.log("error - "+status);	
 		 
@@ -1249,7 +1249,7 @@ function ShowFilter(link,back){
 			//$('#cart-list').html(cart_items).listview("refresh");
 			$.mobile.loading( "hide" );
 	  }, 
-	  timeout: 10000 ,
+	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
 		
 			ShowMessage(1);
@@ -1297,7 +1297,7 @@ function ShowFilterEnums(id,name){
 			}
 			$.mobile.loading( "hide" );
 	  }, 
-	  timeout: 10000 ,
+	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
 		
 			ShowMessage(1);
@@ -1452,7 +1452,7 @@ function InitShopList(){
 			 ProssedTapEvents();			 
 
 		 }, 
-	  timeout: 10000 ,
+	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
 		 if(status == "timeout"){
 		 	ShowMessage(1);
@@ -1654,4 +1654,19 @@ function LoadPromosPage(id,data){
 		    $.mobile.loading( "hide" );
 			$('#promo-page-content').html(data);
 		});
+}
+
+function getGetUserPushList(json){
+	ShowLoading();
+	if(json){
+		var output = "";
+		 if(json.user_push !== undefined ){
+			 $.each(json.user_push, function( key, value ) {
+					output += '<li><a data-transition="slide" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r" onclick="JQueryMobileHandlePushRequest(\"'+value.citrus_event+'\",\"'+value.citrus_id+'\")">'+value.message+'</a></li>';
+				});
+			$('#push-page-content').html(output);output = "";
+		 }
+	}
+	$.mobile.loading( "hide" );
+	ProssedTapEvents();	
 }

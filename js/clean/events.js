@@ -138,6 +138,11 @@ $( document ).on( "pageshow", "#order-page", function() {
 		}
 });
 
+$( document ).on( "pageshow", "#page-push", function() {
+	ShowLoading();
+	MobileUser.GetUserPush(getGetUserPushList);
+});
+
 $( document ).on( "pageshow", "#promo", function() {
 	// Cтраница promo
 		var id = "", u = $.mobile.path.parseUrl( document.URL );
