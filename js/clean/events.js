@@ -524,3 +524,7 @@ $(document).on('click', '#personal_BirthDate', function() {
             currentField.val(properlyFormatted);
         });
 });
+
+$(document).on('click', '.goPushEvent', function() {
+	JQueryMobileHandlePushRequest($(this).attr('pevent'),$(this).attr('pid'));
+});
