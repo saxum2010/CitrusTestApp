@@ -1391,3 +1391,60 @@ border-bottom: 1px solid #C8C7CC;
 .personal-info-module-anketa{
 	border-top: 1px solid #C8C7CC;
 }
+
+/*Sticker*/
+.ProductLabel{
+    position: relative;
+    display: inline-block;
+    z-index: 9;
+    background-color: red;
+    color: #FFF;
+    padding: 4px 17px;
+    font-size: 18px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+
+}
+#product-card-bonus_spec{
+    position: relative;
+    display: inline-block;
+    z-index: 9;
+    background-color: #CC5599;
+    color: #FFF;
+    padding: 4px 17px;
+    font-size: 18px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+#state_and_specbonus{
+    position: absolute;
+    top: 10px;
+}
+
+
+#box_state{
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+#general_owl_mob{
+    padding: 0px 15px;
+    position: relative;
+}
+.ProductLabelForCatalog{
+    position: relative;
+    display: inline-block;
+    z-index: 9;
+    background-color: red;
+    color: #FFF!important;
+      padding: 4px 9px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.box_catalog_status{
+	  margin: 1px 0px 7px 0px;
+}

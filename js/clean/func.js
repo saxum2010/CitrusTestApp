@@ -172,6 +172,14 @@ function LoadDefaultCatalog(category,position){
                     $("#CatalogBack").html(json.parameters.parent_name);
                 }
 
+                	var text_flag;
+					if(value.text_flag!=null){
+						text_flag = value.text_flag;
+					}else{
+						text_flag = '';
+					}
+
+					
 				var dop_class="";
 				if(value.price){
 					
@@ -198,13 +206,13 @@ function LoadDefaultCatalog(category,position){
 						bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
 					}
 
-					output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"> 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+' 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
+					output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+'</td><td style="width:25px"></td></tr></table></a></li>';
 					
 					
 									
 				}else{									
 							
-				output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="#products-list?'+url+'"> 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px"  class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only '+dop_class+'">' + value.name + '</h2> 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
+				output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="#products-list?'+url+'"> 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px"  class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"> 								<div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2> 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
 							}
 					
 			});	
@@ -372,6 +380,18 @@ function loadProductCard(id,owl){
 						
 				$('#current_product_id').val(id);
 				$('#product-card-name').html(json.name);
+
+				if(json.state!=null && json.state!=undefined){
+                    $('#state_and_specbonus').html("<div id='box_state'>"+json.state+'</div><br/>');
+                }else{
+                    $("#state_and_specbonus").html("");
+                }
+                if(json.bonus_spec!=false && json.bonus_spec!=undefined){
+                    $("#box_bonus_spec").remove();
+                    $("#state_and_specbonus").append("<div id='box_bonus_spec'><div id='product-card-bonus_spec'>Бонус: "+json.bonus_spec+" грн</div></div>");
+                }
+                $('#sticker_img').html(json.sticker_img);
+
 				$('#product-card-code').html(json.idd);
 				$('#product-card-info-block-content').hide().html("");
 				$('#product-card-chars-block-content').hide().html("");
