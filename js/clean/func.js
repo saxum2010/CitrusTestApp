@@ -1107,7 +1107,7 @@ function OnMakeOrderDone(json){
 	if(json.order_id != undefined){
 		// ORDER is DONE
 		
-        GA_addTransaction(json.order_id,'Citrus',lastBasketTotal,0,0,'UAH');
+        GA_addTransaction(json.order_id,'Citrus',json.order_total_summ,0,0,'UAH');
 		if(lastBasket != undefined && lastBasket.length > 0){
 			$.each( lastBasket, function( key, value ) {
                 GA_addTransactionItem(json.order_id,value.name,value.id,'',value.price,value.qnt,'UAH');
