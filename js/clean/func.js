@@ -1656,13 +1656,39 @@ function LoadPromosPage(id,data){
 		});
 }
 
+function goPushEvent(event,id){
+	switch(event){
+		case "product":{
+			window.location = "#product-card?product-id="+id;
+		} 
+		break;
+		case "link":{			
+			$.mobile.changePage("#products-list?category-items="+id);
+		} 
+		break;
+		case "text":{
+			$.mobile.changePage("#text-page?id="+id);
+		} 
+		break;
+		case "promolink":{
+			window.location = "#promo?id="+id;
+			//$.mobile.changePage("#promo?id="+id);
+		} 
+		break;
+		case "hrref":{
+			window.open(id, '_system', 'location=yes');return false;
+		} 
+		break;
+	}
+}
+
 function getGetUserPushList(json){
 	ShowLoading();
 	if(json){
 		var output = "";
 		 if(json.user_push !== undefined ){
 			 $.each(json.user_push, function( key, value ) {
-					output += '<li><a data-transition="slide" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r" onclick="JQueryMobileHandlePushRequest(\"'+value.citrus_event+'\",\"'+value.citrus_id+'\")">'+value.message+'</a></li>';
+					output += '<li><a data-transition="slide" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r" onclick="goPushEvent(\"'+value.citrus_event+'\",\"'+value.citrus_id+'\")">'+value.message+'</a></li>';
 				});
 			$('#push-page-content').html(output);output = "";
 		 }
