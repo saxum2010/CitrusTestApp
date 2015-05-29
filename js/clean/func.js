@@ -1657,6 +1657,9 @@ function LoadPromosPage(id,data){
 }
 
 function goPushEvent(event,id){
+	alert('1');
+	alert(event);
+	alert(id);
 	switch(event){
 		case "product":{
 			window.location = "#product-card?product-id="+id;
