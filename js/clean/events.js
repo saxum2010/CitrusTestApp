@@ -528,3 +528,9 @@ $(document).on('click', '#personal_BirthDate', function() {
 $(document).on('click', '.goPushEvent', function() {
 	JQueryMobileHandlePushRequest($(this).attr('pevent'),$(this).attr('pid'));
 });
+
+$(document).on('click', '.shopCall', function() {
+    var shop_phone = $(this).text();
+    shop_phone.split(',');
+    window.open('tel:'+shop_phone[0], '_system', 'location=yes');
+});

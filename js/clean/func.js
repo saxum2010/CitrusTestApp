@@ -1472,7 +1472,7 @@ function InitShopList(){
 				''+image+'</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> '
 				+'<h2 class="item_name_only product">' 
 				+ value.city +", "+value.NAME + '</h2>	<div class="preview_text">' 
-				+'Телефон: <a href="tel:+38'+value.PROPERTY_CITY_PHONE_VALUE.replace(/[^-0-9]/gim,'')+'">'+ value.PROPERTY_CITY_PHONE_VALUE +"</a></br>Время работы: "+value.PROPERTY_CITY_WORK_TIME_VALUE+ '</div></td> '+
+				+'Телефон: <a class="shopCall">'+ value.PROPERTY_CITY_PHONE_VALUE +"</a></br>Время работы: "+value.PROPERTY_CITY_WORK_TIME_VALUE+ '</div></td> '+
 				'</tr></table></a></li>';
 				// nclick="Showtextpage('+value.id+')"
 			 });	
@@ -1500,6 +1500,7 @@ function SupportCall(){
 	GA_event('Звонок', 'PushCallButton', getPageName());
     window.open('tel:0800501522', '_system', 'location=yes')
 }
+
 function CheckHrefChange(link){
     var page = document.location.hash;
     if(document.location.hash == ""){
