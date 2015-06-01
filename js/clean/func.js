@@ -1703,13 +1703,14 @@ function getGetUserPushList(json){
 function QRScan(){
 	cordova.plugins.barcodeScanner.scan(
       function (result) {
-          alert("We got a barcode\n" +
+		  window.open(result.text, '_system', 'location=yes');return false;
+         /* alert("We got a barcode\n" +
                 "Result: " + result.text + "\n" +
                 "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
+                "Cancelled: " + result.cancelled);*/
       }, 
       function (error) {
-          alert("Scanning failed: " + error);
+          //alert("Scanning failed: " + error);
       }
    );
 }
