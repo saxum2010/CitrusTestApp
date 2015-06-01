@@ -530,7 +530,7 @@ $(document).on('click', '.goPushEvent', function() {
 });
 
 $(document).on('click', '.shopCall', function() {
-    var shop_phone = $(this).text();
-    shop_phone.split(',');
-    window.open('tel:'+shop_phone[0], '_system', 'location=yes');
+    var shop_phone = $(this).text(),
+		shop_phones = shop_phone.replace(/[^-0-9,]/gim,'').split(',');
+    window.open('tel:'+shop_phones[0], '_system', 'location=yes');
 });
