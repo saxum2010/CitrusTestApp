@@ -736,12 +736,16 @@ function LoadMainPageData(){
 
 				var device =isAndroid()?"google":"apple";
 				$.ajax({
-					url: "http://m.citrus.ua/ajax/on/status.php?app="+device, 
+					url: "http://m.citrus.ua/ajax/on/status.php?app="+device+"&ver=106", 
 					dataType: 'json',
 					async: true, 
 					success: function(res){
 						if(res.CatalogAllow=='N'){
 			                $('.world').hide();
+			            }
+
+			            if(res.needUpdate=='Y'){
+			                //$('.needUpdate').show();
 			            }
 					}
 				});
@@ -1694,4 +1698,18 @@ function getGetUserPushList(json){
 	}
 	$.mobile.loading( "hide" );
 	ProssedTapEvents();	
+}
+
+function QRScan(){
+	cordova.plugins.barcodeScanner.scan(
+      function (result) {
+          alert("We got a barcode\n" +
+                "Result: " + result.text + "\n" +
+                "Format: " + result.format + "\n" +
+                "Cancelled: " + result.cancelled);
+      }, 
+      function (error) {
+          alert("Scanning failed: " + error);
+      }
+   );
 }
