@@ -736,9 +736,8 @@ function LoadMainPageData(){
 
 				var device =isAndroid()?"google":"apple";
 				$.ajax({
-					url: "http://m.citrus.ua/ajax/on/status.php", 
+					url: "http://m.citrus.ua/ajax/on/status.php?app="+device, 
 					dataType: 'json',
-					data: '?app='+device,
 					async: true, 
 					success: function(res){
 						if(res.CatalogAllow=='N'){
