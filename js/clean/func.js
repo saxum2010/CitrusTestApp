@@ -642,6 +642,18 @@ function ProssedTapEvents(){
 	 );	
 	 
 }
+
+function getAndroidVersion(ua) {
+    var ua = ua || navigator.userAgent; 
+    var match = ua.match(/Android\s([0-9\.]*)/);
+    return match ? match[1] : false;
+};
+function isAndroid(ua) {
+    var ua = ua || navigator.userAgent;
+    var match = ua.match(/Android\s([0-9\.]*)/);
+    return match ? true : false;
+};
+
 function ReinitowlProductCard(){
 	 //$('.owl-carousel-product-card').trigger('destroy.owl.carousel');
 	
@@ -1483,16 +1495,7 @@ function InitShopList(){
 	  } 
 	});
 }
-function getAndroidVersion(ua) {
-    var ua = ua || navigator.userAgent; 
-    var match = ua.match(/Android\s([0-9\.]*)/);
-    return match ? match[1] : false;
-};
-function isAndroid(ua) {
-    var ua = ua || navigator.userAgent;
-    var match = ua.match(/Android\s([0-9\.]*)/);
-    return match ? true : false;
-};
+
 
 function SupportCall(){
 	GA_event('Звонок', 'PushCallButton', getPageName());
