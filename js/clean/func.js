@@ -722,9 +722,11 @@ function LoadMainPageData(){
 						
 				});
 
+				var device =isAndroid()?"google":"apple";
 				$.ajax({
 					url: "http://m.citrus.ua/ajax/on/status.php", 
 					dataType: 'json',
+					data: '?app='+device,
 					async: true, 
 					success: function(res){
 						if(res.CatalogAllow=='N'){

@@ -73,9 +73,9 @@
             <li class="world"><a href="#products-list" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"   ><i class="c_icon c_catalog"></i><div class="text">Каталог товаров</div></a></li>
             <li class="world"><a href="#search-page" onclick="CheckHrefChange(this)"    class="panel-menu-item"   data-role="button"  ><i class="c_icon c_search"></i><div class="text">Поиск</div></a></li>
             <li class="world"><a href="#page-cart" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Корзина</div></a></li>
-            <li  class="world"><a href="#actions-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_action"></i><div class="text">Акции</div></a></li>
-            <li><a href="#news-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_news"></i><div class="text">Новости</div></a></li>
-            <li><a href="#gadgets-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_gadgets"></i><div class="text">Гаджетариум</div></a></li>
+            <li class="world"><a href="#actions-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_action"></i><div class="text">Акции</div></a></li>
+            <li class="world"><a href="#news-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_news"></i><div class="text">Новости</div></a></li>
+            <li class="world"><a href="#gadgets-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_gadgets"></i><div class="text">Гаджетариум</div></a></li>
             <li><a onclick="Showtextpage(209622)" data-role="button" class="panel-menu-item"><i class="c_icon c_club"></i><div class="text">Цитрус Клуб</div></a></li>
             <li><a href="#shoplist-page"  onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_shops"></i><div class="text">Магазины Цитрус</div></a></li>
             <li><a onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"  data-role="button"   class="panel-menu-item"  ><i class="c_icon c_contactus"></i><div class="text">Обратная связь</div></a></li>
@@ -89,7 +89,7 @@
     <div data-role="content">
 
 
-        <div style="padding:0 0.3rem;" id="search_contaner">
+        <div style="padding:0 0.3rem;" id="search_contaner" class="world">
             <i class="c_icon search-input-icon"></i>
             <input type="text" class="search-input" id="main-search-input" autocomplete="off" name="password" id="search" value="" placeholder="Поиск">
             <i class="c_icon voice-input-icon"></i>
@@ -138,10 +138,10 @@
         <div class="product-card-module-cr world">
             <a href="#actions-page"><div  class="product-card-module main-module module link"><i class="c_icon c_action gray main_page_icon"></i>Наши акции</div></a>
         </div>
-        <div class="product-card-module-cr last">
+        <div class="product-card-module-cr world last">
             <a href="#news-page"><div  class="product-card-module main-module module link"><i class="c_icon c_news gray main_page_icon"></i>Новости</div></a>
         </div>
-        <div class="product-card-module-cr last">
+        <div class="product-card-module-cr world last">
             <a href="#gadgets-page"><div class="product-card-module main-module module link"><i class="c_icon c_gadgets gray main_page_icon"></i>Гаджетариум</div></a>
         </div>
         <div class="product-card-module-cr last">
