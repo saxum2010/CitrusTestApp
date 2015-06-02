@@ -55,6 +55,9 @@ border-radius: 5px;
 padding: 3px;
 background-position: 2px 2px;
 }
+.c_need_update {
+background-image: url(../img/svg/icon-update.svg);
+}
 .c_basket_simple {
 background-image: url(../img/svg/white/ico-04.svg);
 }

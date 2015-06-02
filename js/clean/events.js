@@ -534,3 +534,13 @@ $(document).on('click', '.shopCall', function() {
 		shop_phones = shop_phone.replace(/[^-0-9,]/gim,'').split(',');
     window.open('tel:'+shop_phones[0], '_system', 'location=yes');
 });
+
+
+$(document).on('click', '#needUpdateButton', function(){
+	window.open('https://play.google.com/store/apps/details?id=ua.citrus.app.shop', '_system', 'location=yes');return false;
+});
+
+$(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
+	MobileUser.SetBanner('needUpdate','hide');
+	$('#needUpdate').remove();
+});

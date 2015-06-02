@@ -1448,3 +1448,75 @@ border-bottom: 1px solid #C8C7CC;
 .box_catalog_status{
 	  margin: 1px 0px 7px 0px;
 }
+
+
+#needUpdate{
+	display: block;
+	overflow: visible;
+	overflow-x: hidden;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-height: 100%;
+	position: absolute;
+	display: none;
+	border: 0;
+	z-index: 9999;
+}
+
+.needUpdate_bg{
+	background: #000;
+	opacity: 0.6;
+	width:100%;
+	height: 100%;
+	display: inline-block;
+	position: absolute;
+	z-index: -1;
+}
+
+.needUpdateContent{
+	background: #fff;
+	padding:2rem;
+	margin: 10rem 2rem 2rem;
+}
+
+.needUpdateText{
+	background: #fef7de;
+	width: 100%;
+	height: 7rem;
+	overflow: hidden;
+	display: inline-block;
+	font-size: 0.78rem;
+	padding:1rem; 
+	margin:2rem 0; 
+	box-sizing: border-box;  
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;  
+}
+
+.needUpdateText ul{
+	padding: 0rem 1rem;
+}
+
+.needUpdateTitle{
+	font-weight: 400;
+	font-size: 1.4rem;
+	text-align: center;
+}
+
+.needNoUpdate{
+	font-size: 0.7rem;
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.needUpdateLogo{
+	text-align: center;
+}
+
+.needUpdateLogo img{
+	width: 7rem;
+	margin-top: -6rem;
+}
