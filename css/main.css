@@ -1472,12 +1472,16 @@ border-bottom: 1px solid #C8C7CC;
 	display: inline-block;
 	position: absolute;
 	z-index: -1;
+
+	/*min-height: 100%;
+	background-size: cover;
+	background-attachment: fixed;*/
 }
 
 .needUpdateContent{
 	background: #fff;
 	padding:2rem;
-	margin: 10rem 2rem 2rem;
+	margin: 7rem 2rem 2rem;
 }
 
 .needUpdateText{
