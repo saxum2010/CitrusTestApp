@@ -1,3 +1,4 @@
+var app_ver = '106';
 //--------------
 function supportsSVG() {
     return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGRect;
@@ -736,7 +737,7 @@ function LoadMainPageData(){
 
 				var device =isAndroid()?"google":"apple";
 				$.ajax({
-					url: "http://m.citrus.ua/ajax/on/status.php?app="+device+"&ver=106", 
+					url: "http://m.citrus.ua/ajax/on/status.php?app="+device+"&ver="+app_ver, 
 					dataType: 'json',
 					async: true, 
 					success: function(res){
@@ -745,7 +746,7 @@ function LoadMainPageData(){
 			            }
 			            if(res.needUpdate=='Y'){
 							var nuStatus = MobileUser.GetStorage('needUpdate');
-							if(nuStatus!=undefined && nuStatus=='hide'){
+							if(nuStatus!=undefined && nuStatus==app_ver){
 								$('#needUpdate').remove();
 							}
 							$('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения '+res.version+'</div><div class="needUpdateText">ЧТО НОВОГО<br>'+res.needUpdateText+'</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю исспользовать старую версию</span></div>').show();

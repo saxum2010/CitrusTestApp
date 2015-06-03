@@ -1450,6 +1450,7 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 
+
 #needUpdate{
 	display: block;
 	overflow: visible;
@@ -1473,15 +1474,14 @@ border-bottom: 1px solid #C8C7CC;
 	position: absolute;
 	z-index: -1;
 
-	/*min-height: 100%;
-	background-size: cover;
-	background-attachment: fixed;*/
 }
 
 .needUpdateContent{
 	background: #fff;
 	padding:2rem;
-	margin: 7rem 2rem 2rem;
+	margin: 7rem auto;
+	width: 100%;
+	max-width: 420px;
 }
 
 .needUpdateText{
