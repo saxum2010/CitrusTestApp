@@ -1487,8 +1487,8 @@ border-bottom: 1px solid #C8C7CC;
 
 .needUpdateText{
 	background: #fef7de;
-	width: auto;
-	height: 7rem;
+	width: 100%;
+	height: auto;
 	overflow: hidden;
 	display: inline-block;
 	font-size: 0.78rem;
