@@ -541,6 +541,6 @@ $(document).on('click', '#needUpdateButton', function(){
 });
 
 $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
-	MobileUser.SetBanner('needUpdate','hide');
+	MobileUser.SetStorage('needUpdate',	app_ver);
 	$('#needUpdate').remove();
 });
