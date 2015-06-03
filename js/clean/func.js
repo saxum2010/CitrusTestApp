@@ -515,7 +515,7 @@ function loadProductCard(id,owl){
 					var output ="";
 					
 					$.each( json.accs, function( key, value ) {
-					
+					if(value!=null){
 					var url ;			
 					url = "#product-card?product-id=" + value.id;
 					var row2 = '';
@@ -528,7 +528,7 @@ function loadProductCard(id,owl){
 					}
 					
 					output += '<li class=""><a data-transition="slide" data-ajax=false product_id="'+value.id+'" class="vclick_link_product"  > 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only product">' + value.name + '</h2>'+row2+'</div> 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
-					
+					}
 					});
 					 $("#accs_container").show();
 					 $('#accs-listview').html(output).listview("refresh");
