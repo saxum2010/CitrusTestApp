@@ -1476,7 +1476,7 @@ border-bottom: 1px solid #C8C7CC;
 
 .needUpdateContent{
 	background: #fff;
-	padding:2rem;
+	padding:2rem 1.5rem;
 	margin: 7rem auto;
 	width: 80%;
 	max-width: 420px;
@@ -1519,6 +1519,7 @@ border-bottom: 1px solid #C8C7CC;
 	width: 100%;
 	display: inline-block;
 	cursor: pointer;
+	color: #a3a3a3;
 }
 
 .needUpdateLogo{
@@ -1527,5 +1528,5 @@ border-bottom: 1px solid #C8C7CC;
 
 .needUpdateLogo img{
 	width: 7rem;
-	margin-top: -5.5rem;
+	margin-top: -4.5rem;
 }
