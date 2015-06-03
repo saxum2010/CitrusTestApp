@@ -750,8 +750,6 @@ function LoadMainPageData(){
 								$('#needUpdate').remove();
 							}
 							$('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения '+res.version+'</div><div class="needUpdateText">ЧТО НОВОГО<br>'+res.needUpdateText+'</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю исспользовать старую версию</span></div>').show();
-							//$('.needUpdate_bg').css('height',$(document).height());
-							
 			            }
 					}
 				});
