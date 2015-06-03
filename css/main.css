@@ -1478,7 +1478,7 @@ border-bottom: 1px solid #C8C7CC;
 	background: #fff;
 	padding:2rem;
 	margin: 7rem auto;
-	width: 100%;
+	width: 80%;
 	max-width: 420px;
 	box-sizing: border-box;  
     -moz-box-sizing: border-box;
@@ -1487,7 +1487,7 @@ border-bottom: 1px solid #C8C7CC;
 
 .needUpdateText{
 	background: #fef7de;
-	width: 100%;
+	width: auto;
 	height: 7rem;
 	overflow: hidden;
 	display: inline-block;
@@ -1501,6 +1501,11 @@ border-bottom: 1px solid #C8C7CC;
 
 .needUpdateText ul{
 	padding: 0rem 1rem;
+	font-size: 0.78rem;
+
+}
+.needUpdateText ul li{
+	font-size: 0.78rem;
 }
 
 .needUpdateTitle{
@@ -1523,5 +1528,5 @@ border-bottom: 1px solid #C8C7CC;
 
 .needUpdateLogo img{
 	width: 7rem;
-	margin-top: -6rem;
+	margin-top: -5.5rem;
 }
