@@ -424,7 +424,7 @@
     <div class="navPanelChild" id="nav-panel-cart"></div>
 
     <div data-role="content" >
-        <div class="content-padding">
+        <div class="content-padding basketBoxBlock">
             <h2 style="float: left;">Моя корзина</h2>
             <div class="total_price" id="total_price"></div>
             <button class="ui-btn ui-corner-all  btn big green_btn" id="order-make-btn" onclick="MakeOrder()">Оформить заказ</button>
@@ -433,9 +433,9 @@
 
         <ul data-role="listview" data-theme="b" data-2inset="true" id="cart-list">
         </ul>
-        <div  class="content-padding" style="text-align: right">
-            <a data-role="button" class="mini_btn blue" data-inline="true" onclick="EnableBasketEditMode()" id="cart_edit_button">Редактировать</a><br>
-
+        <div  class="content-padding basketEditBlock">
+            <a href="#products-list" class="continueShopping"><div class="text">&larr; Продолжить покупки</div></a>
+            <a data-role="button" class="mini_btn blue basketEditButton" data-inline="true" onclick="EnableBasketEditMode()" id="cart_edit_button">Редактировать</a><br>
         </div>
     </div>
 </div>

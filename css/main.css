@@ -1531,3 +1531,23 @@ border-bottom: 1px solid #C8C7CC;
 	width: 7rem;
 	margin-top: -5.2rem;
 }
+
+.continueShopping{
+	float: left;
+	display: inline-block;
+	margin-top: 0.9rem;
+	text-decoration: none;
+	font-size: 0.7rem;
+}
+
+.basketEditButton{
+	float: right;
+}
+
+.basketEditBlock{
+	padding-top: 1rem;
+}
+
+.basketBoxBlock{
+	padding-bottom:0.5rem; 
+}
