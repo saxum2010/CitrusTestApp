@@ -47,7 +47,10 @@ margin-top: 6px;
 margin-right: 6px;
 }
 
-
+.c_payment {
+background-image: url(../img/svg/payment-approve-icon.svg);
+top: 9px;
+}
 .c_basket {
 background-image: url(../img/svg/white/ico-04.svg);
 background-color: #F8934F;

@@ -1566,10 +1566,14 @@ function getUserOrdersContentList(json){
 		 if(json.order !== undefined ){
 			output += '<div class=order_content_detail> <span class="order_title">Заказ №'+json.order.ORDER_NUM+'</span> <span class="order_from">от&nbsp;'+json.order.DATE_INSRERT+'</span><br/><span class="order_status">Статус:<b>'+json.order.STATUS+'</b></span><br/><span class="order_pay">Способ оплаты:<b>'+json.order.PAY_SYSTEM_NAME+'</b></span><br/>';
 			
-			if(json.order.TTN_1C>0){output += '<span class="order_pay">Товарно-транспортная накладная <b>№'+json.order.TTN_1C+'</b></span><br/>';}
+			if(json.order.TTN_1C>10000){output += '<span class="order_pay">Товарно-транспортная накладная <b>№'+json.order.TTN_1C+'</b></span><br/>';}
 
 			output += '<span class="order_summ">Сумма:<span class=grn>'+json.order.SUMM+'&nbsp;грн.</span></span></div><div class=order_content_detail_list>'; }
-
+		
+			if(json.order.PAY_ALLOW=='Y'){
+				output += '<button id="payment-btn" order_id="'+json.order.ID+'" token="'+json.order.PAY_TOKEN+'" uid="'+json.order.UID+'" class="green_btn ui-btn ui-corner-all" style=""><i class="c_icon c_payment c_ibtn"></i>	 Оплатить заказ</button><br/>';
+			}
+		
 		 if(json.order_items !== undefined ){
 			 $.each( json.order_items, function( key, value ) {
 					var image = "";

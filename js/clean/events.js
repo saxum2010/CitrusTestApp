@@ -544,3 +544,7 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 	MobileUser.SetStorage('needUpdate',	app_ver);
 	$('#needUpdate').remove();
 });
+
+$(document).on('click', '#payment-btn', function(){
+	window.open("http://m.citrus.ua/ajax/on/payment.php?id="+$(this).attr('order_id')+"&uid="+$(this).attr('uid')+"&token="+$(this).attr('token'), '_system', 'location=yes');return false;
+});
