@@ -1566,7 +1566,8 @@ function getUserOrdersContentList(json){
 		 if(json.order !== undefined ){
 			output += '<div class=order_content_detail> <span class="order_title">Заказ №'+json.order.ORDER_NUM+'</span> <span class="order_from">от&nbsp;'+json.order.DATE_INSRERT+'</span><br/><span class="order_status">Статус:<b>'+json.order.STATUS+'</b></span><br/><span class="order_pay">Способ оплаты:<b>'+json.order.PAY_SYSTEM_NAME+'</b></span><br/>';
 			
-			if(json.order.TTN_1C>10000){output += '<span class="order_pay">Товарно-транспортная накладная <b>№'+json.order.TTN_1C+'</b></span><br/>';
+			if(json.order.TTN_1C>10000){output += '<span class="order_pay">Товарно-транспортная накладная <b>№'+json.order.TTN_1C+'</b></span><br/>';}
+
 			output += '<span class="order_summ">Сумма:<span class=grn>'+json.order.SUMM+'&nbsp;грн.</span></span>';
 
 			if(json.order.PAY_ALLOW=='Y'){
@@ -1574,9 +1575,8 @@ function getUserOrdersContentList(json){
 			}
 
 			output += '</div><div class=order_content_detail_list>'; 
-			}
+		}
 
-			output += '<span class="order_summ">Сумма:<span class=grn>'+json.order.SUMM+'&nbsp;грн.</span></span></div><div class=order_content_detail_list>'; }
 
 		 if(json.order_items !== undefined ){
 			 $.each( json.order_items, function( key, value ) {
