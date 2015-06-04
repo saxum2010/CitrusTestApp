@@ -1568,11 +1568,13 @@ function getUserOrdersContentList(json){
 			
 			if(json.order.TTN_1C>10000){output += '<span class="order_pay">Товарно-транспортная накладная <b>№'+json.order.TTN_1C+'</b></span><br/>';}
 
-			output += '<span class="order_summ">Сумма:<span class=grn>'+json.order.SUMM+'&nbsp;грн.</span></span></div><div class=order_content_detail_list>'; }
-		
+			output += '<span class="order_summ">Сумма:<span class=grn>'+json.order.SUMM+'&nbsp;грн.</span></span>';
+
 			if(json.order.PAY_ALLOW=='Y'){
-				output += '<button id="payment-btn" order_id="'+json.order.ID+'" token="'+json.order.PAY_TOKEN+'" uid="'+json.order.UID+'" class="green_btn ui-btn ui-corner-all" style=""><i class="c_icon c_payment c_ibtn"></i>	 Оплатить заказ</button><br/>';
+				output += '<button id="payment-btn" order_id="'+json.order.ID+'" token="'+json.order.PAY_TOKEN+'" uid="'+json.order.UID+'" class="green_btn ui-btn ui-corner-all" style=""><i class="c_icon c_payment c_ibtn"></i>	 Оплатить заказ</button>';
 			}
+
+			output += '</div><div class=order_content_detail_list>'; 
 		
 		 if(json.order_items !== undefined ){
 			 $.each( json.order_items, function( key, value ) {
