@@ -1575,7 +1575,8 @@ function getUserOrdersContentList(json){
 			}
 
 			output += '</div><div class=order_content_detail_list>'; 
-		
+		}
+
 		 if(json.order_items !== undefined ){
 			 $.each( json.order_items, function( key, value ) {
 					var image = "";
