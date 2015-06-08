@@ -1278,7 +1278,7 @@ function ShowFilter(link,back){
 						selected_enums_string = '<div class="props">'+selected_enums+'</div>';
 					}
 			 	
-			 		filter_items += '<li><a onclick="ShowFilterEnums('+"'"+value.id+"','"+value.name+"'"+')" class="ui-btn ui-btn-icon-right ui-icon-carat-r"> 					<table style="width:100%"> 						<tr> 											<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only">' + value.name + '</h2> '+selected_enums_string+'	</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
+			 		filter_items += '<li><a onclick="ShowFilterEnums('+"'"+value.id+"','"+value.name+"','"+json.section_id+"'"+')" class="ui-btn ui-btn-icon-right ui-icon-carat-r"> 					<table style="width:100%"> 						<tr> 											<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only">' + value.name + '</h2> '+selected_enums_string+'	</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
 					
 			 });
 			 $("#filter-page-h1").html(json.link_title);
@@ -1301,14 +1301,14 @@ function ShowFilter(link,back){
 	});		 
 }
 
-function ShowFilterEnums(id,name){
+function ShowFilterEnums(id,name,section_id){
 	ShowLoading();
 	var json_props = [];
 	for(key in FilterEnums.props){
 				json_props.push({"prop_id":key,"data":FilterEnums.props[key]});				
 	}
 	$.ajax({ 
-	  url: "http://m.citrus.ua/ajax/filter_enums.php?id="+id, 
+	  url: "http://m.citrus.ua/ajax/filter_enums.php?id="+id+"&section_id="+section_id, 
 	  type: "POST",
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)}, 
