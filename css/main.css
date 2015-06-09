@@ -1552,7 +1552,6 @@ border-bottom: 1px solid #C8C7CC;
 .basketBoxBlock{
 	padding-bottom:0.5rem; 
 }
-
 #personal_user_wishes_list .ui-listview,
 #personal_user_wishes_list li{
 	margin: 0!important;
@@ -1564,6 +1563,7 @@ border-bottom: 1px solid #C8C7CC;
 	background: url(../img/png/mobapp-wishes-box-pic.png) no-repeat 10px center;
 	padding-left: 52px;
 	margin: 0!important;
+	border-bottom: none;
 }
 
 #personal_user_wishes_list h2{
@@ -1581,11 +1581,19 @@ border-bottom: 1px solid #C8C7CC;
 	background-position: top 1rem right 1rem;
 	padding: 1rem;
 	margin:1rem; 
+	min-height: 2rem;
+	line-height: 2rem;
 }
 
 #page-wish a.ui-btn{
 	margin: 0!important;
 	padding: 0.5rem 2rem;
+	border-bottom:none; 
+}
+
+#page-wish li:last-child a.ui-btn,
+#personal_user_wishes_list li:last-child a{
+	border-bottom: 1px solid #ddd;
 }
 
 #page-wish a.ui-btn:hover{
@@ -1596,7 +1604,7 @@ border-bottom: 1px solid #C8C7CC;
 	font-weight: 400;
 	font-size: 1.0em;
 	margin: 0;
-		white-space: normal;
+	white-space: normal;
 	width: 90%;
 }
 
@@ -1612,4 +1620,8 @@ border-bottom: 1px solid #C8C7CC;
 
 .wish_content_detail .wishes_title{
 	font-size: 0.9rem;
+}
+
+.no_wish{
+	padding-left: 1rem;
 }
