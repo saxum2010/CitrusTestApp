@@ -1543,6 +1543,76 @@ function getPageName(){
 	 return page;
 }
 
+function getUserWishesList(json){
+	ShowLoading();
+	if(json){
+		var output = "";
+		 if(json.wish_lists !== undefined )
+		 $.each( json.wish_lists, function(key, value) {
+			output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#page-wish?id='+value.wishlist_url+'"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only wishes">'+value.wishlist_name+'</h2><div class="preview_text">'+value.product_count+'</div></td></tr></table></a></li>';
+		 });	
+		$('#personal_user_wishes_list').html(output);
+	}else{
+		$('#personal_user_wishes_list').html("У Вас нет желаний");
+	}
+	$.mobile.loading( "hide" );
+	ProssedTapEvents();	
+}
+
+function getUserWishContentList(json){
+	ShowLoading();
+	if(json){
+		var output = "";
+		if(json.wish !== undefined ){
+			output += '<div class=wish_content_detail> <span class="wishes_title">Список желаний:</span><br/><span class="wish_name"><b>'+json.wish.wishlist_name+'</b></span>';			
+			output += '</div><div class=wish_content_detail_list>'; 
+			$('.wish_full_page').attr("wish_full_page",json.wish.wishlist_name);
+		}
+
+if(json.wish_items !== undefined ){
+	$.each( json.wish_items, function( key, value ) {
+	text_flag =(value.text_flag!=null)?value.text_flag:'';
+
+	var dop_class="";
+	if(value.price){
+		showFootbar = true;
+		dop_class=dop_class+" product";
+		url = "#product-card?product-id=" + value.id;
+		
+		var row2 = '';
+		if(parseInt(value.price) > 1 && value.can_buy =="Y"){
+			row2 = '<div class="price">'+value.price+' грн</div>';	
+		}else if(parseInt(value.price) > 1){
+			row2 = '<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
+		}else{
+			row2 = '<div class="status">'+value.can_buy_status+'</div>';;
+		}
+		
+		var prop = "";
+		if(value.props!= undefined){
+			prop = value.props;
+		}
+		
+		var bonuses = "";
+		if(value.bonuses != undefined && parseInt(value.bonuses) > 5){
+			bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
+		}
+
+		output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+'</td><td style="width:25px"></td></tr></table></a></li>';
+	}else{
+		output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="#products-list?'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+		}
+	});
+}
+		output += '</div>';
+		$('#wish-listview').html(output);
+	}else{
+		$('#wish-listview').html("У Вас нет желаний");
+	}
+	$.mobile.loading( "hide" );
+	ProssedTapEvents();	
+}
+
 function getUserOrdersList(json){
 	ShowLoading();
 	if(json){

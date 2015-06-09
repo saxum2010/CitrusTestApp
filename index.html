@@ -572,6 +572,9 @@
             <div class="product-card-module-cr last world">
                 <a href="#page-preorders"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои предзаказы</div></a>
             </div>
+            <div class="product-card-module-cr last world">
+                <a href="#page-wishes"><div class="product-card-module main-module module link personal-info-module" id="personal-order-info"><i class="c_icon gray main_page_icon"></i>Мои желания</div></a>
+            </div>
 
             <div class="copy_links copy">
                 <a onclick="Showtextpage(154639)">Доставка и оплата</a>
@@ -1183,6 +1186,61 @@
         </div>      
 </div>
 <!-- / Страница pushList Конец-->
+
+<!-- Мои желания Начало -->
+<div data-role="page" id="page-wishes" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext"  class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart"  data-role="button" class="ui-noshadow vclick_link c_icon_contr">          
+            <i class="c_icon c_basket"></i>         
+            </a>    
+        </div>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-product-card"></div>
+        <div id="page-orders-content" data-role="content" >
+            <div class="content-padding">
+                 <h2 class="page-orders-name">Мои желания</h2>  
+            </div>   
+            <div class="content-padding">   
+                <div id="personal_user_wishes_list"></div>
+            </div>
+        </div>  
+        <hr class="page-orders-hr">
+            <div class="copy_links copy">
+                <a onclick="Showtextpage(154639)">Доставка и оплата</a>
+                <a onclick="Showtextpage(179990)">Гарантия</a>
+            </div>  
+            <div class="copy">          
+            ©   Интернет-магазин Цитрус -гаджеты и аксессуары 2005-2015
+            </div>          
+            
+</div>
+<!-- / Мои желания Конец-->
+
+<!-- Страница детальное желания Начало -->
+<div data-role="page" id="page-wish" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr">            
+        <i class="c_icon c_basket"></i>         
+        </a>
+    </div>      
+ <div class="navPanelChild" id="nav-panel-wish-page"></div>
+        <div data-role="content">
+            <ul data-role="listview" data-theme="b" data-2inset="true" id="wish-listview">              
+            </ul>
+            <div class="wish_list_info">Чтобы отредактировать список желаний, перейдите <br> на полную версию сайта citrus.ua. <a href="http://www.citrus.ua/personal/wishlist/" target="_blank" class="wish_full_page setFullVersion">Перейти >></a></div>             
+        </div>
+</div>
+<!-- / Страница детальное желание Конец-->
 
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
 

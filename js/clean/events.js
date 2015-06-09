@@ -548,3 +548,28 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 $(document).on('click', '#payment-btn', function(){
 	window.open("http://m.citrus.ua/ajax/on/payment.php?id="+$(this).attr('order_id')+"&uid="+$(this).attr('uid')+"&token="+$(this).attr('token'), '_system', 'location=yes');return false;
 });
+
+$( document ).on( "pageshow", "#page-wishes", function() {
+	ShowLoading();
+	MobileUser.GetUserWishes(getUserWishesList);
+});
+
+$( document ).on( "pageshow", "#page-wish", function() {
+	// Cтраница желания
+		var id = "";
+		var u = $.mobile.path.parseUrl( document.URL );
+		if(u.href.search("id=") !== -1){			
+			if(u.hash != undefined){										 
+				 var id = u.hash.replace( /.*id=/, "" );
+				 MobileUser.GetUserWish(id, getUserWishContentList);
+			}else{
+				alert("404");
+			}
+		}else{
+			alert("404");
+		}
+});
+
+$(document).on('click', '.wish_full_page', function(){
+	window.open("http://www.citrus.ua/personal/wishlist/", '_system', 'location=yes');return false;
+});

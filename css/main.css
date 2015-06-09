@@ -1552,3 +1552,64 @@ border-bottom: 1px solid #C8C7CC;
 .basketBoxBlock{
 	padding-bottom:0.5rem; 
 }
+
+#personal_user_wishes_list .ui-listview,
+#personal_user_wishes_list li{
+	margin: 0!important;
+	padding: 0;
+	list-style: none;
+}
+
+#personal_user_wishes_list li a{
+	background: url(../img/png/mobapp-wishes-box-pic.png) no-repeat 10px center;
+	padding-left: 52px;
+	margin: 0!important;
+}
+
+#personal_user_wishes_list h2{
+	margin-top: 0px;
+	margin-bottom: 0;
+	font-size: 1rem;
+}
+
+#personal_user_wishes_list .preview_text {
+	margin-top: 0.1rem;
+}
+
+#page-wish .wish_content_detail{
+	background: url(../img/png/mobapp-wishes-box-pic.png) no-repeat right center;
+	background-position: top 1rem right 1rem;
+	padding: 1rem;
+	margin:1rem; 
+}
+
+#page-wish a.ui-btn{
+	margin: 0!important;
+	padding: 0.5rem 2rem;
+}
+
+#page-wish a.ui-btn:hover{
+	background-color: 	rgba(51, 136, 204, 0.24) !important;
+}
+
+#page-wish li h2.product {
+	font-weight: 400;
+	font-size: 1.0em;
+	margin: 0;
+		white-space: normal;
+	width: 90%;
+}
+
+.wish_list_info{
+	background: #f9f9f9;
+	padding:1rem;
+	font-size: 0.7rem; 
+}
+
+.wish_list_info a{
+	font-size: 0.7rem; 
+}
+
+.wish_content_detail .wishes_title{
+	font-size: 0.9rem;
+}
