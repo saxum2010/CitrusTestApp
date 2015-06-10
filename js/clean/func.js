@@ -1788,8 +1788,10 @@ function getGetUserPushList(json){
 			 $.each(json.user_push, function( key, value ) {
 					output += '<li><a data-transition="slide" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r goPushEvent" pevent="'+value.citrus_event+'" pid="'+value.citrus_id+'">'+value.message+'</a></li>';
 				});
-			$('#push-page-content').html(output);output = "";
+		 }else{
+		 	output = "<div class='no_wish'>У вас пока нет сообщений.</div>";	
 		 }
+			$('#push-page-content').html(output);output = "";
 	}
 	$.mobile.loading( "hide" );
 	ProssedTapEvents();	
