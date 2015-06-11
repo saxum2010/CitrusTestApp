@@ -1642,9 +1642,9 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #push-page-content li h2{
-	font-weight: 400;
-	font-size: 1.0em;
-	margin: 0;
+	font-weight: 400!important;
+	font-size: 1.0em!important;
+	margin: 0!important;
 }
 
 #push-page-content li h2,
