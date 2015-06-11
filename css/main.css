@@ -1625,3 +1625,12 @@ border-bottom: 1px solid #C8C7CC;
 .no_wish{
 	padding-left: 1rem;
 }
+
+#push-page-content {
+	padding:0!important;
+	margin:0;  
+}
+
+#push-page-content li a{
+	background: url(/img/png/popup-message-icon.png) no-repeat 1rem center #fff;
+}
