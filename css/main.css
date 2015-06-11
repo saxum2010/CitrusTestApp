@@ -1640,3 +1640,9 @@ border-bottom: 1px solid #C8C7CC;
 	border-bottom: 1px solid #ddd;
 	padding:auto 1.2rem; 
 }
+
+#push-page-content li h2{
+	white-space: initial !important;
+	display: block;
+	padding-left: 1rem;
+}
