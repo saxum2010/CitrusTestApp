@@ -6,7 +6,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "ua.citrus.app.shop"
-        version   = "1.0.6">
+        version   = "1.0.7">
 
     <name>Цитрус</name>
 
@@ -47,7 +47,7 @@
     <gap:plugin name="com.danielcwilson.plugins.googleanalytics" version="0.6.1" />
     <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />
     <gap:plugin name="com.sharinglabs.cordova.plugin.datepicker" />
-    <gap:plugin name="com.phonegap.plugins.barcodescanner " version="2.2.0" />
+    <!--<gap:plugin name="com.phonegap.plugins.barcodescanner " version="2.2.0" />-->
     <gap:plugin name="nl.x-services.plugins.launchmyapp">
         <param name="URL_SCHEME" value="citrus" />
     </gap:plugin>
@@ -120,7 +120,7 @@
 
 
     <gap:config-file platform="ios" parent="CFBundleVersion">
-        <string>106</string>
+        <string>107</string>
     </gap:config-file>
 
     <!--
