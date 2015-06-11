@@ -741,8 +741,8 @@ function LoadMainPageData(){
 					dataType: 'json',
 					async: true, 
 					success: function(res){
-						if(res.CatalogAllow=='N'){
-			                $('.world').hide();
+						if(res.CatalogAllow!='N'){
+			                $('.world').show();
 			            }
 			            if(res.needUpdate=='Y'){
 							var nuStatus = MobileUser.GetStorage('needUpdate');

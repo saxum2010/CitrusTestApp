@@ -1654,3 +1654,7 @@ border-bottom: 1px solid #C8C7CC;
 	padding-left: 4.3rem;
 	text-align: left;
 }
+
+.world{
+	display: none;
+}
