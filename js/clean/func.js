@@ -742,7 +742,7 @@ function LoadMainPageData(){
 					async: true, 
 					success: function(res){
 						if(res.CatalogAllow!='N'){
-			                $('.world').show();
+			                $('.world')removeClass('world');
 			            }
 			            if(res.needUpdate=='Y'){
 							var nuStatus = MobileUser.GetStorage('needUpdate');

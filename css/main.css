@@ -1656,5 +1656,5 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 .world{
-	display: none;
+	display: none!important;
 }
