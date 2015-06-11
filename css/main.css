@@ -1641,6 +1641,12 @@ border-bottom: 1px solid #C8C7CC;
 	padding:auto 1.2rem; 
 }
 
+#push-page-content li h2{
+	font-weight: 400;
+	font-size: 1.0em;
+	margin: 0;
+}
+
 #push-page-content li h2,
 #push-page-content li .preview_text{
 	white-space: initial !important;
