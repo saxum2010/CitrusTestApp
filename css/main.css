@@ -1638,4 +1638,5 @@ border-bottom: 1px solid #C8C7CC;
 }
 #push-page-content li:last-child a{
 	border-bottom: 1px solid #ddd;
+	padding:auto 1.2rem; 
 }
