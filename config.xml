@@ -48,7 +48,7 @@
     <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />
     <gap:plugin name="com.sharinglabs.cordova.plugin.datepicker" />
     <!--<gap:plugin name="com.phonegap.plugins.barcodescanner " version="2.2.0" />-->
-    <gap:plugin name="plugin.google.maps" source="plugins.cordova.io" />
+    <!--<gap:plugin name="plugin.google.maps" source="plugins.cordova.io" />-->
     <gap:plugin name="nl.x-services.plugins.launchmyapp">
         <param name="URL_SCHEME" value="citrus" />
     </gap:plugin>
