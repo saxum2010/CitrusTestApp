@@ -436,21 +436,20 @@ function loadProductCard(id,owl){
        			 	event.preventDefault();
 				});
 				
-				
-				
 				$('#product-card-buy-btn').unbind().on("vclick",function(){
-
 					StartBuyProduct(id);
 				});
+				
 				if(json.can_buy!= undefined && json.can_buy=="Y" ){					
 					$('#product-card-buy-btn').show();
-					$('#product-card-pre-btn').hide();
-					$('#product-card-status').hide();
+					$('#product-card-status, #product-card-pre-btn').hide();
+				}else if(json.can_buy!= undefined && json.can_buy=="N" ){
+					$('#product-card-buy-btn, #product-card-pre-btn').hide();
+					$('#product-card-status').html(json.can_buy_status).show();
 				}else{
 					$('#product-card-buy-btn').hide();
-					$('#product-card-pre-btn').show();
 					$('#product-card-status').html(json.can_buy_status);
-					$('#product-card-status').show();
+					$('#product-card-pre-btn, #product-card-status').show();
 				}
 		
 				if(json.mini_property !== undefined){
