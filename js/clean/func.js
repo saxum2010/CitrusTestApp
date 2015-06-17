@@ -438,6 +438,10 @@ function loadProductCard(id,owl){
 				
 				$('#product-card-buy-btn').unbind().on("vclick",function(){
 					StartBuyProduct(id);
+				});	
+
+				$('#product-card-co-buy-btn').unbind().on("vclick",function(){
+					StartBuyProductCO(id);
 				});
 				
 				if(json.can_buy!= undefined && json.can_buy=="Y" ){					
@@ -502,6 +506,18 @@ function loadProductCard(id,owl){
 				var prices = "";
 				$("#current_product_price").val(0);
 				if(json.prices != undefined && $.isArray(json.prices)){
+
+					$('#product-card-prices-co-box,.hr_co').hide();
+					$("#product-card-prices-co").html('');
+					if(json.price_co != undefined && json.price_co>0){
+						json.price_co = json.price_co.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+						pricesco+='<div class="prices_item_co prices_item_cr"><a class="on_co_programm" onclick="Showtextpage(209886,true)">по программе <br />«Цитрус Обмен»</a><div class="prices_item_value"><div class="pre_sup_text green_price">'+json.price_co+'</div><div class="pre_sup green_price">грн</div></div></div>';
+						
+						$('#product-card-co-buy-btn').attr('coid',json.set_owner);
+						$("#product-card-prices-co").html(pricesco);
+						$('#product-card-prices-co-box,.hr_co').show();
+					}
+
 					$("#current_product_price").val(json.prices[0].price);
 					json.prices[0].price = json.prices[0].price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 					prices+= '<div class="prices_item_cr"><div class="prices_item">'+json.prices[0].name+'</div><div class="prices_item_value"><div class="pre_sup_text">'+json.prices[0].price+'</div><div class="pre_sup">грн</div></div></div>';
@@ -870,6 +886,12 @@ function StartBuyProduct(product_id){
     ShowLoading();
     GA_event('OrderCreate', 'AddToCart', product_id, $('#current_product_price').val().replace(/[^\d,+]/g, ""));
 	MobileUser.basket.addToCart(product_id,AfterBuyProduct);
+}
+function StartBuyProductCO(product_id){
+    ShowLoading();
+    GA_event('OrderCreate', 'AddToCartCO', product_id, $('#current_product_price').val().replace(/[^\d,+]/g, ""));
+    var coid = $('#product-card-co-buy-btn').attr('coid');
+	MobileUser.basket.addToCartCO(product_id,coid,AfterBuyProduct);
 }
 function LoadCardInfo(info){
 	

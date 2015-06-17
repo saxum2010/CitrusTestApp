@@ -1662,3 +1662,39 @@ border-bottom: 1px solid #C8C7CC;
 .c_user_menus{
 	margin-top: 7px!important;
 }
+
+.green_white_btn{
+    background-color: #FFFFFF!important;
+    color: #5f932e!important;
+    border:#5f932e 1px solid!important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    font-weight: 400;
+	font-size: 1.3rem;
+	padding: 0.5rem 0;
+}
+
+.green_white_btn:hover{
+    background-color: #e8fdd3!important;
+	color: #5f932e!important;
+	border:#5f932e 1px solid!important;
+	-webkit-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+#product-card-prices-co-box, .hr_co{
+	display: none;
+}
+
+.green_price{
+	color:#5f932e;
+}
+
+.basketBoxBlock .listview{
+	margin: 0 1rem!important;
+}
+
+.edit_mode .delete_td{
+	padding-left: 1rem;
+	padding-right:1rem; 
+}
