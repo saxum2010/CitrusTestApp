@@ -503,7 +503,7 @@ function loadProductCard(id,owl){
 				
 				//--------------------------- variations init END
 				//--------------------------- variations init START
-				var prices = "";
+				var prices = "",pricesco = "";
 				$("#current_product_price").val(0);
 				if(json.prices != undefined && $.isArray(json.prices)){
 
