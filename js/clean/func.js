@@ -605,12 +605,10 @@ function ShowMessage(type){
 	alert(text);
 }	
 
-function getAndroidVersion(ua) {
+function getVersion(ua) {
     var ua = ua || navigator.userAgent; 
-    var match = ua.match(/Android\s([0-9\.]*)/);
-    return match ? match[1] : false;
+    return ua.match(/(iPad|iPhone|iPod)/g) ? false : navigator.appVersion.slice(0,3);
 };
-
 
 function isIOS(ua) {
     var ua = ua || navigator.userAgent;
