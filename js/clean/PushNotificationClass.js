@@ -3,10 +3,8 @@ var PushInitParams = false;
 function InitpushNotifications(){
 	
 	document.addEventListener("deviceready", function(){
-
+alert(device.platform);
 	    pushNotification = window.plugins.pushNotification;
-		
-		console.log(device);
 	    if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
 		    pushNotification.register(
 		    successHandler,
@@ -43,8 +41,6 @@ function tokenHandler (result) {
     console.log('device token = ' + result);
     RegisterDevice(result,"apple");
 }
-
-// handle GCM notifications for Android
 
 function onNotification(e) {
 	console.log(e);
