@@ -422,10 +422,8 @@ $(document).ready(function() {
 	 }
 	 
 	 var ua = navigator.userAgent.toLowerCase();
-	 var isAndroid = ua.indexOf("android") > -1;
-	 if(isAndroid){
+	 if(!isIOS){
 	 	eventstring = "vclick";
-		//alert("android");
 	 }
 	 $('.cit_panel_href').on(eventstring,function(event)
 			 	{
