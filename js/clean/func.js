@@ -605,6 +605,22 @@ function ShowMessage(type){
 	alert(text);
 }	
 
+function getAndroidVersion(ua) {
+    var ua = ua || navigator.userAgent; 
+    var match = ua.match(/Android\s([0-9\.]*)/);
+    return match ? match[1] : false;
+};
+function isAndroid(ua) {
+    var ua = ua || navigator.userAgent;
+    var match = ua.match(/Android\s([0-9\.]*)/);
+    return match ? true : false;
+};
+
+function isIOS(ua) {
+    var ua = ua || navigator.userAgent;
+    return ( ua.match(/(iPad|iPhone|iPod)/g) ? true : false );
+};
+
 function Showtextpage(id,detail){
 	var dt = "";
 	if(detail!= undefined && detail == true){
@@ -620,15 +636,11 @@ function ProssedTapEvents(){
 	 var eventstring = "vclick";
 	 if(navigator.userAgent.match(/(iPad|iPhone|iPod touch);.*CPU.*OS 7_\d/i)){
 	 	eventstring = "vclick";
-	 }
-	 
-	 var ua = navigator.userAgent.toLowerCase();
-	 var isAndroid = ua.indexOf("android") > -1;
-	 if(isAndroid){
+	 }else{
 	 	eventstring = "tap";
 	 }
+
 	 $('.vclick_d_link').unbind();
-	// $('.vclick_d_link').off();
 	 $('.vclick_d_link').on(eventstring,function(event)
 			 	{
 					
@@ -658,17 +670,6 @@ function ProssedTapEvents(){
 	 );	
 	 
 }
-
-function getAndroidVersion(ua) {
-    var ua = ua || navigator.userAgent; 
-    var match = ua.match(/Android\s([0-9\.]*)/);
-    return match ? match[1] : false;
-};
-function isAndroid(ua) {
-    var ua = ua || navigator.userAgent;
-    var match = ua.match(/Android\s([0-9\.]*)/);
-    return match ? true : false;
-};
 
 function ReinitowlProductCard(){
 	 //$('.owl-carousel-product-card').trigger('destroy.owl.carousel');
@@ -750,7 +751,7 @@ function LoadMainPageData(){
 						
 				});
 
-				var device =isAndroid()?"google":"apple";
+				var device =isIOS()?"apple":"3";
 				$.ajax({
 					url: "http://m.citrus.ua/ajax/on/status.php?app="+device+"&ver="+app_ver, 
 					dataType: 'json',
@@ -764,7 +765,7 @@ function LoadMainPageData(){
 							if(nuStatus!=undefined && nuStatus==app_ver){
 								$('#needUpdate').remove();
 							}
-							if(isAndroid()){
+							if(!isIOS()){
 								$('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения '+res.version+'</div><div class="needUpdateText">ЧТО НОВОГО<br>'+res.needUpdateText+'</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю использовать старую версию</span></div>').show();
 							}
 			            }
@@ -1543,7 +1544,7 @@ function CheckHrefChange(link){
 }
 
 function go_back(){
-    if(!isAndroid()){
+    if(isIOS()){
         $.mobile.back();
         return false;
     }
