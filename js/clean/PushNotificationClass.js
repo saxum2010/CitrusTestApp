@@ -4,7 +4,7 @@ function InitpushNotifications(){
 	
 	document.addEventListener("deviceready", function(){
 	    pushNotification = window.plugins.pushNotification;
-	    if ( device.platform == 'iphone' || device.platform == 'iPhone' || device.platform == "iPad" || device.platform == "iPod" ){
+	    if ( device.platform == 'iOS' || device.platform == 'ios'){
 		    pushNotification.register(
 		    tokenHandler,
 		    errorHandler,
