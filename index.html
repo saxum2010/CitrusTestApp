@@ -22,7 +22,6 @@
 
     <title>Интернет-магазин Цитрус — гаджеты и аксессуары.</title>
 
-
     <link	rel="stylesheet" href="jquery/jquery.mobile-1.4.2.min.css" />
     <link	rel="stylesheet" href="css/buttons/flat.css" />
     <link	rel="stylesheet" href="css/main.css" />
@@ -80,61 +79,42 @@
             <li><a href="#shoplist-page"  onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_shops"></i><div class="text">Магазины Цитрус</div></a></li>
             <li><a onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"  data-role="button"   class="panel-menu-item"  ><i class="c_icon c_contactus"></i><div class="text">Обратная связь</div></a></li>
             <li><a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"  target="_blank"  data-role="button"  class="panel-menu-item"  ><i class="c_icon c_online"></i><div class="text">Онлайн консультант</div></a></li>
-            
-            <!--<li><a onclick="QRScan(); return false;" target="_blank"  data-role="button"  class="panel-menu-item"  ><i class="c_icon c_search"></i><div class="text">QR</div></a></li>-->
-
-            <!--<li><a href="#debug"  data-role="button"   class="panel-menu-item"   ><i class="c_icon c_action"></i><div class="text">Debug</div></a></li>-->
-
         </ul>
     </div>
 
     <div data-role="content">
-
-
         <div style="padding:0 0.3rem;" id="search_contaner" class="world">
             <i class="c_icon search-input-icon"></i>
             <input type="text" class="search-input" id="main-search-input" autocomplete="off" name="password" id="search" value="" placeholder="Поиск">
             <i class="c_icon voice-input-icon"></i>
         </div>
-        <div class="owl-carousel">
-
-        </div>
-        <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview">
-        </ul>
+        <div class="owl-carousel"></div>
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview"></ul>
         <div class="product-card-module-cr world">
             <a href="#products-list"><div id="product-card-info" class="product-card-module main-module module first link"><i class="c_icon c_catalog gray main_page_icon"></i>Все товары</div></a>
         </div>
         <div class="product-card-module-cr  module-close world">
             <div id="product-card-info" class="product-card-module main-module module"  onclick="moduletoggle(this);"><i class="c_icon c_lider gray main_page_icon"></i>Лидеры продаж</div>
             <div class="product-card-info-content" style="display: none;">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-lead">
-
-                </ul>
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-lead"></ul>
             </div>
         </div>
         <div class="product-card-module-cr  module-close world" >
             <div id="product-card-info" class="product-card-module main-module"  onclick="moduletoggle(this);"><i class="c_icon c_super gray main_page_icon"></i>Суперцена</div>
             <div class="product-card-info-content"  style="display: none;">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-super">
-
-                </ul>
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-super"></ul>
             </div>
         </div>
         <div class="product-card-module-cr  module-close world" >
             <div id="product-card-info" class="product-card-module main-module"  onclick="moduletoggle(this);"><i class="c_icon c_new gray main_page_icon"></i>Новинки</div>
             <div class="product-card-info-content"  style="display: none;">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-new">
-
-                </ul>
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-new"></ul>
             </div>
         </div>
         <div class="product-card-module-cr module-close last world" >
             <div id="product-card-info" class="product-card-module main-module"  onclick="moduletoggle(this);"><i class="c_icon c_soon gray main_page_icon"></i>Скоро в продаже</div>
             <div class="product-card-info-content">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-soon">
-
-
-                </ul>
+                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-soon"></ul>
             </div>
         </div>
         <div class="product-card-module-cr world">
@@ -165,7 +145,6 @@
             <h2>Служба поддержки клиентов</h2>
             <a  onclick="SupportCall();" class="ui-link external-link-icon"><button id="product-card-tel-btn" class="btn big tel_btn ui-btn ui-corner-all"><i class="c_icon c_phone c_ibtn"></i>0 (800) 501-522 </button></a>
         </div>
-
     </div>
 
     <div class="copy_links copy">
@@ -177,12 +156,6 @@
     </div>
 </div>
 <!-- / Главная страница Конец-->
-
-
-
-
-
-
 
 <!-- Каталог товаров Начало -->
 <div data-role="page" id="products-list" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
@@ -205,17 +178,16 @@
         </ul>
     </div>
     <div data-role="footer" data-position="fixed" id="catalog-footer" style="display: none">
-
         <div data-role="navbar">
             <ul>
                 <li><a onclick="LoadSortItems();" id="sort_btn"> <i class="c_icon  c_sort gray c_ibtn"> </i> Сортировка</a></li>
                 <li><a  id="filter_btn"> <i class="c_icon c_filter gray c_ibtn"></i>Фильтр</a></li>
-
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->
 </div>
 <!-- / Каталог товаров Конец-->
+
 <!-- Сортировка товаров Начало -->
 <div data-role="page" id="sort-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
@@ -223,25 +195,20 @@
             <i class="c_icon c_left_arrow"></i>
         </a>
         <h1 class="leftsideh1"><a data-rel="back" id="sort-page-h1">Сортировка товаров</a></h1>
-
     </div>
     <div data-role="content" onclick="">
-        <ul data-role="listview" data-theme="b" data-2inset="true" id="sort-listview">
-
-        </ul>
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="sort-listview"></ul>
     </div>
     <div data-role="footer" data-position="fixed" id="sort-footer" >
         <div data-role="navbar">
             <ul>
                 <li><a onclick="FilterEnums.ClearSort();$.mobile.back();">Сбросить</a></li>
                 <li><a onclick="FilterEnums.ApplySort();$.mobile.back();">Применить</a></li>
-
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->
 </div>
 <!-- / Сортировка товаров Конец-->
-
 
 <!-- Фильтр товаров Начало -->
 <div data-role="page" id="filter-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
@@ -250,7 +217,6 @@
             <i class="c_icon c_left_arrow"></i>
         </a>
         <h1 class="leftsideh1"><a data-rel="back" id="filter-page-h1">Фильтр товаров</a></h1>
-
     </div>
     <div data-role="content" onclick="">
         <ul data-role="listview" data-theme="b" data-2inset="true" id="filter-listview">
@@ -267,6 +233,7 @@
     </div><!-- /footer -->
 </div>
 <!-- / Фильтр товаров Конец-->
+
 <!-- Фильтр товаров значения свойств Начало -->
 <div data-role="page" id="filter-values-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
@@ -274,7 +241,6 @@
             <i class="c_icon c_left_arrow"></i>
         </a>
         <h1 class="leftsideh1"><a data-rel="back" id="filter_prop_name">Фильтр товаров: свойства</a></h1>
-
     </div>
     <div data-role="content" onclick="">
         <ul data-role="listview" data-theme="b"  data-2inset="true"   id="filter-props-values-listview">
@@ -291,11 +257,6 @@
     </div><!-- /footer -->
 </div>
 <!-- Фильтр товаров значения свойств Начало -->
-
-
-
-
-
 
 <!-- Карточка товара Начало -->
 <div data-role="page" id="product-card" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
@@ -321,7 +282,6 @@
         <input type="hidden" id="current_product_id">
         <input type="hidden" id="current_product_price">
 
-        
         <div id="general_owl_mob">
             <div id="state_and_specbonus"></div>
             <div id="sticker_img"></div>
@@ -329,7 +289,6 @@
         </div>
 
         <div id="product-card-variations"></div>
-
         <div class="content-padding">
             <div id="product-card-prices-co-box">
                 <div id="product-card-prices-co"></div>
@@ -346,14 +305,8 @@
             <button  id="product-card-buy-btn" class="ui-btn ui-corner-all btn big green_btn" style="display:none"><i class="c_icon c_basket_simple c_ibtn"></i>	 Купить</button>
             <button  id="product-card-pre-btn" class="ui-btn ui-corner-all btn big green_btn" style="display:none" onclick="OpenPreorderPage()">	 Заказать</button>
 
-
-
-            <div id="product-card-delivery">
-
-            </div>
+            <div id="product-card-delivery"></div>
         </div>
-
-
 
         <div class="product-card-module-cr module-close">
             <div id="product-card-info" class="product-card-module main-module module" onclick="moduletoggle(this);">Бесплатная доставка</div>
@@ -367,7 +320,6 @@
             </div>
         </div>
 
-
         <div class="product-card-module-cr ">
             <a data-transition="slide" id="product-card-props-link"  data-ajax=false><div id="product-card-info" class="product-card-module main-module module link">Характеристики</div></a>
         </div>
@@ -378,14 +330,12 @@
             <a data-transition="slide" id="product-card-reviews-link"  data-ajax=false><div id="product-card-info" class="product-card-module main-module module link external-link-icon">Отзывы</div></a>
         </div>
 
-
         <div id="accs_container">
             <div class="list-head-module  content-padding" >Аксессуары</div>
             <ul data-role="listview" data-theme="b" data-2inset="true" id="accs-listview">
 
             </ul>
         </div>
-
 
         <div style="text-align: center;" class="content-padding">
             <h2>Служба поддержки клиентов</h2>
@@ -405,15 +355,8 @@
 </div>
 <!-- / Карточка товара Конец-->
 
-
-
-
-
-
-
 <!-- Корзина товаров Начало -->
 <div data-role="page" id="page-cart" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
-
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
         <a data-iconpos="notext"  class="ui-noshadow  c_icon_contr BackButton" onclick="$.mobile.back();" >
             <i class="c_icon c_back" ></i>
@@ -426,9 +369,7 @@
         </div>
     </div>
 
-
     <div class="navPanelChild" id="nav-panel-cart"></div>
-
     <div data-role="content" >
         <div class="content-padding basketBoxBlock">
             <h2 style="float: left;">Моя корзина</h2>
@@ -454,9 +395,7 @@
             <i class="c_icon c_back" ></i>
         </a>
         <h1><div class="c_main_logo"></div></h1>
-        <div class="bnt-menu-panel-right">
-
-        </div>
+        <div class="bnt-menu-panel-right"></div>
     </div>
     <div class="navPanelChild" id="nav-panel-order"></div>
 
@@ -473,18 +412,12 @@
             </div>
         </div>
 
-
         <div class="content-padding" style="margin-top: 13px;">
-
             <div style="color: #F6731B;">Ваши контактные данные:</div>
             <div><input type="text" placeholder="ФИО" id="order_fio"  maxlength="40" autocomplete="on" ></div>
-
             <div><input type="text" placeholder="Город" id="order_city"  maxlength="20" autocomplete="on" ></div>
-
             <div><input type="text" placeholder="Телефон" id="order_tel"   autocomplete="on" disabled></div>
-
             <div><input type="text" placeholder="Email" id="order_email"   autocomplete="on" ></div>
-
             <button class="ui-btn ui-corner-all  btn big green_btn" id="order-make-btn" onclick="StartMakeOrderTry();">Заказать</button>
         </div>
         <hr>
@@ -495,10 +428,7 @@
         <div class="copy">
             ©	Цитрус -гаджеты и аксессуары 2005-2015
         </div>
-
-
     </div>
-
 </div>
 <!-- / Оформление заказа Конец-->
 
@@ -517,7 +447,6 @@
         </div>  
     </div>      
  <div class="navPanelChild" id="nav-panel-personal"></div>
-        
         <div data-role="content" id="page-personal-content">
             <div class="content-padding">
                 <div id="personal_fio_name_contaner" style="display:none"><b>Здравствуйте, <span id="personal_fio_name"></span>!</b> <br>Рады снова Вас видеть.</div>
@@ -698,8 +627,6 @@
             <i class="c_icon c_menu"></i>
         </a>
         <h1><div class="c_main_logo"></div></h1>
-
-        </a>
     </div>
     <div class="navPanelChild" id="nav-panel-order-done-page"></div>
 
@@ -716,15 +643,12 @@
             <a onclick="Showtextpage(179990)">Гарантия</a>
         </div>
         <div class="copy">
-
             ©	Цитрус -гаджеты и аксессуары 2005-2015
         </div>
     </div>
 
 </div>
 <!-- / Страница спасибо оформленного заказа Конец-->
-
-
 
 <!-- Оформление предзаказа Начало -->
 <div data-role="page" id="page-preorder" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
@@ -733,9 +657,7 @@
             <i class="c_icon c_back" ></i>
         </a>
         <h1><div class="c_main_logo"></div></h1>
-        <div class="bnt-menu-panel-right">
-
-        </div>
+        <div class="bnt-menu-panel-right"></div>
     </div>
     <div class="navPanelChild" id="nav-panel-preorder"></div>
 
@@ -745,28 +667,18 @@
         </div>
 
         <div class="content-padding">
-
-            <div id="preorder_product_contaner"  >
-
-            </div>
+            <div id="preorder_product_contaner"></div>
         </div>
 
         <input type="hidden"  id="preorder_product_id" >
 
         <div class="content-padding" style="margin-top: 13px;">
-
             <div style="color: #F6731B;">Ваши контактные данные:</div>
             <div><input type="text" placeholder="ФИО" id="preorder_fio"  maxlength="40" autocomplete="on" ></div>
-
             <div><input type="text" placeholder="Город" id="preorder_city"  maxlength="20" autocomplete="on" ></div>
-
             <div><input type="text" placeholder="Телефон" id="preorder_tel"   autocomplete="on"></div>
-
             <div><input type="email" placeholder="Email" id="preorder_email"   autocomplete="on" ></div>
-
             <div><input type="text" placeholder="Комментарий" id="preorder_comment"   autocomplete="on"></div>
-
-
             <button class="ui-btn ui-corner-all  btn big green_btn" id="preorder-make-btn" onclick="StartMakePreOrderTry();">Заказать</button>
         </div>
         <hr>
@@ -777,10 +689,7 @@
         <div class="copy">
             ©	Цитрус -гаджеты и аксессуары 2005-2015
         </div>
-
-
     </div>
-
 </div>
 <!-- / Оформление предзаказа Конец-->
 
@@ -791,8 +700,6 @@
             <i class="c_icon c_menu"></i>
         </a>
         <h1><div class="c_main_logo"></div></h1>
-
-        </a>
     </div>
     <div class="navPanelChild" id="nav-panel-preorder-done-page"></div>
 
@@ -808,11 +715,9 @@
             <a onclick="Showtextpage(179990)">Гарантия</a>
         </div>
         <div class="copy">
-
             ©	Цитрус -гаджеты и аксессуары 2005-2015
         </div>
     </div>
-
 </div>
 <!-- / Страница спасибо оформленного заказа Конец-->
 
@@ -831,7 +736,6 @@
     </div>
 
     <div class="navPanelChild" id="nav-panel-search-page"></div>
-
     <div data-role="content">
         <div style="padding:0 0.3rem;" id="search_contaner">
             <i class="c_icon search-input-icon"></i>
@@ -847,7 +751,6 @@
 </div>
 <!-- / Страница поиска товаров Конец-->
 
-
 <!-- Страница детальный текст Начало -->
 <div data-role="page" id="text-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
@@ -862,10 +765,7 @@
         </div>
     </div>
     <div class="navPanelChild" id="nav-panel-text-page"></div>
-
-    <div data-role="content" class="content-padding" id="text-page-content">
-
-    </div>
+    <div data-role="content" class="content-padding" id="text-page-content"></div>
 </div>
 <!-- / Страница детальный текст Конец-->
 
@@ -898,9 +798,7 @@
             <i class="c_icon c_back" ></i>
         </a>
         <h1><div class="c_main_logo"></div></h1>
-        <div class="bnt-menu-panel-right">
-
-        </div>
+        <div class="bnt-menu-panel-right"></div>
     </div>
     <div class="navPanelChild" id="nav-panel-login-page"></div>
 
@@ -913,6 +811,7 @@
     </div>
 </div>
 <!-- / Страница Авторизации текст Конец-->
+
 <!-- Страница ввода sms_code  Начало -->
 <div data-role="page" id="sms-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
@@ -938,7 +837,6 @@
 </div>
 <!-- / Страница вода sms_code  текст Конец-->
 
-
 <!-- Страница новостей  Начало -->
 <div data-role="page" id="news-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
@@ -953,10 +851,8 @@
         </div>
     </div>
     <div class="navPanelChild" id="nav-panel-news-page"></div>
-
     <div data-role="content">
-        <ul data-role="listview" data-theme="b" data-2inset="true" id="news-listview">
-        </ul>
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="news-listview"></ul>
     </div>
 </div>
 <!-- / Страница новостей  Конец-->
@@ -1005,7 +901,6 @@
 </div>
 <!-- / Страница акций Конец-->
 
-
 <!-- Страница отсутствует соединение с интернетом... -->
 <div data-role="page" id="lost-connection-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
     <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
@@ -1013,7 +908,6 @@
             <i class="c_icon c_menu"></i>
         </a>
         <h1><div class="c_main_logo"></div></h1>
-
     </div>
     <div class="navPanelChild" id="nav-panel-lost-connection-page"></div>
 
@@ -1023,7 +917,6 @@
             <img src="img/png/inet-line.png">
             <div style="margin-bottom: 1rem;">Но вы можете оформить заказ или обратиться в службу поддержки клиентов по телефону</a>
             </div>
-
 
             <div style="text-align: center;">
                 <a onclick="SupportCall();" class="ui-link"><button id="product-card-tel-btn" class="btn big tel_btn ui-btn ui-corner-all"><i class="c_icon c_phone c_ibtn"></i>0 (800) 501-522 </button></a>
@@ -1042,13 +935,11 @@
             <a onclick="Showtextpage(179990)">Гарантия</a>
         </div>
         <div class="copy">
-
             ©	Цитрус -гаджеты и аксессуары 2005-2015
         </div>
     </div>
 </div>
 <!-- / Страница отсутствует соединение с интернетом...-->
-
 
 <!-- Страница магазинов  Начало -->
 <div data-role="page" id="maps-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
@@ -1118,12 +1009,9 @@
 
 <!-- Страница router Начало -->
 <div data-role="page" id="loader" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
-    <div data-role="content" >
-
-    </div>
+    <div data-role="content"></div>
 </div>
 <!-- / Страница router Конец-->
-
 
 <!-- Страница debug Начало -->
 <div data-role="page" id="debug" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
@@ -1133,9 +1021,7 @@
         </a>
         <h1><div class="c_main_logo"></div></h1>
     </div>
-    <div data-role="content" id="console" >
-
-    </div>
+    <div data-role="content" id="console"></div>
 </div>
 <!-- / Страница debug Конец-->
 
@@ -1228,7 +1114,6 @@
             <div class="copy">          
             ©    Цитрус -гаджеты и аксессуары 2005-2015
             </div>          
-            
 </div>
 <!-- / Мои желания Конец-->
 
@@ -1240,7 +1125,7 @@
         </a>
         <h1><div class="c_main_logo"></div></h1>
         <a link="#page-cart"  data-role="button"   class="ui-noshadow vclick_link c_icon_contr">            
-        <i class="c_icon c_basket"></i>         
+            <i class="c_icon c_basket"></i>         
         </a>
     </div>      
  <div class="navPanelChild" id="nav-panel-wish-page"></div>
@@ -1255,8 +1140,6 @@
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
 
 <div id="needUpdate"></div>
-
-
 
 <script>
 </script>
