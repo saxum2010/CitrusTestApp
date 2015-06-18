@@ -3,17 +3,8 @@ var PushInitParams = false;
 function InitpushNotifications(){
 	
 	document.addEventListener("deviceready", function(){
-alert(device.platform);
 	    pushNotification = window.plugins.pushNotification;
-	    if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
-		    pushNotification.register(
-		    successHandler,
-		    errorHandler,
-		    {
-		        "senderID":"536166568203",
-		        "ecb":"onNotification"
-		    });
-		}else {
+	    if ( device.platform == 'iphone' || device.platform == 'iPhone' || device.platform == "iPad" || device.platform == "iPod" ){
 		    pushNotification.register(
 		    tokenHandler,
 		    errorHandler,
@@ -22,6 +13,14 @@ alert(device.platform);
 		        "sound":"true",
 		        "alert":"true",
 		        "ecb":"onNotificationAPN"
+		    });
+		}else {
+		    pushNotification.register(
+		    successHandler,
+		    errorHandler,
+		    {
+		        "senderID":"536166568203",
+		        "ecb":"onNotification"
 		    });
 		}
 			
