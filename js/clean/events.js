@@ -576,6 +576,7 @@ $(function () {
 });
 
 $(document).on('swipeleft swiperight', function(e) {
+	alert('1');
 	if($.mobile.activePage.jqmData("panel")!=="open"){
 		if(e.type === "swiperight"){
 			$("#nav-panel").panel().panel("open");
