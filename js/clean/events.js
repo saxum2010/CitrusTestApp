@@ -573,20 +573,13 @@ $(document).on('click', '.wish_full_page', function(){
 
 $(function () {
   $("#nav-panel").panel().enhanceWithin();
-  $("html").swipe({
-		  swipeLeft:function(event, direction, distance, duration, fingerCount) {
-			$( "#nav-panel" ).panel( "close" );
-		  },
-		  swipeRight:function(event, direction, distance, duration, fingerCount) {
-			$("#nav-panel" ).panel( "open" );
-		  }
-	});		
 });
 
-/*$(document).on('swipeleft swiperight', function(e) {
-	if($.mobile.activePage.jqmData("panel")!=="open"){
+$(document).on('swiperight', function(e) {
+	if($(e.target).hasClass('owl-lazy')){
+	}else if($.mobile.activePage.jqmData("panel")!=="open"){
 		if(e.type === "swiperight"){
 			$("#nav-panel").panel().panel("open");
 		}
 	}
-});*/
+});
