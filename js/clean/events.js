@@ -575,6 +575,7 @@ $(function () {
   $("#nav-panel").panel().enhanceWithin();
 });
 
+/*
 $(document).on('swiperight', function(e) {
 	if($(e.target).hasClass('owl-lazy')){
 	}else if($.mobile.activePage.jqmData("panel")!=="open"){
@@ -582,4 +583,9 @@ $(document).on('swiperight', function(e) {
 			$("#nav-panel").panel().panel("open");
 		}
 	}
+});
+*/
+$.event.special.swipe.horizontalDistanceThreshold = 5;
+$(document).on("swiperight", "#main", function() {
+   $("#nav-panel").panel().panel("open");
 });
