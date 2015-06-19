@@ -576,8 +576,7 @@ $(function () {
 });
 
 $(document).on('swipeleft swiperight', function(e) {
-	if($(e.target).hasClass('owl-lazy')){
-	}else if($.mobile.activePage.jqmData("panel")!=="open"){
+	if($.mobile.activePage.jqmData("panel")!=="open"){
 		if(e.type === "swiperight"){
 			$("#nav-panel").panel().panel("open");
 		}
