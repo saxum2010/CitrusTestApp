@@ -717,7 +717,9 @@ function LoadMainPageData(){
 				$('.owl-carousel').owlCarousel({
 				    items:1,
 					lazyLoad:true,
-	   				 nav:true,
+	   				nav:true,
+	   				autoplay:true,
+	   				autoplayTimeout:10000,
 					margin:0 
 				});
 				$.each( json.top_goods, function( key1, value1 ) {	
