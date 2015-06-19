@@ -570,3 +570,16 @@ $( document ).on( "pageshow", "#page-wish", function() {
 $(document).on('click', '.wish_full_page', function(){
 	window.open("http://www.citrus.ua/personal/wishlist/", '_system', 'location=yes');return false;
 });
+
+$(function () {
+  $("#nav-panel").panel().enhanceWithin();
+});
+
+$(document).on('swipeleft swiperight', function(e) {
+	if($(e.target).hasClass('owl-lazy')){
+	}else if($.mobile.activePage.jqmData("panel")!=="open"){
+		if(e.type === "swiperight"){
+			$("#nav-panel").panel().panel("open");
+		}
+	}
+});

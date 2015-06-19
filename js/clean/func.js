@@ -75,7 +75,7 @@ function goBack(){
 }
 
 // Инициализация свайпа навигационного меню
-function  SwipeInit(){
+/*function  SwipeInit(){
 	$("html").swipe({
 		  swipeLeft:function(event, direction, distance, duration, fingerCount) {
 			$( "#nav-panel" ).panel( "close" );
@@ -84,7 +84,7 @@ function  SwipeInit(){
 			$("#nav-panel" ).panel( "open" );
 		  }
 	});				
-}
+}*/
 
 // Отображение иконки ожидания загрузки данных
 function ShowLoading(){
@@ -240,7 +240,7 @@ function LoadDefaultCatalog(category,position){
 				
 			}
 			
-			$(".ui-panel-open").panel("close"); 
+		//	$(".ui-panel-open").panel("close"); 
 			ProssedTapEvents();
 			product_list_page_loded = true;
 			 $.mobile.loading( "hide" );
