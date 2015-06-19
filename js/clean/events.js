@@ -586,6 +586,6 @@ $(document).on('swiperight', function(e) {
 });
 */
 $.event.special.swipe.horizontalDistanceThreshold = 5;
-$(document).on("swiperight", "#main", function() {
+$(document).on("swiperight", "#main,#page-personal,#products-list,#product-card,#search-page,#page-cart,#actions-page,#news-page,#gadgets-page,#maps-page,#page-orders,#page-preorders,#page-wishes,#login-page,#sms-page", function() {
    $("#nav-panel").panel().panel("open");
 });
