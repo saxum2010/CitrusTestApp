@@ -1702,3 +1702,13 @@ border-bottom: 1px solid #C8C7CC;
 .ui-checkbox input, .ui-radio input{
 	margin: -11px 0 0 3px!important;
 }
+.arhiv_line{
+	padding-left:36px;
+	border-top: 1px solid #C8C7CC;
+}
+.arhiv_line:after{
+  background-image: none!important;
+}
+.ui-page-footer-fixed {
+  padding-bottom: 0px!important;
+}

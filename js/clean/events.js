@@ -173,7 +173,7 @@ $( document ).on( "pageshow", "#gadgets-page", function() {
 		
 });
 $( document ).on( "pageshow", "#actions-page", function() {
-	
+	localStorage.one_line = 'true';
 	InitActions();
 		
 });
