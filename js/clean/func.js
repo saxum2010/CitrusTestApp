@@ -183,16 +183,22 @@ function LoadDefaultCatalog(category,position){
 					
 				var dop_class="";
 				if(value.price){
-					
+
+					if(value.old_price!=null){
+						var old_price = value.old_price;
+					}else{
+						var old_price = '';
+					}
+
 					showFootbar = true;
 					dop_class=dop_class+" product";
 					url = "#product-card?product-id=" + value.id;
 					
 					var row2 = '';
 					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
-						row2 = '<div class="price">'+value.price+' грн</div>';	
+						row2 = old_price+'<div class="price">'+value.price+' грн</div>';	
 					}else if(parseInt(value.price) > 1){
-						row2 = '<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
+						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 					}else{
 						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
 					}
@@ -523,6 +529,7 @@ function loadProductCard(id,owl){
 					prices+= '<div class="prices_item_cr"><div class="prices_item">'+json.prices[0].name+'</div><div class="prices_item_value"><div class="pre_sup_text">'+json.prices[0].price+'</div><div class="pre_sup">грн</div></div></div>';
 				}
 				$("#product-card-prices").html(prices);
+				$("#product-card-old_prices").html(json.old_price);
 				
 					if(json.accs !== undefined){
 						

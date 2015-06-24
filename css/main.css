@@ -1716,3 +1716,38 @@ border-bottom: 1px solid #C8C7CC;
 .load-promos{
 	cursor: pointer;
 }
+/*Old price*/
+#product-card-content .ProductOldPriceBox{
+  margin-top: -2px;
+  padding-left: 17px;
+  text-align: right;
+  padding-right: 32px;
+  margin-bottom: -7px;
+}
+#product-card-content .ProductOldPriceCr{
+	font-size:16px;
+	color:#FF0000;
+	text-decoration:line-through;
+}
+#product-card-content .ProductOldPriceBox .price{
+	font-size: 1.1rem;
+	color: #959595;
+}
+
+#products-list .ProductOldPriceBox{
+   float: left;
+   margin-right: 8px;
+}
+#products-list .ProductOldPriceCr{
+	font-size:16px;
+	color:#FF0000;
+	text-decoration:line-through;
+}
+#products-list .ProductOldPriceBox .price{
+	color: #959595!important;
+	margin: 0px;
+}
+.free_shipping{
+	margin-top: 6px;
+	border-top: 1px solid #C8C7CC;
+}
