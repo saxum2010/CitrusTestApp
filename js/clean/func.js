@@ -740,7 +740,6 @@ function LoadMainPageData(){
 					dataType: 'json',
 					async: true, 
 					success: function(res){
-						alert(res.CatalogAllow);
 						if(res.CatalogAllow!='N'){
 			                $('.world').removeClass('world');
 			            }
