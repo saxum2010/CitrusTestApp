@@ -682,9 +682,8 @@ var main_images  = false;
 function LoadMainPageData(){
 	if(!main_page_load){
 		
-	
 	$.ajax({ 
-	  url: "http://m.citrus.ua/ajax/main.php", 
+	  url: "http://m.citrus.ua/ajax/main.php?bb=1", 
 	  dataType: 'json',
 	  async: true, 
 	  success: function( json ) {	
