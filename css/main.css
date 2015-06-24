@@ -1440,11 +1440,13 @@ border-bottom: 1px solid #C8C7CC;
     z-index: 9;
     background-color: red;
     color: #FFF!important;
-      padding: 4px 9px;
-    font-size: 0.78rem;
+    padding: 4px 9px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+}
+.box_catalog_status{
+	font-size: 0.78rem;
 }
 .box_catalog_status{
 	  margin: 1px 0px 7px 0px;
