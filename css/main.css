@@ -1712,3 +1712,7 @@ border-bottom: 1px solid #C8C7CC;
 .ui-page-footer-fixed {
   padding-bottom: 0px!important;
 }
+
+.load-promos{
+	cursor: pointer;
+}

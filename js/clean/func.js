@@ -722,29 +722,17 @@ function LoadMainPageData(){
 	   				autoplayTimeout:10000,
 					margin:0 
 				});
-				$.each( json.top_goods, function( key1, value1 ) {	
-						var output = "";				
-						$.each( value1.items, function( key, value ) {
 
-									
-									var url = "#product-card?product-id=" + value.id;
-									
-									var row2 = '';
-									if(parseInt(value.price) > 1 && value.can_buy =="Y"){
-										row2 = '<div class="price">'+value.price+' грн</div>';	
-									}
-									else{
-										row2 = '<div class="status">'+value.can_buy_status+'</div>';;
-									}
-									
-									
-									output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"> 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+value.props+'</div> 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
-									
-					
+				json.top_goods =  $.parseJSON(json.top_goods);
+				$.each( json.top_goods, function( key1, value1 ) {	
+						var output = "";
+						$.each(value1.items, function(key,value){
+							var url = "#product-card?product-id=" + value.id,
+								row2 = '';
+							row2 = (parseInt(value.price) > 1 && value.can_buy =="Y")?'<div class="price">'+value.price+' грн</div>':'<div class="status">'+value.can_buy_status+'</div>';
+							output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+value.props+'</div></td><td style="width:25px"></td></tr></table></a></li>';
 						});
 						$('#main-listview-'+key1).html(output).listview("refresh");
-			 
-						
 				});
 
 				var device =isIOS()?"apple":"3";
@@ -1828,4 +1816,8 @@ function QRScan(){
           //alert("Scanning failed: " + error);
       }
    );
+}
+
+function LoadPromos(id){
+	window.location = "#promo?id="+id;
 }
