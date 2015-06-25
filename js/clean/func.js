@@ -1881,3 +1881,24 @@ function QRScan(){
 function LoadPromos(id){
 	window.location = "#promo?id="+id;
 }
+
+function getUserBonusPanel(){
+	var subp=0,user_bonus_panel='',user_bonus_menu='';
+	var user_bonus_base = MobileUser.GetStorage('user_bonus_base');
+	if(user_bonus_base!=undefined && user_bonus_base>0){
+		user_bonus_panel += '<span class="item"><b>'+user_bonus_base+' грн</b> баз. бонусов</span>';
+		user_bonus_menu += '<span class="item">Базовых бонусов <b>'+user_bonus_base+' грн</b></span>';
+		subp++;
+	}
+	var user_bonus_special = MobileUser.GetStorage('user_bonus_special');
+	if(user_bonus_special!=undefined && user_bonus_special>0){
+		user_bonus_panel += '<span class="item"><b>'+user_bonus_special+' грн</b> спец. бонусов</span>';
+		user_bonus_menu += '<span class="item">Специальных бонусов <b>'+user_bonus_special+' грн</b></span>';
+		subp++;
+	}
+	if(subp>0){
+		if(subp==2){$('#user_bonus_panel').addClass('double');}
+		$('.user_bonus_menu').addClass('active').html('<span class="title">На вашем счету:</span>'+user_bonus_menu);
+		$('#user_bonus_panel').addClass('active').html('<span class="title"><i class="c_icon c_catalog gray c_club"></i>На счету</span><span class="items">'+user_bonus_panel+'</span>');
+	}
+}

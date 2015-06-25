@@ -1757,3 +1757,67 @@ border-bottom: 1px solid #C8C7CC;
 	margin-top: 6px;
 	border-top: 1px solid #C8C7CC;
 }
+
+
+#user_bonus_menu .title{
+	font-weight: bold;
+}
+
+#user_bonus_menu .item{
+	display: inline-block;
+	float: left;
+}
+
+#user_bonus_panel.active {
+	padding: 0.7rem 0 0.7rem 16px;
+	background-color: #F9F9F9;
+/*	border-bottom: 1px solid #C8C7CC;*/
+	border-top: 1px solid #C8C7CC;
+	color: #777777;
+	font-size: 1.1rem;
+	position: relative;
+}
+
+#user_bonus_panel.active:after {
+	content: "";
+	background-image: url(/img/svg/gray/arrow.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	position: absolute;
+	top: 50%;
+	right: 16px;
+	height: 22px;
+	width: 22px;
+	margin-top: -8px;
+}
+
+#user_bonus_panel .c_club {
+	float: left;
+	padding-right: 0.2rem;
+	margin-left: -0.2rem;
+}
+
+#user_bonus_panel .items {
+	float: right;
+	right: 6rem;
+	position: absolute;
+	color: #000;
+	font-size: 0.7rem;
+	line-height: 1.5rem;
+	cursor: pointer;
+}
+
+#user_bonus_panel .item:after{
+    content:"\a";
+    white-space: pre;
+    line-height: 1rem;
+}
+
+#user_bonus_panel.double .items{
+	line-height: 1rem;
+	margin-top: -0.2rem;
+}
+
+#user_bonus_menu.active{
+	border-top: 1px solid #F08A45;
+}
