@@ -590,6 +590,6 @@ $(document).on("swiperight", function() {
    $("#nav-panel").panel().panel("open");
 });
  */
-$(document).on("pageshow", function () {
+/*$(document).on("pageshow", function () {
 	getUserBonusPanel();
-});
+});*/
