@@ -585,11 +585,11 @@ $(document).on('swiperight', function(e) {
 	}
 });
 */
-/* $.event.special.swipe.horizontalDistanceThreshold = 5;
+$.event.special.swipe.horizontalDistanceThreshold = 5;
 $(document).on("swiperight", function() {
    $("#nav-panel").panel().panel("open");
 });
- */
-/*$(document).on("pageshow", function () {
+
+$(document).on("pageshow", function () {
 	getUserBonusPanel();
-});*/
+});
