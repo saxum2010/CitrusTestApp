@@ -1883,5 +1883,14 @@ function LoadPromos(id){
 }
 
 function getUserBonusPanel(){
-alert('1');
+	alert(1);
+	var subp=0,user_bonus_panel='',user_bonus_menu='';
+	var user_bonus_base = MobileUser.GetStorage('user_bonus_base');
+	if(user_bonus_base!=undefined && user_bonus_base>0){
+		user_bonus_panel += '<span class="item"><b>'+user_bonus_base+' грн</b> баз. бонусов</span>';
+		user_bonus_menu += '<span class="item">Базовых бонусов <b>'+user_bonus_base+' грн</b></span>';
+		subp++;
+	}
+	alert(2);
+
 }
