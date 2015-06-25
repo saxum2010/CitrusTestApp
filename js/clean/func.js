@@ -729,7 +729,6 @@ function LoadMainPageData(){
 					margin:0 
 				});
 
-				json.top_goods =  $.parseJSON(json.top_goods);
 				$.each( json.top_goods, function( key1, value1 ) {	
 						var output = "";
 						$.each(value1.items, function(key,value){
@@ -1779,17 +1778,72 @@ function LoadReviewsPage(id,data){
 }
 
 function LoadPromosPage(id,data){
-		var send_data = data || "";
-		$.ajax({
-		  url: "http://m.citrus.ua/ajax/on/promo.php?id="+id+send_data,
-		  beforeSend: function( xhr ) {
-		   ShowLoading();
-		  }
-		})
-		  .done(function( data ) {
-		    $.mobile.loading( "hide" );
-			$('#promo-page-content').html(data);
+	var send_data = data || "",
+		promo_content = $('#promo-products-listview');
+
+	$.ajax({ 
+	  url: "http://m.citrus.ua/ajax/on/promo.php?bb=1&id="+id+send_data, 
+	  type: "POST",
+	  dataType: 'json',
+	  beforeSend: function(xhr){ShowLoading();},
+	  success: function(json) {
+		  	if(json.error=='Y'){
+		  		$('.promo-products-text').html('<table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">Ничего не найдено....</h2></td><td style="width:25px"></td></tr></table>');
+		  	}
+			 var output = "",
+				 count = 0;
+			
+			if(json.promo_content_text != undefined){
+				$('.promo-products-text').html(json.promo_content_text);
+			}
+
+			if(json.promo_goods != undefined){
+			$.each( json.promo_goods, function(promo_key, promo_goods_item){
+			if(promo_goods_item.items != undefined && promo_goods_item.items.length > 0){
+			 $.each(promo_goods_item.items, function(key,value){
+				count = count +1;	 
+				var url = "category-items=" +  value.link;	
+            	var text_flag = (value.text_flag!=null&&value.text_flag!=false)?value.text_flag:'';
+				var dop_class="";
+	
+				if(value.price){
+				var old_price = (value.old_price!=null)?value.old_price:'';
+					dop_class=dop_class+" product";
+					url = "#product-card?product-id=" + value.id;
+					var row2 = '';
+					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
+						row2 = old_price+'<div class="price">'+value.price+' грн</div>';	
+					}else if(parseInt(value.price) > 1){
+						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
+					}else{
+						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
+					}
+					var prop = (value.props!= undefined)?value.props:"";
+					var bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5)?'<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>':'';
+					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+'</td><td style="width:25px"></td></tr></table></a></li>';
+				}else{
+					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#products-list?'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+				}
+			});	
+			}
+			
 		});
+	}
+			promo_content.html(output);
+			ProssedTapEvents();
+			product_list_page_loded = true;
+			$.mobile.loading( "hide" );
+		 }, 
+	  timeout: 25000 ,
+	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
+		 if(status == "timeout"){
+			product_list_page_loded = true;
+			ShowMessage(1);
+			location.reload();
+		 }
+	  } 
+	});
+
 }
 
 function getGetUserPushList(json){

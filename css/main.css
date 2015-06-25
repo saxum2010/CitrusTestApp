@@ -1736,15 +1736,19 @@ border-bottom: 1px solid #C8C7CC;
 	color: #959595;
 }
 
+#promo-page-content .ProductOldPriceBox,
 #products-list .ProductOldPriceBox{
    float: left;
    margin-right: 8px;
 }
+
+#promo-page-content .ProductOldPriceCr,
 #products-list .ProductOldPriceCr{
 	font-size:16px;
 	color:#FF0000;
 	text-decoration:line-through;
 }
+#promo-page-content .ProductOldPriceBox .price,
 #products-list .ProductOldPriceBox .price{
 	color: #959595!important;
 	margin: 0px;
