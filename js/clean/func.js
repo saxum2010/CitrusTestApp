@@ -1899,6 +1899,6 @@ function getUserBonusPanel(){
 	if(subp>0){
 		if(subp==2){$('#user_bonus_panel').addClass('double');}
 		$('.user_bonus_menu').addClass('active').html('<span class="title">На вашем счету:</span>'+user_bonus_menu);
-		$('#user_bonus_panel').addClass('active').html('<span class="title"><i class="c_icon c_catalog gray c_club"></i>На счету</span><span class="items">'+user_bonus_panel+'</span>');
+		$('#user_bonus_panel').addClass('active').html('<span class="title"><i class="c_icon c_catalog gray c_club"></i>На счету:</span><span class="items">'+user_bonus_panel+'</span>');
 	}
 }

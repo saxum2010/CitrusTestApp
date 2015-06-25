@@ -1759,6 +1759,12 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 
+#user_bonus_menu .title,
+#user_bonus_menu .item,
+#user_bonus_menu b{
+	color: #fff;
+}
+
 #user_bonus_menu .title{
 	font-weight: bold;
 }
@@ -1819,5 +1825,14 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #user_bonus_menu.active{
+	padding: 0.7rem 0;
+}
+
+#user_bonus_menu.active:before{
+	content: "";
 	border-top: 1px solid #F08A45;
+	width: 100%;
+	position: absolute;
+	top: 2.6rem;
+	left: 0;
 }
