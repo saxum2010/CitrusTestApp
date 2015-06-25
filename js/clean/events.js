@@ -590,3 +590,6 @@ $(document).on("swiperight", "#main,#page-personal,#products-list,#product-card,
    $("#nav-panel").panel().panel("open");
 });
 
+$(document).on('pageinit', function() {
+	getUserBonusPanel();
+});
