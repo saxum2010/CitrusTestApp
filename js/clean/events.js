@@ -590,6 +590,6 @@ $(document).on("swiperight", "#main,#page-personal,#products-list,#product-card,
    $("#nav-panel").panel().panel("open");
 });
 
-$(document).on("pageinit", "#main,#page-personal,#products-list,#product-card,#search-page,#page-cart,#actions-page,#news-page,#gadgets-page,#maps-page,#page-orders,#page-preorders,#page-wishes,#page-wish, #login-page,#sms-page,#text-page,#sort-page,#filter-page,#filter-values-page,#page-order, #order-page, #order-done-page, #page-preorder, #preorder-done-page, #reviews-page, #lost-connection-page, #shoplist-page, #promo, #page-push", function () {
+$(document).on("pageshow", "#main,#page-personal,#products-list,#product-card,#search-page,#page-cart,#actions-page,#news-page,#gadgets-page,#maps-page,#page-orders,#page-preorders,#page-wishes,#page-wish, #login-page,#sms-page,#text-page,#sort-page,#filter-page,#filter-values-page,#page-order, #order-page, #order-done-page, #page-preorder, #preorder-done-page, #reviews-page, #lost-connection-page, #shoplist-page, #promo, #page-push", function () {
 	getUserBonusPanel();
 });
