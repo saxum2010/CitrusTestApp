@@ -1070,14 +1070,20 @@ function FillPersonalPageFields(json){
 
 		var personal_user_bonus_box = 0;
 		if((json.user_datas.user_bonus.base!= undefined)&&(json.user_datas.user_bonus.base!= 0)){
+			localStorage["user_bonus_base"] = json.user_datas.user_bonus.base;
 			$("#personal_user_bonus_base").html(json.user_datas.user_bonus.base);
 			$("#personal_user_bonus_base_box").show();
 			personal_user_bonus_box++;
+		}else{
+			localStorage["user_bonus_base"] = '0';
 		}
 		if((json.user_datas.user_bonus.special!= undefined)&&(json.user_datas.user_bonus.special!= 0)){
+			localStorage["user_bonus_special"] = json.user_datas.user_bonus.special;
 			$("#personal_user_bonus_special").html(json.user_datas.user_bonus.special);
 			$("#personal_user_bonus_special_box").show();
 			personal_user_bonus_box++;
+		}else{
+			localStorage["user_bonus_special"] = '0';
 		}
 		if(personal_user_bonus_box>0){
 			$("#personal_user_bonus_box").show();
