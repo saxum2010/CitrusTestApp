@@ -1433,6 +1433,7 @@ border-bottom: 1px solid #C8C7CC;
 #general_owl_mob{
     padding: 0px 15px;
     position: relative;
+      z-index: 40;
 }
 .ProductLabelForCatalog{
     position: relative;
@@ -1840,22 +1841,22 @@ border-bottom: 1px solid #C8C7CC;
 
 
 #sticker_img img{
-	z-index: 9999999!important;
+	z-index: 10!important;
 }
 #sticker_img{
 	top: 0px;
 	right: 0px;
-	z-index: 9999999;
+	z-index: 10;
 	position: absolute;
 	width: 120px;
 	height: 120px;
 }
 
 #product-card-images-contaner{
-	  z-index: 0;
+	  z-index: 1;
 	  position: relative;
 }
 #product-card-images-contaner img{
-	  z-index: 0;
+	  z-index: 1;
 	  position: relative;
 }
