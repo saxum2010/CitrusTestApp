@@ -746,9 +746,9 @@ function LoadMainPageData(){
 					dataType: 'json',
 					async: true, 
 					success: function(res){
-						if(res.CatalogAllow!='N'){
+						//if(res.CatalogAllow!='N'){
 			                $('.world').removeClass('world');
-			            }
+			            //}
 			            if(res.needUpdate=='Y'){
 							var nuStatus = MobileUser.GetStorage('needUpdate');
 							if(nuStatus!=undefined && nuStatus==app_ver){
