@@ -1844,8 +1844,14 @@ border-bottom: 1px solid #C8C7CC;
 	position: absolute;
 }
 #product-card-images-contaner .owl-lazy{
-	z-index: 5;
+	  z-index: -1;
+	    position: relative;
 }
 #product-card-images-contaner{
-	z-index: 5;
+	  z-index: -1;
+	    position: relative;
+}
+#product-card-images-contaner img{
+	  z-index: -1;
+	    position: relative;
 }
