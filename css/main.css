@@ -1840,22 +1840,22 @@ border-bottom: 1px solid #C8C7CC;
 
 
 #sticker_img img{
-	z-index: 30!important;
+	z-index: 9999999!important;
 }
 #sticker_img{
 	top: 0px;
 	right: 0px;
-	z-index: 30;
+	z-index: 9999999;
 	position: absolute;
 	width: 120px;
 	height: 120px;
 }
 
 #product-card-images-contaner{
-	  z-index: 5;
+	  z-index: 0;
 	  position: relative;
 }
 #product-card-images-contaner img{
-	  z-index: 5;
+	  z-index: 0;
 	  position: relative;
 }
