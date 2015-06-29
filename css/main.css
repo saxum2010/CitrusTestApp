@@ -1843,15 +1843,12 @@ border-bottom: 1px solid #C8C7CC;
 	z-index: 30;
 	position: absolute;
 }
-#product-card-images-contaner .owl-lazy{
-	  z-index: -1;
-	    position: relative;
-}
+
 #product-card-images-contaner{
-	  z-index: -1;
+	  z-index: 5;
 	    position: relative;
 }
 #product-card-images-contaner img{
-	  z-index: -1;
+	  z-index: 5;
 	    position: relative;
 }
