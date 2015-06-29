@@ -1786,7 +1786,7 @@ border-bottom: 1px solid #C8C7CC;
 
 #user_bonus_panel.active:after {
 	content: "";
-	background-image: url(/img/svg/gray/arrow.svg);
+	background-image: url(../img/svg/gray/arrow.svg);
 	background-repeat: no-repeat;
 	background-color: transparent;
 	position: absolute;
@@ -1805,7 +1805,7 @@ border-bottom: 1px solid #C8C7CC;
 
 #user_bonus_panel .items {
 	float: right;
-	right: 6rem;
+	right: 5rem;
 	position: absolute;
 	color: #000;
 	font-size: 0.7rem;
