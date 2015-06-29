@@ -1837,7 +1837,7 @@ border-bottom: 1px solid #C8C7CC;
 	left: 0;
 }
 
-.sticker_img{
+#sticker_img{
 	top: 0px;
 	right: 0px;
 	z-index: 30;
@@ -1846,9 +1846,9 @@ border-bottom: 1px solid #C8C7CC;
 
 #product-card-images-contaner{
 	  z-index: 5;
-	    position: relative;
+	  position: relative;
 }
 #product-card-images-contaner img{
 	  z-index: 5;
-	    position: relative;
+	  position: relative;
 }
