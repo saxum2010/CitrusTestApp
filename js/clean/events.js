@@ -576,8 +576,13 @@ $(function () {
 });
 
 $.event.special.swipe.horizontalDistanceThreshold = 5;
-$(document).on("swiperight", function() {
-   $("#nav-panel").panel().panel("open");
+$(document).on("swiperight swipeleft", function(e) {
+   	if($(e.target).hasClass('owl-lazy')){
+	}else if($.mobile.activePage.jqmData("panel")!=="open"){
+		if(e.type === "swiperight"){
+			$("#nav-panel").panel().panel("open");
+		}
+	}
 });
 
 $(document).on("pageshow", function () {
