@@ -391,6 +391,7 @@ $(document).ready(function() {
 		var appsVV = parseFloat(getVersion());
 
 		alert(appsVV);
+		alert(navigator.appVersion);
 		if(appsVV > 0 && appsVV <  4.2){
 		 	$("<style type='text/css'> "+
 			'html,body{		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif ;}html * {	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif ;}input, select, textarea, button,a {	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important; }'+
