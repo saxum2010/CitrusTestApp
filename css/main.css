@@ -1858,5 +1858,5 @@ border-bottom: 1px solid #C8C7CC;
 }
 #product-card-images-contaner img{
 	  z-index: 1;
-	  position: relative;
+	  position: absolute;
 }
