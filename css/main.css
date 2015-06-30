@@ -1858,9 +1858,7 @@ border-bottom: 1px solid #C8C7CC;
 }
 #product-card-images-contaner img{
 	z-index: 1;
-	position: absolute;
-	top: 0px;
-  	right: 50%;
+	position: relative;
 }
 #state_and_specbonus{
 	z-index: 10;
