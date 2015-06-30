@@ -1853,12 +1853,15 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #product-card-images-contaner{
-	  z-index: 1;
-	  position: relative;
+	z-index: 1;
+	position: relative;
 }
 #product-card-images-contaner img{
-	  z-index: 1;
-	  position: absolute;
-	    top: 0px;
-  right: 50%;
+	z-index: 1;
+	position: absolute;
+	top: 0px;
+  	right: 50%;
 }
+#state_and_specbonus{
+	z-index: 10;
+} 
