@@ -1863,3 +1863,10 @@ border-bottom: 1px solid #C8C7CC;
 #state_and_specbonus{
 	z-index: 10;
 } 
+.owl-carousel .owl-item img {
+  transform-style: flat!important;
+}
+
+.owl-carousel .owl-item .owl-lazy {
+  transition: none!important;
+}
