@@ -391,18 +391,9 @@ $(document).ready(function() {
 		var appsVV = parseFloat(getVersion());
 
 		alert(appsVV);
-		alert(navigator.appVersion);
 
-		function getAndroidVersion(ua) {
-		    ua = (ua || navigator.userAgent).toLowerCase(); 
-		    var match = ua.match(/roid\s([0-9\.]*)/);
-		    return match ? match[1] : false;
-		};
+		//alert( parseInt(getVersion(), 10) ); //4
 
-		getAndroidVersion(); //"4.2.1"
-		alert( parseInt(getAndroidVersion(), 10) ); //4
-		
-		parseFloat(getAndroidVersion()); //4.2
 
 		if(appsVV > 0 && appsVV <  4.2){
 		 	$("<style type='text/css'> "+

@@ -613,8 +613,13 @@ function ShowMessage(type){
 }	
 
 function getVersion(ua) {
-    var ua = ua || navigator.userAgent; 
-    return ua.match(/(iPad|iPhone|iPod)/g) ? false : navigator.appVersion.slice(0,3);
+    var ua = (ua || navigator.userAgent).toLowerCase(); 
+	if(ua.match(/(ipad|iphone|ipod)/g)){
+		return false;
+	}else{
+		var match = ua.match(/roid\s([0-9\.]*)/);
+		return match ? match[1] : false;
+	}
 };
 
 function isIOS(ua) {
