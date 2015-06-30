@@ -1837,36 +1837,3 @@ border-bottom: 1px solid #C8C7CC;
 	top: 2.6rem;
 	left: 0;
 }
-
-
-
-#sticker_img img{
-	z-index: 10!important;
-}
-#sticker_img{
-	top: 0px;
-	right: 0px;
-	z-index: 10;
-	position: absolute;
-	width: 120px;
-	height: 120px;
-}
-
-#product-card-images-contaner{
-	z-index: 1;
-	position: relative;
-}
-#product-card-images-contaner img{
-	z-index: 1;
-	position: relative;
-}
-#state_and_specbonus{
-	z-index: 10;
-} 
-.owl-carousel .owl-item img {
-  transform-style: flat!important;
-}
-
-.owl-carousel .owl-item .owl-lazy {
-  transition: none!important;
-}
