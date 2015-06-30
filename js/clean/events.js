@@ -389,16 +389,16 @@ $(document).ready(function() {
 		  });
 		
 		var appsVV = parseFloat(getVersion());
+
+		alert(appsVV);
 		if(appsVV > 0 && appsVV <  4.2){
 		 	$("<style type='text/css'> "+
-
-'html,body{		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif ;}html * {	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif ;}input, select, textarea, button,a {	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important; }'+
-
+			'html,body{		font-family:"Helvetica Neue", Helvetica, Arial, sans-serif ;}html * {	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif ;}input, select, textarea, button,a {	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif !important; }'+
 		 	" </style>").appendTo("head");
 		 }
 
 		if(appsVV > 0 && appsVV <  4.1){
-			alert(appsVV);
+
 		 	$("<style type='text/css'> "+'#state_and_specbonus{display: none;}#sticker_img{display: none;}'+" </style>").appendTo("head");
 		 }
 	
