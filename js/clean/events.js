@@ -381,19 +381,10 @@ $(document).ready(function() {
 		  	  var id = $(value).attr("id");
 			 
 			  navpanelCopy.attr("id",id);
-		  	  $(value).replaceWith(navpanelCopy);
-		      
-			  
-			
-			  
+		  	  $(value).replaceWith(navpanelCopy);	      
 		  });
 		
 		var appsVV = parseFloat(getVersion());
-
-		alert(appsVV);
-
-		//alert( parseInt(getVersion(), 10) ); //4
-
 
 		if(appsVV > 0 && appsVV <  4.2){
 		 	$("<style type='text/css'> "+
