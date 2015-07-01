@@ -694,8 +694,9 @@ var main_images  = false;
 function LoadMainPageData(){
 	if(!main_page_load){
 		
+	var device =isIOS()?"apple":"3";
 	$.ajax({ 
-	  url: "http://m.citrus.ua/ajax/main.php?bb=1", 
+	  url: "http://m.citrus.ua/ajax/main.php?app="+device+"&bb=1", 
 	  dataType: 'json',
 	  async: true, 
 	  success: function( json ) {	
