@@ -1,4 +1,4 @@
-var app_ver = '107';
+var app_ver = '108';
 //--------------
 function supportsSVG() {
     return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGRect;
