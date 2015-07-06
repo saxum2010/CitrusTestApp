@@ -1,4 +1,5 @@
-﻿
+﻿var prev_page_pesonal;
+
 $(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
 
 
@@ -100,8 +101,7 @@ $( document ).on( "pageshow", "#page-order", function() {
 });
 $( document ).on( "pageshow", "#page-personal", function() {
 	ShowLoading();
-	alert($.mobile.activePage.prev('[data-role=page]'));
-	$("#page-personal").attr('prev_page', $.mobile.activePage.prev('[data-role=page]'));
+	prev_page_pesonal = $.mobile.activePage.prev('[data-role=page]');
 	MobileUser.UserInfo(FillPersonalPageFields);
 });
 
@@ -591,8 +591,7 @@ $(document).on("pageshow", function () {
 });
 
 $(document).on('click', '.ico-back-personal', function () {
-	var previous = $("#page-personal").attr('prev_page');
-	$.mobile.changePage(previous, { 
+	$.mobile.changePage(prev_page_pesonal, { 
 	transition: 'slide',
 	reverse: true });
 });
