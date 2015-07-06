@@ -574,7 +574,7 @@ $(function () {
   $("#nav-panel").panel().enhanceWithin();
 });
 
-$.event.special.swipe.horizontalDistanceThreshold = 100;
+$.event.special.swipe.horizontalDistanceThreshold = 30;
 $(document).on("swiperight swipeleft", function(e) {
    	if($(e.target).hasClass('owl-lazy')){
 	}else if($.mobile.activePage.jqmData("panel")!=="open"){
