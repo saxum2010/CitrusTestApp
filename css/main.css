@@ -1837,3 +1837,11 @@ border-bottom: 1px solid #C8C7CC;
 	top: 2.6rem;
 	left: 0;
 }
+
+#filter-listview{
+	padding-bottom: 3rem!important;
+}
+
+#filter-listview .ui-last-child a{
+	border-bottom: none!important;
+}
