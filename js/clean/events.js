@@ -100,6 +100,7 @@ $( document ).on( "pageshow", "#page-order", function() {
 });
 $( document ).on( "pageshow", "#page-personal", function() {
 	ShowLoading();
+	$("#page-personal").attr('prev_page', $.mobile.activePage.prev('[data-role=page]'));
 	MobileUser.UserInfo(FillPersonalPageFields);
 });
 
@@ -588,9 +589,9 @@ $(document).on("pageshow", function () {
 	getUserBonusPanel();
 });
 
-$(document).on('click', '.ico-back', function () {
- var previous = $.mobile.activePage.prev('[data-role=page]');
- $.mobile.changePage(previous, { 
-  transition: 'slide',
-  reverse: true });
+$(document).on('click', '.ico-back-personal', function () {
+	var previous = $("#page-personal").attr('prev_page');
+	$.mobile.changePage(previous, { 
+	transition: 'slide',
+	reverse: true });
 });
