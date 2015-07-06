@@ -587,3 +587,10 @@ $(document).on("swiperight swipeleft", function(e) {
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
 });
+
+$(document).on('click', '.ico-back', function () {
+ var previous = $.mobile.activePage.prev('[data-role=page]');
+ $.mobile.changePage(previous, { 
+  transition: 'slide',
+  reverse: true });
+});
