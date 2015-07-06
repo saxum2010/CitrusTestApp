@@ -100,7 +100,7 @@ $( document ).on( "pageshow", "#page-order", function() {
 });
 $( document ).on( "pageshow", "#page-personal", function() {
 	ShowLoading();
-	alert($.mobile.activePage.prev('[data-role=page]');
+	alert($.mobile.activePage.prev('[data-role=page]'));
 	$("#page-personal").attr('prev_page', $.mobile.activePage.prev('[data-role=page]'));
 	MobileUser.UserInfo(FillPersonalPageFields);
 });
