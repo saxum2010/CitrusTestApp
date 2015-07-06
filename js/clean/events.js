@@ -1,6 +1,4 @@
-﻿var prev_page_pesonal;
-
-$(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
+﻿$(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
 
 
     try {
@@ -99,9 +97,9 @@ $( document ).on( "pageshow", "#page-order", function() {
 	MobileUser.UserInfo(FillOrderPageFields);
 		
 });
+
 $( document ).on( "pageshow", "#page-personal", function() {
 	ShowLoading();
-	prev_page_pesonal = $.mobile.activePage.prev('[data-role=page]');
 	MobileUser.UserInfo(FillPersonalPageFields);
 });
 
@@ -588,10 +586,4 @@ $(document).on("swiperight swipeleft", function(e) {
 
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
-});
-
-$(document).on('click', '.ico-back-personal', function () {
-	$.mobile.changePage(prev_page_pesonal, { 
-	transition: 'slide',
-	reverse: true });
 });
