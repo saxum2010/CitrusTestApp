@@ -1864,7 +1864,7 @@ function getGetUserPushList(json){
 		var output = "";
 		 if(json.user_push !== undefined ){
 			 $.each(json.user_push, function( key, value ) {
-					output += '<li><a data-transition="slide" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r goPushEvent" pevent="'+value.citrus_event+'" pid="'+value.citrus_id+'">'+value.datetitle+'<br/><h2 class="item_name_only product">'+value.title+'</h2><span class=preview_text>'+value.message+'</span></a></li>';
+					output += '<li><a data-transition="slide" data-ajax="false" class="ui-btn ui-btn-icon-right ui-icon-carat-r goPushEvent" pevent="'+value.citrus_event+'" pid="'+value.citrus_id+'"><span class=preview_text>'+value.datetitle+'</span><br/><h2 class="item_name_only product">'+value.title+'</h2><span class=preview_text>'+value.message+'</span></a></li>';
 				});
 		 }else{
 		 	output = "<div class='no_wish'>У вас пока нет сообщений.</div>";	
