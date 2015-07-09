@@ -562,7 +562,7 @@ function loadProductCard(id,owl){
 					var output ="";
 					$.each(json.product_actions,function(key,item){
 						if(item.text_page_id>0){
-							output += '<li class=""><a class="" onclick="Showtextpage('+item.text_page_id+')"><h2>'+item.name+'</h2>'+item.content+'</a></li>';
+							output += '<li class=""><a class="product_actions_gas" onclick="Showtextpage('+item.text_page_id+')"><h2>'+item.name+'</h2>'+item.content+'</a></li>';
 						}else{
 							output += '<li class=""><h2>'+item.name+'</h2>'+item.content+'</li>';
 						}
@@ -571,7 +571,7 @@ function loadProductCard(id,owl){
 					 $('#product-actions-listview').html(output).listview("refresh");
 					}else{
 						$("#product_actions_block").hide();
-				}
+					}
 				
 				$('#product-card-content').show();
 				ProssedTapEvents();

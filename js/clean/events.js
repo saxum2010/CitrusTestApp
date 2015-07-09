@@ -587,3 +587,12 @@ $(document).on("swiperight swipeleft", function(e) {
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
 });
+
+$(document).on('click', '#product-card-info', function(){
+	GA_event('Action block on product page', 'click-on-dropdown-aktsia', $('#product-card-content h2').first().text());
+});
+
+$(document).on('click', '.product_actions_gas', function(){
+	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
+});
+
