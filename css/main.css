@@ -1845,6 +1845,11 @@ border-bottom: 1px solid #C8C7CC;
 	border-bottom: none!important;
 }
 
+#product-actions-listview{
+	padding-left: 0!important;
+	margin: 0!important;
+}
+
 #product-actions-listview,
 #product-actions-listview li,
 #product-actions-listview b,
