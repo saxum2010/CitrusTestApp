@@ -531,27 +531,23 @@ function loadProductCard(id,owl){
 				$("#product-card-prices").html(prices);
 				$("#product-card-old_prices").html(json.old_price);
 				
-					if(json.accs !== undefined){
-						
-				
+				if(json.accs !== undefined){
 					var output ="";
-					
 					$.each( json.accs, function( key, value ) {
 					if(value!=null){
 					var url ;			
 					url = "#product-card?product-id=" + value.id;
 					var row2 = '';
 						row2 = '<div class="price">'+value.price+' грн</div>';	
-					
-					
 					var prop = "";
 					if(value.props!= undefined){
 						prop = value.props;
 					}
 					
-					output += '<li class=""><a data-transition="slide" data-ajax=false product_id="'+value.id+'" class="vclick_link_product"  > 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only product">' + value.name + '</h2>'+row2+'</div> 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
+					output += '<li class=""><a data-transition="slide" data-ajax=false product_id="'+value.id+'" class="vclick_link_product"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'</div></td><td style="width:25px"></td></tr></table></a></li>';
 					}
 					});
+					
 					 $("#accs_container").show();
 					 $('#accs-listview').html(output).listview("refresh");
 					}else{
@@ -560,9 +556,22 @@ function loadProductCard(id,owl){
 
 					if(owlreinit!= undefined && owlreinit ==true){
 						ReinitowlProductCard();
-						
 					}
 
+				if(json.product_actions !== undefined){
+					var output ="";
+					$.each(json.product_actions,function(key,item){
+						if(item.text_page_id>0){
+							output += '<li class=""><a class="" onclick="Showtextpage('+item.text_page_id+')"><h2>'+item.name+'</h2>'+item.content+'</a></li>';
+						}else{
+							output += '<li class=""><h2>'+item.name+'</h2>'+item.content+'</li>';
+						}
+					});
+					 $("#product_actions_block").show();
+					 $('#product-actions-listview').html(output).listview("refresh");
+					}else{
+						$("#product_actions_block").hide();
+				}
 				
 				$('#product-card-content').show();
 				ProssedTapEvents();

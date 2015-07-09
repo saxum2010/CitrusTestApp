@@ -1845,3 +1845,32 @@ border-bottom: 1px solid #C8C7CC;
 #filter-listview .ui-last-child a{
 	border-bottom: none!important;
 }
+
+#product-actions-listview,
+#product-actions-listview li,
+#product-actions-listview b,
+#product-actions-listview a{
+	color: #000;
+	white-space:normal!important;
+}
+
+#product-actions-listview a:after{
+	display: inline-block;
+}
+
+#product-actions-listview h2{
+	font-weight: bold!important;
+}
+
+#product_actions_block{
+	margin-top: 6px;
+	border-top: 1px solid #C8C7CC;
+}
+
+#product-actions-listview .ui-li-static{
+	padding: 1rem!important;
+}
+
+#product-actions-listview .ui-icon-carat-r{
+	padding-right: 2rem!important;
+}
