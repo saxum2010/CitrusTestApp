@@ -1,7 +1,7 @@
 (function( $ ){
 
 	$.fn.pullToRefresh = function( options ) {
-
+alert('2');
 		var isTouch = !!('ontouchstart' in window),
 			cfg = $.extend(true, {
 			  message: {
