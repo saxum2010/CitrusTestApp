@@ -597,10 +597,11 @@ $(document).on('click', '.product_actions_gas', function(){
 });
 
 (function () {
-    $('.scrollable').pullToRefresh({
+    $('.ui-page').pullToRefresh({
         callback: function () {
             var deferred = $.Deferred();
             setTimeout(function () {
+            	alert('1');
                 // Simulate a refresh: add 3 items to the list
                 location.reload();
                 deferred.resolve();
