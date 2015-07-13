@@ -27,7 +27,7 @@
 			}
 
 			var e = $(this).prepend(html),
-				content = e.find('.wrap'),
+				content = e.find('[data-role="content"]'),
 				ptr = e.find('.pull-to-refresh'),
 				arrow = e.find('.arrow'),
 				spinner = e.find('.spinner'),
