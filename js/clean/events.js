@@ -597,16 +597,18 @@ $(document).on('click', '.product_actions_gas', function(){
 });
 
 (function () {
-    $('.ui-page').pullToRefresh({
-        callback: function () {
-            var deferred = $.Deferred();
-            setTimeout(function () {
-            	alert('1');
-                // Simulate a refresh: add 3 items to the list
-                location.reload();
-                deferred.resolve();
-            }, 2000);
-            return deferred.promise();
-        }
-    });
+	$.each($('.ui-page'), function(key, val){
+			$(val).pullToRefresh({
+	        callback: function () {
+	            var deferred = $.Deferred();
+	            setTimeout(function () {
+	            	alert('1');
+	                // Simulate a refresh: add 3 items to the list
+	                location.reload();
+	                deferred.resolve();
+	            }, 2000);
+	            return deferred.promise();
+	        }
+	    });
+	});
 }());
