@@ -597,8 +597,7 @@ $(document).on('click', '.product_actions_gas', function(){
 });
 
 $(document).ready(function() {	
-	$.each($('.ui-page'), function(key, val){
-			$(val).pullToRefresh({
+	$('.scrollable').pullToRefresh({
 	        callback: function () {
 	            var deferred = $.Deferred();
 	            setTimeout(function () {
@@ -610,5 +609,4 @@ $(document).ready(function() {
 	            return deferred.promise();
 	        }
 	    });
-	});
 });

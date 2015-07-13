@@ -26,7 +26,7 @@
 			}
 
 			var e = $(this).prepend(html),
-				content = e.find('[data-role="content"]'),
+				content = e.find('.ui-page'),
 				ptr = e.find('.pull-to-refresh'),
 				arrow = e.find('.arrow'),
 				spinner = e.find('.spinner'),
