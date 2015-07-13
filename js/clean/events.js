@@ -584,6 +584,7 @@ $(document).on("swiperight swipeleft", function(e) {
 	}
 });
 
+$.event.special.swipe.verticalDistanceThreshold = 10;
 $(document).on("swipedown", function(e) {
 	alert('swipedown');
 });
