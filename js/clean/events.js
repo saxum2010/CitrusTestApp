@@ -584,6 +584,14 @@ $(document).on("swiperight swipeleft", function(e) {
 	}
 });
 
+$(document).on("swipedown", function(e) {
+	alert('swipedown');
+});
+
+$(document).on("swipeup", function(e) {
+	alert('swipeup');
+});
+
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
 });
@@ -596,17 +604,3 @@ $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
 });
 
-$(document).ready(function() {	
-	$('.scrollable').pullToRefresh({
-	        callback: function () {
-	            var deferred = $.Deferred();
-	            setTimeout(function () {
-	            	alert('1');
-	                // Simulate a refresh: add 3 items to the list
-	                location.reload();
-	                deferred.resolve();
-	            }, 2000);
-	            return deferred.promise();
-	        }
-	    });
-});
