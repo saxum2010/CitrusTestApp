@@ -596,7 +596,7 @@ $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
 });
 
-(function () {
+$(document).ready(function() {	
 	$.each($('.ui-page'), function(key, val){
 			$(val).pullToRefresh({
 	        callback: function () {
@@ -611,4 +611,4 @@ $(document).on('click', '.product_actions_gas', function(){
 	        }
 	    });
 	});
-}());
+});
