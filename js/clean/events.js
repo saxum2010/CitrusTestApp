@@ -584,6 +584,12 @@ $(document).on("swiperight swipeleft", function(e) {
 	}
 });
 
+$(document).on("swipedown", function(e) {
+	ShowLoading();
+	location.reload();
+	$.mobile.loading( "hide" );
+});
+
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
 });
