@@ -610,13 +610,12 @@ $(function() {
 	$("#ui-page-top").swipe( {
 	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 		if(direction=='down'){
-            var deferred = $.Deferred();
 			ShowLoading();
+            var deferred = $.Deferred();
             setTimeout(function () {
 				location.reload();
 				$.mobile.loading("hide");
             }, 2000);
-
             return deferred.promise();
 		}
 	},
