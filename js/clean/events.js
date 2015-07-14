@@ -584,15 +584,6 @@ $(document).on("swiperight swipeleft", function(e) {
 	}
 });
 
-$.event.special.swipe.verticalDistanceThreshold = 10;
-$(document).on("swipedown", function(e) {
-	alert('swipedown');
-});
-
-$(document).on("swipeup", function(e) {
-	alert('swipeup');
-});
-
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
 });
@@ -604,4 +595,3 @@ $(document).on('click', '#product-card-info', function(){
 $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
 });
-
