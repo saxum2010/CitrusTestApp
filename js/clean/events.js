@@ -574,7 +574,7 @@ $(function () {
   $("#nav-panel").panel().enhanceWithin();
 });
 
-$.event.special.swipe.horizontalDistanceThreshold = 10;
+/*$.event.special.swipe.horizontalDistanceThreshold = 10;
 $(document).on("swiperight swipeleft", function(e) {
    	if($(e.target).hasClass('owl-lazy')){
 	}else if($.mobile.activePage.jqmData("panel")!=="open"){
@@ -582,7 +582,7 @@ $(document).on("swiperight swipeleft", function(e) {
 			$("#nav-panel").panel().panel("open");
 		}
 	}
-});
+});*/
 
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
@@ -596,10 +596,15 @@ $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
 });
 
+/*
+$.event.special.swipe.scrollSupressionThreshold = 10; // More than this horizontal displacement, and we will suppress scrolling.
+$.event.special.swipe.horizontalDistanceThreshold = 30; // Swipe horizontal displacement must be more than this.
+$.event.special.swipe.durationThreshold = 500;  // More time than this, and it isn't a swipe.
+$.event.special.swipe.verticalDistanceThreshold = 75; // Swipe vertical displacement must be less than this.
 $(document).on("swipe", function(e) {
    	alert(e.type);
 });
-
+*/
 
 $(function() {			
 	$("#main").swipe( {
