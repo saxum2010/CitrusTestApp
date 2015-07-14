@@ -574,7 +574,7 @@ $(function () {
   $("#nav-panel").panel().enhanceWithin();
 });
 
-/*$.event.special.swipe.horizontalDistanceThreshold = 10;
+$.event.special.swipe.horizontalDistanceThreshold = 10;
 $(document).on("swiperight swipeleft", function(e) {
    	if($(e.target).hasClass('owl-lazy')){
 	}else if($.mobile.activePage.jqmData("panel")!=="open"){
@@ -582,7 +582,7 @@ $(document).on("swiperight swipeleft", function(e) {
 			$("#nav-panel").panel().panel("open");
 		}
 	}
-});*/
+});
 
 $(document).on("pageshow", function () {
 	getUserBonusPanel();
@@ -609,8 +609,16 @@ $(document).on("swipe", function(e) {
 $(function() {			
 	$("#ui-page-top").swipe( {
 	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-		alert(direction);
-		//$(this).text("You swiped " + direction );	
+		if(direction=='down'){
+            var deferred = $.Deferred();
+			ShowLoading();
+            setTimeout(function () {
+				location.reload();
+				$.mobile.loading("hide");
+            }, 2000);
+
+            return deferred.promise();
+		}
 	},
 	threshold:0
 	});
