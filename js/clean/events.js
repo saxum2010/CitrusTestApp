@@ -599,3 +599,14 @@ $(document).on('click', '.product_actions_gas', function(){
 $(document).on("swipe", function(e) {
    	alert(e.type);
 });
+
+
+$(function() {			
+	$("#main").swipe( {
+	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+	alert(direction);
+		$(this).text("You swiped " + direction );	
+	},
+	threshold:0
+	});
+});
