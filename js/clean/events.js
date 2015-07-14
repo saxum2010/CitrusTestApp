@@ -607,10 +607,10 @@ $(document).on("swipe", function(e) {
 */
 
 $(function() {			
-	$("#main").swipe( {
+	$("#ui-page-top").swipe( {
 	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-	alert(direction);
-		$(this).text("You swiped " + direction );	
+		alert(direction);
+		//$(this).text("You swiped " + direction );	
 	},
 	threshold:0
 	});
