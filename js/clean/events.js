@@ -1,45 +1,28 @@
-﻿$(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
-
-
+﻿var savePos = null;
+$(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
     try {
-
         GA_track(window.location.hash);
-
     } catch (err) {
         console.log("GA_track error:");
         console.log(err);
     }
-
-
 });
-
 // GoogleAnalytics
-
 
 // Инициализайция Jquery Mobile
 $(document).bind('mobileinit', function () {
-
-	
 });
 
 //  Эвент перед созданием страницы Jquery Mobile
 $(document).delegate("#main", "pagebeforecreate", function () {
-		
 }); 
 
 // Эвент создания страницы main Jquery Mobile
 $( document ).on( "pagecreate", "#main", function() {
-		
-			 
 });
 
 $( document ).on( "pageinit", "#search-page", function() {
-
-		//$("#search-page-search-input").focus();
-       // return false;
-			 
 });
-
 
 // Эвент создания страницы Cписка Jquery Mobile
 //setup before functions
@@ -609,4 +592,8 @@ $("#ui-page-top").swipe( {
 		}
 	},
 	threshold:0
+});
+
+$(document).on('click', '#products-list li a', function() {
+	savePos = $(this).parent('li').index();
 });
