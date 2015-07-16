@@ -596,7 +596,6 @@ $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
 });
 
-
 $("#ui-page-top").swipe( {
 	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
 		if(direction=='down'){
@@ -610,5 +609,4 @@ $("#ui-page-top").swipe( {
 		}
 	},
 	threshold:0
-	});
 });
