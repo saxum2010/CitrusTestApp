@@ -596,3 +596,19 @@ $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
 });
 
+
+$("#ui-page-top").swipe( {
+	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+		if(direction=='down'){
+			ShowLoading();
+            var deferred = $.Deferred();
+            setTimeout(function () {
+				location.reload();
+				$.mobile.loading("hide");
+            }, 2000);
+            return deferred.promise();
+		}
+	},
+	threshold:0
+	});
+});
