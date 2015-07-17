@@ -1304,8 +1304,8 @@ function ShowFilter(link,back){
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)},
 	  success: function( json ) {
+	  		$('#products-listview').html("");
 			 var output = "";
-
 			 var filter_items= "";
 			 FilterEnums.active_link = link;
 			 $.each( json.items, function( key, value ) {
@@ -1357,18 +1357,15 @@ function ShowFilterEnums(id,name,section_id){
 			 FilterEnums.active_prop_id = id;	
 			 
 			 $.each( json, function( key, value ) {
-			   if(value.usage != undefined && value.usage=="1"){
-			 	
-			 
+			   //if(value.usage != undefined && value.usage=="1"){
 			 		var check_box = "checkbox_24x24";
 					var check_box_ch = "N";
 					if($.inArray(value.id,FilterEnums.enums) !==-1){
 						check_box  = "checkbox-hover_24x24";
 						 check_box_ch = "Y";
 					}
-			 		
-			 		filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="'+check_box_ch+'"  enum_id="'+value.id+'"> 					<table style="width:100%"> 						<tr> 											<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only">' + value.value + '</h2>	</td> 							<td style="width:40px"> 	<img class="check_img"  src="img/png/'+check_box+'.png" >	</td> 						</tr> 					</table> 					 				</a></li>';
-				}	
+			 		filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="'+check_box_ch+'"  enum_id="'+value.id+'"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><img class="check_img"  src="img/png/'+check_box+'.png"></td></tr></table></a></li>';
+				//}	
 			 });
 			$("#filter_prop_name").html(name);
 			$('#filter-props-values-listview').html(filter_items);
