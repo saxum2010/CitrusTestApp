@@ -673,6 +673,7 @@ function ProssedTapEvents(){
 			savePos = $(this).parent('li').index();
 		}
 			$('.vclick_d_link').unbind();
+			$('#search-page-search-input').val("");
 			$('#products-listview').html("");
 			$('#search-listview').html("");
 			event.stopPropagation();
