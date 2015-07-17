@@ -1911,3 +1911,7 @@ border-bottom: 1px solid #C8C7CC;
 	margin-bottom: 0;
 	padding-top: 1rem;
 }
+
+#products-list #products-listview {
+	padding-bottom: 3rem!important;
+}
