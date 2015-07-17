@@ -30,19 +30,22 @@ var typingTimer;                //timer identifier
 var doneTypingInterval = 1000;  //time in ms, 5 second for example
 $( document ).on( "pagecreate", "#search-page", function() {
 		
-		$("#search-page-search-input").keyup(function() {
+		/*$("#search-page-search-input").keyup(function() {
 		  clearTimeout(typingTimer);
-		  
 		  typingTimer = setTimeout(InitSearch, doneTypingInterval);
-		 
 		});
-		//on keydown, clear the countdown 
 		$('#search-page-search-input').keydown(function(){
 		    clearTimeout(typingTimer);
+		});*/
+
+		$('#search-page-search-input').keypress(function(e){
+		    if(e.which == 13) {
+				InitSearch();
+			}
 		});
-        //on keydown, clear the countdown
+		
         $('#seach-input-button').on("click",function(){
-            clearTimeout(typingTimer);
+            //clearTimeout(typingTimer);
             InitSearch();
         });
 });

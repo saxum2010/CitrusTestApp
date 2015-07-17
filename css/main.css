@@ -1904,3 +1904,10 @@ border-bottom: 1px solid #C8C7CC;
 	z-index: 1000;
 	cursor: pointer;
 }
+
+.bad_search_result {
+	padding-left: 26px!important;
+	background-color: #fff!important;
+	margin-bottom: 0;
+	padding-top: 1rem;
+}
