@@ -1883,3 +1883,24 @@ border-bottom: 1px solid #C8C7CC;
 	color: #F47317;
 	font-weight: bold;
 }
+
+.more_sms{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+
+#global-up-button{
+	background-image: url(../img/svg/mobapp-arrow_to_top-icon.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	height: 40px;
+	width: 40px;
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	cursor: pointer;
+}

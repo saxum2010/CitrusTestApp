@@ -250,6 +250,7 @@ function LoadDefaultCatalog(category,position,count){
 
 			if(showFootbar){
 				$("#catalog-footer").show();
+				$("#global-up-button").css('bottom','60px');
 				$("#filter_btn").unbind();
 				$("#filter_btn").on("click",function(){
 					ShowFilter(category);

@@ -568,6 +568,7 @@ $(document).on("swiperight swipeleft", function(e) {
 });
 
 $(document).on("pageshow", function () {
+	$("#global-up-button").css('bottom','16px');
 	getUserBonusPanel();
 });
 
@@ -592,4 +593,27 @@ $("#ui-page-top").swipe( {
 		}
 	},
 	threshold:0
+});
+
+$(document).ready(function() {
+	var upb=$('#global-up-button');
+	if(window.scrollY > 100) {
+		upb.fadeIn();
+	}else{
+		upb.fadeOut();
+	}
+
+	$(document).on("scrollstart",function(){
+		if ($(this).scrollTop() > 100) {
+			upb.fadeIn();
+		}else{
+			upb.fadeOut();
+		}	
+	});
+
+	upb.on('click', function(){
+		 $('html,body').animate({scrollTop: 0},500);
+		 upb.fadeOut();
+		 return false;
+	}); 
 });
