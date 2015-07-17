@@ -593,7 +593,3 @@ $("#ui-page-top").swipe( {
 	},
 	threshold:0
 });
-
-$(document).on('click', '#products-list li a', function() {
-	savePos = $(this).parent('li').index();
-});
