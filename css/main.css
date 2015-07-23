@@ -767,8 +767,17 @@ font-weight: 400;
 	display: none;
 }
 .edit_mode .delete_td{
-	display: table-cell;
-	width:34px;
+	padding-left: 1rem;
+	padding-right:1rem; 
+}
+.edit_mode .delete_td_2{
+	padding-right:1rem; 
+}
+.edit_mode .middle_td{
+	padding-right:5px;
+	padding-left:1.1rem;
+	vertical-align:middle;
+	text-align:left;
 }
 .select_basket__cnr select {
 padding: 0;

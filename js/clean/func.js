@@ -195,12 +195,17 @@ function LoadDefaultCatalog(category,position){
 					url = "#product-card?product-id=" + value.id;
 					
 					var row2 = '';
-					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
+					var price_rep = value.price;
+
+					value.price = price_rep.replace(/\s+/g,'');
+
+					if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div>';	
-					}else if(parseInt(value.price) > 1){
+
+					}else if(parseInt(value.price, 10) > 1){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 					}else{
-						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
+						row2 = '<div class="status">'+value.can_buy_status+'</div>';
 					}
 					
 					var prop = "";
@@ -857,7 +862,7 @@ function DoLoadBasketItems(json){
 					else{
 						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
 					}
-					cart_items += '<li id="basket_item_li_'+value.basket_id+'" class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"> 					<table style="width:100%"> 						<tr> 						<td class="delete_td"><img  item_id="'+value.basket_id+'"  class="delete_img" src="img/png/delete.png"></td>		<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 id="basket_item_name_'+value.basket_id+'" class="item_name_only '+dop_class+'">' + value.name + '</h2>'+row2+' 							</td> 							<td style="width:25px" class="delete_td"> 		<div item_id="'+value.basket_id+'" class="select_basket__cnr mini_btn green">'+echoSelectBox(value.qnt)+'</div>					</td> 						</tr> 					</table> 					 				</a></li>';
+					cart_items += '<li id="basket_item_li_'+value.basket_id+'" class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"> 					<table style="width:100%"> 						<tr> 						<td class="delete_td"><img  item_id="'+value.basket_id+'"  class="delete_img" src="img/png/delete.png"></td>		<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td class="middle_td"> 								<h2 id="basket_item_name_'+value.basket_id+'" class="item_name_only '+dop_class+'">' + value.name + '</h2>'+row2+' 							</td> 							<td style="width:25px" class="delete_td_2"> 		<div item_id="'+value.basket_id+'" class="select_basket__cnr mini_btn green">'+echoSelectBox(value.qnt)+'</div>					</td> 						</tr> 					</table> 					 				</a></li>';
 		});
 		$("#cart-status").html("");
 		$('#cart-list').html(cart_items).listview("refresh");
