@@ -1887,3 +1887,6 @@ border-bottom: 1px solid #C8C7CC;
 #product-actions-listview .ui-icon-carat-r{
 	padding-right: 2rem!important;
 }
+#nav-panel{
+	position: fixed;
+}
