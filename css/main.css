@@ -1898,3 +1898,9 @@ border-bottom: 1px solid #C8C7CC;
 	width: 260px;
 	height: 100%;
 }
+.notes_phone{
+	text-align: center;
+}
+.notes_phone_cards{
+	padding-bottom: 24px;
+}
