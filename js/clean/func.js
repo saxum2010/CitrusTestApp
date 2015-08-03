@@ -924,23 +924,24 @@ function LoadCardInfo(info){
 	
 }
 function LoadTextPage(id,data){
-		var send_data = data || "";
-		$.ajax({
-		  url: "http://m.citrus.ua/ajax/on/text-page.php?app=1&id="+id+send_data,
-		  beforeSend: function( xhr ) {
-		   ShowLoading();
-		  }
-		})
-		  .done(function( data ) {
-		    $.mobile.loading( "hide" );
-			$('#text-page-content').html(data);
-			$('.social-likes').socialLikes();
+	var send_data = data || "";
+	$.ajax({
+	  url: "http://m.citrus.ua/ajax/on/text-page.php?app=1&id="+id+send_data,
+	  beforeSend: function( xhr ) {
+	   ShowLoading();
+	  }
+	})
+	  .done(function( data ) {
+	    $.mobile.loading( "hide" );
+		$('#text-page-content').html(data);
+		$('.social-likes').socialLikes();
 
-			function func() {
-				alert($('.social-likes_ready').attr('data-url'));
-			}
-			setTimeout(func, 10000);
-		});
+		function func() {
+			alert($('.social-likes_ready').attr('data-url'));
+			alert($('.social-likes__widget_facebook').attr('title'));
+		}
+		setTimeout(func, 10000);
+	});
 	
 }
 function MakeOrder(){
