@@ -934,9 +934,10 @@ function LoadTextPage(id,data){
 	  .done(function( data ) {
 	    $.mobile.loading( "hide" );
 		$('#text-page-content').html(data);
-		$('.social-likes').socialLikes();
+		
 
 		function func() {
+			$('.social-likes').socialLikes();
 			alert($('.social-likes').attr('data-url'));
 			alert($('.social-likes_ready').attr('data-url'));
 		}
