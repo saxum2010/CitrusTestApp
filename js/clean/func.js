@@ -935,11 +935,11 @@ function LoadTextPage(id,data){
 		    $.mobile.loading( "hide" );
 			$('#text-page-content').html(data);
 			$('.social-likes').socialLikes();
-			
+
 			function func() {
 				alert($('.social-likes_ready').attr('data-url'));
 			}
-			setTimeout(func, 3000);
+			setTimeout(func, 10000);
 		});
 	
 }
