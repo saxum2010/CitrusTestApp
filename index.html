@@ -57,6 +57,7 @@
         <li class="world"><a href="#products-list" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"   ><i class="c_icon c_catalog"></i><div class="text">Каталог товаров</div></a></li>
         <li class="world"><a href="#search-page" onclick="CheckHrefChange(this)"    class="panel-menu-item"   data-role="button"  ><i class="c_icon c_search"></i><div class="text">Поиск</div></a></li>
         <li class="world"><a href="#page-cart" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Корзина</div></a></li>
+        <li class="world"><a href="#services-page" onclick="CheckHrefChange(this)"   data-role="button"   class="panel-menu-item"    ><i class="c_icon c_basket_simple"></i><div class="text">Цитрус Сервисы</div></a></li>
         <li class="world"><a href="#actions-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_action"></i><div class="text">Акции</div></a></li>
         <li ><a href="#news-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_news"></i><div class="text">Новости</div></a></li>
         <li class="world"><a href="#gadgets-page" onclick="CheckHrefChange(this)"    data-role="button"   class="panel-menu-item"   ><i class="c_icon c_gadgets"></i><div class="text">Гаджетариум</div></a></li>
@@ -123,8 +124,11 @@
         <div class="product-card-module-cr last">
             <a href="#news-page"><div  class="product-card-module main-module module link"><i class="c_icon c_news gray main_page_icon"></i>Новости</div></a>
         </div>
-        <div class="product-card-module-cr world last">
+        <div class="product-card-module-cr world">
             <a href="#gadgets-page"><div class="product-card-module main-module module link"><i class="c_icon c_gadgets gray main_page_icon"></i>Гаджетариум</div></a>
+        </div>
+        <div class="product-card-module-cr world last">
+            <a href="#services-page"><div class="product-card-module main-module module link"><i class="c_icon c_gadgets gray main_page_icon"></i>Цитрус Сервисы</div></a>
         </div>
         <div class="product-card-module-cr last">
             <a onclick="Showtextpage(209590)"><div class="product-card-module main-module module link"><i class="c_icon c_career gray main_page_icon"></i>Цитрус Карьера</div></a>
@@ -1102,6 +1106,30 @@
     </div>
 </div>
 <!-- / Страница детальное желание Конец-->
+
+<!-- Цитрус Сервисы Начало -->
+<div data-role="page" id="services-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext" class="ui-noshadow BackButton" onclick="$.mobile.back();">
+            <i class="c_icon c_back"></i>
+            <span id="CatalogBack"></span>
+        </a>
+        <div class="bnt-menu-panel-right"></div>        
+    </div>  
+<div class="navPanelChild" id="nav-panel-products-list"></div>
+    <div data-role="content">
+        <ul data-role="listview" data-theme="b" data-2inset="true" id="services-listview" class="ui-listview ui-group-theme-b">
+            <li class="ui-first-child"><a onclick="Showtextpage(213206)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="/img/png/citrus-ua-circle-master.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Мастер</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(213210)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="/img/png/citrus-ua-circle-obmen.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Обмен</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(213340)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="/img/png/citrus-ua-circle-zaschita.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Защита</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(232066)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="/img/png/citrus-ua-circle-kredity.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Кредиты</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="Showtextpage(232183)"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="/img/png/citrus-ua-circle-academy.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Академия</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+            <li class="ui-first-child"><a onclick="window.open('http://tickets.citrus.ua/', '_system', 'location=yes');return false;" target="_blank" class="external-link-icon service_external_link"><table style="width:100%"><tbody><tr><td class="service_td_64"><img src="/img/png/citrus-ua-circle-bilety.png"></td><td class="service_td"><div class="box_catalog_status"></div><h2 class="item_name_only">Цитрус Билеты</h2></td><td style="width:25px"></td></tr></tbody></table></a></li>
+        </ul>
+        <div id="catalog-footer-load"></div>                
+    </div>      
+</div>
+<!-- / Цитрус Сервисы товаров Конец-->
 
 <div id="global-up-button"></div>
 

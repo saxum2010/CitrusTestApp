@@ -1915,3 +1915,22 @@ border-bottom: 1px solid #C8C7CC;
 #products-list #products-listview {
 	padding-bottom: 3rem!important;
 }
+
+
+#services-listview{
+	padding-left: 16px;
+}
+
+.service_td{
+	vertical-aling:middle;text-align:left;padding-left:1.1rem;
+}
+
+.service_td_64{
+	vertical-align: middle;text-align:center;width:64px
+}
+
+.service_external_link:after{
+	right: 18px!important;
+	width: 27px!important;
+	height: 25px!important;
+}
