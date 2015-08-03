@@ -938,7 +938,8 @@ function LoadTextPage(id,data){
 
 		function func() {
 			alert($('.social-likes_ready').attr('data-url'));
-			alert($('.social-likes__widget_facebook').attr('title'));
+			alert($('#disqus_thread').attr('data-url'));
+			alert($('.twitter').attr('data-via'));
 		}
 		setTimeout(func, 10000);
 	});
