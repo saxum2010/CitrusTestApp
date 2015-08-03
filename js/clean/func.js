@@ -934,8 +934,24 @@ function LoadTextPage(id,data){
 		  .done(function( data ) {
 		    $.mobile.loading( "hide" );
 			$('#text-page-content').html(data);
+			$('.social-likes').socialLikes();
+			var url_disqus_thread = $('#disqus_thread').attr('data-url');
+			LoadDisqus(url_disqus_thread);
 		});
 	
+}
+function LoadDisqus(url) {
+  window.disqus_shortname = 'citrus-ua';
+  window.disqus_url = url;
+
+  (function() {
+    window.dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] ||
+      document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 }
 function MakeOrder(){
 	if(MobileUser.IsAuthorized){
