@@ -934,14 +934,10 @@ function LoadTextPage(id,data){
 	  .done(function( data ) {
 	    $.mobile.loading( "hide" );
 		$('#text-page-content').html(data);
-		
 
-		function func() {
+		if( $("div").is(".social-likes") ){
 			$('.social-likes').socialLikes();
-			alert($('.social-likes').attr('data-url'));
-			alert($('.social-likes_ready').attr('data-url'));
 		}
-		setTimeout(func, 10000);
 	});
 	
 }
