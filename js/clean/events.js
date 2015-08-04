@@ -1,45 +1,28 @@
-﻿$(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
-
-
+﻿var savePos = null;
+$(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (event, ui) {
     try {
-
         GA_track(window.location.hash);
-
     } catch (err) {
         console.log("GA_track error:");
         console.log(err);
     }
-
-
 });
-
 // GoogleAnalytics
-
 
 // Инициализайция Jquery Mobile
 $(document).bind('mobileinit', function () {
-
-	
 });
 
 //  Эвент перед созданием страницы Jquery Mobile
 $(document).delegate("#main", "pagebeforecreate", function () {
-		
 }); 
 
 // Эвент создания страницы main Jquery Mobile
 $( document ).on( "pagecreate", "#main", function() {
-		
-			 
 });
 
 $( document ).on( "pageinit", "#search-page", function() {
-
-		//$("#search-page-search-input").focus();
-       // return false;
-			 
 });
-
 
 // Эвент создания страницы Cписка Jquery Mobile
 //setup before functions
@@ -47,19 +30,22 @@ var typingTimer;                //timer identifier
 var doneTypingInterval = 1000;  //time in ms, 5 second for example
 $( document ).on( "pagecreate", "#search-page", function() {
 		
-		$("#search-page-search-input").keyup(function() {
+		/*$("#search-page-search-input").keyup(function() {
 		  clearTimeout(typingTimer);
-		  
 		  typingTimer = setTimeout(InitSearch, doneTypingInterval);
-		 
 		});
-		//on keydown, clear the countdown 
 		$('#search-page-search-input').keydown(function(){
 		    clearTimeout(typingTimer);
+		});*/
+
+		$('#search-page-search-input').keypress(function(e){
+		    if(e.which == 13) {
+				InitSearch();
+			}
 		});
-        //on keydown, clear the countdown
+		
         $('#seach-input-button').on("click",function(){
-            clearTimeout(typingTimer);
+            //clearTimeout(typingTimer);
             InitSearch();
         });
 });
@@ -585,6 +571,7 @@ $(document).on("swiperight swipeleft", function(e) {
 });
 
 $(document).on("pageshow", function () {
+	$("#global-up-button").css('bottom','16px');
 	getUserBonusPanel();
 });
 
@@ -609,4 +596,27 @@ $("#ui-page-top").swipe( {
 		}
 	},
 	threshold:0
+});
+
+$(document).ready(function() {
+	var upb=$('#global-up-button');
+	if(window.scrollY > 100) {
+		upb.fadeIn();
+	}else{
+		upb.fadeOut();
+	}
+
+	$(document).on("scrollstart",function(){
+		if ($(this).scrollTop() > 100) {
+			upb.fadeIn();
+		}else{
+			upb.fadeOut();
+		}	
+	});
+
+	upb.on('click', function(){
+		 $('html,body').animate({scrollTop: 0},500);
+		 upb.fadeOut();
+		 return false;
+	}); 
 });

@@ -1,4 +1,5 @@
 var app_ver = '108';
+var product_list_offset = [];
 //--------------
 function supportsSVG() {
     return !!document.createElementNS && !!document.createElementNS('http://www.w3.org/2000/svg', "svg").createSVGRect;
@@ -117,9 +118,9 @@ function InitScrollElementVisability(id,scrollposition){
 
 
 // Загрузчик каталога
-function LoadDefaultCatalog(category,position){
+function LoadDefaultCatalog(category,position,count){
+	var counts = count?count:20;
 	product_list_page_loded = false;
-
 
 	var request = "";
     var position_to_get = "0";
@@ -136,6 +137,13 @@ function LoadDefaultCatalog(category,position){
 		var position_to_get = position;
 	}
 	
+	if(arguments.length==3 && category!= undefined){
+		request = "&link=" + category;
+		ShowLoading();
+		counts = (Math.ceil(counts/20)*20);
+		var position_to_get = 0;
+	}
+
 	$("#catalog-footer").hide();
 	var showFootbar = false;
 	var json_props = [];
@@ -147,7 +155,7 @@ function LoadDefaultCatalog(category,position){
 	}		
 	
 	$.ajax({ 
-	  url: "http://m.citrus.ua/ajax/catalog_lazy.php?position="+position_to_get+"&count=20"+request, 
+	  url: "http://m.citrus.ua/ajax/catalog_lazy.php?position="+position_to_get+"&count="+counts+request, 
 	  type: "POST",
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)},
@@ -234,16 +242,20 @@ function LoadDefaultCatalog(category,position){
 				output = '<li><a > 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 													 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only ">Ничего не найдено....</h2>							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
 			}
 			
-			 if( position > 0){
+			 if(position > 0){
 				  $('#products-listview').html($('#products-listview').html()+output).listview("refresh");
 			 }else{
-				  
-				  
 				  $('#products-listview').html(output).listview("refresh");
-			 }	
+			 }
+
+			if(savePos!==null&&savePos>0&&product_list_offset[savePos]!=undefined) {
+				this.position = counts;
+				$.mobile.silentScroll(product_list_offset[savePos]);
+			}
+
 			if(showFootbar){
-				
 				$("#catalog-footer").show();
+				$("#global-up-button").css('bottom','60px');
 				$("#filter_btn").unbind();
 				$("#filter_btn").on("click",function(){
 					ShowFilter(category);
@@ -273,51 +285,53 @@ function LoadDefaultCatalog(category,position){
 
 
 // Выбор каталога на основе адреса страницы
-function showCategory( urlObj, options )
-{
+function showCategory( urlObj, options ){
 			var categoryName = "";
-			
-			
 			if(urlObj.href.search("category-items") !== -1){			
 				if( urlObj.hash != undefined){
 					categoryName = urlObj.hash.replace( /.*category-items=/, "" );
-					
-				}else{
-				
 				}
 			}
-		
 			
-			if ( categoryName ) {
-				
-				LoadDefaultCatalog(categoryName);
-				
-			}else{
-				LoadDefaultCatalog();
-				
-			}
-			
-
+	if ( categoryName ) {
+		if(savePos!==undefined&&savePos>0){
+			LoadDefaultCatalog(categoryName,savePos,savePos);
+		}else{
+			LoadDefaultCatalog(categoryName);
+		}
+	}else{
+		LoadDefaultCatalog();
+	}
 }
 	
 function LazyListView(ListId){
 	// конструктор
 	this.ListId = ListId;
 	
-	this.position = 0;
+	if(savePos!==null&&savePos>0) {
+		this.position = (Math.ceil(savePos/20)*20)-20;
+	}else{
+		this.position = 0;
+	}
+
 	this.count = 20;
 	// Инициализация
 	this.Init = function(){		
 		// Эвент скрола окна
 		
-		
-		
 		window.onscroll = function() {
-
-		
 		   if($.mobile.activePage.attr('id') =="products-list"){
+		   	var jj = this.position;
+		
+			while (jj < (this.position+20)) {
+				var item = $('#products-listview li').eq(jj);
+				if(item.length){
+					product_list_offset[jj]=item.offset().top;
+				}
+			  jj++;
+			}
+
 		   	 var WindowScrollTop = $(window).scrollTop();
-			 
 						 
 			 if($(".lazy_load_more").length>0){
 			 
@@ -353,24 +367,22 @@ function LazyListView(ListId){
 	
 	this.Init();
 	
-}		
+}	
+
 function InitCatalog(){
-			var url =  document.URL;
-			var u = $.mobile.path.parseUrl( url),
-			re = "category-items=";
-			
-			if ( url.search(re) !== -1 ) {
-				showCategory( url );
-				var LazyList = LazyListView("products-listview");				
-			}else{
-			
-				LoadDefaultCatalog();
-				
-			}	
+	var url =  document.URL;
+	var u = $.mobile.path.parseUrl( url),
+	re = "category-items=";
+	
+	if ( url.search(re) !== -1 ) {
+		showCategory( url );
+		var LazyList = LazyListView("products-listview");				
+	}else{
+		LoadDefaultCatalog();
+	}	
 }
 
 function DelegateMenu(page){
-	
 }	
 
 
@@ -661,39 +673,30 @@ function ProssedTapEvents(){
 	 }
 
 	 $('.vclick_d_link').unbind();
-	 $('.vclick_d_link').on(eventstring,function(event)
-			 	{
-					
-					$('.vclick_d_link').unbind();
-					$('#products-listview').html("");
-					$('#search-listview').html("");
-					
-					event.stopPropagation();
-					event.preventDefault();
-					
-					window.location = $(this).attr('link');
-					
-		
-			 	}
-	 );	
+	 $('.vclick_d_link').on(eventstring,function(event){
+		if($.mobile.activePage.attr('id') =="products-list"){
+			savePos = $(this).parent('li').index();
+		}
+			$('.vclick_d_link').unbind();
+			$('#search-page-search-input').val("");
+			$('#products-listview').html("");
+			$('#search-listview').html("");
+			event.stopPropagation();
+			event.preventDefault();
+			window.location = $(this).attr('link');
+	});	
+
 	 $('.vclick_link_product').unbind();
-	 
-	 $('.vclick_link_product').on(eventstring,function(event)
-			 	{
-				//	$('.vclick_link_product').unbind();
-					event.stopPropagation();
-					event.preventDefault();
-				   
-					loadProductCard($(this).attr('product_id'),true);
-					window.scrollTo(0,0);
-			 	}
-	 );	
-	 
+	 $('.vclick_link_product').on(eventstring,function(event){
+			event.stopPropagation();
+			event.preventDefault();
+			loadProductCard($(this).attr('product_id'),true);
+			window.scrollTo(0,0);
+	 });	
 }
 
 function ReinitowlProductCard(){
 	 //$('.owl-carousel-product-card').trigger('destroy.owl.carousel');
-	
   
 	 $('.owl-carousel-product-card').owlCarousel({
 	    items:1,
@@ -730,8 +733,11 @@ function LoadMainPageData(){
 						link = 'href="#product-card?product-id='+value.product_id+'"';
 					}
                     if(value.type =="text"){
-                        link = 'href="#text-page?id='+value.text_id+'"';
-                    }
+						link = 'href="#text-page?id='+value.text_id+'"';
+					}
+					if(value.type =="section"){
+						link = 'href="#products-list?category-items='+value.mob_link+'"';
+					}
 					 
 					images += '<div class="item"><a '+link+' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="'+value.name+'"  data-src="'+value.image+'"></a></div>';
 				});
@@ -1308,8 +1314,8 @@ function ShowFilter(link,back){
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)},
 	  success: function( json ) {
+	  		$('#products-listview').html("");
 			 var output = "";
-
 			 var filter_items= "";
 			 FilterEnums.active_link = link;
 			 $.each( json.items, function( key, value ) {
@@ -1361,18 +1367,15 @@ function ShowFilterEnums(id,name,section_id){
 			 FilterEnums.active_prop_id = id;	
 			 
 			 $.each( json, function( key, value ) {
-			   if(value.usage != undefined && value.usage=="1"){
-			 	
-			 
+			   //if(value.usage != undefined && value.usage=="1"){
 			 		var check_box = "checkbox_24x24";
 					var check_box_ch = "N";
 					if($.inArray(value.id,FilterEnums.enums) !==-1){
 						check_box  = "checkbox-hover_24x24";
 						 check_box_ch = "Y";
 					}
-			 		
-			 		filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="'+check_box_ch+'"  enum_id="'+value.id+'"> 					<table style="width:100%"> 						<tr> 											<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only">' + value.value + '</h2>	</td> 							<td style="width:40px"> 	<img class="check_img"  src="img/png/'+check_box+'.png" >	</td> 						</tr> 					</table> 					 				</a></li>';
-				}	
+			 		filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="'+check_box_ch+'"  enum_id="'+value.id+'"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><img class="check_img"  src="img/png/'+check_box+'.png"></td></tr></table></a></li>';
+				//}	
 			 });
 			$("#filter_prop_name").html(name);
 			$('#filter-props-values-listview').html(filter_items);

@@ -1887,6 +1887,7 @@ border-bottom: 1px solid #C8C7CC;
 #product-actions-listview .ui-icon-carat-r{
 	padding-right: 2rem!important;
 }
+
 #nav-panel{
   position: fixed;
   overflow: hidden;
@@ -1903,4 +1904,59 @@ border-bottom: 1px solid #C8C7CC;
 }
 .notes_phone_cards{
 	padding-bottom: 24px;
+}
+
+#product_actions_block .action_titles{
+	color: #F47317;
+	font-weight: bold;
+}
+
+.more_sms{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#global-up-button{
+	background-image: url(../img/svg/mobapp-arrow_to_top-icon.svg);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	height: 40px;
+	width: 40px;
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	cursor: pointer;
+}
+
+.bad_search_result {
+	padding-left: 26px!important;
+	background-color: #fff!important;
+	margin-bottom: 0;
+	padding-top: 1rem;
+}
+
+#products-list #products-listview {
+	padding-bottom: 3rem!important;
+}
+
+
+#services-listview{
+	padding-left: 16px;
+}
+
+.service_td{
+	vertical-aling:middle;text-align:left;padding-left:1.1rem;
+}
+
+.service_td_64{
+	vertical-align: middle;text-align:center;width:64px
+}
+
+.service_external_link:after{
+	right: 18px!important;
+	width: 27px!important;
+	height: 25px!important;
 }
