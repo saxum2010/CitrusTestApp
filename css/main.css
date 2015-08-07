@@ -1960,3 +1960,8 @@ border-bottom: 1px solid #C8C7CC;
 	width: 27px!important;
 	height: 25px!important;
 }
+
+.edit_mode .delete_td{
+	display: table-cell;
+	width:34px;
+}
