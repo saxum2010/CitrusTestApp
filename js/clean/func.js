@@ -287,7 +287,10 @@ function LoadDefaultCatalog(category,position,count){
 					owlcs.owlCarousel({
 					    items:1,
 						lazyLoad:true,
+						loop:true,
 		   				nav:true,
+		   				autoplay:true,
+	   					autoplayTimeout:10000,
 						margin:0 
 					});
 			}
