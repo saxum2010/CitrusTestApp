@@ -263,24 +263,44 @@ function LoadDefaultCatalog(category,position,count){
 				
 			}
 			
-		//	$(".ui-panel-open").panel("close"); 
 			ProssedTapEvents();
 			product_list_page_loded = true;
-			 $.mobile.loading( "hide" );
-			 
+						
+			var images = "",
+				owlcs = $(".owl-carousel-section");
+			owlcs.html('');
+			if(json.banner != undefined){
+				$.each(json.banner, function( key, value ) {
+					var link = "";
+					if(value.type =="external"){
+						link = 'href="'+value.href+'" target="_blank"';
+					}
+					if(value.type =="product"){
+						link = 'href="#product-card?product-id='+value.product_id+'"';
+					}
+					images += '<div class="item"><a '+link+' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="'+value.name+'"  data-src="'+value.image+'"></a></div>';
+				});
+			
+				owlcs.html(images);
+					owlcs.trigger('destroy.owl.carousel');
+					var owl = $(".owl-carousel").data('owlCarousel');
+					owlcs.owlCarousel({
+					    items:1,
+						lazyLoad:true,
+		   				nav:true,
+						margin:0 
+					});
+			}
+
+			$.mobile.loading( "hide" );
 			  
 		 }, 
 	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
-		
-			
-			product_list_page_loded = true;
-			ShowMessage(1);
-			
-		
+		product_list_page_loded = true;
+		ShowMessage(1);
 	  } 
 	});
-
 }
 
 

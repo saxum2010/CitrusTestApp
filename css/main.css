@@ -1964,3 +1964,7 @@ border-bottom: 1px solid #C8C7CC;
 	display: table-cell;
 	width:34px;
 }
+
+#products-list .owl-controls{
+	display: none!important;
+}
