@@ -1548,7 +1548,7 @@ function InitShopList(){
 				output += '<li><a onclick="ShowDetailGoogleMape('+value.ID+')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first">'+
 				''+image+'</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> '
 				+'<h2 class="item_name_only product">' 
-				+ value.city +", "+value.NAME + '</h2>	<div class="preview_text">' 
+				+ value.city +", "+htmlDecode(value.NAME) + '</h2>	<div class="preview_text">' 
 				+'Телефон: <a class="shopCall">'+ value.PROPERTY_CITY_PHONE_VALUE +"</a></br>Время работы: "+value.PROPERTY_CITY_WORK_TIME_VALUE+ '</div></td> '+
 				'</tr></table></a></li>';
 				// nclick="Showtextpage('+value.id+')"
@@ -1996,3 +1996,7 @@ function LoadDetailPageMap(id){
 		$('.content_detail_map').html("<div class='box_1_detail'><div class='text_detail_map'>"+json.city_region+"<br/>"+json.city_adress+"<br/>"+json.city_work_time+"<br/>"+json.city_phone+"</div></div><div class='clear'></div><div class='box_2_detail'>"+box_2_detail+"</div>");
 	});
 }
+
+function htmlDecode(value){
+  return $('<div/>').html(value).text();
+} 
