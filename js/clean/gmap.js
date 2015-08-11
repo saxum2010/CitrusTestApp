@@ -1,4 +1,4 @@
-var map, panorama;
+var map, panorama, g_pos;
 
 function gmapLoadScript() {
 	var script = document.createElement("script");
@@ -8,47 +8,54 @@ function gmapLoadScript() {
 }
 
 function gmapInitialize() {
-	var sv = new google.maps.StreetViewService();
-	panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'));
+	var sv = new plugin.google.maps.StreetViewService();
+	panorama = new plugin.google.maps.StreetViewPanorama(document.getElementById('pano'));
 	
 	var mapOptions = {
-		zoom: 12,
+		zoom: 17,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
 	
-	var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
   
-		// Try HTML5 geolocation
-	  if(navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(function(position) {
-		  var pos = new google.maps.LatLng(position.coords.latitude,
-										   position.coords.longitude);
+	// Try HTML5 geolocation
+	/*if(navigator.geolocation) {
+	navigator.geolocation.getCurrentPosition(function(position) {
+		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);*/
 
-	  var bluedot = {
-			url: 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png',
-			size: new google.maps.Size(32, 32),
-			origin: new google.maps.Point(0,0),
-			anchor: new google.maps.Point(0,32)
-		};
-		
- 		var marker = new google.maps.Marker({
-					position: pos,
-					map: map,
-					icon: bluedot,
-				});					   
+		var Id = "";
+		var u = $.mobile.path.parseUrl( document.URL );
+		if(u.href.search("id=") !== -1){			
+			if(u.hash != undefined){										 
+				 var Id = u.hash.replace( /.*id=/, "" );	
+			}else{
+				alert("404");
+			}
+		}else{
+			alert("404");
+		}
 
-		  map.setCenter(pos);
-		}, function() {
-		  //handleNoGeolocation(true);
-		  var pos = new google.maps.LatLng(50.432655,30.515996);
+		$.ajax({ 
+			url: "ajax/on/gmap.php",
+			dataType: 'json',
+			data:'method=getShop&id='+Id,
+			success: function( json ){  
+				var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+				  map.setCenter(pos);
+			}
+		});	  
+
+		/*}, function() {
+	  	//handleNoGeolocation(true);
+	  	var pos = new google.maps.LatLng(50.432655,30.515996);
 		map.setCenter(pos);
 		});
-	  } else {
+	}else{
 		// Browser doesn't support Geolocation
 		//handleNoGeolocation(false);
 		var pos = new google.maps.LatLng(50.432655,30.515996);
 		map.setCenter(pos);
-	  }
+	}*/
 
  	$.ajax({ 
 	  url: "ajax/on/gmap.php", 
@@ -57,17 +64,17 @@ function gmapInitialize() {
 	  success: function( json ) {
 	  
 	  var iconimage = {
-			url: 'http://wifi.citrus.ua/img/citrus-mappin.png',
-			size: new google.maps.Size(48, 48),
-			origin: new google.maps.Point(0,0),
-			anchor: new google.maps.Point(24,48)
+			url: 'http://www.citrus.ua/img/citrus-mappin-v2.png',
+			size: new plugin.google.maps.Size(48, 48),
+			origin: new plugin.google.maps.Point(0,0),
+			anchor: new plugin.google.maps.Point(24,48)
 		};
 	  
 		 if(json.items != undefined && json.items.length > 0){
 			$.each( json.items, function(key, val){
 				if(val.latlng){
-					var myLatlng = new google.maps.LatLng(val.lat,val.lng);
-						var marker = new google.maps.Marker({
+					var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
+						var marker = new plugin.google.maps.Marker({
 							position: myLatlng,
 							map: map,
 							title: val.adress,
@@ -75,17 +82,16 @@ function gmapInitialize() {
 						});
 						
 						var contentString = '<div style="overflow:hidden">Адрес:'+val.adress+'<br>Телефон:'+val.phone+'</div>';
-						var infowindow = new google.maps.InfoWindow({
+						var infowindow = new plugin.google.maps.InfoWindow({
 							content: contentString
 						});
 			
-						google.maps.event.addListener(marker, 'click', function(event) {
+						plugin.google.maps.event.addListener(marker, 'click', function(event) {
 						map.setZoom(18);
 						map.setCenter(marker.getPosition());
 						infowindow.open(map,marker);
 						sv.getPanoramaByLocation(event.latLng, 50, processSVData);
 					});
-			
 				}
 			});
 			$.mobile.loading("hide");
@@ -95,56 +101,29 @@ function gmapInitialize() {
 }
 
 function processSVData(data, status) {
-  if (status == google.maps.StreetViewStatus.OK) {
-    var marker = new google.maps.Marker({
+  if (status == plugin.google.maps.StreetViewStatus.OK) {
+    var marker = new plugin.google.maps.Marker({
       position: data.location.latLng,
       map: map,
       title: data.location.description
-    });
-	
-/*     panorama.setPano(data.location.pano);
-    panorama.setPov({
-      heading: 270,
-      pitch: 0
-    });
-	
-	$('#pano, #toggleStreetView').show();
-	$('#map_canvas').hide();
-	
-    panorama.setVisible(true);
-
-    google.maps.event.addListener(marker, 'click', function() {
-      var markerPanoID = data.location.pano;
-      panorama.setPano(markerPanoID);
-      panorama.setPov({
-        heading: 270,
-        pitch: 0
-      });
-		panorama.setVisible(true);
-    }); */
-	
+    });	
   }
 }
 
-/* $(document).on('click', '#toggleStreetView', function() {
-	$('#pano, #toggleStreetView').hide();
-	$('#map_canvas').show();
-}); */
-
 function handleNoGeolocation(errorFlag) {
-  if (errorFlag) {
-    var content = 'Error: The Geolocation service failed.';
-  } else {
-    var content = 'Error: Your browser doesn\'t support geolocation.';
-  }
+	if (errorFlag) {
+		var content = 'Error: The Geolocation service failed.';
+	} else {
+		var content = 'Error: Your browser doesn\'t support geolocation.';
+	}
 
-  var options = {
-    map: map,
-    position: new google.maps.LatLng(60, 105),
-    content: content
-  };
+	var options = {
+		map: map,
+		position: new plugin.google.maps.LatLng(60, 105),
+		content: content
+	};
 
-  var infowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
+	var infowindow = new plugin.google.maps.InfoWindow(options);
+	map.setCenter(options.position);
 }
 

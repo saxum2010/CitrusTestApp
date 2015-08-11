@@ -1980,9 +1980,11 @@ function LoadDetailPageMap(id){
 		$('#map_canvas').css('height', doc_h+'px');
 	    /*$.mobile.loading( "hide" );
 		$('#map_canvas, #pano').height($(document).height());*/
-		$.getScript("/js/gmap.js").done(function() {
+		/*$.getScript("/js/gmap.js").done(function() {
 			gmapLoadScript();
-		});
+		});*/
+
+		gmapInitialize();
 
 		var box_2_detail = "";
 		if(json.coordinates_shop!=''){
