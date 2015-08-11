@@ -1988,9 +1988,9 @@ function LoadDetailPageMap(id){
 
 		var box_2_detail = "";
 		if(json.coordinates_shop!=''){
-			box_2_detail = "<a href='tel:"+json.city_phone+"' class='icon_detail_phone'><img src='/img/png/phone-icon.png' /><br/>Позвонить</a><a href='"+json.coordinates_shop+"' class='icon_detail_googlemap'><img src='/img/png/gmaps-icon.png' /><br/>Google Maps</a>";		
+			box_2_detail = "<a href='tel:"+json.city_phone+"' class='icon_detail_phone'><img src='http://m.citrus.ua/img/png/phone-icon.png' /><br/>Позвонить</a><a href='"+json.coordinates_shop+"' class='icon_detail_googlemap'><img src='http://m.citrus.ua/img/png/gmaps-icon.png' /><br/>Google Maps</a>";		
 		}else{
-			box_2_detail = "<a href='tel:"+json.city_phone+"' class='icon_detail_phone_2'><img src='/img/png/phone-icon.png' /><br/>Позвонить</a>";
+			box_2_detail = "<a href='tel:"+json.city_phone+"' class='icon_detail_phone_2'><img src='http://m.citrus.ua/img/png/phone-icon.png' /><br/>Позвонить</a>";
 		}
 
 		$('.content_detail_map').html("<div class='box_1_detail'><div class='text_detail_map'>"+json.city_region+"<br/>"+json.city_adress+"<br/>"+json.city_work_time+"<br/>"+json.city_phone+"</div></div><div class='clear'></div><div class='box_2_detail'>"+box_2_detail+"</div>");

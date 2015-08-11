@@ -45,11 +45,10 @@ function gmapInitialize() {
 			url: "http://m.citrus.ua/ajax/on/gmap.php",
 			dataType: 'json',
 			data:'method=getShop&id='+Id,
-			success: function( json ){  
-				alert('7');
-				var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+			success: function( json ){
+				alert(json.items[0]['lat']);
+				  var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 				  map.setCenter(pos);
-				  alert('8');
 			}
 		});	  
 
@@ -64,7 +63,7 @@ function gmapInitialize() {
 		var pos = new google.maps.LatLng(50.432655,30.515996);
 		map.setCenter(pos);
 	}*/
-alert('9');
+
  	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/on/gmap.php", 
 	  dataType: 'json',
@@ -79,8 +78,7 @@ alert('10');
 			anchor: new plugin.google.maps.Point(24,48)
 		};
 	  
-		 if(json.items != undefined && json.items.length > 0){
-alert('11');
+		 /*if(json.items != undefined && json.items.length > 0){
 			$.each(json.items, function(key, val){
 				if(val.latlng){
 					var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
@@ -105,7 +103,7 @@ alert('11');
 				}
 			});
 			$.mobile.loading("hide");
-		}
+		}*/
 	  }
 	 });	  
 }
