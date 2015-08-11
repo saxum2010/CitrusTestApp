@@ -91,17 +91,13 @@ function gmapInitialize() {
 				if(val.latlng){
 
 				 const shopItem = new plugin.google.maps.LatLng(val.lat,val.lng);
-
 				  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 
 				    map.addMarker({
 				      'position': shopItem,
 				      'title': val.adress,
-				      'icon': 'img/png/citrus-mappin-v2.png'
 				    }, function(marker) {
-
 				      marker.showInfoWindow();
-
 				    });
 
 				  });
