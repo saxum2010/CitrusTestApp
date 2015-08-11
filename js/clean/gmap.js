@@ -21,7 +21,6 @@ function gmapInitialize() {
   
   var mapDiv = document.getElementById("map_canvas");
   var map = plugin.google.maps.Map.getMap(mapDiv, mapOptions);
-alert('4');
   // You have to wait the MAP_READY event.
  // map.on(plugin.google.maps.event.MAP_READY, onMapInit);
 //alert('55');
@@ -35,23 +34,22 @@ alert('4');
 		if(u.href.search("id=") !== -1){			
 			if(u.hash != undefined){										 
 				 var Id = u.hash.replace( /.*id=/, "" );	
-				 alert('5');
 			}else{
 				alert("404");
 			}
 		}else{
 			alert("404");
 		}
-		alert('6');
 
 		$.ajax({ 
-			url: "ajax/on/gmap.php",
+			url: "http://m.citrus.ua/ajax/on/gmap.php",
 			dataType: 'json',
 			data:'method=getShop&id='+Id,
 			success: function( json ){  
 				alert('7');
 				var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 				  map.setCenter(pos);
+				  alert('8');
 			}
 		});	  
 
@@ -66,13 +64,14 @@ alert('4');
 		var pos = new google.maps.LatLng(50.432655,30.515996);
 		map.setCenter(pos);
 	}*/
-
+alert('9');
  	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/on/gmap.php", 
 	  dataType: 'json',
 	  data:'method=getShop',
 	  success: function( json ) {
 	  
+alert('10');
 	  var iconimage = {
 			url: 'http://www.citrus.ua/img/citrus-mappin-v2.png',
 			size: new plugin.google.maps.Size(48, 48),
@@ -81,6 +80,7 @@ alert('4');
 		};
 	  
 		 if(json.items != undefined && json.items.length > 0){
+alert('11');
 			$.each(json.items, function(key, val){
 				if(val.latlng){
 					var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
