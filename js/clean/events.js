@@ -11,9 +11,6 @@ $(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (eve
 
 // Инициализайция Jquery Mobile
 $(document).bind('mobileinit', function () {
-  if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-      WebView.setWebContentsDebuggingEnabled(true);
-  }
 });
 
 //  Эвент перед созданием страницы Jquery Mobile
