@@ -50,19 +50,20 @@ function gmapInitialize() {
 				map.setCenter(pos);*/
 
 			  
-				var latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+				var latLngs = new plugin.google.maps.LatLng(0,0);
 				var map = plugin.google.maps.Map.getMap(mapDiv);
 				map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 					map.setCenter(latLngs);
 				});
 				
-				map.addMarker({
-				  'position': latLngs,
-				  'title': ["Hello Google Map for", "Cordova!"].join("\n"),
-				  'snippet': "This plugin is awesome!"
-				}, function(marker) {
-				  marker.showInfoWindow();
-				});
+map.addMarker({
+  position: new plugin.google.maps.LatLng(0, 0),
+  icon: 'blue',
+  'title': "Hello World!\nThis plugin is very awesome!",
+  'snippet': "Tap here!"
+}, function( marker ) {
+  marker.showInfoWindow();
+});
 
 			  /*const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 			  var map = plugin.google.maps.Map.getMap(mapDiv, {
