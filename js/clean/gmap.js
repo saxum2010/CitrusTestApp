@@ -15,15 +15,13 @@ function gmapInitialize() {
 		zoom: 17,
 		mapTypeId: plugin.google.maps.MapTypeId.ROADMAP
 	}
-	
+
+
 /*	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 	alert('4');*/
-  
-  var mapDiv = document.getElementById("map_canvas");
-  var map = plugin.google.maps.Map.getMap(mapDiv, mapOptions);
+
   // You have to wait the MAP_READY event.
  // map.on(plugin.google.maps.event.MAP_READY, onMapInit);
-//alert('55');
 	// Try HTML5 geolocation
 	/*if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
@@ -46,9 +44,30 @@ function gmapInitialize() {
 			dataType: 'json',
 			data:'method=getShop&id='+Id,
 			success: function( json ){
-				alert(json.items[0]['lat']);
-				  var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
-				  map.setCenter(pos);
+				  /*var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+				  map.setCenter(pos);*/
+
+				  var mapDiv = document.getElementById("map_canvas");
+  const GOOGLE = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+  var map = plugin.google.maps.Map.getMap(mapDiv, {
+    'camera': {
+      'latLng': GOOGLE
+      'zoom': 17
+    }
+  });
+
+  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+
+    map.addMarker({
+      'position': GOOGLE,
+      'title': "Hello GoogleMap for Cordova!"
+    }, function(marker) {
+
+      marker.showInfoWindow();
+
+    });
+
+  });
 			}
 		});	  
 
@@ -70,7 +89,6 @@ function gmapInitialize() {
 	  data:'method=getShop',
 	  success: function( json ) {
 	  
-alert('10');
 	  var iconimage = {
 			url: 'http://www.citrus.ua/img/citrus-mappin-v2.png',
 			size: new plugin.google.maps.Size(48, 48),
