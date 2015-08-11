@@ -14,11 +14,8 @@ function gmapInitialize() {
 /*	var mapOptions = {
 		zoom: 17,
 		mapTypeId: plugin.google.maps.MapTypeId.ROADMAP
-	}*/
-
-
-/*	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-	alert('4');*/
+	}
+var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);*/
 
   // You have to wait the MAP_READY event.
  // map.on(plugin.google.maps.event.MAP_READY, onMapInit);
@@ -27,11 +24,11 @@ function gmapInitialize() {
 	navigator.geolocation.getCurrentPosition(function(position) {
 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);*/
 
-		var Id = "";
+		var id = "";
 		var u = $.mobile.path.parseUrl( document.URL );
 		if(u.href.search("id=") !== -1){			
 			if(u.hash != undefined){										 
-				 var Id = u.hash.replace( /.*id=/, "" );	
+				 var id = u.hash.replace( /.*id=/, "" );	
 			}else{
 				alert("404");
 			}
@@ -50,22 +47,19 @@ function gmapInitialize() {
 				map.setCenter(pos);*/
 
 			  
-				var latLngs = new plugin.google.maps.LatLng(0,0);
-				var map = plugin.google.maps.Map.getMap(mapDiv);
+			/*var latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+			var map = plugin.google.maps.Map.getMap(mapDiv, {
+			    'camera': {
+			      'latLng': latLngs,
+			      'zoom': 17
+			    }
+			  });
 				map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 					map.setCenter(latLngs);
 				});
-				
-map.addMarker({
-  position: new plugin.google.maps.LatLng(0, 0),
-  icon: 'blue',
-  'title': "Hello World!\nThis plugin is very awesome!",
-  'snippet': "Tap here!"
-}, function( marker ) {
-  marker.showInfoWindow();
-});
+				*/
 
-			  /*const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+			const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 			  var map = plugin.google.maps.Map.getMap(mapDiv, {
 			    'camera': {
 			      'latLng': latLngs,
@@ -73,7 +67,16 @@ map.addMarker({
 			    }
 			  });
 
-			map.on(plugin.google.maps.event.MAP_READY, onMapInit);*/
+			map.on(plugin.google.maps.event.MAP_READY, onMapInit);
+			
+			map.addMarker({
+			  position: latLngs,
+			  icon: 'blue',
+			  'title': "Hello World!\nThis plugin is very awesome!",
+			  'snippet': "Tap here!"
+			}, function( marker ) {
+			  marker.showInfoWindow();
+			});
 
 		}
 		});	  
