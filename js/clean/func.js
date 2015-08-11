@@ -281,6 +281,7 @@ function LoadDefaultCatalog(category,position,count){
 					images += '<div class="item"><a '+link+' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="'+value.name+'"  data-src="'+value.image+'"></a></div>';
 				});
 			
+			if(owlcs!=undefined && owlcs.find("div").length > 1){
 				owlcs.html(images);
 					owlcs.trigger('destroy.owl.carousel');
 					var owl = $(".owl-carousel").data('owlCarousel');
@@ -293,6 +294,7 @@ function LoadDefaultCatalog(category,position,count){
 	   					autoplayTimeout:10000,
 						margin:0 
 					});
+				}
 			}
 
 			$.mobile.loading( "hide" );

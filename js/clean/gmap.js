@@ -46,28 +46,30 @@ function gmapInitialize() {
 			success: function( json ){
 				  /*var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 				  map.setCenter(pos);*/
+alert(1);
+var mapDiv = document.getElementById("map_canvas");
+alert(2);
+const GOOGLE = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+alert(3);
+var map = plugin.google.maps.Map.getMap(mapDiv, {
+'camera': {
+  'latLng': GOOGLE
+  'zoom': 17
+}
+});
+alert(4);
 
-				  var mapDiv = document.getElementById("map_canvas");
-  const GOOGLE = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
-  var map = plugin.google.maps.Map.getMap(mapDiv, {
-    'camera': {
-      'latLng': GOOGLE
-      'zoom': 17
-    }
-  });
-
-  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
-
-    map.addMarker({
-      'position': GOOGLE,
-      'title': "Hello GoogleMap for Cordova!"
-    }, function(marker) {
-
-      marker.showInfoWindow();
-
-    });
-
-  });
+map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+alert(5);
+map.addMarker({
+  'position': GOOGLE,
+  'title': "Hello GoogleMap for Cordova!"
+}, function(marker) {
+alert(6);
+  marker.showInfoWindow();
+alert(7);
+});
+});
 			}
 		});	  
 
