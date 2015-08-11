@@ -67,7 +67,7 @@ var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapO
 			    }
 			  });
 
-			map.on(plugin.google.maps.event.MAP_READY, onMapInit);
+			//map.on(plugin.google.maps.event.MAP_READY, onMapInit);
 			
 			map.addMarker({
 			  position: latLngs,
