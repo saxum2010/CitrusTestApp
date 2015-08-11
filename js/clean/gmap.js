@@ -39,40 +39,40 @@ function gmapInitialize() {
 			alert("404");
 		}
 
-alert('------');
 		$.ajax({ 
 			url: "http://m.citrus.ua/ajax/on/gmap.php",
 			dataType: 'json',
 			data:'method=getShop&id='+Id,
-			success: function( json ){
-				  /*var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
-				  map.setCenter(pos);*/
-alert(1);
-var mapDiv = document.getElementById("map_canvas");
-alert(2);
-var latLng = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
-alert(3);
-var map = plugin.google.maps.Map.getMap(mapDiv, {
-'camera': {
-  'latLng': latLng,
-  'zoom': 17
-}
-});
-alert(4);
+				success: function( json ){
+				/*var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+				map.setCenter(pos);*/
 
-map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
-alert(5);
-map.addMarker({
-  'position': latLng,
-  'title': "Hello GoogleMap for Cordova!"
-}, function(marker) {
-alert(6);
-  marker.showInfoWindow();
-alert(7);
-});
-});
-		alert('111111');
-			}
+
+ var mapDiv = document.getElementById("map_canvas");
+
+  const GOOGLE = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+  var map = plugin.google.maps.Map.getMap(mapDiv, {
+    'camera': {
+      'latLng': GOOGLE,
+      'zoom': 17
+    }
+  });
+
+  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+
+    map.addMarker({
+      'position': GOOGLE,
+      'title': "Hello GoogleMap for Cordova!",
+    }, function(marker) {
+
+      marker.showInfoWindow();
+
+    });
+
+  });
+
+
+		}
 		});	  
 
 		/*}, function() {

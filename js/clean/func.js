@@ -1996,6 +1996,7 @@ function LoadDetailPageMap(id){
 		}
 
 		$('.content_detail_map').html("<div class='box_1_detail'><div class='text_detail_map'>"+json.city_region+"<br/>"+json.city_adress+"<br/>"+json.city_work_time+"<br/>"+json.city_phone+"</div></div><div class='clear'></div><div class='box_2_detail'>"+box_2_detail+"</div>");
+		$.mobile.loading("hide");
 	});
 }
 
