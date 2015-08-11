@@ -68,7 +68,7 @@ alert('4');
 	}*/
 
  	$.ajax({ 
-	  url: "ajax/on/gmap.php", 
+	  url: "http://m.citrus.ua/ajax/on/gmap.php", 
 	  dataType: 'json',
 	  data:'method=getShop',
 	  success: function( json ) {
@@ -81,7 +81,7 @@ alert('4');
 		};
 	  
 		 if(json.items != undefined && json.items.length > 0){
-			$.each( json.items, function(key, val){
+			$.each(json.items, function(key, val){
 				if(val.latlng){
 					var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
 						var marker = new plugin.google.maps.Marker({
