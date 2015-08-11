@@ -9,9 +9,8 @@ function gmapLoadScript() {
 
 function gmapInitialize() {
 	alert('1');
-	var sv = new plugin.google.maps.StreetViewService();
-	panorama = new plugin.google.maps.StreetViewPanorama(document.getElementById('pano'));
-	alert('2');
+	/*var sv = new plugin.google.maps.StreetViewService();
+	panorama = new plugin.google.maps.StreetViewPanorama(document.getElementById('pano'));*/
 	
 	var mapOptions = {
 		zoom: 17,
@@ -97,7 +96,7 @@ function gmapInitialize() {
 						map.setZoom(18);
 						map.setCenter(marker.getPosition());
 						infowindow.open(map,marker);
-						sv.getPanoramaByLocation(event.latLng, 50, processSVData);
+						//sv.getPanoramaByLocation(event.latLng, 50, processSVData);
 					});
 				}
 			});

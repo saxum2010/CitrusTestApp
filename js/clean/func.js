@@ -1975,7 +1975,6 @@ function LoadDetailPageMap(id){
 	  }
 	})
 	.done(function( json ){
-		alert('--');
 		var doc_h = $(window).height();
 		doc_h = doc_h-303;
 		$('#map_canvas').css('height', doc_h+'px');
