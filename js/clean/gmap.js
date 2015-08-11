@@ -54,7 +54,7 @@ var latLng = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['
 alert(3);
 var map = plugin.google.maps.Map.getMap(mapDiv, {
 'camera': {
-  'latLng': latLng
+  'latLng': latLng,
   'zoom': 17
 }
 });
@@ -71,6 +71,7 @@ alert(6);
 alert(7);
 });
 });
+		alert('111111');
 			}
 		});	  
 
