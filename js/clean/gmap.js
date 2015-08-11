@@ -14,7 +14,7 @@ function gmapInitialize() {
 	
 	var mapOptions = {
 		zoom: 17,
-		mapTypeId: google.maps.MapTypeId.ROADMAP
+		mapTypeId: plugin.google.maps.MapTypeId.ROADMAP
 	}
 	alert('3');
 	
