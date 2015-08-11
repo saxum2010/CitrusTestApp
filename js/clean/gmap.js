@@ -11,10 +11,10 @@ function gmapInitialize() {
 	/*var sv = new plugin.google.maps.StreetViewService();
 	panorama = new plugin.google.maps.StreetViewPanorama(document.getElementById('pano'));*/
 	
-	var mapOptions = {
+/*	var mapOptions = {
 		zoom: 17,
 		mapTypeId: plugin.google.maps.MapTypeId.ROADMAP
-	}
+	}*/
 
 
 /*	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -39,6 +39,7 @@ function gmapInitialize() {
 			alert("404");
 		}
 
+alert('------');
 		$.ajax({ 
 			url: "http://m.citrus.ua/ajax/on/gmap.php",
 			dataType: 'json',
