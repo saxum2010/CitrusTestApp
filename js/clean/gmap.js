@@ -56,19 +56,7 @@ function gmapInitialize() {
 			    }
 			  });
 
-			  map.on(plugin.google.maps.event.MAP_READY, onMapInit);
-
-			  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
-			    map.addMarker({
-			      'position': latLngs,
-			      'title': "Hello GoogleMap for Cordova!",
-			    }, function(marker) {
-
-			      marker.showInfoWindow();
-
-			    });
-
-			  });
+			map.on(plugin.google.maps.event.MAP_READY, onMapInit);
 
 		}
 		});	  
@@ -98,9 +86,10 @@ function gmapInitialize() {
 			anchor: new plugin.google.maps.Point(24,48)
 		};
 	  
-		 /*if(json.items != undefined && json.items.length > 0){
+		 if(json.items != undefined && json.items.length > 0){
 			$.each(json.items, function(key, val){
 				if(val.latlng){
+
 					var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
 						var marker = new plugin.google.maps.Marker({
 							position: myLatlng,
@@ -123,9 +112,12 @@ function gmapInitialize() {
 				}
 			});
 			$.mobile.loading("hide");
-		}*/
+		}
 	  }
 	 });	  
+}
+
+function onMapInit(map) {
 }
 
 function processSVData(data, status) {
