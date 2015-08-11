@@ -18,9 +18,15 @@ function gmapInitialize() {
 	}
 	alert('3');
 	
-	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-	alert('4');
+/*	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	alert('4');*/
   
+  var mapDiv = document.getElementById("map_canvas");
+  var map = plugin.google.maps.Map.getMap(mapDiv);
+alert('4');
+  // You have to wait the MAP_READY event.
+  map.on(plugin.google.maps.event.MAP_READY, onMapInit);
+alert('55');
 	// Try HTML5 geolocation
 	/*if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
