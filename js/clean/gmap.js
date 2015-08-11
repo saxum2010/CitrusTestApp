@@ -50,11 +50,11 @@ alert('------');
 alert(1);
 var mapDiv = document.getElementById("map_canvas");
 alert(2);
-const GOOGLE = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+var latLng = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 alert(3);
 var map = plugin.google.maps.Map.getMap(mapDiv, {
 'camera': {
-  'latLng': GOOGLE
+  'latLng': latLng
   'zoom': 17
 }
 });
@@ -63,7 +63,7 @@ alert(4);
 map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 alert(5);
 map.addMarker({
-  'position': GOOGLE,
+  'position': latLng,
   'title': "Hello GoogleMap for Cordova!"
 }, function(marker) {
 alert(6);
