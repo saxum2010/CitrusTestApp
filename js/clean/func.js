@@ -1968,7 +1968,7 @@ function ShowDetailGoogleMape(id){
 
 function LoadDetailPageMap(id){
 	$.ajax({
-	  url: "/ajax/on/detail_google_map.php?id="+id,
+	  url: "http://m.citrus.ua/ajax/on/detail_google_map.php?id="+id,
 	  dataType: 'json',
 	  beforeSend: function( xhr ) {
 	   ShowLoading();

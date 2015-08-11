@@ -348,9 +348,6 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 
 // Эвент инициализации страницы
 $(document).on("pageinit", "#products-list", function () {
-	
-	
-				 
 });
 
 
@@ -358,8 +355,6 @@ var start_page;
 
 // Эвент создания DOM
 $(document).ready(function() {	
-
-	
 
 		start_page = document.URL;	
 		 $( ".navPanelChild" ).each(function(key,value) {
@@ -623,13 +618,11 @@ $(document).ready(function() {
 
 //google-map detail page
 $( document ).on( "pageshow", "#detail-googlemap", function() {
-	alert(1);
 	var Id = "";
 	var u = $.mobile.path.parseUrl( document.URL );
 	if(u.href.search("id=") !== -1){			
 		if( u.hash != undefined){										 
 			 var  Id = u.hash.replace( /.*id=/, "" );
-			 alert(Id);					
 			 LoadDetailPageMap(Id);						
 		}else{
 			alert("404");
