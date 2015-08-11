@@ -620,3 +620,22 @@ $(document).ready(function() {
 		 return false;
 	}); 
 });
+
+//google-map detail page
+$( document ).on( "pageshow", "#detail-googlemap", function() {
+
+	var Id = "";
+	var u = $.mobile.path.parseUrl( document.URL );
+	if(u.href.search("id=") !== -1)
+	{			
+		if( u.hash != undefined){										 
+			 var  Id = u.hash.replace( /.*id=/, "" );							
+			 LoadDetailPageMap(Id);						
+		}else{
+			alert("404");
+		}
+		
+	}else{
+		alert("404");
+	}
+});
