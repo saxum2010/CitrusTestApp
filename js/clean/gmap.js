@@ -97,7 +97,7 @@ function gmapInitialize() {
 				    map.addMarker({
 				      'position': shopItem,
 				      'title': val.adress,
-				      'icon': 'http://www.citrus.ua/img/citrus-mappin-v2.png'
+				      'icon': 'img/png/citrus-mappin-v2.png'
 				    }, function(marker) {
 
 				      marker.showInfoWindow();

@@ -513,7 +513,6 @@ $(document).on('click', '.shopCall', function() {
 });
 
 $(document).on('click', '.shopCall2', function() {
-	alert('shopCall2');
     var shop_phone = $(this).attr('tel');
     window.open('tel:'+shop_phone, '_system', 'location=yes');
 });
