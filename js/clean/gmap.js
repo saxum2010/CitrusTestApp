@@ -8,7 +8,6 @@ function gmapLoadScript() {
 }
 
 function gmapInitialize() {
-	alert('1');
 	/*var sv = new plugin.google.maps.StreetViewService();
 	panorama = new plugin.google.maps.StreetViewPanorama(document.getElementById('pano'));*/
 	
@@ -16,17 +15,16 @@ function gmapInitialize() {
 		zoom: 17,
 		mapTypeId: plugin.google.maps.MapTypeId.ROADMAP
 	}
-	alert('3');
 	
 /*	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 	alert('4');*/
   
   var mapDiv = document.getElementById("map_canvas");
-  var map = plugin.google.maps.Map.getMap(mapDiv);
+  var map = plugin.google.maps.Map.getMap(mapDiv, mapOptions);
 alert('4');
   // You have to wait the MAP_READY event.
-  map.on(plugin.google.maps.event.MAP_READY, onMapInit);
-alert('55');
+ // map.on(plugin.google.maps.event.MAP_READY, onMapInit);
+//alert('55');
 	// Try HTML5 geolocation
 	/*if(navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position) {
