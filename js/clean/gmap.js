@@ -47,7 +47,7 @@ function gmapInitialize() {
 				/*var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 				map.setCenter(pos);*/
 
-  			  var mapDiv = document.getElementById("map_canvas2");
+  			  var mapDiv = document.getElementById("map_canvas");
 			  const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 			  var map = plugin.google.maps.Map.getMap(mapDiv, {
 			    'camera': {
