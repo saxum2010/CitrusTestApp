@@ -623,18 +623,17 @@ $(document).ready(function() {
 
 //google-map detail page
 $( document ).on( "pageshow", "#detail-googlemap", function() {
-
+	alert(1);
 	var Id = "";
 	var u = $.mobile.path.parseUrl( document.URL );
-	if(u.href.search("id=") !== -1)
-	{			
+	if(u.href.search("id=") !== -1){			
 		if( u.hash != undefined){										 
-			 var  Id = u.hash.replace( /.*id=/, "" );							
+			 var  Id = u.hash.replace( /.*id=/, "" );
+			 alert(Id);					
 			 LoadDetailPageMap(Id);						
 		}else{
 			alert("404");
 		}
-		
 	}else{
 		alert("404");
 	}

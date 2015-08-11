@@ -1965,3 +1965,32 @@ function ShowDetailGoogleMape(id){
 	$('#text-page-content').html("");	
 	window.location = "#detail-googlemap?id="+id;
 }
+
+function LoadDetailPageMap(id){
+	$.ajax({
+	  url: "/ajax/on/detail_google_map.php?id="+id,
+	  dataType: 'json',
+	  beforeSend: function( xhr ) {
+	   ShowLoading();
+	  }
+	})
+	.done(function( json ){
+		var doc_h = $(window).height();
+		doc_h = doc_h-303;
+		$('#map_canvas').css('height', doc_h+'px');
+	    /*$.mobile.loading( "hide" );
+		$('#map_canvas, #pano').height($(document).height());*/
+		$.getScript("/js/gmap.js").done(function() {
+			gmapLoadScript();
+		});
+
+		var box_2_detail = "";
+		if(json.coordinates_shop!=''){
+			box_2_detail = "<a href='tel:"+json.city_phone+"' class='icon_detail_phone'><img src='/img/png/phone-icon.png' /><br/>Позвонить</a><a href='"+json.coordinates_shop+"' class='icon_detail_googlemap'><img src='/img/png/gmaps-icon.png' /><br/>Google Maps</a>";		
+		}else{
+			box_2_detail = "<a href='tel:"+json.city_phone+"' class='icon_detail_phone_2'><img src='/img/png/phone-icon.png' /><br/>Позвонить</a>";
+		}
+
+		$('.content_detail_map').html("<div class='box_1_detail'><div class='text_detail_map'>"+json.city_region+"<br/>"+json.city_adress+"<br/>"+json.city_work_time+"<br/>"+json.city_phone+"</div></div><div class='clear'></div><div class='box_2_detail'>"+box_2_detail+"</div>");
+	});
+}
