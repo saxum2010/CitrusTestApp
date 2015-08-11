@@ -512,6 +512,11 @@ $(document).on('click', '.shopCall', function() {
     window.open('tel:'+shop_phones[0], '_system', 'location=yes');
 });
 
+$(document).on('click', '.shopCall2', function() {
+    var shop_phone = $(this).attr('tel');
+    window.open('tel:'+shop_phone, '_system', 'location=yes');
+});
+
 
 $(document).on('click', '#needUpdateButton', function(){
 	window.open('https://play.google.com/store/apps/details?id=ua.citrus.app.shop', '_system', 'location=yes');return false;

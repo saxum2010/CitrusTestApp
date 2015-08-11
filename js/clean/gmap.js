@@ -47,30 +47,28 @@ function gmapInitialize() {
 				/*var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 				map.setCenter(pos);*/
 
+  			  var mapDiv = document.getElementById("map_canvas2");
+			  const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+			  var map = plugin.google.maps.Map.getMap(mapDiv, {
+			    'camera': {
+			      'latLng': latLngs,
+			      'zoom': 17
+			    }
+			  });
 
- var mapDiv = document.getElementById("map_canvas2");
+			  map.on(plugin.google.maps.event.MAP_READY, onMapInit);
 
-  const GOOGLE = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
-  var map = plugin.google.maps.Map.getMap(mapDiv, {
-    'camera': {
-      'latLng': GOOGLE,
-      'zoom': 17
-    }
-  });
+			  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+			    map.addMarker({
+			      'position': latLngs,
+			      'title': "Hello GoogleMap for Cordova!",
+			    }, function(marker) {
 
-  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+			      marker.showInfoWindow();
 
-    map.addMarker({
-      'position': GOOGLE,
-      'title': "Hello GoogleMap for Cordova!",
-    }, function(marker) {
+			    });
 
-      marker.showInfoWindow();
-
-    });
-
-  });
-
+			  });
 
 		}
 		});	  
