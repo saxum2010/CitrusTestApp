@@ -14,8 +14,11 @@ function gmapInitialize() {
 /*	var mapOptions = {
 		zoom: 17,
 		mapTypeId: plugin.google.maps.MapTypeId.ROADMAP
-	}
-var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);*/
+	}*/
+
+
+/*	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	alert('4');*/
 
   // You have to wait the MAP_READY event.
  // map.on(plugin.google.maps.event.MAP_READY, onMapInit);
@@ -24,11 +27,11 @@ var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapO
 	navigator.geolocation.getCurrentPosition(function(position) {
 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);*/
 
-		var id = "";
+		var Id = "";
 		var u = $.mobile.path.parseUrl( document.URL );
 		if(u.href.search("id=") !== -1){			
 			if(u.hash != undefined){										 
-				 var id = u.hash.replace( /.*id=/, "" );	
+				 var Id = u.hash.replace( /.*id=/, "" );	
 			}else{
 				alert("404");
 			}
@@ -47,19 +50,22 @@ var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapO
 				map.setCenter(pos);*/
 
 			  
-			/*var latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
-			var map = plugin.google.maps.Map.getMap(mapDiv, {
-			    'camera': {
-			      'latLng': latLngs,
-			      'zoom': 17
-			    }
-			  });
+				var latLngs = new plugin.google.maps.LatLng(0,0);
+				var map = plugin.google.maps.Map.getMap(mapDiv);
 				map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 					map.setCenter(latLngs);
 				});
-				*/
+				
+map.addMarker({
+  position: new plugin.google.maps.LatLng(0, 0),
+  icon: 'blue',
+  'title': "Hello World!\nThis plugin is very awesome!",
+  'snippet': "Tap here!"
+}, function( marker ) {
+  marker.showInfoWindow();
+});
 
-			const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+			  /*const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 			  var map = plugin.google.maps.Map.getMap(mapDiv, {
 			    'camera': {
 			      'latLng': latLngs,
@@ -67,16 +73,7 @@ var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapO
 			    }
 			  });
 
-			//map.on(plugin.google.maps.event.MAP_READY, onMapInit);
-			
-			map.addMarker({
-			  position: latLngs,
-			  icon: 'blue',
-			  'title': "Hello World!\nThis plugin is very awesome!",
-			  'snippet': "Tap here!"
-			}, function( marker ) {
-			  marker.showInfoWindow();
-			});
+			map.on(plugin.google.maps.event.MAP_READY, onMapInit);*/
 
 		}
 		});	  
