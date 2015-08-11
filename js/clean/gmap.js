@@ -8,15 +8,19 @@ function gmapLoadScript() {
 }
 
 function gmapInitialize() {
+	alert('1');
 	var sv = new plugin.google.maps.StreetViewService();
 	panorama = new plugin.google.maps.StreetViewPanorama(document.getElementById('pano'));
+	alert('2');
 	
 	var mapOptions = {
 		zoom: 17,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
+	alert('3');
 	
 	var map = new plugin.google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+	alert('4');
   
 	// Try HTML5 geolocation
 	/*if(navigator.geolocation) {
@@ -28,18 +32,21 @@ function gmapInitialize() {
 		if(u.href.search("id=") !== -1){			
 			if(u.hash != undefined){										 
 				 var Id = u.hash.replace( /.*id=/, "" );	
+				 alert('5');
 			}else{
 				alert("404");
 			}
 		}else{
 			alert("404");
 		}
+		alert('6');
 
 		$.ajax({ 
 			url: "ajax/on/gmap.php",
 			dataType: 'json',
 			data:'method=getShop&id='+Id,
 			success: function( json ){  
+				alert('7');
 				var pos = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 				  map.setCenter(pos);
 			}
