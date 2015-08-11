@@ -1143,6 +1143,34 @@
 </div>
 <!-- / Цитрус Сервисы товаров Конец-->
 
+<!-- Страница детальная Google map-->
+<div data-role="page" id="detail-googlemap" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a data-iconpos="notext"  class="ui-noshadow c_icon_contr BackButton" onclick="$.mobile.back();" >
+            <i class="c_icon c_back" ></i>
+        </a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext"  class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()">         
+            <i class="c_icon c_user"></i>           
+            </a>
+            <a link="#page-cart"  data-role="button"   class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline  c_icon_contr">            
+            <i class="c_icon c_basket"></i>         
+            </a>
+        </div>  
+    </div>      
+ <div class="navPanelChild" id="nav-panel-text-page"></div>
+        <div data-role="content" class="content-padding" id="content-Google-map">
+            <div class="g_content_detail_map">
+                <div id="map_canvas"></div>
+                <div id="toggleStreetView">Назад</div>
+                <div id="pano"></div>
+                    <div class="content_detail_map"></div>
+            </div>
+        </div>      
+</div>
+<!-- / Страница детальная Google map Конец-->
+
 <div id="global-up-button"></div>
 
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>

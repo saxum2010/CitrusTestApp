@@ -1545,7 +1545,7 @@ function InitShopList(){
 				if(value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE ==""){
 					value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
 				}
-				output += '<li><a o data-transition="slide" data-ajax=false   "> <table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first">'+
+				output += '<li><a onclick="ShowDetailGoogleMape('+value.ID+')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first">'+
 				''+image+'</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> '
 				+'<h2 class="item_name_only product">' 
 				+ value.city +", "+value.NAME + '</h2>	<div class="preview_text">' 
@@ -1959,4 +1959,9 @@ function getUserBonusPanel(){
 		$('.user_bonus_menu').addClass('active').html('<span class="title">На вашем счету:</span>'+user_bonus_menu);
 		$('#user_bonus_panel').addClass('active').html('<span class="title"><i class="c_icon c_catalog gray c_club"></i>На счету:</span><span class="items">'+user_bonus_panel+'</span>');
 	}
+}
+
+function ShowDetailGoogleMape(id){
+	$('#text-page-content').html("");	
+	window.location = "#detail-googlemap?id="+id;
 }
