@@ -79,18 +79,34 @@ function gmapInitialize() {
 	  data:'method=getShop',
 	  success: function( json ) {
 	  
-	  var iconimage = {
+	 /* var iconimage = {
 			url: 'http://www.citrus.ua/img/citrus-mappin-v2.png',
 			size: new plugin.google.maps.Size(48, 48),
 			origin: new plugin.google.maps.Point(0,0),
 			anchor: new plugin.google.maps.Point(24,48)
-		};
+		};*/
 	  
 		 if(json.items != undefined && json.items.length > 0){
 			$.each(json.items, function(key, val){
 				if(val.latlng){
 
-					var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
+				 const shopItem = new plugin.google.maps.LatLng(val.lat,val.lng);
+
+				  map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
+
+				    map.addMarker({
+				      'position': shopItem,
+				      'title': val.adress,
+				      'icon': 'http://www.citrus.ua/img/citrus-mappin-v2.png'
+				    }, function(marker) {
+
+				      marker.showInfoWindow();
+
+				    });
+
+				  });
+
+					/*var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
 						var marker = new plugin.google.maps.Marker({
 							position: myLatlng,
 							map: map,
@@ -108,7 +124,7 @@ function gmapInitialize() {
 						map.setCenter(marker.getPosition());
 						infowindow.open(map,marker);
 						//sv.getPanoramaByLocation(event.latLng, 50, processSVData);
-					});
+					});*/
 				}
 			});
 			$.mobile.loading("hide");
