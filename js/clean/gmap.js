@@ -50,14 +50,19 @@ function gmapInitialize() {
 				map.setCenter(pos);*/
 
 			  
-				var latLngs = new plugin.google.maps.LatLng(0,0);
-				var map = plugin.google.maps.Map.getMap(mapDiv);
+				var latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
+				var map = plugin.google.maps.Map.getMap(mapDiv, {
+			    'camera': {
+			      'latLng': latLngs,
+			      'zoom': 17
+			    }
+			  });
 				map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
 					map.setCenter(latLngs);
 				});
 				
 map.addMarker({
-  position: new plugin.google.maps.LatLng(0, 0),
+  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
   icon: 'blue',
   'title': "Hello World!\nThis plugin is very awesome!",
   'snippet': "Tap here!"
