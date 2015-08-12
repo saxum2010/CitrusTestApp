@@ -61,6 +61,7 @@ function gmapInitialize() {
 					map.setCenter(latLngs);
 				});
 				
+				initAllShops(map);
 				/*map.addMarker({
 				  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
 				  icon: 'blue',
@@ -108,44 +109,49 @@ function gmapInitialize() {
 			anchor: new plugin.google.maps.Point(24,48)
 		};*/
 	  
-		 if(json.items != undefined && json.items.length > 0){
-			$.each(json.items, function(key, val){
-				if(val.latlng){
+	  
+}
+
+function initAllShops(map) {
+	 if(json.items != undefined && json.items.length > 0){
+		$.each(json.items, function(key, val){
+			if(val.latlng){
 
 
-					map.addMarker({
-					  position: new plugin.google.maps.LatLng(val.lat,val.lng),
-					  icon: 'blue',
-					  'title': "Citrus shop"
-					}, function( marker ) {
-					  marker.showInfoWindow();
-					});
-				
-					/*var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
-						var marker = new plugin.google.maps.Marker({
-							position: myLatlng,
-							map: map,
-							title: val.adress,
-							icon: iconimage,
-						});
-						
-						var contentString = '<div style="overflow:hidden">Адрес:'+val.adress+'<br>Телефон:'+val.phone+'</div>';
-						var infowindow = new plugin.google.maps.InfoWindow({
-							content: contentString
-						});
-			
-						plugin.google.maps.event.addListener(marker, 'click', function(event) {
-						map.setZoom(18);
-						map.setCenter(marker.getPosition());
-						infowindow.open(map,marker);
-						//sv.getPanoramaByLocation(event.latLng, 50, processSVData);
-					});*/
-				}
+			map.addMarker({
+			  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
+			  icon: 'blue',
+			  'title': "Hello World!\nThis plugin is very awesome!",
+			  'snippet': "Tap here!"
+			}, function( marker ) {
+			  marker.showInfoWindow();
 			});
-			$.mobile.loading("hide");
-		}
-	  }
-	 });	  
+			
+				/*var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
+					var marker = new plugin.google.maps.Marker({
+						position: myLatlng,
+						map: map,
+						title: val.adress,
+						icon: iconimage,
+					});
+					
+					var contentString = '<div style="overflow:hidden">Адрес:'+val.adress+'<br>Телефон:'+val.phone+'</div>';
+					var infowindow = new plugin.google.maps.InfoWindow({
+						content: contentString
+					});
+		
+					plugin.google.maps.event.addListener(marker, 'click', function(event) {
+					map.setZoom(18);
+					map.setCenter(marker.getPosition());
+					infowindow.open(map,marker);
+					//sv.getPanoramaByLocation(event.latLng, 50, processSVData);
+				});*/
+			}
+		});
+		$.mobile.loading("hide");
+	}
+  }
+ });
 }
 
 function onMapInit(map) {
