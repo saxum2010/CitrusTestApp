@@ -62,6 +62,7 @@ function gmapInitialize() {
 				});
 				
 				initAllShops(map);
+				
 				/*map.addMarker({
 				  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
 				  icon: 'blue',
@@ -96,6 +97,10 @@ function gmapInitialize() {
 		map.setCenter(pos);
 	}*/
 
+  
+}
+
+function initAllShops(map) {
  	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/on/gmap.php", 
 	  dataType: 'json',
@@ -109,49 +114,44 @@ function gmapInitialize() {
 			anchor: new plugin.google.maps.Point(24,48)
 		};*/
 	  
-	  
-}
-
-function initAllShops(map) {
-	 if(json.items != undefined && json.items.length > 0){
-		$.each(json.items, function(key, val){
-			if(val.latlng){
+		 if(json.items != undefined && json.items.length > 0){
+			$.each(json.items, function(key, val){
+				if(val.latlng){
 
 
-			map.addMarker({
-			  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
-			  icon: 'blue',
-			  'title': "Hello World!\nThis plugin is very awesome!",
-			  'snippet': "Tap here!"
-			}, function( marker ) {
-			  marker.showInfoWindow();
-			});
+					map.addMarker({
+					  position: new plugin.google.maps.LatLng(val.lat,val.lng),
+					  icon: 'blue',
+					  'title': "Citrus shop"
+					}, function( marker ) {
+					  marker.showInfoWindow();
+					});
+				
+					/*var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
+						var marker = new plugin.google.maps.Marker({
+							position: myLatlng,
+							map: map,
+							title: val.adress,
+							icon: iconimage,
+						});
+						
+						var contentString = '<div style="overflow:hidden">Адрес:'+val.adress+'<br>Телефон:'+val.phone+'</div>';
+						var infowindow = new plugin.google.maps.InfoWindow({
+							content: contentString
+						});
 			
-				/*var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
-					var marker = new plugin.google.maps.Marker({
-						position: myLatlng,
-						map: map,
-						title: val.adress,
-						icon: iconimage,
-					});
-					
-					var contentString = '<div style="overflow:hidden">Адрес:'+val.adress+'<br>Телефон:'+val.phone+'</div>';
-					var infowindow = new plugin.google.maps.InfoWindow({
-						content: contentString
-					});
-		
-					plugin.google.maps.event.addListener(marker, 'click', function(event) {
-					map.setZoom(18);
-					map.setCenter(marker.getPosition());
-					infowindow.open(map,marker);
-					//sv.getPanoramaByLocation(event.latLng, 50, processSVData);
-				});*/
-			}
-		});
-		$.mobile.loading("hide");
-	}
-  }
- });
+						plugin.google.maps.event.addListener(marker, 'click', function(event) {
+						map.setZoom(18);
+						map.setCenter(marker.getPosition());
+						infowindow.open(map,marker);
+						//sv.getPanoramaByLocation(event.latLng, 50, processSVData);
+					});*/
+				}
+			});
+			$.mobile.loading("hide");
+		}
+	  }
+	 });
 }
 
 function onMapInit(map) {
