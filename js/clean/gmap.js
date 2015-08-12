@@ -61,14 +61,14 @@ function gmapInitialize() {
 					map.setCenter(latLngs);
 				});
 				
-map.addMarker({
-  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
-  icon: 'blue',
-  'title': "Hello World!\nThis plugin is very awesome!",
-  'snippet': "Tap here!"
-}, function( marker ) {
-  marker.showInfoWindow();
-});
+				/*map.addMarker({
+				  position: new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']),
+				  icon: 'blue',
+				  'title': "Hello World!\nThis plugin is very awesome!",
+				  'snippet': "Tap here!"
+				}, function( marker ) {
+				  marker.showInfoWindow();
+				});*/
 
 			  /*const latLngs = new plugin.google.maps.LatLng(json.items[0]['lat'], json.items[0]['lng']);
 			  var map = plugin.google.maps.Map.getMap(mapDiv, {
@@ -113,6 +113,14 @@ map.addMarker({
 				if(val.latlng){
 
 
+					map.addMarker({
+					  position: new plugin.google.maps.LatLng(val.lat,val.lng),
+					  icon: 'blue',
+					  'title': "Citrus shop"
+					}, function( marker ) {
+					  marker.showInfoWindow();
+					});
+				
 					/*var myLatlng = new plugin.google.maps.LatLng(val.lat,val.lng);
 						var marker = new plugin.google.maps.Marker({
 							position: myLatlng,
