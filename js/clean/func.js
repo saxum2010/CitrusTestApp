@@ -1546,7 +1546,7 @@ function InitShopList(){
 			 $.each( json.items, function( key, value ) {
 			 	var url ;			
 				
-				var image = '<img src="/img/png/google_map/mobapp-map-shop-list-icon.png" />';
+				var image = '<img src="http://m.citrus.ua/img/png/google_map/mobapp-map-shop-list-icon.png" />';
 				if(value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE ==""){
 					value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
 				}
@@ -1554,7 +1554,7 @@ function InitShopList(){
 				''+image+'</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> '
 				+'<h2 class="item_name_only product">' 
 				+ value.city +", "+htmlDecode(value.NAME) + '</h2>	<div class="preview_text">' 
-				+'Телефон: <a class="shopCall">'+ value.PROPERTY_CITY_PHONE_VALUE +"</a></br>Время работы: "+value.PROPERTY_CITY_WORK_TIME_VALUE+ '</div></td> '+
+				+'Телефон: <a>'+ value.PROPERTY_CITY_PHONE_VALUE +"</a></br>Время работы: "+value.PROPERTY_CITY_WORK_TIME_VALUE+ '</div></td> '+
 				'</tr></table></a></li>';
 				// nclick="Showtextpage('+value.id+')"
 			 });	
