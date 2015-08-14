@@ -120,9 +120,9 @@ function initAllShops(map) {
 
 
 					map.addMarker({
-					  position: new plugin.google.maps.LatLng(val.lat,val.lng),
-					  icon: 'blue',
-					  'title': "Citrus shop"
+					  'position': new plugin.google.maps.LatLng(val.lat,val.lng),
+					  'icon': 'www/images/google_tokyo_icon.png',
+					  'title': 'Citrus shop'
 					}, function( marker ) {
 					  marker.showInfoWindow();
 					});
