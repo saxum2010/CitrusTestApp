@@ -1888,7 +1888,7 @@ border-bottom: 1px solid #C8C7CC;
 	padding-right: 2rem!important;
 }
 
-/*#nav-panel{
+#nav-panel{
   position: fixed;
   overflow: hidden;
   width: 272px;
@@ -1898,7 +1898,7 @@ border-bottom: 1px solid #C8C7CC;
 	overflow-y: auto;
 	width: 260px;
 	height: 100%;
-}*/
+}
 .notes_phone{
 	text-align: center;
 }
