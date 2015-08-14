@@ -1550,6 +1550,7 @@ function InitShopList(){
 				if(value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE ==""){
 					value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
 				}
+
 				output += '<li><a onclick="ShowDetailGoogleMape('+value.ID+')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">'+
 				''+image+'</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> '
 				+'<h2 class="item_name_only product">' 
@@ -1967,8 +1968,15 @@ function getUserBonusPanel(){
 }
 
 function ShowDetailGoogleMape(id){
-	$('#text-page-content').html("");	
-	window.location = "#detail-googlemap?id="+id;
+
+	if(isIOS()){
+		window.open('http://m.citrus.ua/#detail-googlemap?id='+id, '_system', 'location=yes');
+	}else{
+		$('#text-page-content').html("");	
+		window.location = "#detail-googlemap?id="+id;
+	}
+
+
 }
 
 function LoadDetailPageMap(id){
