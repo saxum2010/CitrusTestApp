@@ -532,6 +532,12 @@ function loadProductCard(id,owl){
 					variations +='<div class="variation_list_contaner"><div class="variation_type_name">'+value.name+'</div><div class="variation_list_items">';		
 					
 					$.each( value.items, function( item_key, item_value ) {
+
+						var product_not_available = '';
+						if(typeof(item_value.can_buy) !== "undefined" && item_value.can_buy['can_buy']!='Y'){
+							product_not_available = 'product_not_available';
+						}
+
 						var active ="";
 						if(item_value.active=="Y"){
 							var active ="active";
@@ -540,7 +546,7 @@ function loadProductCard(id,owl){
 							variations +='<div class="v_color_p v_color_c '+active+'"><div class="v_color_w"><a    product_id="'+item_value.id+'" class="vclick_link_product"><div class="v_color" style="background-color:'+item_value.value+'"></div></a></div></div>';
 						}
 						if(item_value.type =="text"){
-							variations +='<div class="v_color_p v_color_p_text  '+active+'"><div class="v_color_w v_color_w_text"><a   product_id="'+item_value.id+'"  class="vclick_link_product"><div class="v_color v_color_text">'+item_value.value+'</div></a></div></div>';
+							variations +='<div class="v_color_p v_color_p_text  '+active+'"><div class="v_color_w v_color_w_text '+product_not_available+'"><a   product_id="'+item_value.id+'"  class="vclick_link_product"><div class="v_color v_color_text'+product_not_available+'">'+item_value.value+'</div></a></div></div>';
 						}
 					});		
 					variations +='</div></div>';

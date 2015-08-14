@@ -2030,3 +2030,9 @@ width: 100%!important;
 	width: 100%;
   	height: 100%;
 }
+.product_not_available{
+	opacity: 0.35!important;
+}
+.active .product_not_available{
+	opacity: 0.6!important;
+}
