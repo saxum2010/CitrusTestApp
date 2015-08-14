@@ -121,7 +121,7 @@ function initAllShops(map) {
 
 					map.addMarker({
 					  'position': new plugin.google.maps.LatLng(val.lat,val.lng),
-					  'icon': 'www/images/google_tokyo_icon.png',
+					  'icon': 'http://www.citrus.ua/img/citrus-mappin-v2.png',
 					  'title': 'Citrus shop'
 					}, function( marker ) {
 					  marker.showInfoWindow();
