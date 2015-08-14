@@ -1546,10 +1546,7 @@ function InitShopList(){
 			 $.each( json.items, function( key, value ) {
 			 	var url ;			
 				
-				var image = "";
-				if(value.image != undefined){
-					image = '<img src="' + value.image + '" >';
-				}
+				var image = '<img src="/img/png/google_map/mobapp-map-shop-list-icon.png" />';
 				if(value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE ==""){
 					value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
 				}
