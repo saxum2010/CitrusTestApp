@@ -1550,7 +1550,7 @@ function InitShopList(){
 				if(value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE ==""){
 					value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
 				}
-				output += '<li><a onclick="ShowDetailGoogleMape('+value.ID+')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first">'+
+				output += '<li><a onclick="ShowDetailGoogleMape('+value.ID+')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">'+
 				''+image+'</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> '
 				+'<h2 class="item_name_only product">' 
 				+ value.city +", "+htmlDecode(value.NAME) + '</h2>	<div class="preview_text">' 
