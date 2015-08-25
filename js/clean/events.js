@@ -636,3 +636,13 @@ $( document ).on( "pageshow", "#detail-googlemap", function() {
 		alert("404");
 	}
 });
+
+//Function $.mobile.back()
+$(window).on("navigate", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back') {
+    savePos=null;
+  }
+  /*if (direction == 'forward') {
+  }*/
+});
