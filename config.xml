@@ -6,7 +6,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "ua.citrus.app.shop"
-        version   = "1.0.8">
+        version   = "1.0.9">
 
     <name>Цитрус</name>
 
@@ -53,10 +53,10 @@
         <param name="URL_SCHEME" value="citrus" />
     </gap:plugin>
 
-    <!--gap:plugin name="plugin.google.maps" source="npm" version="1.2.4">
+    <gap:plugin name="plugin.google.maps" source="npm" version="1.2.4">
         <param name="API_KEY_FOR_ANDROID" value="AIzaSyCdg9oGCGB6faUdUxZlLol6e2cjtjZ6lHo" />
         <param name="API_KEY_FOR_IOS" value="AIzaSyAGo-_mXT40eJgy9JMGvkEqOCp_bsiKMTg" />
-    </gap:plugin-->
+    </gap:plugin>
 	
 	<preference name="StatusBarOverlaysWebView" value="false" />
 	<preference name="StatusBarStyle" value="default" />
