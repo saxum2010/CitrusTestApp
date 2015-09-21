@@ -1876,8 +1876,7 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #product_actions_block{
-	margin-top: 6px;
-	border-top: 1px solid #C8C7CC;
+
 }
 
 #product-actions-listview .ui-li-static{
@@ -2045,4 +2044,32 @@ width: 100%!important;
 }
 .ui-panel-animate {
   position: fixed!important;
+}
+.box_payment_parts{
+	padding: 0px 16px;
+}
+.payment_parts_bg{
+	background: url("/img/svg/oplata-chastyami-icon-productview.svg")no-repeat;
+	background-position: 0px 0px;
+	padding-left: 30px;
+	margin: 0px;
+}
+.line_gray{
+	margin-top: 6px;
+	border-top: 1px solid #C8C7CC;
+}
+.g_menu_payment_parts{
+	display: none;
+}
+.catalog_payment_parts{
+	color: #A8A8A8 !important;
+	font-weight: 400;
+	font-size: 0.78rem;
+	margin-top: 0.08rem;
+	text-overflow: ellipsis;
+	white-space: initial !important;
+	background: url("/img/svg/oplata-chastyami-icon-listview.svg")no-repeat;
+	background-position: 0px 0px;
+	padding: 2px 0px 0px 25px;
+	height: 15px;
 }
