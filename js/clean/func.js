@@ -210,7 +210,7 @@ function LoadDefaultCatalog(category,position,count){
 
 					if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div>';
-						payment_parts = '<div class="catalog_payment_parts">Доступна «Оплата частями»</div>';	
+						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
 
 					}else if(parseInt(value.price, 10) > 1){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
@@ -805,7 +805,7 @@ function LoadMainPageData(){
 
 							var payment_parts = '';
 							if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){
-								payment_parts = '<div class="catalog_payment_parts">Доступна «Оплата частями»</div>';
+								payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
 							}
 
 							row2 = (parseInt(value.price) > 1 && value.can_buy =="Y")?'<div class="price">'+value.price+' грн</div>':'<div class="status">'+value.can_buy_status+'</div>';
@@ -1687,7 +1687,7 @@ function getUserWishContentList(json){
 				var payment_parts = '';
 				if(parseInt(value.price) > 1 && value.can_buy =="Y"){
 					row2 = '<div class="price">'+value.price+' грн</div>';
-					payment_parts = '<div class="catalog_payment_parts">Доступна «Оплата частями»</div>';	
+					payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
 				}else if(parseInt(value.price) > 1){
 					row2 = '<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 				}else{
@@ -1899,7 +1899,7 @@ function LoadPromosPage(id,data){
 					var payment_parts = '';
 					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div>';
-						payment_parts = '<div class="catalog_payment_parts">Доступна «Оплата частями»</div>';	
+						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
 					}else if(parseInt(value.price) > 1){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 					}else{
