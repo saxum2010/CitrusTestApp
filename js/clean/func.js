@@ -204,11 +204,13 @@ function LoadDefaultCatalog(category,position,count){
 					
 					var row2 = '';
 					var price_rep = value.price;
+					var payment_parts = '';
 
 					value.price = price_rep.replace(/\s+/g,'');
 
 					if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){
-						row2 = old_price+'<div class="price">'+value.price+' грн</div>';	
+						row2 = old_price+'<div class="price">'+value.price+' грн</div>';
+						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
 
 					}else if(parseInt(value.price, 10) > 1){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
@@ -226,7 +228,7 @@ function LoadDefaultCatalog(category,position,count){
 						bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
 					}
 
-					output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+'</td><td style="width:25px"></td></tr></table></a></li>';
+					output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
 					
 					
 									
@@ -495,13 +497,16 @@ function loadProductCard(id,owl){
 				if(json.can_buy!= undefined && json.can_buy=="Y" ){					
 					$('#product-card-buy-btn').show();
 					$('#product-card-status, #product-card-pre-btn').hide();
+					$('.g_menu_payment_parts').show();
 				}else if(json.can_buy!= undefined && json.can_buy=="N" ){
 					$('#product-card-buy-btn, #product-card-pre-btn').hide();
 					$('#product-card-status').html(json.can_buy_status).show();
+					$('.g_menu_payment_parts').hide();
 				}else{
 					$('#product-card-buy-btn').hide();
 					$('#product-card-status').html(json.can_buy_status);
 					$('#product-card-pre-btn, #product-card-status').show();
+					$('.g_menu_payment_parts').hide();
 				}
 		
 				if(json.mini_property !== undefined){
@@ -797,8 +802,14 @@ function LoadMainPageData(){
 							}else{
 								text_flag = '';
 							}
+
+							var payment_parts = '';
+							if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){
+								payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
+							}
+
 							row2 = (parseInt(value.price) > 1 && value.can_buy =="Y")?'<div class="price">'+value.price+' грн</div>':'<div class="status">'+value.can_buy_status+'</div>';
-							output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+value.props+'</div></td><td style="width:25px"></td></tr></table></a></li>';
+							output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+value.props+payment_parts+'</div></td><td style="width:25px"></td></tr></table></a></li>';
 						});
 						$('#main-listview-'+key1).html(output).listview("refresh");
 				});
@@ -1673,8 +1684,10 @@ function getUserWishContentList(json){
 				url = "#product-card?product-id=" + value.id;
 				
 				var row2 = '';
+				var payment_parts = '';
 				if(parseInt(value.price) > 1 && value.can_buy =="Y"){
-					row2 = '<div class="price">'+value.price+' грн</div>';	
+					row2 = '<div class="price">'+value.price+' грн</div>';
+					payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
 				}else if(parseInt(value.price) > 1){
 					row2 = '<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 				}else{
@@ -1691,7 +1704,7 @@ function getUserWishContentList(json){
 					bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
 				}
 
-				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+'</td><td style="width:25px"></td></tr></table></a></li>';
+				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
 			}else{
 				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="#products-list?'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
 				}
@@ -1883,8 +1896,10 @@ function LoadPromosPage(id,data){
 					dop_class=dop_class+" product";
 					url = "#product-card?product-id=" + value.id;
 					var row2 = '';
+					var payment_parts = '';
 					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
-						row2 = old_price+'<div class="price">'+value.price+' грн</div>';	
+						row2 = old_price+'<div class="price">'+value.price+' грн</div>';
+						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
 					}else if(parseInt(value.price) > 1){
 						row2 = old_price+'<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 					}else{
@@ -1892,7 +1907,7 @@ function LoadPromosPage(id,data){
 					}
 					var prop = (value.props!= undefined)?value.props:"";
 					var bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5)?'<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>':'';
-					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+'</td><td style="width:25px"></td></tr></table></a></li>';
+					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
 				}else{
 					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#products-list?'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
 				}
