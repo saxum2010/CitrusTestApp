@@ -280,6 +280,12 @@ function LoadDefaultCatalog(category,position,count){
 					if(value.type =="product"){
 						link = 'href="#product-card?product-id='+value.product_id+'"';
 					}
+					if(value.type =="promo"){
+						link = 'href="#promo?id='+value.promo_id+'"';
+					}
+					if(value.type =="any"){
+						link = value.any;
+					}
 					images += '<div class="item"><a '+link+' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="'+value.name+'"  data-src="'+value.image+'"></a></div>';
 				});
 			
@@ -773,6 +779,12 @@ function LoadMainPageData(){
 					}
 					if(value.type =="section"){
 						link = 'href="#products-list?category-items='+value.mob_link+'"';
+					}
+					if(value.type =="promo"){
+						link = 'href="#promo?id='+value.promo_id+'"';
+					}
+					if(value.type =="any"){
+						link = value.any;
 					}
 					 
 					images += '<div class="item"><a '+link+' data-ajax=false><img class="owl-lazy gas" gac="InnerBanner" gaa="TopSliderClick" gam="'+value.name+'"  data-src="'+value.image+'"></a></div>';
