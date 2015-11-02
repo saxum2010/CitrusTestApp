@@ -2075,3 +2075,96 @@ width: 100%!important;
 	padding: 2px 0px 0px 25px;
 	height: 15px;
 }
+
+
+.aligntab64{
+	vertical-align: middle;
+	text-align:center;
+	width:40%;
+}
+
+.bundle_plus {
+    width: 30px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #fb6707!important;
+    text-align: center;
+}
+
+.bundle_price{
+	color: #F47317 !important;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.bundle_old_price{
+    color: #FF0000!important;
+    text-decoration: line-through;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-right: 2rem;
+}
+
+.bundle_old_price .bundle_price{
+	font-size: 1.1rem;
+	color: #959595!important;
+	position: relative;
+}
+
+.bundle_old_price_sum{
+	top:10px!important;
+}
+
+.old_price_yes .bundle_old_price{
+	margin-right: 5px;
+}
+
+.bundle_total_price_block {
+    float: right;
+    color: #F47317 !important;
+    text-align: center;
+}
+
+.bundle_total_price_block .pre_sup{
+	font-size: 1.3rem;
+}
+
+.bundle_price_sum{
+	float: left;
+	margin-right: 5px;
+    font-size: 2rem;
+    padding-bottom: 10px;
+}
+
+.you_econom{
+    text-align: left;
+    padding: 0rem 0;
+    color: #777777!important;
+    font-size: 1rem!important;
+    position: absolute;
+    margin-top: 44px;
+}
+
+.bundle_hr{
+	margin: 0 -1em;
+}
+
+.bundle_item_skidka *{
+	color:#fff!important;
+	font-size:1rem!important;
+}
+
+.bundle_item_skidka {
+    background: #FF0000;
+    border: 1px solid #FF0000;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 1px 3px 1px 3px;
+    position: absolute;
+    width: auto;
+    display: inline-block;
+    margin-left: 65px;
+    margin-top: 1rem;
+}

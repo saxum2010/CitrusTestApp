@@ -646,3 +646,18 @@ $(window).on("navigate", function (event, data) {
   /*if (direction == 'forward') {
   }*/
 });
+
+$( document ).on( "pageshow", "#bundle", function() {
+	// Cтраница bundle
+		var id = "", u = $.mobile.path.parseUrl( document.URL );
+		if(u.href.search("id=") !== -1){			
+			if(u.hash != undefined){										 
+				 var id = u.hash.replace( /.*bundle_id=/, "" ), data ="";
+				 LoadBundlePage(id,data);
+			}else{
+				alert("404");
+			}
+		}else{
+			alert("404");
+		}
+});

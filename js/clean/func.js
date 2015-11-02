@@ -590,6 +590,42 @@ function loadProductCard(id,owl){
 				$("#product-card-prices").html(prices);
 				$("#product-card-old_prices").html(json.old_price);
 				
+				//bundle
+				var output ="";
+				$("#bundle_block").hide();
+				if(json.bundle !== undefined && json.bundle!=null){
+						if(json.bundle.bundle !== undefined){
+							$.each(json.bundle.bundle, function( key, bundle_item ) {
+								if(bundle_item!=null){
+
+									diskount_block = (bundle_item.old_price>0)?'<div class="bundle_item_skidka"><span class="bundle_strong">-'+bundle_item.diskount+'</span><span>'+bundle_item.diskount_type+'</span></div>':'';
+
+									output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_item.id+'" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><img src="'+ json.bundle.main.image + '"><br /><span class="bundle_price">'+json.bundle.main.price_print+'грн</span></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price"><span class="bundle_price">'+bundle_item.old_price_print+'</span></span><span class="bundle_price">'+bundle_item.price_print+'грн</span></td></tr></table></a></li>';
+								}
+							});
+						}
+
+						if(json.bundle.bundle2 !== undefined){
+							$.each(json.bundle.bundle2, function( key, bundle_items ) {
+								
+								output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_items.id+'" class="vclick_bundle"><table style="width:100%"><tr>';
+									if(bundle_items.items!=null){
+										var i=0;
+										$.each(bundle_items.items, function( key, bundle_item ) {
+											diskount_block = (bundle_item.DISCOUNT_PERCENT>0)?'<div class="bundle_item_skidka"><span class="bundle_strong">-'+bundle_item.DISCOUNT_PERCENT+'</span><span>%</span></div>':'';
+											output += '<td class="aligntab64">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price"><span class="bundle_price">'+bundle_item.old_price_print+'</span></span><span class="bundle_price">'+bundle_item.price_print+'грн</span></td>';
+											if(i==0){output += '<td class="aligntab64 bundle_plus">+</td>';i=1;}
+										});
+									}
+								output += '</tr></table></a></li>';
+							});
+						}
+
+					if(output!=''){$("#bundle_block").show();}
+
+					$('#bundle-listview').html(output).listview("refresh");
+				}
+
 				if(json.accs !== undefined){
 					var output ="";
 					$.each( json.accs, function( key, value ) {
@@ -714,8 +750,7 @@ function ProssedTapEvents(){
 	 	eventstring = "tap";
 	 }
 
-	 $('.vclick_d_link').unbind();
-	 $('.vclick_d_link').on(eventstring,function(event){
+	 $('.vclick_d_link').unbind().on(eventstring,function(event){
 		if($.mobile.activePage.attr('id') =="products-list"){
 			savePos = $(this).parent('li').index();
 		}
@@ -728,28 +763,33 @@ function ProssedTapEvents(){
 			window.location = $(this).attr('link');
 	});	
 
-	 $('.vclick_link_product').unbind();
-	 $('.vclick_link_product').on(eventstring,function(event){
+	 $('.vclick_link_product').unbind().on(eventstring,function(event){
 			event.stopPropagation();
 			event.preventDefault();
 			loadProductCard($(this).attr('product_id'),true);
 			window.scrollTo(0,0);
-	 });	
+	 });
+
+	 $('.vclick_bundle').unbind().on(eventstring,function(event){
+			event.stopPropagation();
+			event.preventDefault();
+			window.location = "#bundle?bundle_id="+$(this).attr('bundle_id');
+			window.scrollTo(0,0);
+	 });
 }
 
 function ReinitowlProductCard(){
-	 //$('.owl-carousel-product-card').trigger('destroy.owl.carousel');
-  
 	 $('.owl-carousel-product-card').owlCarousel({
 	    items:1,
 		lazyLoad:true,
 	    nav:true,
 		margin:0 
     });
-   
 }
-var main_page_load = false;
-var main_images  = false;
+
+var main_page_load = false,
+	main_images  = false;
+
 function LoadMainPageData(){
 	if(!main_page_load){
 		
@@ -860,8 +900,6 @@ function LoadMainPageData(){
 	  } 
 	});
 	}else{
-		
-		//$('.owl-carousel').trigger('refresh.owl.carousel');
 		$(".owl-carousel").html(main_images);
 		$('.owl-carousel').trigger('destroy.owl.carousel');
 				var owl = $(".owl-carousel").data('owlCarousel');
@@ -2051,3 +2089,71 @@ function LoadDetailPageMap(id){
 function htmlDecode(value){
   return $('<div/>').html(value).text();
 } 
+
+function LoadBundlePage(id){
+	var bundle_content = $('#bundle-content-listview');
+	$.ajax({ 
+	  url: "http://m.citrus.ua/ajax/on/bundle.php?bb=1&bundle_id="+id, 
+	  type: "POST",
+	  dataType: 'json',
+	  beforeSend: function(xhr){ShowLoading();},
+	  success: function(json) {
+		  	if(json.error=='Y'){
+		  		$('.bundle-text').html('<table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">Ничего не найдено....</h2></td><td style="width:25px"></td></tr></table>');
+		  	}
+
+		  	$('#bundle-card-buy-btn').unbind().on("vclick",function(){
+				StartBuyBundle(json.id);
+			});
+
+			var output = url = "";
+			if(json.bundle_goods != undefined){
+			$.each(json.bundle_goods, function(bundle_key, value){
+			if(value != undefined){
+				var text_flag = (value.text_flag!=null)?value.text_flag:'',
+					dop_class="";
+				if(value.price){
+					var old_price = (value.old_price!=null)?value.old_price:'';
+					dop_class=dop_class+" product";
+					url = "#product-card?product-id=" + value.id;
+					var row2 = '', payment_parts = '',
+						price_class = (old_price>0) ? 'old_price_yes' : '';
+					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
+						row2 = '<div class="price_block old_price_yes"><span class="bundle_old_price"><span class="bundle_price">'+old_price+'</span></span><span class="price">'+value.price+' грн</span></div>';
+						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
+					}else if(parseInt(value.price) > 1){
+						row2 = '<div class="price_block old_price_yes"><span class="bundle_old_price"><span class="bundle_price">'+old_price+'</span></span><span class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
+					}else{
+						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
+					}
+					var prop = (value.props!= undefined)?value.props:"";
+					var bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5)?'<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>':'';
+					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
+				}else{
+					output += '<li><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#products-list?'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+				}
+			}
+		});
+		$('.bundle_econom').html(json.total_econom);
+		$('.bundle_price_sum').html(json.total_sum_print);
+		$('.bundle_old_price_sum').html(json.total_old_sum_print);
+	}
+			bundle_content.html(output);
+			ProssedTapEvents();
+			product_list_page_loded = true;
+			$.mobile.loading( "hide" );
+		 }, 
+	  timeout: 25000 ,
+	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
+		 if(status == "timeout"){
+			product_list_page_loded = true; ShowMessage(1); location.reload();
+		 }
+	  } 
+	});
+
+}
+
+function StartBuyBundle(bundle_id){
+    ShowLoading();
+	MobileUser.basket.addBundleToCart(bundle_id,AfterBuyProduct);
+}
