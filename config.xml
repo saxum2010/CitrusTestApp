@@ -59,6 +59,10 @@
         <param name="API_KEY_FOR_ANDROID" value="AIzaSyCdg9oGCGB6faUdUxZlLol6e2cjtjZ6lHo" />
         <param name="API_KEY_FOR_IOS" value="AIzaSyAGo-_mXT40eJgy9JMGvkEqOCp_bsiKMTg" />
     </gap:plugin>-->
+    <gap:plugin name="google-maps" source="npm" />
+        <param name="API_KEY_FOR_ANDROID" value="AIzaSyCdg9oGCGB6faUdUxZlLol6e2cjtjZ6lHo" />
+        <param name="API_KEY_FOR_IOS" value="AIzaSyAGo-_mXT40eJgy9JMGvkEqOCp_bsiKMTg" />
+    </gap:plugin>
 
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarStyle" value="default" />
