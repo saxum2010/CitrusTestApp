@@ -528,10 +528,10 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 });
 
 $(document).on('click', '#needLoginButton', function(){
-	$('#needLogin').remove();
 	$.mobile.changePage('#login-page');
-	$("#phone").val("+380TEST"+$('#needLoginEnterNumber').val());
+	$("#phone").val($('#needLoginEnterNumber').val());
 	MobileUser.Authorization_sendCode($('#phone').val());
+	$('#needLogin').remove();
 });
 
 $(document).on('click', '.needNoLogin, .needLogin_bg', function(){
