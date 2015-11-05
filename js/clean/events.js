@@ -11,7 +11,6 @@ $(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (eve
 
 // Инициализайция Jquery Mobile
 $(document).bind('mobileinit', function () {
-	ShowAutorizationWindow();
 });
 
 //  Эвент перед созданием страницы Jquery Mobile
@@ -534,7 +533,7 @@ $(document).on('click', '#needLoginButton', function(){
 });
 
 $(document).on('click', '.needNoLogin, .needLogin_bg', function(){
-	MobileUser.SetStorage('needLogin',	'1');
+	sessionStorage.setItem("needLogin", 1);
 	$('#needLogin').remove();
 });
 
