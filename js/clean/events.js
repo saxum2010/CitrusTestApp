@@ -530,7 +530,8 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 $(document).on('click', '#needLoginButton', function(){
 	$('#needLogin').remove();
 	$.mobile.changePage('#login-page');
-	MobileUser.Authorization_sendCode($('#needLoginEnterNumber').val());
+	$('#phone').val($('#needLoginEnterNumber').val());
+	MobileUser.Authorization_sendCode($('#phone').val());
 });
 
 $(document).on('click', '.needNoLogin, .needLogin_bg', function(){
