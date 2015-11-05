@@ -527,6 +527,15 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 	$('#needUpdate').remove();
 });
 
+$(document).on('click', '#needLoginButton', function(){
+	MobileUser.Authorization_sendCode($('#needLoginEnterNumber').val());
+});
+
+$(document).on('click', '.needNoLogin, .needLogin_bg', function(){
+	MobileUser.SetStorage('needLogin',	'1');
+	$('#needLogin').remove();
+});
+
 $(document).on('click', '#payment-btn', function(){
 	window.open("http://m.citrus.ua/ajax/on/payment.php?id="+$(this).attr('order_id')+"&uid="+$(this).attr('uid')+"&token="+$(this).attr('token'), '_system', 'location=yes');return false;
 });

@@ -1462,7 +1462,8 @@ border-bottom: 1px solid #C8C7CC;
 	  margin: 1px 0px 7px 0px;
 }
 
-#needUpdate{
+#needUpdate, 
+#needLogin{
 	display: none;
 	top: 0;
 	left: 0;
@@ -1476,7 +1477,8 @@ border-bottom: 1px solid #C8C7CC;
     -webkit-box-sizing: border-box;  
 }
 
-.needUpdate_bg{
+.needUpdate_bg,
+.needLogin_bg{
 	position:fixed;
 	top:0;
 	left:0;
@@ -1487,7 +1489,8 @@ border-bottom: 1px solid #C8C7CC;
 	display: inline-block; 
 }
 
-.needUpdateContent{
+.needUpdateContent,
+.needLoginContent{
 	background: #fff;
 	padding:2rem 1.5rem;
 	margin: 7rem auto;
@@ -1498,7 +1501,8 @@ border-bottom: 1px solid #C8C7CC;
     -webkit-box-sizing: border-box;  
 }
 
-.needUpdateText{
+.needUpdateText,
+.needLoginText{
 	background: #fef7de;
 	width: 100%;
 	height: auto;
@@ -1511,22 +1515,27 @@ border-bottom: 1px solid #C8C7CC;
     -webkit-box-sizing: border-box;  
 }
 
-.needUpdateText ul{
+.needUpdateText ul,
+.needLoginText ul{
 	padding: 0rem 1rem;
 	font-size: 0.78rem;
 
 }
-.needUpdateText ul li{
+
+.needUpdateText ul li,
+.needLoginText ul li{
 	font-size: 0.78rem;
 }
 
-.needUpdateTitle{
+.needUpdateTitle,
+.needLoginTitle{
 	font-weight: 400;
 	font-size: 1.4rem;
 	text-align: center;
 }
 
-.needNoUpdate{
+.needNoUpdate,
+.needNoLogin{
 	font-size: 0.7rem;
 	text-align: center;
 	width: 100%;
@@ -1536,11 +1545,13 @@ border-bottom: 1px solid #C8C7CC;
 	margin-top: 1rem;
 }
 
-.needUpdateLogo{
+.needUpdateLogo,
+.needLoginLogo{
 	text-align: center;
 }
 
-.needUpdateLogo img{
+.needUpdateLogo img,
+.needLoginLogo img{
 	width: 7rem;
 	margin-top: -5.2rem;
 }
