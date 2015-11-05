@@ -884,18 +884,14 @@ function LoadMainPageData(){
 								$('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения '+res.version+'</div><div class="needUpdateText">ЧТО НОВОГО<br>'+res.needUpdateText+'</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю использовать старую версию</span></div>').show();
 							}
 
-							if(!MobileUser.IsAuthorized){
+							/*if(!MobileUser.IsAuthorized){
 								var loStatus = MobileUser.GetStorage('needLogin');
 								if(loStatus!=undefined){
 									$('#needLogin').remove();
 								}else{
-									setTimeout(function(){
-										if(!MobileUser.IsAuthorized){
-											$('#needLogin').html('<div class="needLogin_bg"></div><div class="needLoginContent"><div class="needLoginLogo"><img src="img/png/logo.png"></div><div class="needLoginTitle">Представьтесь</div><div class="needLoginText">Авторизуйтесь сейчас, получите <br /> доступ к бонусному счету и другим <br /> функциям приложения</div><br /><span class="needLoginEnterNumberText">Введите номер телефона</span><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="tel" id="needLoginEnterNumber" maxlength="13" autocomplete="off"  value="+380" onkeyup="MobileUser.VerifyPhoneInput(this,\'#needLoginButton\')"></div><button id="needLoginButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Авторизоваться</button><span class="needNoLogin">Спасибо. Продолжаю использовать приложение без <br />дополнительных функций</span></div>').show();
-											}
-									}, 60000);
+									
 								}
-							}
+							}*/
 			            }
 					}
 				});
@@ -2169,4 +2165,12 @@ function LoadBundlePage(id){
 function StartBuyBundle(bundle_id){
     ShowLoading();
 	MobileUser.basket.addBundleToCart(bundle_id,AfterBuyProduct);
+}
+
+function ShowAutorizationWindow(){
+	setTimeout(function(){
+	if(!MobileUser.IsAuthorized){
+		$('#needLogin').html('<div class="needLogin_bg"></div><div class="needLoginContent"><div class="needLoginLogo"><img src="img/png/logo.png"></div><div class="needLoginTitle">Представьтесь</div><div class="needLoginText">Авторизуйтесь сейчас, получите <br /> доступ к бонусному счету и другим <br /> функциям приложения</div><br /><span class="needLoginEnterNumberText">Введите номер телефона</span><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="tel" id="needLoginEnterNumber" maxlength="13" autocomplete="off"  value="+380" onkeyup="MobileUser.VerifyPhoneInput(this,\'#needLoginButton\')"></div><button id="needLoginButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Авторизоваться</button><span class="needNoLogin">Спасибо. Продолжаю использовать приложение без <br />дополнительных функций</span></div>').show();
+		}
+	}, 60000);
 }

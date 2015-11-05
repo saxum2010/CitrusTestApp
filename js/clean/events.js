@@ -11,6 +11,7 @@ $(document).on('pageshow', '[data-role=page], [data-role=dialog]', function (eve
 
 // Инициализайция Jquery Mobile
 $(document).bind('mobileinit', function () {
+	ShowAutorizationWindow();
 });
 
 //  Эвент перед созданием страницы Jquery Mobile
