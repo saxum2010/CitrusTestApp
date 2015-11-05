@@ -1501,13 +1501,25 @@ border-bottom: 1px solid #C8C7CC;
     -webkit-box-sizing: border-box;  
 }
 
-.needUpdateText,
-.needLoginText{
+.needUpdateText{
 	background: #fef7de;
 	width: 100%;
 	height: auto;
 	display: inline-block;
 	font-size: 0.78rem;
+	padding:1rem; 
+	margin:2rem 0; 
+	box-sizing: border-box;  
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;  
+}
+
+.needLoginText{
+	width: 100%;
+	text-align: center;
+	height: auto;
+	display: inline-block;
+	font-size: 0.9rem;
 	padding:1rem; 
 	margin:2rem 0; 
 	box-sizing: border-box;  
@@ -2177,4 +2189,11 @@ width: 100%!important;
     display: inline-block;
     margin-left: 65px;
     margin-top: 1rem;
+}
+
+#needLoginEnterNumber{
+	color: rgba(131, 130, 130, 1);
+	font-size: 1.1rem;
+	font-weight: 400;
+	font-family: arial;
 }

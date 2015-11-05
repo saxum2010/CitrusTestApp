@@ -528,6 +528,7 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 });
 
 $(document).on('click', '#needLoginButton', function(){
+	$('#needLogin').remove();
 	MobileUser.Authorization_sendCode($('#needLoginEnterNumber').val());
 });
 
