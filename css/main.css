@@ -2195,8 +2195,12 @@ width: 100%!important;
 	font-size: 1.1rem;
 	font-weight: 400;
 	font-family: arial;
-	border-color: #ccc!important;
+	border-color: #838282!important;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+}
+
+.needLoginEnter{
+	border-color: #838282!important;
 }
