@@ -109,7 +109,7 @@ function RegisterDevice(key,provider,phone){
 		localStorage.setItem('device_key', key);
 	}
     var php_path = "device.php";
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+'&dui='+getDeviceUserInfo();
 
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
@@ -124,12 +124,18 @@ function RegisterDevice(key,provider,phone){
             if(status == "timeout"){
                 ShowMessage(1);
                 return false;
-
             }
-
         }
     });
+}
 
+function getDeviceUserInfo(){
+	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+	deviceInfo.get(function(result) {
+		return result;
+    }, function() {
+		return false;
+    });
 }
 
 function JQueryMobileHandlePushRequest(event,id){
