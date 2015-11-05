@@ -2174,11 +2174,11 @@ function ShowAutorizationWindow(){
 		}
 	}, 6000);
 
-		$('#debug').html("TEST");
+		$('#debug_wrap').html("TEST");
 	deviceInfo.get(function(result) {
-		$('#debug').html("result = " + result);
+		$('#debug_wrap').html("result = " + result);
     }, function() {
-		$('#debug').html('error');
+		$('#debug_wrap').html('error');
     });
 
 }

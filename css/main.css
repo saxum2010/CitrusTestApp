@@ -1463,7 +1463,8 @@ border-bottom: 1px solid #C8C7CC;
 }
 
 #needUpdate, 
-#needLogin{
+#needLogin,
+#debug_wrap{
 	display: none;
 	top: 0;
 	left: 0;
