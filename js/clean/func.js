@@ -877,9 +877,9 @@ function LoadMainPageData(){
 			            }
 
 deviceInfo.get(function(result) {
-		$('body').after("result = " + result);
+		$('#debug').after("result = " + result);
     }, function() {
-		$('body').after('error');
+		$('#debug').after('error');
     });
 
 			            if(res.needUpdate=='Y'){
