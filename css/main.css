@@ -2195,5 +2195,8 @@ width: 100%!important;
 	font-size: 1.1rem;
 	font-weight: 400;
 	font-family: arial;
-	border-color: rgba(131, 130, 130, 1);
+	border-color: #ccc!important;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
