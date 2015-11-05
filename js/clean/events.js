@@ -529,9 +529,9 @@ $(document).on('click', '.needNoUpdate, .needUpdate_bg', function(){
 
 $(document).on('click', '#needLoginButton', function(){
 	$('#needLogin').remove();
-	$.mobile.changePage('#login-page');
-	$('#phone').val($('#needLoginEnterNumber').val());
+	$('#login-page #phone').val($('#needLoginEnterNumber').val());
 	MobileUser.Authorization_sendCode($('#phone').val());
+	$.mobile.changePage('#login-page');
 });
 
 $(document).on('click', '.needNoLogin, .needLogin_bg', function(){
