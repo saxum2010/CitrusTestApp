@@ -1519,18 +1519,14 @@ border-bottom: 1px solid #C8C7CC;
 	text-align: center;
 	height: auto;
 	display: inline-block;
-	font-size: 1rem;
-	margin:0.5rem 0; 
-	box-sizing: border-box;  
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;  
+	font-size: 1.3rem;
+	margin:1rem 0; 
 }
 
 .needUpdateText ul,
 .needLoginText ul{
 	padding: 0rem 1rem;
 	font-size: 0.78rem;
-
 }
 
 .needUpdateText ul li,
@@ -1543,6 +1539,10 @@ border-bottom: 1px solid #C8C7CC;
 	font-weight: 400;
 	font-size: 1.4rem;
 	text-align: center;
+}
+
+.needLoginTitle{
+	font-size: 2rem;
 }
 
 .needNoUpdate,
@@ -2195,4 +2195,5 @@ width: 100%!important;
 	font-size: 1.1rem;
 	font-weight: 400;
 	font-family: arial;
+	border-color: rgba(131, 130, 130, 1);
 }
