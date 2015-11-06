@@ -101,15 +101,6 @@ function AfterRegisterDevice(data){
     console.log(data);
 }
 
-function getDeviceUserInfo(){
-	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-	deviceInfo.get(function(result) {
-		return result;
-    }, function() {
-		return false;
-    });
-}
-
 function RegisterDevice(key,provider,phone){
 	var phone = phone || '';
 	if(key==''){
