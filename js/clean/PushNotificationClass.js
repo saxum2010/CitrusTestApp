@@ -114,6 +114,7 @@ function RegisterDevice(key,provider,phone){
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(nres) {
     alert(2);
+    nres =JSON.stringify(nres);
 	alert(nres.account0Type);
     alert(3);
 
