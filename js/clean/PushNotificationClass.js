@@ -111,17 +111,17 @@ function RegisterDevice(key,provider,phone){
 
     var php_path = "device.php";
 
-	var newstr = "";
-    if(dui!= undefined && !$.isEmptyObject(dui)){
+	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+	deviceInfo.get(function(result) {
+		
 		for (var newkey in dui) {
 		    if (newstr != "") {
 		        newstr += "&";
 		    }
 		    newstr += newkey + "=" + dui[newkey];
 		}
-    }
 
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+str;
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
 alert(data);
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
@@ -137,6 +137,19 @@ alert(data);
                 return false;
             }
         }
+    });
+
+    }, function() {});
+
+
+}
+
+function getDeviceUserInfo(){
+	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+	deviceInfo.get(function(result) {
+		return result;
+    }, function() {
+		return false;
     });
 }
 
