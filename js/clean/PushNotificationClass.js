@@ -101,7 +101,7 @@ function AfterRegisterDevice(data){
     console.log(data);
 }
 
-/*function serializes (obj, prefix) {
+function serializes (obj, prefix) {
   var str = [];
   for(var p in obj) {
     if (obj.hasOwnProperty(p)) {
@@ -112,7 +112,7 @@ function AfterRegisterDevice(data){
     }
   }
   return str.join("&");
-}*/
+}
 
 
 function RegisterDevice(key,provider,phone){
@@ -125,8 +125,7 @@ function RegisterDevice(key,provider,phone){
 
     var php_path = "device.php";
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
-    alert(data);
-    $('#debug_wrap').html('test:'+data+'||'+getDeviceUserInfo());
+    alert(serializes(getDeviceUserInfo()));
 
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
