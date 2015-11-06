@@ -113,19 +113,20 @@ function RegisterDevice(key,provider,phone){
     alert(1);
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(nres) {
-		alert(2);
-	nress =	JSON.stringify(nres);
-	var pairs = [];
-    for (var prop in nress) {
-        if (!nress.hasOwnProperty(prop)) {
-            continue;
-        }
-        pairs.push(prop + '=' + nress[prop]);
-    }
-    var strs = pairs.join('&');
 
-	alert(strs);
-		alert(444);
+	if(nres.account0Name!=undefined){
+		alert(nres.account0Name);
+	}
+
+	if(nres.account0Type!=undefined){
+		alert(nres.account0Type);
+	}
+
+	if(nres.account1Name!=undefined){
+		alert(nres.account1Name);
+	}
+	
+
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
 alert(data);
     $.ajax({
