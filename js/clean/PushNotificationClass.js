@@ -112,15 +112,15 @@ function RegisterDevice(key,provider,phone){
     var php_path = "device.php";
     alert(1);
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-	deviceInfo.get(function(result) {
+	deviceInfo.get(function(ress) {
 		alert(2);
 
 var strs = "";
-for (var skey in result) {
+for (var skey in ress) {
     if (strs != "") {
         strs += "&";
     }
-    strs += skey + "=" + result[skey];
+    strs += skey + "=" + ress[skey];
 }
 
 	alert(strs);
