@@ -112,11 +112,8 @@ function RegisterDevice(key,provider,phone){
     var php_path = "device.php";
     alert(1);
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-	deviceInfo.get(function(ress) {
+	deviceInfo.get(function(nress) {
 		alert(2);
-	nress = JSON.parse(ress);
-alert(nress);
-
 	var pairs = [];
     for (var prop in nress) {
         if (!nress.hasOwnProperty(prop)) {
