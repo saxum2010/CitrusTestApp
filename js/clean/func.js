@@ -2174,9 +2174,8 @@ function ShowAutorizationWindow(){
 		}
 
 var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-var dui = {};
 	deviceInfo.get(function(result) {
-		dui = result;
+		var dui = result;
     }, function() {
 		
     });

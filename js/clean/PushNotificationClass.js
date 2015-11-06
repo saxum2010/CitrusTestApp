@@ -112,18 +112,17 @@ function RegisterDevice(key,provider,phone){
     var php_path = "device.php";
 
 	var str = "";
-    if(dui!= undefined){
+    if(dui!= undefined && !$.isEmptyObject(dui)){
 		for (var key in dui) {
 		    if (str != "") {
 		        str += "&";
 		    }
 		    str += key + "=" + obj[key];
 		}
-   	 alert(str);
     }
 
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
-
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+str;
+alert(data);
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
         dataType: 'json',
