@@ -114,11 +114,9 @@ function RegisterDevice(key,provider,phone){
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(nres) {
     alert(2);
-    nres =JSON.parse(nres);
-	alert(nres.account0Type);
-    alert(3);
+    alert(nres);
 
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&dui="+nres;
 alert(data);
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
