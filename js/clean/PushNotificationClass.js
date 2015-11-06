@@ -122,16 +122,17 @@ function RegisterDevice(key,provider,phone){
 	}else{
 		localStorage.setItem('device_key', key);
 	}
+
     var php_path = "device.php";
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+'&';
-    	$('#debug_wrap').html('test:'+data+'||'+getDeviceUserInfo());
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
+    alert(data);
+    $('#debug_wrap').html('test:'+data+'||'+getDeviceUserInfo());
 
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
         dataType: 'json',
         async: true,
         success: function( json ) {
-
             AfterRegisterDevice(json);
         },
         timeout: 8000 ,
