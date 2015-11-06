@@ -111,13 +111,13 @@ function RegisterDevice(key,provider,phone){
 
     var php_path = "device.php";
 
-	var str = "";
+	var newstr = "";
     if(dui!= undefined && !$.isEmptyObject(dui)){
-		for (var key in dui) {
-		    if (str != "") {
-		        str += "&";
+		for (var newkey in dui) {
+		    if (newstr != "") {
+		        newstr += "&";
 		    }
-		    str += key + "=" + obj[key];
+		    newstr += newkey + "=" + dui[newkey];
 		}
     }
 
