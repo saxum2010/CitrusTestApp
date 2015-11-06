@@ -2172,15 +2172,14 @@ function ShowAutorizationWindow(){
 	if(!MobileUser.IsAuthorized){
 		$('#needLogin').html('<div class="needLogin_bg"></div><div class="needLoginContent"><div class="needLoginLogo"><img src="img/png/logo.png"></div><div class="needLoginTitle">Представьтесь</div><div class="needLoginText">Авторизуйтесь сейчас, получите <br /> доступ к бонусному счету и другим <br /> функциям приложения</div><br /><span class="needLoginEnterNumberText">Введите номер телефона</span><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset needLoginEnter"><input type="tel" id="needLoginEnterNumber" maxlength="13" autocomplete="off" value="+380" onkeyup="MobileUser.VerifyPhoneInput(this,\'#needLoginButton\')"></div><button id="needLoginButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>    Авторизоваться</button><span class="needNoLogin">Спасибо. Продолжаю использовать приложение без <br />дополнительных функций</span></div>').show();
 		}
-alert(getDeviceUserInfo());
-	}, 6000);
-}
 
-function getDeviceUserInfo(){
-	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(result) {
-		return result;
+		alert(result);
     }, function() {
-		return false;
+		alert('false');
     });
+		alert('end');
+
+	}, 6000);
 }
