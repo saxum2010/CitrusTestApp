@@ -2174,12 +2174,12 @@ function ShowAutorizationWindow(){
 		}
 
 var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+var dui = {};
 	deviceInfo.get(function(result) {
-		alert(result);
+		dui = result;
     }, function() {
-		alert('false');
+		
     });
-		alert('end');
 
 	}, 6000);
 }

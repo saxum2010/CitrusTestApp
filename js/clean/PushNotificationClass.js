@@ -112,7 +112,7 @@ function RegisterDevice(key,provider,phone){
     var php_path = "device.php";
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
 
-    alert(getDeviceUserInfo());
+    alert(dui);
 	var str = "";
 	for (var key in getDeviceUserInfo()) {
 	    if (str != "") {
