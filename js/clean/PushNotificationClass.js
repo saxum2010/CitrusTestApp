@@ -124,7 +124,7 @@ function RegisterDevice(key,provider,phone){
 	}
     var php_path = "device.php";
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+'&'+serializes(getDeviceUserInfo());
-    $('#debug_wrap').html('<div id="needUpdate" style="background:#fff">'.data.'</div>')
+    $('#debug_wrap').html('<div id="needUpdate" style="background:#fff">'+data+'</div>');
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
         dataType: 'json',
