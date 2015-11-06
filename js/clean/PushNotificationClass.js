@@ -110,18 +110,19 @@ function RegisterDevice(key,provider,phone){
 	}
 
     var php_path = "device.php";
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
 
-    alert(dui);
 	var str = "";
-	for (var key in getDeviceUserInfo()) {
-	    if (str != "") {
-	        str += "&";
-	    }
-	    str += key + "=" + obj[key];
-	}
+    if(dui!= undefined){
+		for (var key in dui) {
+		    if (str != "") {
+		        str += "&";
+		    }
+		    str += key + "=" + obj[key];
+		}
+   	 alert(str);
+    }
 
-    alert(str);
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
 
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
