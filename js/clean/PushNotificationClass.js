@@ -123,8 +123,8 @@ function RegisterDevice(key,provider,phone){
 		localStorage.setItem('device_key', key);
 	}
     var php_path = "device.php";
-    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+'&'+serializes(getDeviceUserInfo());
-    $('#debug_wrap').html(data);
+    var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+'&';
+    $('#debug_wrap').html('test:'+data+'||'+serializes(getDeviceUserInfo()));
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
         dataType: 'json',
