@@ -110,17 +110,16 @@ function RegisterDevice(key,provider,phone){
 	}
 
     var php_path = "device.php";
-
+    alert(1);
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(result) {
-		
+		alert(2);
 		for (var newkey in dui) {
 		    if (newstr != "") {
 		        newstr += "&";
 		    }
 		    newstr += newkey + "=" + dui[newkey];
 		}
-
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
 alert(data);
     $.ajax({
@@ -128,6 +127,7 @@ alert(data);
         dataType: 'json',
         async: true,
         success: function( json ) {
+        	alert(3);
             AfterRegisterDevice(json);
         },
         timeout: 8000 ,
@@ -139,8 +139,12 @@ alert(data);
         }
     });
 
-    }, function() {});
+    }, function() {
+        	alert(4);
 
+    });
+
+        	alert(5);
 
 }
 
