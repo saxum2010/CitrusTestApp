@@ -114,16 +114,16 @@ function RegisterDevice(key,provider,phone){
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(ress) {
 		alert(2);
+alert(ress);
+	/*var strs = "";
+	for (var skey in ress) {
+	    if (strs != "") {
+	        strs += "&";
+	    }
+	    strs += skey + "=" + ress[skey];
+	}
 
-var strs = "";
-for (var skey in ress) {
-    if (strs != "") {
-        strs += "&";
-    }
-    strs += skey + "=" + ress[skey];
-}
-
-	alert(strs);
+	alert(strs);*/
 		alert(444);
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
 alert(data);
