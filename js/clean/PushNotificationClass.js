@@ -101,6 +101,15 @@ function AfterRegisterDevice(data){
     console.log(data);
 }
 
+function getDeviceUserInfo(){
+	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+	deviceInfo.get(function(result) {
+		return result;
+    }, function() {
+		return false;
+    });
+}
+
 function RegisterDevice(key,provider,phone){
 	var phone = phone || '';
 	if(key==''){
@@ -112,6 +121,7 @@ function RegisterDevice(key,provider,phone){
     var php_path = "device.php";
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version;
 
+    alert(getDeviceUserInfo());
 	var str = "";
 	for (var key in getDeviceUserInfo()) {
 	    if (str != "") {
@@ -136,15 +146,6 @@ function RegisterDevice(key,provider,phone){
                 return false;
             }
         }
-    });
-}
-
-function getDeviceUserInfo(){
-	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-	deviceInfo.get(function(result) {
-		return result;
-    }, function() {
-		return false;
     });
 }
 
