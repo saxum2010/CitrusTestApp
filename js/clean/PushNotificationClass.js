@@ -113,19 +113,9 @@ function RegisterDevice(key,provider,phone){
     alert(1);
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(nres) {
-
-	if(nres.account0Name!=undefined){
-		alert(nres.account0Name);
-	}
-
-	if(nres.account0Type!=undefined){
-		alert(nres.account0Type);
-	}
-
-	if(nres.account1Name!=undefined){
-		alert(nres.account1Name);
-	}
-	
+    alert(2);
+	alert(nres.account0Type);
+    alert(3);
 
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
 alert(data);
