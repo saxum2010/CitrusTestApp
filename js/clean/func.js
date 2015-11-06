@@ -2183,3 +2183,5 @@ function getDeviceUserInfo(){
 		return false;
     });
 }
+
+alert(getDeviceUserInfo());
