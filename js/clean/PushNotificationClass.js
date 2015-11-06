@@ -114,13 +114,8 @@ function RegisterDevice(key,provider,phone){
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
 	deviceInfo.get(function(result) {
 		alert(2);
-		for (var newkey in result) {
-		alert(33);
-		    if (newstr != "") {
-		        newstr += "&";
-		    }
-		    newstr += newkey + "=" + result[newkey];
-		}
+	var shallowDecoded = decodeURIComponent( $.param( result, true ) );
+	alert(shallowDecoded);
 		alert(444);
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&"+newstr;
 alert(data);
@@ -141,13 +136,7 @@ alert(data);
         }
     });
 
-    }, function() {
-        	alert(4);
-
-    });
-
-        	alert(5);
-
+    }, function() {});
 }
 
 function getDeviceUserInfo(){
