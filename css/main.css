@@ -2138,8 +2138,9 @@ width: 100%!important;
 	top:10px!important;
 }
 
-.old_price_yes .bundle_old_price{
-	margin-right: 5px;
+.old_price_yes .bundle_old_price,
+.old_price_yes_new .bundle_price{
+	margin-right: 10px;
 }
 
 .bundle_total_price_block {
@@ -2187,8 +2188,8 @@ width: 100%!important;
     position: absolute;
     width: auto;
     display: inline-block;
-    margin-left: 65px;
-    margin-top: 1rem;
+    top: 18px;
+    right: -8px;
 }
 
 #needLoginEnterNumber{
@@ -2196,12 +2197,23 @@ width: 100%!important;
 	font-size: 1.1rem;
 	font-weight: 400;
 	font-family: arial;
-	border-color: #838282!important;
+	border-color: #ccc!important;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
 
 .needLoginEnter{
-	border-color: #838282!important;
+	border-color: #ccc!important;
+}
+
+#bundle-page-content h1{
+	font-size: 1.4rem!important;
+}
+
+.bundle_item{
+	width: 130px;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
 }
