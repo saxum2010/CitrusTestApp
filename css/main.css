@@ -1542,10 +1542,6 @@ border-bottom: 1px solid #C8C7CC;
 	text-align: center;
 }
 
-.needLoginTitle{
-	font-size: 2rem;
-}
-
 .needNoUpdate,
 .needNoLogin{
 	font-size: 0.7rem;
@@ -1555,6 +1551,10 @@ border-bottom: 1px solid #C8C7CC;
 	cursor: pointer;
 	color: #a3a3a3;
 	margin-top: 1rem;
+}
+
+.needNoLogin{
+	font-size: 0.5rem;
 }
 
 .needUpdateLogo,
@@ -2193,14 +2193,14 @@ width: 100%!important;
 }
 
 #needLoginEnterNumber{
-	color: rgba(131, 130, 130, 1);
-	font-size: 1.1rem;
+	color: #ccc!important;
+	font-size: 1.4rem;
 	font-weight: 400;
 	font-family: arial;
 	border-color: #ccc!important;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
+	-webkit-border-radius: 4px!important;
+	-moz-border-radius: 4px!important;
+	border-radius: 4px!important;
 }
 
 .needLoginEnter{
