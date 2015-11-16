@@ -2115,14 +2115,14 @@ width: 100%!important;
 
 .bundle_price,
 .ui-listview a.ui-btn .bundle_price{
-	color: #F47317 !important;
+	color: #f47317;
     font-size: 1.3rem;
     font-weight: 500;
 }
 
 .bundle_old_price,
 .ui-listview a.ui-btn .bundle_old_price{
-    color: #FF0000!important;
+    color: #ff0000;
     text-decoration: line-through;
     font-size: 1.1rem;
     font-weight: 500;
@@ -2131,7 +2131,7 @@ width: 100%!important;
 .bundle_old_price .bundle_price,
 .ui-listview a.ui-btn .bundle_old_price .bundle_price{
 	font-size: 1.1rem;
-	color: #959595!important;
+	color: #959595;
 	position: relative;
 }
 
