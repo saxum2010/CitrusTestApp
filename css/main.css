@@ -2113,6 +2113,10 @@ width: 100%!important;
     text-align: center;
 }
 
+.ui-listview a.ui-btn .bundle_item span{
+	color: #f47317;
+}
+
 .bundle_price,
 .ui-listview a.ui-btn .bundle_price{
 	color: #f47317;
