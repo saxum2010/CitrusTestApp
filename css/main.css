@@ -2111,6 +2111,14 @@ width: 100%!important;
 	width:40%;
 }
 
+.bundle_item{
+	width: 130px;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
+	color: #fb6707;
+}
+
 .bundle_plus {
     width: 30px;
     font-size: 32px;
@@ -2120,7 +2128,7 @@ width: 100%!important;
 }
 
 .bundle_price{
-	color: #F47317 !important;
+	color: #f47317 !important;
     font-size: 1.3rem;
     font-weight: 500;
 }
@@ -2213,11 +2221,4 @@ width: 100%!important;
 
 #bundle-page-content h1{
 	font-size: 1.4rem!important;
-}
-
-.bundle_item{
-	width: 130px;
-	height: auto;
-	margin: 0 auto;
-	position: relative;
 }
