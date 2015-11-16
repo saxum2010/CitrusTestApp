@@ -186,15 +186,9 @@ background-color: white !important;
 border-color: #C8C8CA !important;
 }
 
-/*.ui-listview a.ui-btn *{*/
-.ui-listview a.ui-btn,
-.ui-listview a.ui-btn h1,
-.ui-listview a.ui-btn h2,
-.ui-listview a.ui-btn div,
-.ui-listview a.ui-btn span{
+.ui-listview a.ui-btn *{
 	color:#000000;
 }
-
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper{
 background-color:#FFFFFF;
 }
@@ -2111,14 +2105,6 @@ width: 100%!important;
 	width:40%;
 }
 
-.bundle_item{
-	width: 130px;
-	height: auto;
-	margin: 0 auto;
-	position: relative;
-	color: #fb6707;
-}
-
 .bundle_plus {
     width: 30px;
     font-size: 32px;
@@ -2127,26 +2113,26 @@ width: 100%!important;
     text-align: center;
 }
 
-.bundle_price{
-	color: #f47317 !important;
+.ui-listview a.ui-btn .bundle_price{
+	color: #F47317 !important;
     font-size: 1.3rem;
     font-weight: 500;
 }
 
-.bundle_old_price{
+.ui-listview a.ui-btn .bundle_old_price{
     color: #FF0000!important;
     text-decoration: line-through;
     font-size: 1.1rem;
     font-weight: 500;
 }
 
-.bundle_old_price .bundle_price{
+.ui-listview a.ui-btn .bundle_old_price .bundle_price{
 	font-size: 1.1rem;
 	color: #959595!important;
 	position: relative;
 }
 
-.bundle_old_price_sum{
+.ui-listview a.ui-btn .bundle_old_price_sum{
 	top:10px!important;
 }
 
@@ -2221,4 +2207,11 @@ width: 100%!important;
 
 #bundle-page-content h1{
 	font-size: 1.4rem!important;
+}
+
+.bundle_item{
+	width: 130px;
+	height: auto;
+	margin: 0 auto;
+	position: relative;
 }
