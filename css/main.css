@@ -2124,13 +2124,13 @@ width: 100%!important;
     font-weight: 500;
 }
 
-/*.bundle_old_price,
+.bundle_old_price,
 .ui-listview a.ui-btn .bundle_old_price{
     color: #ff0000;
     text-decoration: line-through;
     font-size: 1.1rem;
     font-weight: 500;
-}*/
+}
 
 .bundle_old_price .bundle_price,
 .ui-listview a.ui-btn .bundle_old_price .bundle_price{
