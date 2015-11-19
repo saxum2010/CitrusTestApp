@@ -1039,7 +1039,7 @@ function LoadCardInfo(info){
 function LoadTextPage(id,data){
 	var send_data = data || "";
 	$.ajax({
-	  url: "http://m.citrus.ua/ajax/on/text-page.php?app=1&id="+id+send_data,
+	  url: "http://m.citrus.ua/ajax/on/text-page.php?app=1&vp=2&id="+id+send_data,
 	  beforeSend: function( xhr ) {
 	   ShowLoading();
 	  }
