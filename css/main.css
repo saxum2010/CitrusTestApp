@@ -2234,4 +2234,5 @@ width: 100%!important;
 .ui-listview a.ui-btn .pricegray{
 	color: #959595!important;
 	font-size: 1.1rem;
+	font-weight: 500;
 }
