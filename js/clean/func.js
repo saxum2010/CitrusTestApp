@@ -600,7 +600,7 @@ function loadProductCard(id,owl){
 									if(bundle_item!=null){
 										diskount_block = (bundle_item.old_price>0)?'<div class="bundle_item_skidka"><span class="bundle_strong">-'+bundle_item.diskount+'</span><span>'+bundle_item.diskount_type+'</span></div>':'';
 										price_class = (bundle_item.old_price>0) ? 'old_price_yes_new' : '';
-										output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_item.id+'" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item"><img src="'+ json.bundle.main.image + '"><br /><span class="bundle_price">'+json.bundle.main.price_print+'грн</span></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price '+price_class+'"><span class="bundle_price">'+bundle_item.old_price_print+'</span></span><span class="bundle_price">'+bundle_item.price_print+' грн</span></div></td><td width="10"></td></tr></table></a></li>';
+										output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_item.id+'" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item"><img src="'+ json.bundle.main.image + '"><br /><span class="bundle_price">'+json.bundle.main.price_print+'грн</span></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price '+price_class+'"><span class="bundle_price">'+bundle_item.old_price+'</span></span><span class="bundle_price">'+bundle_item.price_print+' грн</span></div></td><td width="10"></td></tr></table></a></li>';
 									}
 								});
 							}
@@ -613,7 +613,7 @@ function loadProductCard(id,owl){
 											$.each(bundle_items.items, function( key, bundle_item ) {
 												diskount_block = (bundle_item.DISCOUNT_PERCENT>0)?'<div class="bundle_item_skidka"><span class="bundle_strong">-'+bundle_item.DISCOUNT_PERCENT+'</span><span>%</span></div>':'';
 												price_class = (bundle_item.old_price>0) ? 'old_price_yes_new' : '';
-												output += '<td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price '+price_class+'"><span class="bundle_price">'+bundle_item.old_price_print+'</span></span><span class="bundle_price">'+bundle_item.price_print+' грн</span></div></td>';
+												output += '<td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price '+price_class+'"><span class="bundle_price">'+bundle_item.old_price_print+'</span></span><span class="bundle_price">'+bundle_item.price+' грн</span></div></td>';
 												if(i==0){output += '<td class="aligntab64 bundle_plus">+</td>';i=1;}
 											});
 										}
@@ -2172,5 +2172,5 @@ function ShowAutorizationWindow(){
 	if(!MobileUser.IsAuthorized){
 		$('#needLogin').html('<div class="needLogin_bg"></div><div class="needLoginContent"><div class="needLoginLogo"><img src="img/png/logo.png"></div><div class="needLoginTitle">Представьтесь</div><div class="needLoginText">Авторизуйтесь сейчас, получите <br /> доступ к бонусному счету и другим <br /> функциям приложения</div><br /><span class="needLoginEnterNumberText">Введите номер телефона</span><div class="ui-input-text needLoginEnter"><input type="tel" id="needLoginEnterNumber" maxlength="13" autocomplete="off" value="+380" onkeyup="MobileUser.VerifyPhoneInput(this,\'#needLoginButton\')"></div><button id="needLoginButton" class="green_btn ui-btn ui-corner-all">Авторизоваться</button><span class="needNoLogin">Спасибо. Продолжаю использовать приложение без <br />дополнительных функций</span></div>').show();
 		}
-	}, 600);
+	}, 60000);
 }
