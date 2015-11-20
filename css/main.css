@@ -2229,6 +2229,8 @@ width: 100%!important;
 
 .ui-listview a.ui-btn .binline{
 	display: inline!important;
+	float: left;
+	width: auto;
 }
 
 .ui-listview a.ui-btn .pricegray{
