@@ -2197,8 +2197,15 @@ width: 100%!important;
     right: -8px;
 }
 
+.needLoginEnter{
+	border-color: #e1e1e1!important;
+	-webkit-border-radius: 4px!important;
+	-moz-border-radius: 4px!important;
+	border-radius: 4px!important;
+}
+
 #needLoginEnterNumber{
-	color: #ccc!important;
+	color: #e1e1e1!important;
 	font-size: 1.4rem;
 	font-weight: 400;
 	font-family: arial;
@@ -2206,10 +2213,6 @@ width: 100%!important;
 	-webkit-border-radius: 4px!important;
 	-moz-border-radius: 4px!important;
 	border-radius: 4px!important;
-}
-
-.needLoginEnter{
-	border-color: #ccc!important;
 }
 
 #bundle-page-content h1{
