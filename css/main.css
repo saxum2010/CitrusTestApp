@@ -1759,7 +1759,8 @@ border-bottom: 1px solid #C8C7CC;
   padding-right: 32px;
   margin-bottom: -7px;
 }
-#product-card-content .ProductOldPriceCr{
+#product-card-content .ProductOldPriceCr,
+.bundlecross{
 	font-size:16px;
 	color:#FF0000;
 	text-decoration:line-through;
