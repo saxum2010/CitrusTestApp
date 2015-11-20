@@ -2227,11 +2227,11 @@ width: 100%!important;
 	position: relative;
 }
 
-.binline{
-	display: inline-block!important;
+.ui-listview a.ui-btn .binline{
+	display: inline!important;
 }
 
-.pricegray{
+.ui-listview a.ui-btn .pricegray{
 	color: #959595!important;
 	font-size: 1.1rem;
 }
