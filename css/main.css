@@ -2137,7 +2137,7 @@ width: 100%!important;
 .ui-listview a.ui-btn .bundle_old_price .bundle_price{
 	font-size: 1.1rem;
 	color: #959595;
-	position: relative;
+/*	position: relative;*/
 }
 
 .bundle_old_price_sum{
@@ -2228,7 +2228,7 @@ width: 100%!important;
 }
 
 .ui-listview a.ui-btn .binline{
-
+	float: left;
 }
 
 .ui-listview a.ui-btn .pricegray{
