@@ -2140,10 +2140,6 @@ width: 100%!important;
 	position: relative;
 }
 
-.pricegray{
-	color: #959595;
-}
-
 .bundle_old_price_sum{
 	top:10px!important;
 }
@@ -2232,5 +2228,9 @@ width: 100%!important;
 }
 
 .binline{
-	display: inline;
+	display: inline-block!important;
+}
+
+.pricegray{
+	color: #959595!important;
 }
