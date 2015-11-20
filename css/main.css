@@ -2228,9 +2228,7 @@ width: 100%!important;
 }
 
 .ui-listview a.ui-btn .binline{
-	display: inline-block!important;
-	float: left!important;
-	width: auto!important;
+	display: inline!important;
 }
 
 .ui-listview a.ui-btn .pricegray{
