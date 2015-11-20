@@ -2214,8 +2214,7 @@ width: 100%!important;
 	-webkit-border-radius: 4px!important;
 	-moz-border-radius: 4px!important;
 	border-radius: 4px!important;
-	width: 100%;
-	position: relative;
+	width: 1rem;
 }
 
 #bundle-page-content h1{
