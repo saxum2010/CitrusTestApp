@@ -2228,7 +2228,7 @@ width: 100%!important;
 }
 
 .ui-listview a.ui-btn .binline{
-	float: left;
+	position: relative;
 }
 
 .ui-listview a.ui-btn .pricegray{
