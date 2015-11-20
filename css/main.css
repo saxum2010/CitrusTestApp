@@ -2236,3 +2236,10 @@ width: 100%!important;
 	font-size: 1.1rem;
 	font-weight: 500;
 }
+
+.ui-listview a.ui-btn .bprice{
+    color: #F47317 !important;
+    font-size: 1.3rem;
+    font-weight: 500;
+    display: inline-block;
+}
