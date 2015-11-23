@@ -2214,7 +2214,7 @@ width: 100%!important;
 	-webkit-border-radius: 4px!important;
 	-moz-border-radius: 4px!important;
 	border-radius: 4px!important;
-	width: 100px;
+	width: 18rem;
 }
 
 #bundle-page-content h1{
@@ -2248,7 +2248,7 @@ width: 100%!important;
 .old_price_yes_new .pricegray,
 .ui-listview a.ui-btn .old_price_yes .pricegray,
 .ui-listview a.ui-btn .old_price_yes_new .pricegray{
-	margin-right: 5px;
+	margin-right: 10px;
 }
 
 
