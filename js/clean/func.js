@@ -2128,7 +2128,7 @@ function LoadBundlePage(id){
 					var row2 = '', payment_parts = '',
 						price_class = (old_price>0) ? 'old_price_yes' : '';
 					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
-						row2 = '<div class="price_block '+price_class+'"><div class="binline bindlecross"><div class="price pricegray">'+old_price+'</div></div><div class=""price binline">'+value.price+' грн</div></div>';
+						row2 = '<div class="price_block '+price_class+'"><div class="binline bindlecross"><div class="price pricegray">'+old_price+'</div></div><div class="price binline">'+value.price+' грн</div></div>';
 						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
 					}else if(parseInt(value.price) > 1){
 						row2 = '<div class="price_block '+price_class+'"><div class="binline bindlecross"><div class="price pricegray">'+old_price+'</div></div><div class="price binline">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
