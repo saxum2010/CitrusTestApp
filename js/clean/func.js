@@ -600,12 +600,12 @@ function loadProductCard(id,owl){
 									if(bundle_item!=null){
 										diskount_block = (bundle_item.old_price>0)?'<div class="bundle_item_skidka"><span class="bundle_strong">-'+bundle_item.diskount+'</span><span>'+bundle_item.diskount_type+'</span></div>':'';
 										price_class = (bundle_item.old_price>0) ? 'old_price_yes_new' : '';
-										output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_item.id+'" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item"><img src="'+ json.bundle.main.image + '"><br /><span class="bprice">'+json.bundle.main.price_print+'грн</span></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><div class="binline bundlecross"><span class="pricegray">'+bundle_item.old_price_print+'</span></div> <div class="binline bprice">'+bundle_item.price_print+' грн</div> </div></td><td width="10"></td></tr></table></a></li>';
+										output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_item.id+'" class="vclick_bundle"><table style="width:100%"><tr><td class="first aligntab64"><div class="bundle_item"><img src="'+ json.bundle.main.image + '"><br /><span class="bprice">'+json.bundle.main.price_print+'грн</span></div></td><td class="aligntab64 bundle_plus">+</td><td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /> <div class="ProductOldPriceBox"><span class="ProductOldPriceCr"><span class="price">'+bundle_item.old_price_print+'</span></span></div> <div class="price">'+bundle_item.price_print+' грн</div> </div></td><td width="10"></td></tr></table></a></li>';
 									}
 								});
 							}
 
-							if(json.bundle.bundle2 !== undefined){
+							/*if(json.bundle.bundle2 !== undefined){
 								$.each(json.bundle.bundle2, function( key, bundle_items ) {
 									output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_items.id+'" class="vclick_bundle"><table style="width:100%"><tr>';
 										if(bundle_items.items!=null){
@@ -619,7 +619,7 @@ function loadProductCard(id,owl){
 										}
 									output += '<td width="10"></td></tr></table></a></li>';
 								});
-							}
+							}*/
 
 						if(output!=''){$("#bundle_block").show();}
 

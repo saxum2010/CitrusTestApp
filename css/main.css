@@ -2245,3 +2245,9 @@ width: 100%!important;
     font-weight: 500;
     display: inline-block;
 }
+
+.ui-listview a.ui-btn .bundlecross{
+	font-size:16px;
+	color:#FF0000;
+	text-decoration:line-through;
+}
