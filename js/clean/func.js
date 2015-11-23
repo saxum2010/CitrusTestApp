@@ -605,7 +605,7 @@ function loadProductCard(id,owl){
 								});
 							}
 
-							/*if(json.bundle.bundle2 !== undefined){
+							if(json.bundle.bundle2 !== undefined){
 								$.each(json.bundle.bundle2, function( key, bundle_items ) {
 									output += '<li><a data-transition="slide" data-ajax=false bundle_id="'+bundle_items.id+'" class="vclick_bundle"><table style="width:100%"><tr>';
 										if(bundle_items.items!=null){
@@ -613,13 +613,13 @@ function loadProductCard(id,owl){
 											$.each(bundle_items.items, function( key, bundle_item ) {
 												diskount_block = (bundle_item.DISCOUNT_PERCENT>0)?'<div class="bundle_item_skidka"><span class="bundle_strong">-'+bundle_item.DISCOUNT_PERCENT+'</span><span>%</span></div>':'';
 												price_class = (bundle_item.old_price>0) ? 'old_price_yes_new' : '';
-												output += '<td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><span class="bundle_old_price '+price_class+'"><span class="bundle_price">'+bundle_item.old_price_print+'</span></span><span class="bundle_price">'+bundle_item.price_print+' грн</span></div></td>';
+												output += '<td class="aligntab64"><div class="bundle_item">'+diskount_block+'<img src="'+ bundle_item.image + '"><br /><div class="binline bindlecross"><div class="price pricegray">'+bundle_item.old_price_print+'</div></div><div class="price binline">'+bundle_item.price_print+' грн</div></div></td>';
 												if(i==0){output += '<td class="aligntab64 bundle_plus">+</td>';i=1;}
 											});
 										}
 									output += '<td width="10"></td></tr></table></a></li>';
 								});
-							}*/
+							}
 
 						if(output!=''){$("#bundle_block").show();}
 
@@ -2128,10 +2128,10 @@ function LoadBundlePage(id){
 					var row2 = '', payment_parts = '',
 						price_class = (old_price>0) ? 'old_price_yes' : '';
 					if(parseInt(value.price) > 1 && value.can_buy =="Y"){
-						row2 = '<div class="price_block '+price_class+'"><span class="bundle_old_price"><span class="bundle_price">'+old_price+'</span></span><span class="price">'+value.price+' грн</span></div>';
+						row2 = '<div class="price_block '+price_class+'"><div class="binline bindlecross"><div class="price pricegray">'+old_price+'</div></div><div class=""price binline">'+value.price+' грн</div></div>';
 						payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
 					}else if(parseInt(value.price) > 1){
-						row2 = '<div class="price_block '+price_class+'"><span class="bundle_old_price"><span class="bundle_price">'+old_price+'</span></span><span class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
+						row2 = '<div class="price_block '+price_class+'"><div class="binline bindlecross"><div class="price pricegray">'+old_price+'</div></div><div class="price binline">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 					}else{
 						row2 = '<div class="status">'+value.can_buy_status+'</div>';;
 					}
