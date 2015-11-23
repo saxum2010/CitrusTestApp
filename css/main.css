@@ -2231,6 +2231,8 @@ width: 100%!important;
 .ui-listview a.ui-btn .binline{
 	display: inline-block;
 	width: auto;
+	margin: 0;
+	padding:0; 
 }
 
 .ui-listview a.ui-btn .pricegray{
