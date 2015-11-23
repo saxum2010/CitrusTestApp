@@ -2228,6 +2228,7 @@ width: 100%!important;
 	position: relative;
 }
 
+.binline,
 .ui-listview a.ui-btn .binline{
 	display: inline-block;
 	width: auto;
@@ -2235,6 +2236,7 @@ width: 100%!important;
 	padding:0; 
 }
 
+.pricegray,
 .ui-listview a.ui-btn .pricegray{
 	color: #959595!important;
 	font-size: 1.1rem;
@@ -2243,6 +2245,7 @@ width: 100%!important;
 	margin-right: 5px;
 }
 
+.bindlecross,
 .ui-listview a.ui-btn .bindlecross{
     color: #FF0000;
     text-decoration: line-through;
