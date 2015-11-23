@@ -2238,3 +2238,9 @@ width: 100%!important;
 	font-size: 1.1rem;
 	font-weight: 500;
 }
+
+.ui-listview a.ui-btn .bindlecross{
+    color: #FF0000;
+    text-decoration: line-through;
+    margin:0; 
+}
