@@ -435,6 +435,7 @@ function loadProductCard(id,owl){
 	  success: function( json ) {	
 			if(json.page404 == undefined && json.name !== undefined){	
 			
+				MobileUser.basket.setViewedProduct(id);
 						
 				$('#current_product_id').val(id);
 				$('#product-card-name').html(json.name);
