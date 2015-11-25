@@ -2197,12 +2197,13 @@ function showViewedProducts(datas, products_name){
 				text_flag =(value.text_flag!=null)?value.text_flag:'';
 			url = "#product-card?product-id=" + value.id;
 
-			var prop = "";
+			var prop = can_buy_status = "";
 			if(value.props!= undefined){prop = value.props;}
+			if(value.can_buy_status!= undefined){can_buy_status = value.can_buy_status;}
 
 			if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';}
 
-			row2 = (parseInt(value.price) > 1 && value.can_buy =="Y")?'<div class="price">'+value.price+' грн</div>':'<div class="status">'+value.can_buy_status+'</div>';
+			row2 = (parseInt(value.price) > 1 && value.can_buy =="Y")?'<div class="price">'+value.price+' грн</div>':'<div class="status">'+can_buy_status+'</div>';
 			output += '<li class=""><a data-transition="slide" product_id="'+value.id+'" data-ajax=false class="vclick_viewed" link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+prop+payment_parts+'</div></td><td style="width:25px"></td></tr></table></a></li>';
 		});
 
