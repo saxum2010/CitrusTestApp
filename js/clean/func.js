@@ -2210,16 +2210,14 @@ function showViewedProducts(datas, products_name){
 	 products_wrap.html(output).listview("refresh").show();
 
 	 $('.vclick_viewed').unbind().on(eventstring,function(event){
-	 		event.stopPropagation();
+			$('.vclick_viewed').unbind();
+			$('#search-page-search-input').val("");
+			$('#products-listview').html("");
+			$('#search-listview').html("");
+			event.stopPropagation();
 			event.preventDefault();
 			window.location = $(this).attr('link');
-			
-			/*event.stopPropagation();
-			event.preventDefault();
-			window.location = "#product-card?product-id="+$(this).attr('product_id');
-			window.scrollTo(0,0);
-			location.reload();*/
-	 	});
+	});	
 
 	}else{
 		products_wrap.hide();
