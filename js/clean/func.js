@@ -753,10 +753,6 @@ function ProssedTapEvents(){
 	 	eventstring = "tap";
 	 }
 
-	 $('body').on('click', '.vclick_viewed', function() {
-	 	alert('1');
-	 });
-
  	 $('.vclick_viewed').unbind().on(eventstring,function(event){
 	 	alert('2');
 		event.stopPropagation();
@@ -2229,3 +2225,6 @@ function showViewedProducts(datas, products_name){
 }
 
 
+	 $('body').on('click', '.vclick_viewed', function() {
+	 	alert('1');
+	 });
