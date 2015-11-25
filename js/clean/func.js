@@ -753,7 +753,12 @@ function ProssedTapEvents(){
 	 	eventstring = "tap";
 	 }
 
+	 $('body').on('click', '.vclick_viewed', function() {
+	 	alert('1');
+	 });
+
  	 $('.vclick_viewed').unbind().on(eventstring,function(event){
+	 	alert('2');
 		event.stopPropagation();
 		event.preventDefault();
 		window.location = "#product-card?product-id="+$(this).attr('product_id');
