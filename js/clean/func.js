@@ -2210,12 +2210,15 @@ function showViewedProducts(datas, products_name){
 	 products_wrap.html(output).listview("refresh").show();
 
 	 $('.vclick_viewed').unbind().on(eventstring,function(event){
-			event.stopPropagation();
+	 		event.stopPropagation();
+			event.preventDefault();
+			loadProductCard($(this).attr('product_id'),true);
+			window.scrollTo(0,0);
+			/*event.stopPropagation();
 			event.preventDefault();
 			window.location = "#product-card?product-id="+$(this).attr('product_id');
 			window.scrollTo(0,0);
-			location.reload();
-			//loadProductCard($(this).attr('product_id'),true);
+			location.reload();*/
 	 	});
 
 	}else{
