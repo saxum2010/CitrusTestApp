@@ -753,6 +753,15 @@ function ProssedTapEvents(){
 	 	eventstring = "tap";
 	 }
 
+ 	 $('.vclick_viewed').unbind().on(eventstring,function(event){
+		event.stopPropagation();
+		event.preventDefault();
+		window.location = "#product-card?product-id="+$(this).attr('product_id');
+		window.scrollTo(0,0);
+		location.reload();
+		//loadProductCard($(this).attr('product_id'),true);
+ 	});
+
 	 $('.vclick_d_link').unbind().on(eventstring,function(event){
 		if($.mobile.activePage.attr('id') =="products-list"){
 			savePos = $(this).parent('li').index();
@@ -2208,16 +2217,6 @@ function showViewedProducts(datas, products_name){
 		});
 
 	 products_wrap.html(output).listview("refresh").show();
-
-	 $('.vclick_viewed').unbind().on(eventstring,function(event){
-			$('.vclick_viewed').unbind();
-			$('#search-page-search-input').val("");
-			$('#products-listview').html("");
-			$('#search-listview').html("");
-			event.stopPropagation();
-			event.preventDefault();
-			window.location = $(this).attr('link');
-	});	
 
 	}else{
 		products_wrap.hide();
