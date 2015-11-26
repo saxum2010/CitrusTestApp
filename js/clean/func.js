@@ -2212,7 +2212,7 @@ function showViewedProducts(datas, products_name){
 		});
 
 	 products_wrap.html(output).listview("refresh").show();
-
+	 ProssedTapEvents();
 	}else{
 		products_wrap.hide();
 	}
