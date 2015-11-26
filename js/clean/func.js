@@ -672,7 +672,7 @@ function loadProductCard(id,owl){
 				MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
 				
 				$('#product-card-content').show();
-				//ProssedTapEvents();
+				ProssedTapEvents();
 			}else{
 				document.location.href ="index.html";
 				
@@ -752,15 +752,6 @@ function ProssedTapEvents(){
 	 }else{
 	 	eventstring = "tap";
 	 }
-
-	 $('.vclick_viewed').unbind().on(eventstring,function(event){
-			event.stopPropagation();
-			event.preventDefault();
-			window.location = "#product-card?product-id="+$(this).attr('product_id');
-			window.scrollTo(0,0);
-			location.reload();
-			//loadProductCard($(this).attr('product_id'),true);
-	 	});
 
 	 $('.vclick_d_link').unbind().on(eventstring,function(event){
 		if($.mobile.activePage.attr('id') =="products-list"){
@@ -2213,11 +2204,16 @@ function showViewedProducts(datas, products_name){
 			if(parseInt(value.price, 10) > 1 && value.can_buy =="Y"){payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';}
 
 			row2 = (parseInt(value.price) > 1 && value.can_buy =="Y")?'<div class="price">'+value.price+' грн</div>':'<div class="status">'+can_buy_status+'</div>';
-			output += '<li class=""><a data-transition="slide" product_id="'+value.id+'" data-ajax=false class="vclick_link_product" link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+prop+payment_parts+'</div></td><td style="width:25px"></td></tr></table></a></li>';
+			output += '<li class=""><a data-transition="slide" product_id="'+value.id+'" data-ajax=false class="vclick_link_product_viewed" link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'<div class="props">'+prop+payment_parts+'</div></td><td style="width:25px"></td></tr></table></a></li>';
 		});
 
 	 products_wrap.html(output).listview("refresh").show();
-	 ProssedTapEvents();
+	 $('.vclick_link_product_viewed').unbind().on(eventstring,function(event){
+			event.stopPropagation();
+			event.preventDefault();
+			loadProductCard($(this).attr('product_id'),true);
+			window.scrollTo(0,0);
+	 });
 	}else{
 		products_wrap.hide();
 	}
