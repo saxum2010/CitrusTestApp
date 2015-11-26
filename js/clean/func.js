@@ -672,7 +672,7 @@ function loadProductCard(id,owl){
 				MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
 				
 				$('#product-card-content').show();
-				ProssedTapEvents();
+				//ProssedTapEvents();
 			}else{
 				document.location.href ="index.html";
 				
