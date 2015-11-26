@@ -744,6 +744,15 @@ function Showtextpage(id,detail){
 	$.mobile.changePage("#text-page?id="+id+dt,{transition: "slide",changeHash:true});
 }
 
+function ProssedTapEventsViewed(){
+ $('.vclick_link_product_viewed').unbind().on(eventstring,function(event){
+			event.stopPropagation();
+			event.preventDefault();
+			loadProductCard($(this).attr('product_id'),true);
+			window.scrollTo(0,0);
+	 });
+}
+
 function ProssedTapEvents(){
 	
 	 var eventstring = "vclick";
@@ -779,6 +788,8 @@ function ProssedTapEvents(){
 			window.location = "#bundle?bundle_id="+$(this).attr('bundle_id');
 			window.scrollTo(0,0);
 	 });
+
+	 ProssedTapEventsViewed();
 }
 
 function ReinitowlProductCard(){
@@ -2208,12 +2219,7 @@ function showViewedProducts(datas, products_name){
 		});
 
 	 products_wrap.html(output).listview("refresh").show();
-	 $('.vclick_link_product_viewed').unbind().on(eventstring,function(event){
-			event.stopPropagation();
-			event.preventDefault();
-			loadProductCard($(this).attr('product_id'),true);
-			window.scrollTo(0,0);
-	 });
+		ProssedTapEventsViewed();
 	}else{
 		products_wrap.hide();
 	}
