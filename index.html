@@ -61,93 +61,10 @@
         </a>
         <h1><div class="c_main_logo"></div></h1>
         <div class="bnt-menu-panel-right">
-            <a href="#page-personal" onclick="CheckHrefChange(this)" data-role="button" class="panel-menu-item"><i class="c_icon c_user"></i></a>
-            <a link="#page-cart" data-role="button" class="ui-noshadow vclick_link c_icon_contr world"><i class="c_icon c_basket"></i></a>    
         </div>
     </div>
 
     <div data-role="content">
-        <div style="padding:0 0.3rem;" id="search_contaner" class="world">
-            <i class="c_icon search-input-icon"></i>
-            <input type="text" class="search-input" id="main-search-input" autocomplete="off" name="password" id="search" value="" placeholder="Поиск">
-            <i class="c_icon voice-input-icon"></i>
-        </div>
-        <div class="owl-carousel"></div>
-        <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview"></ul>
-        <div id="user_bonus_panel" onclick="window.location='#page-personal'"></div>
-        <div class="product-card-module-cr world">
-            <a href="#products-list"><div id="product-card-info" class="product-card-module main-module module first link"><i class="c_icon c_catalog gray main_page_icon"></i>Все товары</div></a>
-        </div>
-        <div class="product-card-module-cr world">
-            <div id="product-card-info" class="product-card-module main-module module load-promos" onclick="LoadPromos('lider');"><i class="c_icon c_lider gray main_page_icon"></i>Лидеры продаж</div>
-            <div class="product-card-info-content">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_lider"></ul>
-            </div>
-        </div>
-        <div class="product-card-module-cr world" >
-            <div id="product-card-info" class="product-card-module main-module load-promos" onclick="LoadPromos('super');"><i class="c_icon c_super gray main_page_icon"></i>Суперцена</div>
-            <div class="product-card-info-content">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_super"></ul>
-            </div>
-        </div>
-        <div class="product-card-module-cr world" >
-            <div id="product-card-info" class="product-card-module main-module load-promos" onclick="LoadPromos('new');"><i class="c_icon c_new gray main_page_icon"></i>Новинки</div>
-            <div class="product-card-info-content">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_new"></ul>
-            </div>
-        </div>
-        <div class="product-card-module-cr last world" >
-            <div id="product-card-info" class="product-card-module main-module load-promos" onclick="LoadPromos('soon');"><i class="c_icon c_soon gray main_page_icon"></i>Скоро в продаже</div>
-            <div class="product-card-info-content">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-main_page_soon"></ul>
-            </div>
-        </div>
-        <div class="product-card-module-cr last world" >
-            <div id="product-card-info" class="product-card-module main-module load-promos"><i class="c_icon ricent_viewes gray main_page_icon"></i>Ранее просматривали</div>
-            <div class="product-card-info-content">
-                <ul data-role="listview" data-theme="b" data-2inset="true" id="main-listview-viewed-products"></ul>
-            </div>
-        </div>
-        <div class="product-card-module-cr world">
-            <a href="#actions-page"><div  class="product-card-module main-module module link"><i class="c_icon c_action gray main_page_icon"></i>Наши акции</div></a>
-        </div>
-        <div class="product-card-module-cr last">
-            <a href="#news-page"><div  class="product-card-module main-module module link"><i class="c_icon c_news gray main_page_icon"></i>Новости</div></a>
-        </div>
-        <div class="product-card-module-cr world">
-            <a href="#gadgets-page"><div class="product-card-module main-module module link"><i class="c_icon c_gadgets gray main_page_icon"></i>Гаджетариум</div></a>
-        </div>
-        <div class="product-card-module-cr world last">
-            <a href="#services-page"><div class="product-card-module main-module module link"><i class="c_icon c_news gray main_page_icon"></i>Цитрус Сервисы</div></a>
-        </div>
-        <div class="product-card-module-cr last">
-            <a onclick="Showtextpage(209590)"><div class="product-card-module main-module module link"><i class="c_icon c_career gray main_page_icon"></i>Цитрус Карьера</div></a>
-        </div>
-        <div class="product-card-module-cr last">
-            <a href="#shoplist-page"><div  class="product-card-module main-module module link"><i class="c_icon c_shops gray main_page_icon"></i>Наши магазины</div></a>
-        </div>
-        <div class="product-card-module-cr last">
-            <a onclick="Showtextpage(209622)"><div class="product-card-module main-module module link"><i class="c_icon c_club gray main_page_icon"></i>Цитрус Клуб</div></a>
-        </div>
-        <div class="product-card-module-cr last">
-            <a  onclick="window.open('http://m.citrus.ua/online.html', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link  external-link-icon"><i class="c_icon c_online gray main_page_icon"></i>Онлайн консультант</div></a>
-        </div>
-        <div class="product-card-module-cr last">
-            <a  onclick="window.open('http://support.citrus.ua/', '_system', 'location=yes');return false;"><div  class="product-card-module main-module module link external-link-icon"><i class="c_icon c_contactus gray main_page_icon"></i>Обратная связь</div></a>
-        </div>
-        <div style="text-align: center;padding:16px">
-            <h2>Горячая линия:</h2>
-            <a  onclick="SupportCall();" class="ui-link external-link-icon"><button id="product-card-tel-btn" class="btn big tel_btn ui-btn ui-corner-all"><i class="c_icon c_phone c_ibtn"></i>0 (800) 20-70-20 </button></a>
-        </div>
-        <div class="notes_phone">
-            Бесплатно с любых номеров<br/>
-            Работаем для вас с 9:00 до 21:00            
-        </div>
-          
-    <div class="copy_links copy">
-        
-        
-    </div>
     <div class="copy">
         <span>©   Цитрус -гаджеты и аксессуары 2000-2015.</span><span class="app_version"></span>
     </div>

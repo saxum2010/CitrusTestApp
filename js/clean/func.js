@@ -165,7 +165,7 @@ function LoadDefaultCatalog(category,position,count){
 			 var count = 0;
 			 if(json.items != undefined && json.items.length > 0){
 			 $.each( json.items, function( key, value ) {
-				if(value.link=='gadgets_all_brands'){continue;}
+				
 				count = count +1;	 
 				var url ;			
 				url = "category-items=" +  value.link;	
