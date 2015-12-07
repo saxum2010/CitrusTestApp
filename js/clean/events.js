@@ -68,8 +68,9 @@ $( document ).on( "pageshow", "#sort-page", function() {
 	$('#sort-listview').listview("refresh");
 });
 $( document ).on( "pageshow", "#main", function() {
-	ShowLoading();
-	LoadMainPageData();		 
+	/*ShowLoading();
+	LoadMainPageData();	*/	 
+	window.location = '/#products-list?category-items=scooters';
 });
 $( document ).on( "pageshow", "#page-cart", function() {
 	
@@ -572,16 +573,6 @@ $(function () {
   $("#nav-panel").panel().enhanceWithin();
 });
 
-$.event.special.swipe.horizontalDistanceThreshold = 10;
-$(document).on("swiperight swipeleft", function(e) {
-   	if($(e.target).hasClass('owl-lazy')){
-	}else if($.mobile.activePage.jqmData("panel")!=="open"){
-		if(e.type === "swiperight"){
-			$("#nav-panel").panel().panel("open");
-		}
-	}
-});
-
 $(document).on("pageshow", function () {
 	$("#global-up-button").css('bottom','16px');
 	getUserBonusPanel();
@@ -593,21 +584,6 @@ $(document).on('click', '#product-card-info', function(){
 
 $(document).on('click', '.product_actions_gas', function(){
 	GA_event('Action block on product page', 'click-on-active-aktsia', $(this).find('h2').first().text());
-});
-
-$("#ui-page-top").swipe( {
-	swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-		if(direction=='down'){
-			ShowLoading();
-            var deferred = $.Deferred();
-            setTimeout(function () {
-				location.reload();
-				$.mobile.loading("hide");
-            }, 2000);
-            return deferred.promise();
-		}
-	},
-	threshold:0
 });
 
 $(document).ready(function() {

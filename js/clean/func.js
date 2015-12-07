@@ -1,5 +1,5 @@
 var app_ver = '110';
-var app_ver_print = '1.1';
+var app_ver_print = '1.1 beta';
 var product_list_offset = [];
 //--------------
 function supportsSVG() {
