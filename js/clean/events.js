@@ -22,6 +22,7 @@ $( document ).on( "pagecreate", "#main", function() {
 });
 
 $( document ).on( "pageinit", "#search-page", function() {
+	InitSearchAutocomplete();
 });
 
 // Эвент создания страницы Cписка Jquery Mobile

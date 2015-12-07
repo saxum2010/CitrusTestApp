@@ -2258,3 +2258,29 @@ width: 100%!important;
     text-decoration: line-through;
     margin:0; 
 }
+
+.ui-input-search{
+	background-color: #fff;
+    border-color: #B2B2B2;
+    color: #B2B2B2;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+.ui-input-search input{
+	font-size: 0.8rem;
+	padding-left: 2rem;
+	height: 30px;
+}
+
+.ui-input-search:after{
+	background-image: url(../img/svg/gray/ico-31.svg);
+	background-repeat: no-repeat;
+	background-size: 13px 13px;
+}
+
+.ui-input-search.ui-input-has-clear .ui-btn.ui-input-clear{
+	z-index: 1;
+    top: 15px;
+    right: 4.5rem;
+}
