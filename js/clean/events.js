@@ -70,6 +70,7 @@ $( document ).on( "pageshow", "#sort-page", function() {
 $( document ).on( "pageshow", "#main", function() {
 	/*ShowLoading();
 	LoadMainPageData();		*/
+	$('#products-listview').html('').listview("refresh");
 	$.mobile.changePage("#products-list"); 
 	$.mobile.changePage("#products-list?category-items=scooters"); 
 });
