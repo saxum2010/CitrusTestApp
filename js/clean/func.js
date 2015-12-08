@@ -155,7 +155,7 @@ function LoadDefaultCatalog(category,position,count){
 		request += "&sort=" + FilterEnums.sort_values[FilterEnums.active_sort];
 	}		
 	
-	if(request==''){$.mobile.loading( "hide" ); return;}
+	if(request==''){$.mobile.loading( "hide" ); $('#products-listview').html('').listview("refresh"); return;}
 
 	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/catalog_lazy.php?position="+position_to_get+"&count="+counts+request, 
