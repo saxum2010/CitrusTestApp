@@ -298,7 +298,7 @@ $( document ).on( "pagebeforeshow", "#products-list", function(event, data) {
 	}
 			
 });
-var product_list_page_loded = false;
+var product_list_page_loded = true;
 $(document).bind( "pagebeforechange", function( e, data ) {
 	
 	if ( typeof data.toPage === "string" ) {
