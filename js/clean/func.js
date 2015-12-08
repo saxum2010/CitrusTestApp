@@ -431,7 +431,7 @@ function loadProductCard(id,owl){
 	}
 	
 	$.ajax({ 
-	  url: "http://m.citrus.ua/ajax/product.php?id="+parseInt(id), 
+	  url: "http://m.citrus.ua/ajax/scooters.php?id="+parseInt(id), 
 	  dataType: 'json',
 	   async: false, 
 	  success: function( json ) {	
@@ -670,6 +670,11 @@ function loadProductCard(id,owl){
 					}else{
 						$("#product_actions_block").hide();
 					}
+
+				if(json.DETAIL_TEXT !== undefined){
+					$(".scootest_detail").html(json.DETAIL_TEXT);
+				}
+					
 
 				MobileUser.basket.getViewedProducts(showViewedProductsOnProduct);
 				
