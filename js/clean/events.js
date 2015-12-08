@@ -218,10 +218,9 @@ $( document ).on( "pageshow", "#product-card", function() {
  
 
 $( document ).on( "pageshow", "#products-list", function() {
-
-if(!product_list_page_loded){
-	ShowLoading();
-}
+	if(!product_list_page_loded){
+		ShowLoading();
+	}
 });
 $( document ).on( "pageshow", "#login-page", function() {
 	//$(".screen-center").css("margin-top", $("#login-page").height()/2 - 82);
@@ -288,7 +287,6 @@ $( document ).on( "pageshow", "#search-page", function() {
 
 $( document ).on( "pagebeforeshow", "#products-list", function(event, data) {
 	if(data.prevPage != undefined){
-		
 		var prev_id = data.prevPage.attr('id');
 		if(prev_id == "filter-page" || prev_id == "filter-values-page" || prev_id == "product-card"){
 			
@@ -303,8 +301,7 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 	
 	if ( typeof data.toPage === "string" ) {
 	
-		if( data.toPage.indexOf("#products-list") !==  -1 )
-		{ 
+		if(data.toPage.indexOf("#products-list") !==  -1 ) {
 			if($.mobile.activePage != undefined){
 				var prev_id = $.mobile.activePage.attr('id');
 				if(prev_id == "filter-page" || prev_id == "filter-values-page" || prev_id == "product-card"){
@@ -318,19 +315,14 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 			 // Страница каталог товаров
 			 
 			if ( data.toPage.search(re) !== -1 ) {
-				
 				var u = $.mobile.path.parseUrl( data.toPage ),
 					re = "category-items=";		
 				if ( data.toPage.search(re) !== -1 ) {
-					
-					showCategory( u, data.options );
-					var LazyList = LazyListView("products-listview");
-				
+					//showCategory( u, data.options );
+					//var LazyList = LazyListView("products-listview");
 				}else{
-					
-						ShowLoading();
-						showCategory( u, data.options );
-					
+					ShowLoading();
+					showCategory( u, data.options );
 				}	
             }
 		 }
