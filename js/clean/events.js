@@ -70,6 +70,7 @@ $( document ).on( "pageshow", "#sort-page", function() {
 $( document ).on( "pageshow", "#main", function() {
 	/*ShowLoading();
 	LoadMainPageData();		*/
+	$.mobile.changePage("#products-list"); 
 	$.mobile.changePage("#products-list?category-items=scooters"); 
 });
 $( document ).on( "pageshow", "#page-cart", function() {
@@ -311,15 +312,14 @@ $(document).bind( "pagebeforechange", function( e, data ) {
 				}
 			}	
 			
-			
 			 // Страница каталог товаров
 			 
 			if ( data.toPage.search(re) !== -1 ) {
 				var u = $.mobile.path.parseUrl( data.toPage ),
 					re = "category-items=";		
 				if ( data.toPage.search(re) !== -1 ) {
-					//showCategory( u, data.options );
-					//var LazyList = LazyListView("products-listview");
+					showCategory( u, data.options );
+					var LazyList = LazyListView("products-listview");
 				}else{
 					ShowLoading();
 					showCategory( u, data.options );
