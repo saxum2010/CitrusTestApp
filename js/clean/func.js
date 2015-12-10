@@ -158,7 +158,7 @@ function LoadDefaultCatalog(category,position,count){
 	if(request==''){$.mobile.loading("hide");return;}
 
 	$.ajax({ 
-	  url: "http://m.citrus.ua/ajax/catalog_lazy.php?position="+position_to_get+"&count="+counts+request, 
+	  url: "http://m.citrus.ua/ajax/scooters_catalog_lazy.php?position="+position_to_get+"&count="+counts+request, 
 	  type: "POST",
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)},
@@ -231,7 +231,7 @@ function LoadDefaultCatalog(category,position,count){
 						bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
 					}
 
-					output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
+					output += '<li class="'+lazy+'"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:128px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
 					
 					
 									

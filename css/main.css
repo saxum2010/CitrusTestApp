@@ -2284,7 +2284,8 @@ width: 100%!important;
     top: 15px;
     right: 4.5rem;
 }
-#products-listview h2.product{
+#products-listview h2.product,
+#products-listview li h2{
 	font-size: 2rem!important;
 }
 
@@ -2293,8 +2294,4 @@ width: 100%!important;
 }
 #products-listview .status{
 	font-size: 0.9rem!important;
-}
-
-#products-listview a img {
-	width: 128px;
 }
