@@ -2294,3 +2294,7 @@ width: 100%!important;
 #products-listview .status{
 	font-size: 0.9rem!important;
 }
+
+#products-listview a img {
+	width: 128px;
+}
