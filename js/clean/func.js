@@ -642,7 +642,7 @@ function loadProductCard(id,owl){
 						prop = value.props;
 					}
 					
-					output += '<li class=""><a data-transition="slide" data-ajax=false product_id="'+value.id+'" class="vclick_link_product"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'</div></td><td style="width:25px"></td></tr></table></a></li>';
+					output += '<li class=""><a data-transition="slide" data-ajax=false product_id="'+value.id+'" class="vclick_link_product"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:128px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only product">' + value.name + '</h2>'+row2+'</div></td><td style="width:25px"></td></tr></table></a></li>';
 					}
 					});
 					

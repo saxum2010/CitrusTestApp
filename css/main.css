@@ -2284,3 +2284,13 @@ width: 100%!important;
     top: 15px;
     right: 4.5rem;
 }
+#products-listview h2.product{
+	font-size: 2rem!important;
+}
+
+#products-listview .price{
+	font-size: 2.6rem!important;
+}
+#products-listview .status{
+	font-size: 0.9rem!important;
+}
