@@ -576,7 +576,7 @@ function loadProductCard(id,owl){
 
 					$('#product-card-prices-co-box,.hr_co').hide();
 					$("#product-card-prices-co").html('');
-					if(json.price_co != undefined && json.price_co>0){
+					if(json.price_co != undefined && json.price_co>0 && json.can_buy=="Y"){
 						json.price_co = json.price_co.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 						pricesco+='<div class="prices_item_co prices_item_cr"><a class="on_co_programm" onclick="Showtextpage(209886,true)">по программе <br />«Цитрус Обмен»</a><div class="prices_item_value"><div class="pre_sup_text green_price">'+json.price_co+'</div><div class="pre_sup green_price">грн</div></div></div>';
 						
