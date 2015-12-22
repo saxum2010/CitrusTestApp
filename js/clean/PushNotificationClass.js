@@ -4,8 +4,6 @@ function InitpushNotifications(){
 	
 	document.addEventListener("deviceready", function(){
 	    pushNotification = window.plugins.pushNotification;
-        console.log(device.platform);
-        console.log(device);
 	    if ( device.platform == 'iOS' || device.platform == 'ios'){
 		    pushNotification.register(
 		    tokenHandler,
@@ -34,7 +32,6 @@ function successHandler (result) {
 }
 function errorHandler (error) {
 	console.log(result);
-    console.log('---');
    
 }
 function tokenHandler (result) {
