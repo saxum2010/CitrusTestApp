@@ -219,6 +219,7 @@ function RegisterDevice(key,provider,phone){
 
     var php_path = "device.php";
 	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+    console.log(deviceInfo);
 	deviceInfo.get(function(nres) {
 		nres = Base64.encode(nres);
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&dui="+nres;

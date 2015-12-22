@@ -730,7 +730,6 @@ function getVersion(ua) {
 
 function isIOS(ua) {
     var ua = ua || navigator.userAgent;
-    alert(ua);
     return ( ua.match(/(iPad|iPhone|iPod)/g) ? true : false );
 };
 
