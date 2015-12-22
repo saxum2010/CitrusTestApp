@@ -2270,7 +2270,7 @@ function LoadWishAddPage(id,type,datas){
 	$.ajax({
 		dataType: 'json',
 		data: datas,
-		url: "ajax/on/productWish.php",
+		url: "http://m.citrus.ua/ajax/on/productWish.php",
 			beforeSend: function( xhr ) {
 			ShowLoading();
 		}
