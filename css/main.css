@@ -1605,6 +1605,7 @@ border-bottom: 1px solid #C8C7CC;
 	margin-top: 0px;
 	margin-bottom: 0;
 	font-size: 1rem;
+	white-space: initial !important;
 }
 
 #personal_user_wishes_list .preview_text {
@@ -2408,5 +2409,10 @@ width: 100%!important;
 .wish_summa{
 	color: #000;
 }
+
+.wish_content_detail .wish_name b{
+	white-space: initial !important;
+}
+
 
 /*END WISHES ADD*/
