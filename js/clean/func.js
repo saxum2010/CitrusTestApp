@@ -460,35 +460,34 @@ function loadProductCard(id,owl){
 				$('#product-card').attr("product_id",parseInt(id));
 				$('#card_dmode_link').attr("href","http://m.citrus.ua/go.php?id="+id);
 				 
+				$('#citrus_club').hide();
 				if(json.bonuses!= undefined && parseInt(json.bonuses.summ) > 2 ){
 					$('#citrus_club').html(
 						"<div>Возвращаем <b>"+json.bonuses.summ+" грн</b> на бонусный счет</div>"
 					);
 					$('#citrus_club').show();
-				}else{
-					$('#citrus_club').hide();
 				}
 				
-				$('#product-card-info-link').unbind();
-				//$('#product-card-info-link').attr("href","#text-page?id="+id);
-				$('#product-card-info-link').on("click",function(event){
+				$('#product-card-info-link').unbind().on("click",function(event){
 					var loc = $.mobile.path.parseLocation();
 					$.mobile.changePage("#text-page?id="+id,{transition: "slide",changeHash:true});
        			 	event.preventDefault();
 				});
 
-				$('#product-card-reviews-link').unbind();
-				$('#product-card-reviews-link').on("click",function(event){
+				$('#product-card-reviews-link').unbind().on("click",function(event){
 					$('#reviews-page-content').html('');
 					var loc = $.mobile.path.parseLocation();
 					window.open("http://m.citrus.ua/#reviews-page?id="+id, '_system', 'location=yes');
-					//window.location =  "#reviews-page?id="+id;
-					//$.mobile.changePage("#reviews-page?id="+id,{transition: "slide",changeHash:true});
+       			 	event.preventDefault();
+				});
+
+				$('#product-card-wish-add-link').unbind().on("click",function(event){
+					var loc = $.mobile.path.parseLocation();
+					window.location = "#wish-add-page?id="+id;
        			 	event.preventDefault();
 				});
 				
-				$('#product-card-props-link').unbind();
-				$('#product-card-props-link').on("click",function(event){
+				$('#product-card-props-link').unbind().on("click",function(event){
 					var loc = $.mobile.path.parseLocation();
 					$.mobile.changePage("#text-page?id="+id+"&detail_text=Y",{transition: "slide",changeHash:true});
        			 	event.preventDefault();
@@ -1350,11 +1349,11 @@ function OnMakePreOrderDone(json){
 		//$.mobile.changePage("#main",{changeHash:true});
 	}
 }
+
 function ondelFromCart(){
-	
 }
+
 function DeleteItem(item){
-	
 	if (confirm('Вы уверены,что хотите удалить товар "'+$("#basket_item_name_"+$(item).attr("item_id")).html()+'" из корзины?')) {
     	// Save it!
 		var basket_id = $(item).attr("item_id")
@@ -1369,6 +1368,7 @@ function DeleteItem(item){
 	    // Do nothing!
 	}
 }
+
 function EnableBasketEditMode(){
 	if($("#cart-list").hasClass("edit_mode")){
 		ProssedTapEvents();
@@ -1714,6 +1714,7 @@ function getPageName(){
 }
 
 function getUserWishesList(json){
+	$('.removeWishList').hide();
 	ShowLoading();	
 	var puw = $('#personal_user_wishes_list'),
 		error_massage = "<div class='no_wish'>У вас пока нет списков желаний. Выбирайте любые товары на основном сайте, нажимайте на кнопку «Добавить в список желаний», сохраняйте разные списки, делитесь ими с друзьями.</div>";
@@ -1744,7 +1745,8 @@ function getUserWishContentList(json){
 	if(json){
 		var output = "";
 		if(json.wish !== undefined ){
-			output += '<div class=wish_content_detail><span class="wish_name"><b>'+json.wish.wishlist_name+'</b></span>';			
+			output += '<div class=wish_content_detail><span class="wish_name"><b>'+json.wish.wishlist_name+'</b></span>';
+			output += '<br /><span class="wish_count">Количество товаров: '+json.wish.wishlist_count+'</span><br/><span class="wish_summ">Сумма: <span class="wish_summa">'+json.wish.wishlist_summ+' грн.</span></span>';			
 			output += '</div><div class=wish_content_detail_list>'; 
 			$('.wish_full_page').attr("wish_full_page",json.wish.wishlist_url);
 		}
@@ -2250,4 +2252,106 @@ function initSubmitWebForm(){
 		return false;
 	});
 
+}
+
+function LoadWishAddPage(id,type,datas){
+	
+	if(!MobileUser.IsAuthorized){
+		MobileUser.LoginPromt();
+		return false;
+	}
+
+	datas = datas || {};
+	
+	datas.id = id;
+	datas.type = type;
+	datas.session_id = MobileUser.session_id;
+	//datas = JSON.stringify(datas);
+	$.ajax({
+		dataType: 'json',
+		data: datas,
+		url: "ajax/on/productWish.php",
+			beforeSend: function( xhr ) {
+			ShowLoading();
+		}
+	})
+	.done(function(json) {
+		if(json != null && json != undefined){
+			if(json.user_wishes != null && json.user_wishes != undefined &&  json.user_wishes.length > 0){
+				var output = "";
+				$.each(json.user_wishes, function(key,item){
+					output += '<div class="item"><label for="'+item.wishlist_id+'">'+item.wishlist_name+'</label><input type="checkbox" name="wishlist_checkbox[]" id="'+item.wishlist_id+'" value="'+item.wishlist_id+'" class="user_wishes_list_item"></div>';
+					});
+				$('.user_wishes_list').html(output);
+			}
+
+			if(json.success_add!=undefined&&json.success_add=='Y'){
+				$("#wish-done-one,#wish-done-multi").hide();
+				if(json.wishlist_url!=undefined){
+					$(".social-likes-f").data('url','http://www.citrus.ua/wishlist/'+json.wishlist_url);
+					$("#show-page-wish").attr('onclick',"window.location='#page-wish?id="+json.wishlist_url+"'");
+					$("#wish-done-one").show();
+				}else{
+					$("#wish-done-multi").show();
+				}
+				$("#wish-back-to-product-btn").attr('onclick',"window.location='#product-card?product-id="+id+"'");
+				changePage('#wish-done-page');
+			}
+
+			if(json.error!=undefined&&json.error=='Y'){
+				alert('Произошла ошибка!');
+			}
+
+		}
+		$.mobile.loading("hide");
+	});
+}
+
+function getPageIdByUri(){
+	var id="",u=$.mobile.path.parseUrl(document.URL);
+	if(u.href.search("id=")!== -1){			
+		if( u.hash != undefined){										 
+			 return u.hash.replace( /.*id=/, "" );
+		}else{
+			alert("404");
+			return false;
+		}
+	}else{
+		alert("404");
+		return false;
+	}
+}
+
+function DeleteWishItem(item){
+	if (confirm('Вы уверены,что хотите удалить товар "'+$("#wish_list_item"+$(item).attr("item_id")+" h2").html()+'" из списка?')) {
+		var item_id = $(item).attr("item_id"),
+			li = $("#wish_list_item"+item_id);
+		li.animate({width:"0%"},200).remove();
+		if(wish_id = getPageIdByUri()){
+			var data = {}; data.wish_id = wish_id;
+			LoadWishAddPage(item_id,'rem',data);
+		}
+	}
+}
+
+function EnableWishEditMode(){
+	var wishEditButton = $("#wishEditButton"),
+		wishListview = $("#wish-listview"),
+		delete_img = $(".delete_img"),
+		removeWishList= $('.removeWishList');
+
+	if(wishListview.hasClass("edit_mode")){
+		ProssedTapEvents();
+		delete_img.unbind();	
+		wishListview.removeClass("edit_mode");
+		wishEditButton.html("Редактировать");
+		removeWishList.hide();
+	}else{
+		wishListview.addClass("edit_mode").find(".vclick_d_link").unbind();
+		delete_img.on("click",function (){
+			DeleteWishItem(this);
+		});
+		removeWishList.show();
+		wishEditButton.html("Завершить редакцию");
+	}
 }

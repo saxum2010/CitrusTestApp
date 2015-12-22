@@ -673,3 +673,41 @@ $( document ).on( "pageshow", "#bundle", function() {
 			alert("404");
 		}
 });
+
+$(document).on("pageshow", "#wish-add-page", function() {
+	// Страница добавления желания
+	if(id = getPageIdByUri()){
+		LoadWishAddPage(id,'main');
+	}
+});
+
+$(document).on('click', '#wish-add-tolist-btn', function(){
+	var data = {}, user_wishes_array = [];
+	$('.user_wishes_list input:checked').each(function() {
+		user_wishes_array.push($(this).attr('value'));
+	});
+	data.wishlist_checkbox = user_wishes_array;
+	data.wishlish_name = $('#wish-add-new-list').val(); $('#wish-add-new-list').val('');
+	if(data.wishlist_checkbox.length == 0 && data.wishlish_name ==''){
+		alert('Выберите список или заполните название');
+	}else if(id=getPageIdByUri()){
+		LoadWishAddPage(id,'add',data);
+		window.location='#page-wishes';
+	}
+});
+
+$(document).on("pageshow", "#wish-done-page", function() {
+	loadjscssfile("/css/socialLikesFlat.css","css");
+	loadjscssfile("/js/clean/socialLikesFlat.min.js","js");
+});
+
+$(document).on('click', '.removeWishList', function(){
+	if (confirm('Вы уверены, что хотите удалить это список?')) {
+		if(wish_id = getPageIdByUri()){
+			var data = {}; data.wish_id = wish_id;
+			LoadWishAddPage('','rem',data);
+			window.location='#page-wishes';
+		}
+	} else {
+	}
+});

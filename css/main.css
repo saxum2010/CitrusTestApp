@@ -2284,3 +2284,129 @@ width: 100%!important;
     top: 15px;
     right: 4.5rem;
 }
+
+/*WISHES ADD*/
+
+#product-card-wish-add-link{
+	cursor: pointer;
+}
+
+#wish-done-page{
+	text-align: center;
+}
+
+.wish_heartrose{
+	background: url("../img/svg/heartrose.svg")no-repeat;
+	background-position: 3px 7px;
+	padding-left: 30px;
+	margin: 0px;
+}
+
+.user_wishes_list .user_wishes_list_item{
+	float: right;
+	margin-top: 10px;
+}
+
+.wish_add_chose_text{
+	color:#999999;
+	padding:1rem 0;
+}
+
+.user_wishes_list .item{
+	border-bottom: 1px solid #c2c2c2;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	line-height: 2rem;
+	height: 2rem;
+}
+
+.user_wishes_list label{
+	display: inline-block;
+	font-size: 1rem;
+}
+
+.social-likes-f__widget_vkontakte{
+	background:url('../img/png/soc/vk.png') no-repeat transparent!important;
+	width: 54px; height: 54px;
+}
+
+.social-likes-f__icon_vkontakte:before{
+	content: ""!important;
+}
+
+.social-likes-f__widget_facebook{
+	background:url('../img/png/soc/fb.png') no-repeat transparent!important;
+	width: 54px; height: 54px;
+}
+
+.social-likes-f__icon_facebook:before{
+	content: ""!important;
+}
+
+.social-likes-f__widget_twitter{
+	background:url('../img/png/soc/tw.png') no-repeat transparent!important;
+	width: 54px; height: 54px;
+}
+
+.social-likes-f__icon_twitter:before{
+	content: ""!important;
+}
+
+.social-likes-f__widget_plusone{
+	background:url('../img/png/soc/gp.png') no-repeat transparent!important;
+	width: 54px; height: 54px;
+}
+
+.social-likes-f__icon_plusone:before{
+	content: ""!important;
+}
+
+.show-page-wish{
+	color: #2f7a00!important;
+	cursor: pointer;
+	padding: 1rem 0;
+    display: inline-block;
+}
+
+#wish-add-page-content{
+	padding-left: 0!important;
+	padding-right: 0!important;
+}
+
+.wish-add-page-content{
+	padding:0 1rem;
+}
+
+.make_wish_list_text{
+	margin-top: 2rem;
+}
+
+.wishEditBlock{
+	margin-top: 2rem;
+}
+
+#wishEditButton{
+	float: right;
+}
+
+.removeWishList{
+	display: none;
+	color:red;
+	font-size: 0.8rem;
+	cursor: pointer;
+}
+
+.wish-add-page-content .ui-input-text input{
+	padding-right: 0!important;
+}
+
+.wish_count,
+.wish_summ{
+	color: #A8A8A8;
+}
+
+.wish_summa{
+	color: #000;
+}
+
+/*END WISHES ADD*/

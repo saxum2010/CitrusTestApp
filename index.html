@@ -1103,11 +1103,8 @@
                 <div id="personal_user_wishes_list"></div>
             </div>
         <hr class="page-orders-hr">
-            <div class="copy_links copy">
-                
-                
-            </div>  
-            <div class="copy">          
+            <div class="copy_links copy"></div>  
+            <div class="copy">
             ©    Цитрус -гаджеты и аксессуары 2000-2015
             </div>          
         </div>  
@@ -1128,7 +1125,10 @@
  <div class="navPanelChild" id="nav-panel-wish-page"></div>
     <div data-role="content">
         <ul data-role="listview" data-theme="b" data-2inset="true" id="wish-listview"></ul>
-        <div class="wish_list_info">Чтобы отредактировать список желаний, перейдите <br> на полную версию сайта citrus.ua. <a href="http://www.citrus.ua/personal/wishlist/" target="_blank" class="wish_full_page setFullVersion">Перейти >></a></div>             
+        <div class="content-padding wishEditBlock">
+            <span class="removeWishList">Удалить список</span>
+            <a data-role="button" class="mini_btn blue wishEditButton" data-inline="true" onclick="EnableWishEditMode()" id="wishEditButton">Редактировать</a><br>
+        </div>          
     </div>
 </div>
 <!-- / Страница детальное желание Конец-->
@@ -1205,6 +1205,65 @@
         </div>      
 </div>
 <!-- / Страница bundle Конец-->
+
+<!-- Страница Добавления списка желаний Начало -->
+<div data-role="page" id="wish-add-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow cit_panel_href c_icon_contr"><i class="c_icon c_menu"></i></a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline c_icon_contr"><i class="c_icon c_basket"></i></a>
+        </div>  
+    </div>      
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="wish-add-page-content">
+    <div class="wish-add-page-content">
+        <div class="wish_add_chose_text">Выберите список для добавления товара</div>
+    </div>
+    <div class="user_wishes_list"></div>
+    <div class="wish-add-page-content">
+        <div class="make_wish_list_text">Создать новый список:</div>
+        <input type="text" placeholder="Дайте название новому списку" id="wish-add-new-list">
+        <button id="wish-add-tolist-btn" class="ui-btn ui-corner-all green_btn">OK</button>
+    </div>
+    </div>      
+</div>
+<!-- / Страница Добавления списка желаний Конец-->
+
+<!-- Страница Список желаний DONE Начало -->
+<div data-role="page" id="wish-done-page" class="app-page  ui-page ui-page-theme-a ui-page-footer-fixed">
+    <div data-role="header" data-position="fixed" id="header" class="jqm-header" data-tap-toggle="false" data-theme="b">
+        <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow cit_panel_href c_icon_contr"><i class="c_icon c_menu"></i></a>
+        <h1><div class="c_main_logo"></div></h1>
+        <div class="bnt-menu-panel-right">
+            <a link="#nav-panel" data-iconpos="notext" class="ui-noshadow  ui-btn-inline  c_icon_contr" onclick="MobileUser.LoginPromt()"><i class="c_icon c_user"></i></a>
+            <a link="#page-cart" data-role="button" class=" c_menu_btn ui-noshadow  vclick_link ui-btn-inline c_icon_contr"><i class="c_icon c_basket"></i></a>
+        </div>  
+    </div>      
+    <div class="navPanelChild" id="nav-panel-text-page"></div>
+    <div data-role="content" class="content-padding" id="wish-done-page-content">
+        <h1>Список желаний</h1>
+        <div id="wish-done-one">
+            <p>Товар добавлен в список желаний. <br>Поделись им со своими друзьями</p><br>
+            <p><div class='social-likes-f' data-url='' data-counters='no'>
+                <div class='vkontakte' title='Поделиться в Вконтакте'></div>
+                <div class='facebook' title='Поделиться в Facebook'></div>
+                <div class='twitter' data-via='CitrusDiscount' title='Поделиться в Twitter'></div>
+                <div class='plusone' title='Поделиться в Google+'></div>
+            </div></p>
+            <a onclick="window.location='#page-wishes'" id="show-page-wish" class="show-page-wish">Смотреть список</a>
+        </div>
+
+        <div id="wish-done-multi">
+            <p>Спасибо! Товар был удачно добавлен в выбранные списки.</p><br>
+            <a onclick="window.location='#page-wishes'" class="show-page-wish">Смотреть списки</a>
+        </div>
+
+        <button id="wish-back-to-product-btn" class="ui-btn ui-corner-all green_btn">Вернуться к товару</button
+    </div>      
+</div>
+<!-- / Страница Список желаний DONE Конец-->
 
 <div data-role="dialog" id="timeout">Ошибка. Проверьте соединение с интернет ...</div>
 
