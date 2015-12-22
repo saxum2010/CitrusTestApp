@@ -697,8 +697,8 @@ $(document).on('click', '#wish-add-tolist-btn', function(){
 });
 
 $(document).on("pageshow", "#wish-done-page", function() {
-	loadjscssfile("/css/socialLikesFlat.css","css");
-	loadjscssfile("/js/clean/socialLikesFlat.min.js","js");
+	loadjscssfile("http://m.citrus.ua/css/socialLikesFlat.css","css");
+	loadjscssfile("http://m.citrus.ua/js/clean/socialLikesFlat.min.js","js");
 });
 
 $(document).on('click', '.removeWishList', function(){
