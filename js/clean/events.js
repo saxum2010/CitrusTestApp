@@ -688,7 +688,7 @@ $(document).on('click', '#wish-add-tolist-btn', function(){
 	});
 	data.wishlist_checkbox = user_wishes_array;
 	data.wishlish_name = $('#wish-add-new-list').val(); $('#wish-add-new-list').val('');
-	if(data.wishlist_checkbox.length == 0 && data.wishlish_name ==''){
+	if(data.wishlist_checkbox.length==0 && data.wishlish_name.length==0){
 		alert('Выберите список или заполните название');
 	}else if(id=getPageIdByUri()){
 		LoadWishAddPage(id,'add',data);
