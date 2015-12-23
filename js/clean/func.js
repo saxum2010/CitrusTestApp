@@ -1763,13 +1763,15 @@ function getUserWishContentList(json){
 				
 				var row2 = '';
 				var payment_parts = '';
-				if(parseInt(value.price) > 1 && value.can_buy =="Y"){
+				if(parseInt(value.mprice) > 1 && value.can_buy =="Y"){
 					row2 = '<div class="price">'+value.price+' грн</div>';
 					payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
-				}else if(parseInt(value.price) > 1){
+				}else if(parseInt(value.mprice) > 1){
 					row2 = '<div class="price">'+value.price+' грн</div><div class="status">'+value.can_buy_status+'</div>';	
 				}else{
-					row2 = '<div class="status">'+value.can_buy_status+'</div>';;
+					if(value.can_buy_status!=undefined){
+						row2 = '<div class="status">'+value.can_buy_status+'</div>';
+					}
 				}
 				
 				var prop = "";
