@@ -219,7 +219,10 @@ function RegisterDevice(key,provider,phone){
     var php_path = "device.php";
    // var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
     //deviceInfo.get(function(nres) {
-        nres = Base64.encode(getDeviceUserInfo());
+        var nres = '';
+        if(provider!='apple'){
+            nres = Base64.encode(getDeviceUserInfo());
+        }
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&dui="+nres;
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
