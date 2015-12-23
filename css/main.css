@@ -1594,7 +1594,7 @@ border-bottom: 1px solid #C8C7CC;
 	list-style: none;
 }
 
-#personal_user_wishes_list li a{
+#personal_user_wishes_list li a.ui-icon-carat-r{
 	background: url(../img/png/mobapp-wishes-box-pic.png) no-repeat 10px center;
 	padding-left: 52px;
 	margin: 0!important;
