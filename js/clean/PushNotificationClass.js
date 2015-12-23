@@ -216,18 +216,21 @@ function RegisterDevice(key,provider,phone){
 	}else{
 		localStorage.setItem('device_key', key);
 	}
-
+alert(1);
     var php_path = "device.php";
-	var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
-    console.log(deviceInfo);
-	deviceInfo.get(function(nres) {
-		nres = Base64.encode(nres);
+alert(2);
+    var deviceInfo = cordova.require("cordova/plugin/DeviceInformation");
+alert(3);
+    deviceInfo.get(function(nres) {
+alert(4);
+        nres = Base64.encode(nres);
     var data = 'register&key='+key+'&mobile='+phone+'&provider='+provider+'&model='+device.model+'&version='+device.platform+" "+device.version+"&dui="+nres;
     $.ajax({
         url: "http://m.citrus.ua/ajax/on/"+php_path+"?method="+data,
         dataType: 'json',
         async: true,
         success: function( json ) {
+alert(5);
             AfterRegisterDevice(json);
         },
         timeout: 8000 ,
