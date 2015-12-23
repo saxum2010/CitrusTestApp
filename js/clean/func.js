@@ -1782,9 +1782,9 @@ function getUserWishContentList(json){
 					bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
 				}
 
-				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
+				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td class="delete_td"><img item_id="'+value.id+'" class="delete_img" src="/img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
 			}else{
-				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="#products-list?'+url+'"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="#products-list?'+url+'"><table style="width:100%"><tr><td class="delete_td"><img item_id="'+value.id+'" class="delete_img" src="/img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
 				}
 			});
 		}
@@ -2280,7 +2280,7 @@ function LoadWishAddPage(id,type,datas){
 			if(json.user_wishes != null && json.user_wishes != undefined &&  json.user_wishes.length > 0){
 				var output = "";
 				$.each(json.user_wishes, function(key,item){
-					output += '<div class="item"><label for="'+item.wishlist_id+'">'+item.wishlist_name+'</label><input type="checkbox" name="wishlist_checkbox[]" id="'+item.wishlist_id+'" value="'+item.wishlist_id+'" class="user_wishes_list_item"></div>';
+					output += '<div class="item"><input type="checkbox" name="wishlist_checkbox[]" id="'+item.wishlist_id+'" value="'+item.wishlist_id+'" class="user_wishes_list_item"><label for="'+item.wishlist_id+'">'+item.wishlist_name+'</label></div>';
 					});
 				$('.user_wishes_list').html(output);
 			}
