@@ -1475,9 +1475,30 @@ function ShowFilter(link,back){
 function ShowFilterEnums(id,name,section_id){
 	ShowLoading();
 	var json_props = [];
+	var summmin = summmax = '';
 	for(key in FilterEnums.props){
-				json_props.push({"prop_id":key,"data":FilterEnums.props[key]});				
+		if(key=='99999'){
+			for(key2 in FilterEnums.props[key]){
+				var item = FilterEnums.props[key][key2];
+				if(item.id==99998){summmin=item.value;}
+				if(item.id==99999){summmax=item.value;}
+			}
+		}
+		json_props.push({"prop_id":key,"data":FilterEnums.props[key]});				
 	}
+
+	if(id==99999){
+		FilterEnums.active_prop_id = id;
+		var filter_items= "";
+		filter_items = '<div class="summm_item_wrap ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><label for="summmin">Минимальная сумма</label><input type="text" pattern="[0-9]" name="summmin" id="summmin" class="summm_inp" onkeyup="return onlynum(this);" value="'+summmin+'"/> <label for="summmax">Максимальная сумма</label><input type="text" pattern="[0-9]" name="summmax" id="summmax" class="summm_inp" onkeyup="return onlynum(this);" value="'+summmax+'"/></div>';
+		$("#filter_prop_name").html(name);
+		$("#filter-props-values-listview").html(filter_items);
+		$("#popupFilter").popup( 'open' );
+		$.mobile.changePage('#filter-values-page', { transition: "slide", changeHash: true });
+		$.mobile.loading( "hide" );
+		return;
+	}
+
 	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/filter_enums.php?id="+id+"&section_id="+section_id, 
 	  type: "POST",
@@ -1516,16 +1537,26 @@ function ShowFilterEnums(id,name,section_id){
 	  } 
 	});		 
 }
+
 function SaveSelectedEnums(){
 	var emuns_array = [];
 	$(".check_a").each(function(index){
-			if($(this).attr("checked_box")=="Y"){	
-				
-				emuns_array.push({"name":$(this).find("h2").html(),"id":$(this).attr("enum_id")});
-			}
+		if($(this).attr("checked_box")=="Y"){	
+			emuns_array.push({"name":$(this).find("h2").html(),"id":$(this).attr("enum_id")});
+		}
 	});
+
+	var summmin = $('#summmin').val();
+	if(summmin!=undefined&&summmin>0){
+		emuns_array.push({"name":'от '+summmin,"id":99998,"value":summmin});
+	}
+
+	var summmax = $('#summmax').val();
+	if(summmax!=undefined&&summmax>0){
+		emuns_array.push({"name":'до '+summmax,"id":99999,"value":summmax});
+	}
 	
-		FilterEnums.Set(emuns_array);
+	FilterEnums.Set(emuns_array);
 
 	ShowFilter(FilterEnums.active_link,true);
 }
@@ -1761,8 +1792,8 @@ function getUserWishContentList(json){
 				dop_class=dop_class+" product";
 				url = "#product-card?product-id=" + value.id;
 				
-				var row2 = '';
-				var payment_parts = '';
+				var row2 = '',
+					payment_parts = '';
 				if(parseInt(value.mprice) > 1 && value.can_buy =="Y"){
 					row2 = '<div class="price">'+value.price+' грн</div>';
 					payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';	
@@ -1784,9 +1815,9 @@ function getUserWishContentList(json){
 					bonuses = '<div class="props">+'+parseInt(value.bonuses)+' грн на бонусный счет</div>';
 				}
 
-				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="'+url+'"><table style="width:100%"><tr><td class="delete_td"><img item_id="'+value.id+'" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
+				output += '<li class="" id="wish_list_item'+value.id+'"><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="'+url+'"><table style="width:100%"><tr><td class="delete_td"><img item_id="'+value.id+'" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2><div class="props">'+prop+'</div>'+row2+bonuses+payment_parts+'</td><td style="width:25px"></td></tr></table></a></li>';
 			}else{
-				output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="#products-list?'+url+'"><table style="width:100%"><tr><td class="delete_td"><img item_id="'+value.id+'" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+				output += '<li class="" id="wish_list_item'+value.id+'"><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#products-list?'+url+'"><table style="width:100%"><tr><td class="delete_td"><img item_id="'+value.id+'" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">'+text_flag+' </div><h2 class="item_name_only '+dop_class+'">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
 				}
 			});
 		}

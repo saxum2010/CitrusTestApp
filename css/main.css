@@ -2425,3 +2425,28 @@ width: 100%!important;
 
 
 /*END WISHES ADD*/
+
+
+.summm_item_wrap{
+	padding-left:2rem!important;
+	padding-right:2rem!important;
+	padding-top: 1rem;
+}
+
+.summm_item_wrap input{
+	background-color: #fff;
+	border: 1px solid #B2B2B2;
+	color: #B2B2B2;
+	text-shadow: none;
+	box-shadow: none;
+}
+
+.summm_item_wrap ,.summm_item_wrap :focus{
+	border-radius:0 !important;
+	-webkit-box-shadow:none !important;
+	box-shadow:none !important;
+}
+
+.summm_item_wrap label{
+	color: #000;
+}
