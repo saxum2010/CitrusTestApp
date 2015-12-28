@@ -423,7 +423,9 @@ function DelegateMenu(page){
 
 
 function loadProductCard(id,owl){
-		ShowLoading();
+	alert(11);
+	alert(id);
+	ShowLoading();
 		
 	if(arguments.length==2 && owl != undefined){
 		var owlreinit = owl;
