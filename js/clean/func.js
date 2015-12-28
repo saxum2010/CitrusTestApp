@@ -423,20 +423,16 @@ function DelegateMenu(page){
 
 
 function loadProductCard(id,owl){
-	alert(11);
-	alert(id);
 	ShowLoading();
-		
 	if(arguments.length==2 && owl != undefined){
 		var owlreinit = owl;
-		
 	}
 	
 	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/product.php?id="+parseInt(id), 
 	  dataType: 'json',
 	   async: false, 
-	  success: function( json ) {	
+	  success: function(json) {	
 			if(json.page404 == undefined && json.name !== undefined){	
 			
 				MobileUser.basket.setViewedProduct(id);
@@ -449,10 +445,12 @@ function loadProductCard(id,owl){
                 }else{
                     $("#state_and_specbonus").html("");
                 }
+
                 if(json.bonus_spec!=false && json.bonus_spec!=undefined){
                     $("#box_bonus_spec").remove();
                     $("#state_and_specbonus").append("<div id='box_bonus_spec'><div id='product-card-bonus_spec'>Бонус: "+json.bonus_spec+" грн</div></div>");
                 }
+
                 $('#sticker_img').html(json.sticker_img);
 
 				$('#product-card-code').html(json.idd);
@@ -531,12 +529,7 @@ function loadProductCard(id,owl){
 				});
 				images = '<div id="product-card-images" class="owl-carousel-product-card"  >'+images+'</div>';
 				
-				
-				
-				//$("#product-card-images-contaner").html("");					
 				$("#product-card-images-contaner").html(images);
-				
-		
 				
 				//--------------------------- Image Slider END
 				
@@ -678,18 +671,13 @@ function loadProductCard(id,owl){
 				ProssedTapEvents();
 			}else{
 				document.location.href ="index.html";
-				
 			}
 			$.mobile.loading( "hide" );
-			
-			
+			alert('ok');
 		}, 
 	  timeout: 25000 ,
 	  error: function(jqXHR, status, errorThrown){   //the status returned will be "timeout" 
-		
-			
-			ShowMessage(1);
-		 
+		ShowMessage(1);
 	  } 
 	});
 
