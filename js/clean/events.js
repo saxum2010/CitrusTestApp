@@ -713,5 +713,6 @@ $(document).on('click', '.removeWishList', function(){
 });
 
 $(document).on('click', '.vclick_link_product_viewed', function(){
+	ShowLoading();
 	window.location='#product-card?product-id='+$(this).attr('product_id');
 });
