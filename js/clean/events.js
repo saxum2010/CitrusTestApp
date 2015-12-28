@@ -711,3 +711,10 @@ $(document).on('click', '.removeWishList', function(){
 	} else {
 	}
 });
+
+$(document).on('click', '.vclick_link_product_viewed', function(){
+	event.stopPropagation();
+	event.preventDefault();
+	loadProductCard($(this).attr('product_id'),true);
+	window.scrollTo(0,0);
+});
