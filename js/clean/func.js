@@ -1437,23 +1437,31 @@ function ShowFilter(link,back){
 	  type: "POST",
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)},
-	  success: function( json ) {
+	  success: function(json) {
 	  		$('#products-listview').html("");
-			 var output = "";
-			 var filter_items= "";
-			 FilterEnums.active_link = link;
-			 $.each( json.items, function( key, value ) {
-			 		var selected_enums = FilterEnums.getEnumString(value.id);
-			 		var selected_enums_string = "";
-					if(selected_enums){
-						selected_enums_string = '<div class="props">'+selected_enums+'</div>';
-					}
-			 	
-			 		filter_items += '<li><a onclick="ShowFilterEnums('+"'"+value.id+"','"+value.name+"','"+json.section_id+"'"+')" class="ui-btn ui-btn-icon-right ui-icon-carat-r"> 					<table style="width:100%"> 						<tr> 											<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only">' + value.name + '</h2> '+selected_enums_string+'	</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
-					
-			 });
-			 $("#filter-page-h1").html(json.link_title);
+			var output = "",
+				filter_items= "";
+			FilterEnums.active_link = link;
+			if(json.items.length>0){
+				if(selected_summ_string!=''){selected_summ_string= selected_summ_string+' грн.';}
+				filter_items += '<li><a onclick="ShowFilterEnums('+"'99999','По цене','null'"+')" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">По цене</h2> <div class="props">'+selected_summ_string+'</div></td><td style="width:25px"></td></tr></table></a></li>';
+
+				$.each(json.items, function(key,value) {
+						if(value.id==99998||value.id==99999){return;}
+				 		var selected_enums = FilterEnums.getEnumString(value.id),
+				 			selected_enums_string = "";
+						if(selected_enums){
+							selected_enums_string = '<div class="props">'+selected_enums+'</div>';
+						}
+				 		filter_items += '<li><a onclick="ShowFilterEnums('+"'"+value.id+"','"+value.name+"','"+json.section_id+"'"+')" class="ui-btn ui-btn-icon-right ui-icon-carat-r"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.name + '</h2> '+selected_enums_string+'</td><td style="width:25px"></td></tr></table></a></li>';
+				 });
+			}else{
+				filter_items = '<div class=sorrynofilter>Извините для данной категории товаров нет подходящих фильтров</div>';
+			}
+			
+			$("#filter-page-h1").html(json.link_title);
 			$('#filter-listview').html(filter_items);
+				$("#global-up-button").css('bottom','60px');
 			if(back == undefined){
 				$.mobile.changePage('#filter-page', { transition: "slide", changeHash: true });
 			}else{
