@@ -1428,16 +1428,23 @@ function test_focus(){
 
 function ShowFilter(link,back){
 	ShowLoading();
-	var json_props = [];
+	var json_props = [],
+		selected_summ_string = '';
 	for(key in FilterEnums.props){
-				json_props.push({"prop_id":key,"data":FilterEnums.props[key]});				
+		if(key=='99999'){
+			for(key2 in FilterEnums.props[key]){
+				var item = FilterEnums.props[key][key2];
+				selected_summ_string = selected_summ_string+item.name+' ';
+			}
+		}
+		json_props.push({"prop_id":key,"data":FilterEnums.props[key]});				
 	}
 	$.ajax({ 
 	  url: "http://m.citrus.ua/ajax/filter_params.php?link="+link, 
 	  type: "POST",
 	  dataType: 'json', 
 	  data: {data:JSON.stringify(json_props)},
-	  success: function(json) {
+	  success: function( json ) {
 	  		$('#products-listview').html("");
 			var output = "",
 				filter_items= "";
@@ -1467,8 +1474,6 @@ function ShowFilter(link,back){
 			}else{
 				$.mobile.back();
 			}
-			
-			//$('#cart-list').html(cart_items).listview("refresh");
 			$.mobile.loading( "hide" );
 	  }, 
 	  timeout: 25000 ,
