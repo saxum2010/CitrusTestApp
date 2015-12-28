@@ -942,12 +942,12 @@ border-bottom: 1px solid #C8C7CC;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     cursor:  pointer;
+    z-index: 1;
 }
+
 .ui-input-text input, .ui-input-search input {
     padding-right: 90px;
 }
-
-
 
 .pub_box,
 #personal_user_bonus_box{
@@ -1414,8 +1414,8 @@ border-bottom: 1px solid #C8C7CC;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-
 }
+
 #product-card-bonus_spec{
     position: relative;
     display: inline-block;
@@ -1428,11 +1428,11 @@ border-bottom: 1px solid #C8C7CC;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
+
 #state_and_specbonus{
     position: absolute;
     top: 10px;
 }
-
 
 #box_state{
     position: relative;
