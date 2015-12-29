@@ -2469,6 +2469,7 @@ width: 100%!important;
 	border-bottom: 1px solid #C8C8CA !important;
 }
 
-#user_wishes_list{
+#user_wishes_list li{
 	padding-left: 1rem!important;
+	margin-left: 0!important;
 }
