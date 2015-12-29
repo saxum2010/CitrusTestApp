@@ -2376,6 +2376,7 @@ width: 100%!important;
 	cursor: pointer;
 	padding: 1rem 0;
     display: inline-block;
+    text-decoration: underline;
 }
 
 #wish-add-page-content{
@@ -2449,4 +2450,21 @@ width: 100%!important;
 
 .summm_item_wrap label{
 	color: #000;
+}
+
+.ui-icon-carat-r-no:after{
+	background: none;
+}
+
+.wish_h1{
+	font-size: 1.5rem;
+}
+
+#wish-back-to-product-btn{
+	font-size: 1rem;
+}
+
+.no-border-top{
+	border-top: none!important;
+	border-bottom: 1px solid #C8C8CA !important;
 }

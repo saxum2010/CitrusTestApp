@@ -683,8 +683,10 @@ $(document).on("pageshow", "#wish-add-page", function() {
 
 $(document).on('click', '#wish-add-tolist-btn', function(){
 	var data = {}, user_wishes_array = [];
-	$('.user_wishes_list input:checked').each(function() {
-		user_wishes_array.push($(this).attr('value'));
+	$(".check_wish_list").each(function(index){
+		if($(this).attr("checked_box")=="Y"){
+			user_wishes_array.push($(this).attr('value'));
+		}
 	});
 	data.wishlist_checkbox = user_wishes_array;
 	data.wishlish_name = $('#wish-add-new-list').val(); $('#wish-add-new-list').val('');$("#wishEditButton").html("Редактировать");

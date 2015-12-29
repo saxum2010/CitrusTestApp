@@ -2272,7 +2272,7 @@ function initSubmitWebForm(){
 }
 
 function LoadWishAddPage(id,type,datas){
-	
+
 	if(!MobileUser.IsAuthorized){
 		MobileUser.LoginPromt();
 		return false;
@@ -2293,13 +2293,14 @@ function LoadWishAddPage(id,type,datas){
 		}
 	})
 	.done(function(json) {
+		$('#user_wishes_list').html('');
 		if(json != null && json != undefined){
 			if(json.user_wishes != null && json.user_wishes != undefined &&  json.user_wishes.length > 0){
 				var output = "";
 				$.each(json.user_wishes, function(key,item){
-					output += '<div class="item"><input type="checkbox" name="wishlist_checkbox[]" id="'+item.wishlist_id+'" value="'+item.wishlist_id+'" class="user_wishes_list_item"><label for="'+item.wishlist_id+'">'+item.wishlist_name+'</label></div>';
+					output += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r-no no-border-top check_wish_list" onclick="ToggleEnums(this);" checked_box="N" value="'+item.wishlist_id+'" ><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + item.wishlist_name + '</h2></td><td style="width:40px"><img class="check_img" src="img/png/checkbox_24x24.png"></td></tr></table></a></li>';
 					});
-				$('.user_wishes_list').html(output);
+				$('#user_wishes_list').html(output);
 			}
 
 			if(json.success_add!=undefined&&json.success_add=='Y'){
