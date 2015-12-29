@@ -2298,7 +2298,7 @@ function LoadWishAddPage(id,type,datas){
 			if(json.user_wishes != null && json.user_wishes != undefined &&  json.user_wishes.length > 0){
 				var output = "";
 				$.each(json.user_wishes, function(key,item){
-					output += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r-no no-border-top check_wish_list" onclick="ToggleEnums(this);" checked_box="N" value="'+item.wishlist_id+'" ><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1rem;"><h2 class="item_name_only">' + item.wishlist_name + '</h2></td><td style="width:40px"><img class="check_img" src="img/png/checkbox_24x24.png"></td></tr></table></a></li>';
+					output += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r-no no-border-top check_wish_list" onclick="ToggleEnums(this);" checked_box="N" value="'+item.wishlist_id+'" ><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;"><h2 class="item_name_only">' + item.wishlist_name + '</h2></td><td style="width:40px"><img class="check_img" src="img/png/checkbox_24x24.png"></td></tr></table></a></li>';
 					});
 				$('#user_wishes_list').html(output);
 			}
