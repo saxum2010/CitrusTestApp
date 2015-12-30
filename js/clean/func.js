@@ -1809,6 +1809,7 @@ function getUserWishContentList(json){
 
 		output += '</div>';
 		$('#wish-listview').html(output);
+		$("#wishEditButton").html("Редактировать"); $(".delete_td").hide();
 	}else{
 		$('#wish-listview').html("У Вас нет желаний");
 	}
