@@ -553,7 +553,7 @@ $( document ).on( "pageshow", "#page-wish", function() {
 		var id = "";
 		var u = $.mobile.path.parseUrl( document.URL );
 		if(u.href.search("id=") !== -1){			
-			if(u.hash != undefined){										 
+			if(u.hash != undefined){
 				 var id = u.hash.replace( /.*id=/, "" );
 				 MobileUser.GetUserWish(id, getUserWishContentList);
 			}else{
