@@ -689,7 +689,7 @@ $(document).on('click', '#wish-add-tolist-btn', function(){
 		}
 	});
 	data.wishlist_checkbox = user_wishes_array;
-	data.wishlish_name = $('#wish-add-new-list').val(); $('#wish-add-new-list').val('');$("#wishEditButton").html("Редактировать");
+	data.wishlish_name = $('#wish-add-new-list').val(); $('#wish-add-new-list').val('');$("#wishEditButton").html("Редактировать");$(".delete_td").hide();
 	if(data.wishlist_checkbox.length==0 && data.wishlish_name.length==0){
 		alert('Выберите список или заполните название');
 	}else if(id=getPageIdByUri()){
