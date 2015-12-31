@@ -860,7 +860,9 @@ function LoadMainPageData(){
 						$('#main-listview-'+key1).html(output).listview("refresh");
 				});
 
-				//MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
+				setTimeout(function(){
+					MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
+				}, 3000);
 
 				var device =isIOS()?"apple":"3";
 				$.ajax({
@@ -891,7 +893,7 @@ function LoadMainPageData(){
 			            }
 					}
 				});
-                MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
+                //MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
 				ProssedTapEvents();
 				$.mobile.loading( "hide" );
 			}
