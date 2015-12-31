@@ -71,6 +71,10 @@ $( document ).on( "pageshow", "#sort-page", function() {
 $( document ).on( "pageshow", "#main", function() {
 	ShowLoading();
 	LoadMainPageData();
+
+	setTimeout(function(){
+		MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
+	}, 3000);
 });
 
 $( document ).on( "pageshow", "#page-cart", function() {

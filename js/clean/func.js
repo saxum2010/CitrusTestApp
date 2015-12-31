@@ -860,9 +860,7 @@ function LoadMainPageData(){
 						$('#main-listview-'+key1).html(output).listview("refresh");
 				});
 
-				setTimeout(function(){
-					MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
-				}, 3000);
+				//MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
 
 				var device =isIOS()?"apple":"3";
 				$.ajax({
