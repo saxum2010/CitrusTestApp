@@ -73,6 +73,7 @@ $( document ).on( "pageshow", "#main", function() {
 	LoadMainPageData();
 
 	setTimeout(function(){
+		alert(1);
 		MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
 	}, 3000);
 });
