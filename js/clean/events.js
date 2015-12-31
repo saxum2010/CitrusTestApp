@@ -67,21 +67,22 @@ $( document ).on( "pageshow", "#sort-page", function() {
 	
 	$('#sort-listview').listview("refresh");
 });
+
 $( document ).on( "pageshow", "#main", function() {
 	ShowLoading();
-	LoadMainPageData();		 
+	LoadMainPageData();
+	MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
 });
+
 $( document ).on( "pageshow", "#page-cart", function() {
-	
 	$("#cart-list").removeClass("edit_mode");
 	$("#cart_edit_button").html("Редактировать");
 	StartLoadingBasketItems();		
 });
+
 $( document ).on( "pageshow", "#page-order", function() {
-	
 	ShowLoading();
 	MobileUser.UserInfo(FillOrderPageFields);
-		
 });
 
 $( document ).on( "pageshow", "#page-personal", function() {

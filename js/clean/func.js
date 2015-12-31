@@ -860,8 +860,6 @@ function LoadMainPageData(){
 						$('#main-listview-'+key1).html(output).listview("refresh");
 				});
 
-				MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
-
 				var device =isIOS()?"apple":"3";
 				$.ajax({
 					url: "http://m.citrus.ua/ajax/on/status.php?app="+device+"&ver="+app_ver, 
