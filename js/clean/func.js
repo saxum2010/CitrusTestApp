@@ -2214,6 +2214,7 @@ function ShowAutorizationWindow(){
 }
 
 function showViewedProductsOnMain(datas){
+	alert(1);
 	showViewedProducts(datas,'products');
 }
 
