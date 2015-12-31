@@ -73,8 +73,10 @@ $( document ).on( "pageshow", "#main", function() {
 	LoadMainPageData();
 
 	setTimeout(function(){
-		alert(1);
-		MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
+		products_wrap = $('#main-listview-viewed-product').html();
+		if (products_wrap != ''){
+		 	$('#main-listview-viewed-products').html(products_wrap)
+		}
 	}, 3000);
 });
 
