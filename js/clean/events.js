@@ -71,7 +71,6 @@ $( document ).on( "pageshow", "#sort-page", function() {
 $( document ).on( "pageshow", "#main", function() {
 	ShowLoading();
 	LoadMainPageData();
-	MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
 });
 
 $( document ).on( "pageshow", "#page-cart", function() {
