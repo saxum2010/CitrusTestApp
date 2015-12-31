@@ -70,8 +70,7 @@ $( document ).on( "pageshow", "#sort-page", function() {
 
 $( document ).on( "pageshow", "#main", function() {
 	ShowLoading();
-	alert("load main");
-	//LoadMainPageData();
+	LoadMainPageData();
 });
 
 $( document ).on( "pageshow", "#page-cart", function() {

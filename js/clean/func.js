@@ -859,7 +859,7 @@ function LoadMainPageData(){
 						});
 						$('#main-listview-'+key1).html(output).listview("refresh");
 				});
-alert("load main showViewedProductsOnMain");
+
 				MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
 
 				var device =isIOS()?"apple":"3";
