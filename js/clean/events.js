@@ -725,3 +725,11 @@ $(document).on('click', '.vclick_link_product_viewed', function(){
 	ShowLoading();
 	window.location='#product-card?product-id='+$(this).attr('product_id');
 });
+
+$(document).on("pageshow", "#page-preorder", function(){
+	if(!MobileUser.IsAuthorized){
+		MobileUser.LoginPromt();
+		return false;
+	}
+	MobileUser.UserInfo(FillPreorderPageFields);
+});

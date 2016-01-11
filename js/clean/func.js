@@ -2374,3 +2374,32 @@ function EnableWishEditMode(){
 		wishEditButton.html("Завершить редакцию");
 	}
 }
+
+function FillPreorderPageFields(json){
+	if(json.IsAuthorized != "Y"){
+		MobileUser.LoginPromt();
+	}
+
+	if(json.user_datas!= undefined){
+		var output='';
+		if(json.user_datas.NameF!= undefined){
+			output += json.user_datas.NameF;
+		}
+		if(json.user_datas.NameI!= undefined){
+			output += ' ' + json.user_datas.NameI;
+		}
+		$("#preorder_fio").val(output);
+
+		if(json.user_datas.City!= undefined){
+			$("#preorder_city").val(json.user_datas.City);
+		}
+
+		if(json.user_datas.MobilePhone!= undefined){
+			$("#preorder_tel").val(json.user_datas.MobilePhone);
+		}
+
+		if(json.user_datas.Email!= undefined){
+			$("#preorder_email").val(json.user_datas.Email);
+		}
+	}
+}
