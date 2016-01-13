@@ -731,8 +731,8 @@ $(document).on("pageshow", "#page-preorder", function(){
 		MobileUser.LoginPromt();
 		return false;
 	}
-	InitCityAutocomplete();
 	MobileUser.UserInfo(FillPreorderPageFields);
+	InitCityAutocomplete();
 });
 
 /*Автоподстановка города*/
@@ -741,7 +741,6 @@ var firstClick = true,
 
 $(document).ready(function() {
 	$('body').on('click', '#page-preorder-content .ui-input-search input', function() {
-		alert(4);
 	    var selCity = $(this),
 	        sug = $('.suggestions');
 	    sug.show();
