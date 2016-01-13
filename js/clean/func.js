@@ -2404,38 +2404,6 @@ function FillPreorderPageFields(json){
 	}
 }
 
-function InitCityAutocomplete(){
-	alert(1);
-	$("#preorder_city_autocomplete").on("listviewbeforefilter", function (e,data){
-		alert(3);
-	    var $ul = $( this ),
-	        $input = $( data.input ),
-	        value = $input.val(),
-	        html = "";
-	    $ul.html( "" );
-	    if ( value && value.length > 2 ) {
-	        $ul.html( "<li><div class='ui-loader'><span class='ui-icon ui-icon-loading'></span></div></li>" );
-	        $ul.listview( "refresh" );
-	        $.ajax({
-	            url: "http://m.citrus.ua/api/delivery-autocomplete.php",
-	            dataType: "json",
-	            crossDomain: true,
-	            data: {
-	                term: $input.val()
-	            }
-	        })
-	        .then( function ( json ) {
-	        	if(json !== undefined ){
-	                $.each( json, function ( i, item ) {
-						html += '<li class=""><a data-ajax=false onclick="selectCity(\''+item.id+'\',\''+item.city_name+'\')"><table style="width:100%"><tr><td class="suggeintem"><h2 class="item_name_only ">' + item.value + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
-	                });
-	                $ul.html(html).listview("refresh").trigger("updatelayout");
-	    		}
-	        });
-	    }
-    });
-}
-
 function selectCity(city_id, city_name, region) {
     if(city_id === false) {
         return;
