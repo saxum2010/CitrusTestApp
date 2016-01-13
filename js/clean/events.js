@@ -731,8 +731,8 @@ $(document).on("pageshow", "#page-preorder", function(){
 		MobileUser.LoginPromt();
 		return false;
 	}
-	InitCityAutocomplete();
 	MobileUser.UserInfo(FillPreorderPageFields);
+	InitCityAutocomplete();
 });
 
 /*Автоподстановка города*/
