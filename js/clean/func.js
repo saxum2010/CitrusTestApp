@@ -2379,7 +2379,6 @@ function FillPreorderPageFields(json){
 	if(json.IsAuthorized != "Y"){
 		MobileUser.LoginPromt();
 	}
-
 	if(json.user_datas!= undefined){
 		var output='';
 		if(json.user_datas.NameF!= undefined){
@@ -2391,11 +2390,11 @@ function FillPreorderPageFields(json){
 		$("#preorder_fio").val(output);
 
 		if(json.user_datas.City!= undefined){
-			$("#preorder_city").val(json.user_datas.City);
+			$("#preorder_city, #page-preorder-content .ui-input-search input").val(json.user_datas.City);
 		}
 
 		if(json.user_datas.MobilePhone!= undefined){
-			$("#preorder_tel").val(json.user_datas.MobilePhone);
+			$("#preorder_tel").val(json.user_datas.MobilePhone).attr('disabled','disabled');
 		}
 
 		if(json.user_datas.Email!= undefined){
