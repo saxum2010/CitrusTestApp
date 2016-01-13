@@ -733,3 +733,70 @@ $(document).on("pageshow", "#page-preorder", function(){
 	}
 	MobileUser.UserInfo(FillPreorderPageFields);
 });
+
+/*Автоподстановка города*/
+var firstClick = true,
+    city_enter = false;
+
+$(document).ready(function() {
+	$('body').on('click', '#page-preorder-content .ui-input-search input', function() {
+	    var selCity = $(this),
+	        sug = $('.suggestions');
+	    sug.show();
+	    $('.suggestion-i').click(function(e) {
+	        e.preventDefault();
+	        var city_name = $(this).text();
+	        if (city_name == 'Введите другой город ...') {
+	            $(selCity).val('').attr('placeholder', 'Введите свой город').focus();
+	            sug.hide();
+	            firstClick = false;
+	            return;
+	        }
+	        $(selCity).val(city_name);
+	        sug.hide();
+	        firstClick = false;
+	    })
+	    firstClick = false;
+	});
+
+	 $(document).bind('click.myEvent', function(e) {
+	    if (!firstClick && $(e.target).closest('.suggestions').length == 0 && $(e.target).data('type') != 'search') {
+	            $('.suggestions').hide();
+	            firstClick = true;
+	        }
+	  });
+
+	    $('body').on('keyup', '#page-preorder-content .ui-input-search input', function(e) {
+	        if (e.which == 13) {
+	            city_enter = true;
+	        } else {
+	            $('.suggestions').hide();
+	            $('#preorder_city_autocomplete').show();
+	            selectCity(false);
+	            city_enter = false;
+	            firstClick = false;
+	        }
+	    });
+
+	    $('body').on('focusout', '#page-preorder-content .ui-input-search input', function() {
+	        if (city_enter === false) {
+	            $(this).val('').attr('placeholder', 'Введите свой город').focus();
+	            selectCity(false);
+	        }
+	    });
+
+	    $(document).on('click', '.suggestion-i a', function() {
+	        city_enter = true;
+	    });
+
+	    $(document).on('click', '.search_ordat a', function(e) {
+	        e.preventDefault();
+	        var city_name = $(this).text(),
+	            so = $(this).closest('.search_ordat');
+	        $('#page-preorder-content .ui-input-search input').val(city_name);
+	        $('.ui-autocomplete').hide();
+	        city_enter = true;
+	        selectCity(so.attr('city_id'), so.attr('city_name'), so.attr('region'));
+	    })
+});
+/*END Автоподстановка города*/
