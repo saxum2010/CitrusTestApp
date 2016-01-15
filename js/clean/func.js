@@ -879,7 +879,6 @@ function LoadMainPageData(){
 							if(!isIOS()){
 								$('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения '+res.version+'</div><div class="needUpdateText">ЧТО НОВОГО<br>'+res.needUpdateText+'</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю использовать старую версию</span></div>').show();
 							}
-							$('.app_version').html(' v. '+app_ver_print);
 							if(!MobileUser.IsAuthorized){
 								var loStatus = sessionStorage.getItem('needLogin');
 								if(loStatus!=undefined){
@@ -889,6 +888,7 @@ function LoadMainPageData(){
 								}
 							}
 			            }
+						$('.app_version').html(' v. '+app_ver_print);
 					}
 				});
                 //MobileUser.basket.getViewedProducts(showViewedProductsOnMain);
