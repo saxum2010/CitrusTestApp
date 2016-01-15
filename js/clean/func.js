@@ -883,7 +883,7 @@ function LoadMainPageData(){
 							if(!MobileUser.IsAuthorized){
 								var loStatus = sessionStorage.getItem('needLogin');
 								if(loStatus!=undefined){
-									$('#needLogin').remove();
+									$('#needLogin1').remove();
 								}else{
 									ShowAutorizationWindow();		
 								}

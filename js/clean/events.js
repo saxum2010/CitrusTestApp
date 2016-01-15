@@ -538,12 +538,12 @@ $(document).on('click', '#needLoginButton', function(){
 	$.mobile.changePage('#login-page');
 	$("#phone").val($('#needLoginEnterNumber').val());
 	MobileUser.Authorization_sendCode($('#phone').val());
-	$('#needLogin').remove();
+	$('#needLogin1').remove();
 });
 
 $(document).on('click', '.needNoLogin, .needLogin_bg', function(){
 	sessionStorage.setItem("needLogin", 1);
-	$('#needLogin').remove();
+	$('#needLogin1').remove();
 });
 
 $(document).on('click', '#payment-btn', function(){
