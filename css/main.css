@@ -1529,7 +1529,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     margin: 1px 0px 7px 0px;
 }
 
-#needUpdate, #needLogin, #debug_wrap {
+#needUpdate, #needLogin, #needLogin2, #debug_wrap {
     display: none;
     top: 0;
     left: 0;
