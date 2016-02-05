@@ -1969,6 +1969,10 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding-right: 2rem!important;
 }
 
+#product-actions-listview a.ui-icon-carat-r{
+    padding:0px!important;
+}
+
 #nav-panel {
     position: fixed;
     overflow: hidden;
