@@ -2637,7 +2637,8 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 }
 
 .action_item a.ui-icon-carat-r{
-    padding:0px!important;
+    padding-left:0px!important;
+    padding-right:0px!important;
 }
 
 .v_volor_item {
