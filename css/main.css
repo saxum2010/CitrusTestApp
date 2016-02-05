@@ -1969,10 +1969,6 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     padding-right: 2rem!important;
 }
 
-#product-actions-listview a.ui-icon-carat-r{
-    padding:0px!important;
-}
-
 #nav-panel {
     position: fixed;
     overflow: hidden;
@@ -2638,6 +2634,10 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     color: #A8A8A8 !important;
     font-weight: 400!important;
     font-size: 0.78rem!important;
+}
+
+.action_item a.ui-icon-carat-r{
+    padding:0px!important;
 }
 
 .v_volor_item {
