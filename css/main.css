@@ -2622,7 +2622,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 .action_item h2 {
     padding: 0.5rem 1rem!important;
-    font-size: 2rem!important;
+    font-size: 1.4rem!important;
 }
 
 .action_image img {
@@ -2630,12 +2630,30 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 }
 
 .action_item .preview_text {
-    color: #b4b4b4!important;
     padding: 0 1rem!important;
-    font-size: 1rem!important;
+    color: #A8A8A8 !important;
+    font-weight: 400!important;
+    font-size: 0.78rem!important;
 }
 
 .v_volor_item {
     height: 3rem;
     float: left;
+}
+
+.section-product-item:after{
+    content: ""!important;
+    background-image: url(../img/svg/gray/arrow.svg)!important;
+    background-repeat: no-repeat!important;
+    background-color: transparent!important;
+    position: absolute!important;
+    top: 50%!important;
+    right: 16px!important;
+    height: 22px!important;
+    width: 22px!important;
+    margin-top: -8px!important;
+}
+
+.section-product-item a:after{
+    display: none;
 }
