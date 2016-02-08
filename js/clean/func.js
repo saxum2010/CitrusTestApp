@@ -1791,9 +1791,10 @@ function LoadReviewsPage(id, data) {
 
 function LoadPromosPage(id, data) {
     var send_data = data || "",
-        promo_content = $('#promo-products-listview');
+        promo_content = $('#promo-products-listview'),
+        device = isIOS() ? "apple" : "3";
     $.ajax({
-        url: "http://m.citrus.ua/ajax/on/promo.php?bb=1&id=" + id + send_data,
+        url: "http://m.citrus.ua/ajax/on/promo.php?app=" + device + "&bb=1&id=" + id + send_data,
         type: "POST",
         dataType: 'json',
         beforeSend: function(xhr) {
@@ -1958,9 +1959,10 @@ function htmlDecode(value) {
 }
 
 function LoadBundlePage(id) {
-    var bundle_content = $('#bundle-content-listview');
+    var bundle_content = $('#bundle-content-listview'),
+        device = isIOS() ? "apple" : "3";
     $.ajax({
-        url: "http://m.citrus.ua/ajax/on/bundle.php?bb=1&bundle_id=" + id,
+        url: "http://m.citrus.ua/ajax/on/bundle.php?app=" + device + "&bb=1&bundle_id=" + id,
         type: "POST",
         dataType: 'json',
         beforeSend: function(xhr) {
