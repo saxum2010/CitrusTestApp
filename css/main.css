@@ -1835,27 +1835,21 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     color: #959595;
 }
 
-#promo-page-content .ProductOldPriceBox, #products-list .ProductOldPriceBox {
-    float: left;
-    margin-right: 8px;
+.section-product-item-new .ProductOldPriceBox {
+    float: left!important;
+    margin-right: 8px!important;
 }
 
-#promo-page-content .ProductOldPriceCr, #products-list .ProductOldPriceCr {
-    font-size: 16px;
-    color: #FF0000;
-    text-decoration: line-through;
+.section-product-item-new .ProductOldPriceCr {
+    font-size: 16px!important;
+    color: #FF0000!important;
+    text-decoration: line-through!important;
 }
 
-#promo-page-content .ProductOldPriceBox .price, #products-list .ProductOldPriceBox .price {
+.section-product-item-new .ProductOldPriceBox .price {
     color: #959595!important;
-    margin: 0px;
+    margin: 0px!important;
 }
-
-
-/*.free_shipping{
-	margin-top: 6px;
-	border-top: 1px solid #C8C7CC;
-}*/
 
 #user_bonus_menu .title, #user_bonus_menu .item, #user_bonus_menu b {
     color: #fff;

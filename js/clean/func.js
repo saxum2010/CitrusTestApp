@@ -722,20 +722,7 @@ function LoadMainPageData() {
                     $.each(json.top_goods, function(key1, value1) {
                         var output = "";
                         $.each(value1.items, function(key, value) {
-                            var url = "#product-card?product-id=" + value.id,
-                                row2 = '';
-                            var text_flag;
-                            if (value.text_flag != null) {
-                                text_flag = value.text_flag;
-                            } else {
-                                text_flag = '';
-                            }
-                            var payment_parts = '';
-                            if (parseInt(value.price, 10) > 1 && value.can_buy == "Y") {
-                                payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
-                            }
-                            row2 = (parseInt(value.price) > 1 && value.can_buy == "Y") ? '<div class="price">' + value.price + ' грн</div>' : '<div class="status">' + value.can_buy_status + '</div>';
-                            output += '<li class=""><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only product">' + value.name + '</h2>' + row2 + '<div class="props">' + value.props + payment_parts + '</div></td><td style="width:25px"></td></tr></table></a></li>';
+                            output += generateSectionProductItem(value, '');
                         });
                         $('#main-listview-' + key1).html(output).listview("refresh");
                     });
@@ -2266,8 +2253,8 @@ function generateSectionProductItem(value, lazy) {
         }
         var prop = (value.props != undefined) ? value.props : "",
             bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5) ? '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>' : '';
-        return '<li class="section-product-item"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
     } else {
-        return '<li class="section-product-item"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
     }
 }
