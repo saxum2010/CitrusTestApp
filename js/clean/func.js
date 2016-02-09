@@ -1811,13 +1811,11 @@ function LoadPromosPage(id, data) {
                 $('.promo-products-text').html(json.promo_content_text);
             }
 
-console.log(json.promo_goods);
             if (json.promo_goods != null && json.promo_goods != undefined) {
                 $.each(json.promo_goods, function(promo_key, promo_goods_item) {
                     if (!promo_key) {
                         return;
                     }
-                    console.log(promo_key);
                     if (promo_key == 'selectors') {
                         if (promo_goods_item != null && promo_goods_item != undefined) {
                             $.each(promo_goods_item, function(promo_key2, promo_goods_item2) {
@@ -1831,8 +1829,6 @@ console.log(json.promo_goods);
                                 if (promo_goods_item2.title != undefined && promo_goods_item2.title != '') {
                                     selector_output = '<div class="product-card-module-cr last module-open promo-selector-title"> <div id="product-card-info" class="product-card-module main-module" onclick="moduletoggle(this);"><i class="c_icon c_lider gray main_page_icon"></i>' + promo_goods_item2.title + '</div> <div class="product-card-info-content"><ul data-role="listview" data-theme="b" data-2inset="true" class="ui-listview ui-group-theme-b">' + selector_output + '</ul></div> </div>';
                                 }
-                                console.log('add selector');
-                                console.log(selector_output);
                                 output += selector_output;
                             });
                         }
@@ -1846,11 +1842,9 @@ console.log(json.promo_goods);
                     }
                 });
             }
-            console.log('good');
             promo_content.html(output);
             ProssedTapEvents();
             product_list_page_loded = true;
-            console.log('good 1');
             $.mobile.loading("hide");
         },
         timeout: 60000,
