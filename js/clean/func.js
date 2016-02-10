@@ -1711,10 +1711,11 @@ function getUserOrdersContentList(json) {
 function getUserPreOrdersList(json) {
     ShowLoading();
     if (json) {
-        var output = "";
+        var output = "",
+            no_ord = 0;
         if (json.preorders.CAN_BUY !== undefined) {
             $.each(json.preorders.CAN_BUY, function(key, value) {
-                var image = "";
+                var image = "";no_ord++;
                 if (value.PRODUCT_PIC != undefined) {
                     image = '<img src="' + value.PRODUCT_PIC + '" >';
                 }
@@ -1725,13 +1726,17 @@ function getUserPreOrdersList(json) {
         }
         if (json.preorders.CANNOT_BUY !== undefined) {
             $.each(json.preorders.CANNOT_BUY, function(key, value) {
-                var image = "";
+                var image = "";no_ord++;
                 if (value.PRODUCT_PIC != undefined) {
                     image = '<img src="' + value.PRODUCT_PIC + '" >';
                 }
                 output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#product-card?product-id=' + value.PRODUCT_ID + '"> <table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">' + image + '</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">' + value.PRODUCT_NAME + '</h2><div class="preview_text">Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE + '</div><div class="product_status ' + value.PRODUCT_STATUS_CLASS + '">' + value.PRODUCT_STATUS + '</div></td> </tr></table></a></li>';
             });
             $('#preorders-notbuy-content').html(output);
+            if(no_ord == 0){
+                $('#preorders-no').html("<div class='page-orders-name'>У Вас нет презаказов</div>");
+                $('#preorders-canbuy-info,#preorders-cannotbuy-info').hide();
+            }
         }
     } else {
         $('#order-page-content').html("У Вас нет заказов");
