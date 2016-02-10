@@ -723,7 +723,8 @@
         <input type="hidden"  id="preorder_product_id" >
         <div class="content-padding" style="margin-top: 13px;">
             <div style="color: #F6731B;">Ваши контактные данные:</div>
-            <div><input type="text" placeholder="ФИО" id="preorder_fio"  maxlength="40" autocomplete="on" ></div>
+            <div><input type="text" placeholder="Ваше имя" id="preorder_fio"  maxlength="40" autocomplete="on" ></div>
+            <div><input type="text" placeholder="Контактный телефон" id="preorder_tel"   autocomplete="on"></div>
             <div>
             <ul id="preorder_city_autocomplete" data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Город" data-filter-theme="d"></ul>
                 <div class="suggestions ui-listview">
@@ -742,9 +743,9 @@
                 </div>
                 <input type="hidden" placeholder="Город" id="preorder_city"  maxlength="20" autocomplete="on" >
             <input type="hidden" id="preorder_city_id" /></div>
-            <div><input type="text" placeholder="Телефон" id="preorder_tel"   autocomplete="on"></div>
-            <div><input type="email" placeholder="Email" id="preorder_email"   autocomplete="on" ></div>
-            <div><input type="text" placeholder="Комментарий" id="preorder_comment"   autocomplete="on"></div>
+            <div><input type="email" placeholder="Ваш E-mail" id="preorder_email"   autocomplete="on" ></div>
+            <div><input type="text" placeholder="Примечание" id="preorder_comment"   autocomplete="on"></div>
+            <div><input id="igreed" type="checkbox" name="igreed"><span class="forigreed">Я согласен с тем, что цена товара на момент отгрузки может отличаться от цены, указанной в предзаказе</span></div>
             <button class="ui-btn ui-corner-all  btn big orange_btn" id="preorder-make-btn" onclick="StartMakePreOrderTry();">Заказать</button>
         </div>
         <hr>

@@ -2660,3 +2660,12 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 #personal_anketa_box .ui-input-text input, #personal_anketa_box .ui-input-text select, #personal_anketa_box .ui-input-text option,#page-personal .bf_select, #page-personal .ui-radio label {
     color: #000!important;
 }
+
+#igreed{
+    padding:0!important;
+    margin:0 0 0 -5px!important;  
+}
+
+.forigreed {
+    padding-left: 35px;
+}

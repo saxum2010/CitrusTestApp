@@ -1140,7 +1140,7 @@ function OpenPreorderPage() {
 
 function StartMakePreOrderTry() {
     GA_event('OrderCreate', 'Preoder', 'preorder_step_2', $('#product-card').attr("product_id"), $('#current_product_price').val().replace(/[^\d,+]/g, ""));
-    if ($("#preorder_fio").val() != "" && $("#preorder_tel").val() != "" && $("#current_product_id").val() != "") {
+    if ($("#preorder_fio").val() != "" && $("#preorder_tel").val() != "" && $("#current_product_id").val() != "" &&($("#igreed").prop('checked'))) {
         MobileUser.basket.preOrder($("#preorder_fio").val(), $("#preorder_email").val(), $("#preorder_city").val(), $("#current_product_id").val(), $("#preorder_comment").val(), $("#preorder_tel").val(), OnMakePreOrderDone);
     } else {
         alert("Пожалуйста заполните обязательные поля !");
