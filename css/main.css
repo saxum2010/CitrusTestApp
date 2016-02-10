@@ -2669,3 +2669,14 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 .forigreed {
     padding-left: 35px;
 }
+
+.preorders-canbuy-infos{
+    border-bottom: 1px solid #C8C7CC;
+}
+
+.footer_box {
+    background: none!important;
+    border-color: #fff!important;
+    text-shadow: none!important;
+    font-weight: normal!important;
+}
