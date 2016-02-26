@@ -1,5 +1,5 @@
 var app_ver = '110';
-var app_ver_print = '1.1';
+var app_ver_print = '1.1 beta';
 var product_list_offset = [];
 //--------------
 function supportsSVG() {
@@ -1719,9 +1719,10 @@ function getUserPreOrdersList(json) {
                 if (value.PRODUCT_PIC != undefined) {
                     image = '<img src="' + value.PRODUCT_PIC + '" >';
                 }
-                output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#product-card?product-id=' + value.PRODUCT_ID + '"> <table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">' + image + '</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">' + value.PRODUCT_NAME + '</h2><div class="preview_text">Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE + '</div><div class="product_status ' + value.PRODUCT_STATUS_CLASS + '">' + value.PRODUCT_STATUS + '</div></td> </tr></table></a></li>';
+                value.text_props='Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE;
+                output += generateSectionProductItem(value);
             });
-            $('#preorders-buy-content').html(output);
+            $('#preorders-buy-content').html("<ul class='ui-listview'>"+output+"</ul>");
             output = "";
         }
         if (json.preorders.CANNOT_BUY !== undefined) {
@@ -1730,9 +1731,10 @@ function getUserPreOrdersList(json) {
                 if (value.PRODUCT_PIC != undefined) {
                     image = '<img src="' + value.PRODUCT_PIC + '" >';
                 }
-                output += '<li><a data-transition="slide" data-ajax="false" class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#product-card?product-id=' + value.PRODUCT_ID + '"> <table style="width:100%"><tr> <td style="vertical-align: middle;text-align:center;width:64px" class="first">' + image + '</td> <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only order">' + value.PRODUCT_NAME + '</h2><div class="preview_text">Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE + '</div><div class="product_status ' + value.PRODUCT_STATUS_CLASS + '">' + value.PRODUCT_STATUS + '</div></td> </tr></table></a></li>';
+                value.text_props='Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE;
+                output += generateSectionProductItem(value);
             });
-            $('#preorders-notbuy-content').html(output);
+           $('#preorders-notbuy-content').html("<ul class='ui-listview'>"+output+"</ul>");
             if(no_ord == 0){
                 $('#preorders-no').html("<div class='page-orders-name'>У Вас нет презаказов</div>");
                 $('#preorders-canbuy-info,#preorders-cannotbuy-info').hide();
@@ -2236,7 +2238,7 @@ function selectCity(city_id, city_name, region) {
 }
 
 /**
- * Функция генерации товара в секции
+ * Функция генерации товара в секции, главной
  * @param  {[type]} value товар
  * @param  {[type]} lazy  [description]
  * @return {[type]}       [description]
@@ -2244,6 +2246,7 @@ function selectCity(city_id, city_name, region) {
 function generateSectionProductItem(value, lazy) {
     var url = "category-items=" + value.link,
         text_flag = (value.text_flag != null && value.text_flag != false) ? value.text_flag : '',
+        text_props = (value.text_props != null && value.text_props != false) ? value.text_props : '',
         dop_class = "";
     if (value.price) {
         var old_price = (value.old_price != null) ? value.old_price : '';
@@ -2261,8 +2264,10 @@ function generateSectionProductItem(value, lazy) {
         }
         var prop = (value.props != undefined) ? value.props : "",
             bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5) ? '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>' : '';
+            prop = (text_props!='') ? text_props : prop; 
+
         return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
     } else {
-        return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
     }
 }

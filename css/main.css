@@ -2672,6 +2672,7 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 
 .preorders-canbuy-infos{
     border-bottom: 1px solid #C8C7CC;
+    border-top: 1px solid #C8C7CC;
 }
 
 .footer_box {
@@ -2679,4 +2680,8 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     border-color: #fff!important;
     text-shadow: none!important;
     font-weight: normal!important;
+}
+
+#page-personal input{
+    color: #000;
 }
