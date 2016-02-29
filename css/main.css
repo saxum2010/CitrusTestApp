@@ -2685,3 +2685,27 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
 #page-personal input{
     color: #000;
 }
+
+.cancel_icon{
+    width: 20px;
+}
+
+#page-wish .edit_mode .delete_td{
+    padding-right: 0!important;
+}
+
+#personal_user_wishes_list li:last-child a{
+    border-bottom:none; 
+}
+
+.section-product-item{
+    position: relative;
+}
+
+.wish_content_detail_list{
+    padding-bottom: 125px!important;
+}
+
+.section-product-item.edit_mode:after{
+    display: none!important;
+}

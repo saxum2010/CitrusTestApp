@@ -71,16 +71,16 @@ function goBack() {
 }
 // Инициализация свайпа навигационного меню
 /*function  SwipeInit(){
-	$("html").swipe({
-		  swipeLeft:function(event, direction, distance, duration, fingerCount) {
-			$( "#nav-panel" ).panel( "close" );
-		  },
-		  swipeRight:function(event, direction, distance, duration, fingerCount) {
-			$("#nav-panel" ).panel( "open" );
-		  }
-	});				
+    $("html").swipe({
+          swipeLeft:function(event, direction, distance, duration, fingerCount) {
+            $( "#nav-panel" ).panel( "close" );
+          },
+          swipeRight:function(event, direction, distance, duration, fingerCount) {
+            $("#nav-panel" ).panel( "open" );
+          }
+    });             
 }*/
-// Отображение иконки ожидания загрузки данных
+// The display icons standby load data
 function ShowLoading() {
     var $this = $(this),
         theme = $this.jqmData("theme") || $.mobile.loader.prototype.options.theme,
@@ -202,18 +202,17 @@ function LoadDefaultCatalog(category, position, count) {
                         output += '<li class="' + lazy + '"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
                     } else {
                         url = (value.link != undefined) ? '#products-list?' + url : "#product-card?product-id=" + value.id;
-                        output += '<li class="' + lazy + '"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="' + url + '"> 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px"  class="first"> 								<img src="' + value.image + '" >							 							</td> 							<td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"> 								<div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2> 							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
+                        output += '<li class="' + lazy + '"><a data-transition="slide" data-ajax=false class="vclick_d_link"  link="' + url + '">                   <table style="width:100%">                      <tr>                            <td style="vertical-align: middle;text-align:center;width:64px"  class="first">                                 <img src="' + value.image + '" >                                                        </td>                           <td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;">                                 <div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2>                            </td>                           <td style="width:25px">                             </td>                       </tr>                   </table>                                    </a></li>';
                     }
                 });
             } else {
                 showFootbar = true;
-                output = '<li><a > 					<table style="width:100%"> 						<tr> 							<td style="vertical-align: middle;text-align:center;width:64px" class="first"> 													 							</td> 							<td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> 								<h2 class="item_name_only ">Ничего не найдено....</h2>							</td> 							<td style="width:25px"> 							</td> 						</tr> 					</table> 					 				</a></li>';
+                output = '<li><a >                  <table style="width:100%">                      <tr>                            <td style="vertical-align: middle;text-align:center;width:64px" class="first">                                                                              </td>                           <td style="vertical-align:middle;text-align:left;padding-left:1.1rem;">                                 <h2 class="item_name_only ">Ничего не найдено....</h2>                          </td>                           <td style="width:25px">                             </td>                       </tr>                   </table>                                    </a></li>';
             }
             if (position > 0 && position != null) {
-                $('#products-listview').html($('#products-listview').html() + output).listview("refresh");
-            } else {
-                $('#products-listview').html(output).listview("refresh");
+                output = $('#products-listview').html() + output;
             }
+            $('#products-listview').html(output).listview("refresh");
             if (savePos !== null && savePos > 0 && product_list_offset[savePos] != undefined) {
                 this.position = counts;
                 $.mobile.silentScroll(product_list_offset[savePos]);
@@ -272,7 +271,8 @@ function LoadDefaultCatalog(category, position, count) {
         }
     });
 }
-// Выбор каталога на основе адреса страницы
+
+// The directory selection on the basis of the page address
 function showCategory(urlObj, options) {
     var categoryName = "";
     if (urlObj.href.search("category-items") !== -1) {
@@ -292,7 +292,7 @@ function showCategory(urlObj, options) {
 }
 
 function LazyListView(ListId) {
-    // конструктор
+    // constructor
     this.ListId = ListId;
     if (savePos !== null && savePos > 0) {
         this.position = (Math.ceil(savePos / 20) * 20) - 20;
@@ -300,9 +300,9 @@ function LazyListView(ListId) {
         this.position = 0;
     }
     this.count = 20;
-    // Инициализация
+    // Initialization
     this.Init = function() {
-        // Эвент скрола окна
+        // Event scroll window
         window.onscroll = function() {
             if ($.mobile.activePage.attr('id') == "products-list") {
                 var jj = this.position;
@@ -373,20 +373,18 @@ function loadProductCard(id, owl) {
                     $("#box_bonus_spec").remove();
                     $("#state_and_specbonus").append("<div id='box_bonus_spec'><div id='product-card-bonus_spec'>Бонус: " + json.bonus_spec + " грн</div></div>");
                 }
+
                 $('#sticker_img').html(json.sticker_img);
                 $('#product-card-code').html(json.idd);
-                $('#product-card-info-block-content').hide().html("");
-                $('#product-card-chars-block-content').hide().html("");
+                $('#product-card-info-block-content,#product-card-chars-block-content').hide().html("");
                 $('#product-card-info-block-content').parent().removeClass("module-open").addClass("module-close");
-                $('#product-card').attr("info_load", "N");
-                $('#product-card').attr("chars_load", "N");
-                $('#product-card').attr("product_id", parseInt(id));
+                $('#product-card').attr({"info_load": "N","chars_load": "N","product_id": parseInt(id)});
                 $('#card_dmode_link').attr("href", "http://m.citrus.ua/go.php?id=" + id);
                 $('#citrus_club').hide();
                 if (json.bonuses != undefined && parseInt(json.bonuses.summ) > 2) {
-                    $('#citrus_club').html("<div>Возвращаем <b>" + json.bonuses.summ + " грн</b> на бонусный счет</div>");
-                    $('#citrus_club').show();
+                    $('#citrus_club').html("<div>Возвращаем <b>" + json.bonuses.summ + " грн</b> на бонусный счет</div>").show();
                 }
+
                 $('#product-card-info-link').unbind().on("click", function(event) {
                     var loc = $.mobile.path.parseLocation();
                     $.mobile.changePage("#text-page?id=" + id, {
@@ -395,17 +393,20 @@ function loadProductCard(id, owl) {
                     });
                     event.preventDefault();
                 });
+
                 $('#product-card-reviews-link').unbind().on("click", function(event) {
                     $('#reviews-page-content').html('');
                     var loc = $.mobile.path.parseLocation();
                     window.open("http://m.citrus.ua/#reviews-page?id=" + id, '_system', 'location=yes');
                     event.preventDefault();
                 });
+
                 $('#product-card-wish-add-link').unbind().on("click", function(event) {
                     var loc = $.mobile.path.parseLocation();
                     window.location = "#wish-add-page?id=" + id;
                     event.preventDefault();
                 });
+
                 $('#product-card-props-link').unbind().on("click", function(event) {
                     var loc = $.mobile.path.parseLocation();
                     $.mobile.changePage("#text-page?id=" + id + "&detail_text=Y", {
@@ -742,7 +743,7 @@ function LoadMainPageData() {
                                     $('#needUpdate').remove();
                                 }
                                 if (!isIOS()) {
-                                    $('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения ' + res.version + '</div><div class="needUpdateText">ЧТО НОВОГО<br>' + res.needUpdateText + '</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>	 Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю использовать старую версию</span></div>').show();
+                                    $('#needUpdate').html('<div class="needUpdate_bg"></div><div class="needUpdateContent"><div class="needUpdateLogo"><img src="img/png/logo.png"></div><div class="needUpdateTitle">Доступна новая версия<br>приложения ' + res.version + '</div><div class="needUpdateText">ЧТО НОВОГО<br>' + res.needUpdateText + '</div><button id="needUpdateButton" class="green_btn ui-btn ui-corner-all"><i class="c_icon c_need_update c_ibtn"></i>    Обновить</button><span class="needNoUpdate">Спасибо. Продолжаю использовать старую версию</span></div>').show();
                                 }
                                 if (!MobileUser.IsAuthorized) {
                                     var loStatus = sessionStorage.getItem('needLogin');
@@ -1140,7 +1141,7 @@ function OpenPreorderPage() {
 
 function StartMakePreOrderTry() {
     GA_event('OrderCreate', 'Preoder', 'preorder_step_2', $('#product-card').attr("product_id"), $('#current_product_price').val().replace(/[^\d,+]/g, ""));
-    if ($("#preorder_fio").val() != "" && $("#preorder_tel").val() != "" && $("#current_product_id").val() != "" &&($("#igreed").prop('checked'))) {
+    if ($("#preorder_fio").val() != "" && $("#preorder_tel").val() != "" && $("#current_product_id").val() != "" && ($("#igreed").prop('checked'))) {
         MobileUser.basket.preOrder($("#preorder_fio").val(), $("#preorder_email").val(), $("#preorder_city").val(), $("#current_product_id").val(), $("#preorder_comment").val(), $("#preorder_tel").val(), OnMakePreOrderDone);
     } else {
         alert("Пожалуйста заполните обязательные поля !");
@@ -1356,7 +1357,7 @@ function ShowFilterEnums(id, name, section_id) {
                         check_box_ch = "Y";
                     }
                     filter_items += '<li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r check_a" onclick="ToggleEnums(this);"  checked_box="' + check_box_ch + '"  enum_id="' + value.id + '"><table style="width:100%"><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><h2 class="item_name_only">' + value.value + '</h2></td><td style="width:40px"><img class="check_img"  src="img/png/' + check_box + '.png"></td></tr></table></a></li>';
-                    //}	
+                    //} 
                 });
                 $("#filter_prop_name").html(name);
                 $('#filter-props-values-listview').html(filter_items);
@@ -1429,7 +1430,7 @@ function LoadSortItems() {
         if (key == FilterEnums.active_sort) {
             radio_box = "radiobutton-hover_24x24";
         }
-        sort_items += '<li ><a  class="ui-btn ui-btn-icon-right ui-icon-carat-r" sort="' + key + '" onclick="Sort_Radio_Click(this);"><table style="width:100%"><tbody><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> <h2 class="item_name_only">' + FilterEnums.sort_names[key] + '</h2> 	</td><td style="width:40px"> 	<img class="radio_img"  src="img/png/' + radio_box + '.png" >	</td></tr></tbody></table></a></li>';
+        sort_items += '<li ><a  class="ui-btn ui-btn-icon-right ui-icon-carat-r" sort="' + key + '" onclick="Sort_Radio_Click(this);"><table style="width:100%"><tbody><tr><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> <h2 class="item_name_only">' + FilterEnums.sort_names[key] + '</h2>  </td><td style="width:40px">    <img class="radio_img"  src="img/png/' + radio_box + '.png" >   </td></tr></tbody></table></a></li>';
     }
     $('#sort-listview').html(sort_items);
     $.mobile.changePage('#sort-page', {
@@ -1516,7 +1517,7 @@ function InitShopList() {
                 if (value.PROPERTY_CITY_PHONE_VALUE == undefined || value.PROPERTY_CITY_PHONE_VALUE == "") {
                     value.PROPERTY_CITY_PHONE_VALUE = "0 800 501-522"
                 }
-                output += '<li><a onclick="ShowDetailGoogleMape(' + value.ID + ')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">' + '' + image + '</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> ' + '<h2 class="item_name_only product">' + value.city + ", " + htmlDecode(value.NAME) + '</h2>	<div class="preview_text">' + 'Телефон: <a>' + value.PROPERTY_CITY_PHONE_VALUE + "</a></br>Время работы: " + value.PROPERTY_CITY_WORK_TIME_VALUE + '</div></td> ' + '</tr></table></a></li>';
+                output += '<li><a onclick="ShowDetailGoogleMape(' + value.ID + ')" data-transition="slide" data-ajax=false"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first img_map">' + '' + image + '</td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"> ' + '<h2 class="item_name_only product">' + value.city + ", " + htmlDecode(value.NAME) + '</h2>  <div class="preview_text">' + 'Телефон: <a>' + value.PROPERTY_CITY_PHONE_VALUE + "</a></br>Время работы: " + value.PROPERTY_CITY_WORK_TIME_VALUE + '</div></td> ' + '</tr></table></a></li>';
                 // nclick="Showtextpage('+value.id+')"
             });
             $('#shoplist-listview').html(output).listview("refresh");
@@ -1603,9 +1604,10 @@ function getUserWishesList(json) {
 
 function getUserWishContentList(json) {
     ShowLoading();
-    if (json) {
+    if (json){
         var output = "";
         if (json.wish !== undefined) {
+            json.wish.wishlist_summ = parseFloat(json.wish.wishlist_summ).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             output += '<div class=wish_content_detail><span class="wish_name"><b>' + json.wish.wishlist_name + '</b></span>';
             output += '<br /><span class="wish_count">Количество товаров: ' + json.wish.wishlist_count + '</span><br/><span class="wish_summ">Сумма: <span class="wish_summa">' + json.wish.wishlist_summ + ' грн.</span></span>';
             output += '</div><div class=wish_content_detail_list>';
@@ -1613,36 +1615,8 @@ function getUserWishContentList(json) {
         }
         if (json.wish_items !== undefined) {
             $.each(json.wish_items, function(key, value) {
-                text_flag = (value.text_flag != null) ? value.text_flag : '';
-                var dop_class = "";
-                if (value.price) {
-                    showFootbar = true;
-                    dop_class = dop_class + " product";
-                    url = "#product-card?product-id=" + value.id;
-                    var row2 = '',
-                        payment_parts = '';
-                    if (parseInt(value.mprice) > 1 && value.can_buy == "Y") {
-                        row2 = '<div class="price">' + value.price + ' грн</div>';
-                        payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
-                    } else if (parseInt(value.mprice) > 1) {
-                        row2 = '<div class="price">' + value.price + ' грн</div><div class="status">' + value.can_buy_status + '</div>';
-                    } else {
-                        if (value.can_buy_status != undefined) {
-                            row2 = '<div class="status">' + value.can_buy_status + '</div>';
-                        }
-                    }
-                    var prop = "";
-                    if (value.props != undefined) {
-                        prop = value.props;
-                    }
-                    var bonuses = "";
-                    if (value.bonuses != undefined && parseInt(value.bonuses) > 5) {
-                        bonuses = '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>';
-                    }
-                    output += '<li class="" id="wish_list_item' + value.id + '"><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="' + url + '"><table style="width:100%"><tr><td class="delete_td"><img item_id="' + value.id + '" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
-                } else {
-                    output += '<li class="" id="wish_list_item' + value.id + '"><a data-transition="slide" data-ajax=false class="vclick_d_link ui-btn ui-btn-icon-right ui-icon-carat-r" link="#products-list?' + url + '"><table style="width:100%"><tr><td class="delete_td"><img item_id="' + value.id + '" class="delete_img" src="img/png/delete.png"></td><td style="vertical-align: middle;text-align:center;width:64px"  class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
-                }
+                value.add_delete_td = 'Y';
+                output += generateSectionProductItem(value, '');
             });
         }
         output += '</div>';
@@ -1682,7 +1656,7 @@ function getUserOrdersContentList(json) {
             }
             output += '<span class="order_summ">Сумма:<span class=grn>' + json.order.SUMM + '&nbsp;грн.</span></span>';
             if (json.order.PAY_ALLOW == 'Y') {
-                output += '<button id="payment-btn" order_id="' + json.order.ID + '" token="' + json.order.PAY_TOKEN + '" uid="' + json.order.UID + '" class="green_btn ui-btn ui-corner-all" style=""><i class="c_icon c_payment c_ibtn"></i>	 Оплатить заказ</button>';
+                output += '<button id="payment-btn" order_id="' + json.order.ID + '" token="' + json.order.PAY_TOKEN + '" uid="' + json.order.UID + '" class="green_btn ui-btn ui-corner-all" style=""><i class="c_icon c_payment c_ibtn"></i>   Оплатить заказ</button>';
             }
             output += '</div><div class=order_content_detail_list>';
         }
@@ -1715,27 +1689,29 @@ function getUserPreOrdersList(json) {
             no_ord = 0;
         if (json.preorders.CAN_BUY !== undefined) {
             $.each(json.preorders.CAN_BUY, function(key, value) {
-                var image = "";no_ord++;
+                var image = "";
+                no_ord++;
                 if (value.PRODUCT_PIC != undefined) {
                     image = '<img src="' + value.PRODUCT_PIC + '" >';
                 }
-                value.text_props='Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE;
+                value.text_props = 'Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE;
                 output += generateSectionProductItem(value);
             });
-            $('#preorders-buy-content').html("<ul class='ui-listview'>"+output+"</ul>");
+            $('#preorders-buy-content').html("<ul class='ui-listview'>" + output + "</ul>");
             output = "";
         }
         if (json.preorders.CANNOT_BUY !== undefined) {
             $.each(json.preorders.CANNOT_BUY, function(key, value) {
-                var image = "";no_ord++;
+                var image = "";
+                no_ord++;
                 if (value.PRODUCT_PIC != undefined) {
                     image = '<img src="' + value.PRODUCT_PIC + '" >';
                 }
-                value.text_props='Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE;
+                value.text_props = 'Предзаказ № P-' + value.PREORDER_ID + ' от ' + value.PREORDER_DATE;
                 output += generateSectionProductItem(value);
             });
-           $('#preorders-notbuy-content').html("<ul class='ui-listview'>"+output+"</ul>");
-            if(no_ord == 0){
+            $('#preorders-notbuy-content').html("<ul class='ui-listview'>" + output + "</ul>");
+            if (no_ord == 0) {
                 $('#preorders-no').html("<div class='page-orders-name'>У Вас нет презаказов</div>");
                 $('#preorders-canbuy-info,#preorders-cannotbuy-info').hide();
             }
@@ -1817,7 +1793,6 @@ function LoadPromosPage(id, data) {
             if (json.promo_content_text != undefined) {
                 $('.promo-products-text').html(json.promo_content_text);
             }
-
             if (json.promo_goods != null && json.promo_goods != undefined) {
                 $.each(json.promo_goods, function(promo_key, promo_goods_item) {
                     if (!promo_key) {
@@ -1946,9 +1921,9 @@ function LoadDetailPageMap(id) {
         doc_h = doc_h - 303;
         $('#map_canvas').css('height', doc_h + 'px');
         /*$.mobile.loading( "hide" );
-		$('#map_canvas, #pano').height($(document).height());*/
+        $('#map_canvas, #pano').height($(document).height());*/
         /*$.getScript("/js/gmap.js").done(function() {
-        	gmapLoadScript();
+            gmapLoadScript();
         });*/
         gmapInitialize();
         var box_2_detail = "";
@@ -2166,11 +2141,12 @@ function getPageIdByUri() {
     }
 }
 
-function DeleteWishItem(item) {
-    if (confirm('Вы уверены,что хотите удалить товар "' + $("#wish_list_item" + $(item).attr("item_id") + " h2").html() + '" из списка?')) {
-        var item_id = $(item).attr("item_id"),
-            li = $("#wish_list_item" + item_id);
-        li.animate({
+function DeleteWishItem(item){
+    var box = $(item).closest('.section-product-item'),
+        title = box.find('h2').html();
+    if (confirm('Вы уверены,что хотите удалить товар "' + title + '" из списка?')) {
+        var item_id = box.attr("item_id");
+        box.animate({
             width: "0%"
         }, 200).remove();
         if (wish_id = getPageIdByUri()) {
@@ -2236,10 +2212,9 @@ function selectCity(city_id, city_name, region) {
     $('#preorder_city_id').val(city_id);
     $('#preorder_city_autocomplete,#page-preorder-content .ui-input-clear').hide();
 }
-
 /**
- * Функция генерации товара в секции, главной
- * @param  {[type]} value товар
+ * The generation view for: main, section, wish
+ * @param  {[type]} value item
  * @param  {[type]} lazy  [description]
  * @return {[type]}       [description]
  */
@@ -2248,26 +2223,33 @@ function generateSectionProductItem(value, lazy) {
         text_flag = (value.text_flag != null && value.text_flag != false) ? value.text_flag : '',
         text_props = (value.text_props != null && value.text_props != false) ? value.text_props : '',
         dop_class = "";
-    if (value.price) {
+
+    delete_td =(!!value.add_delete_td&&value.add_delete_td=='Y')?'<td class="delete_td"><img item_id="' + value.id + '" class="delete_img cancel_icon" src="img/svg/cancel-icon.svg"></td>':'';
+    value.id = value.id || '';
+    if (value.price){
+        value.price = value.price.toString().replace(/[^-0-9]/gim,'');
+
         var old_price = (value.old_price != null) ? value.old_price : '';
         dop_class = dop_class + " product";
         url = "#product-card?product-id=" + value.id;
-        var row2 = '',
-            payment_parts = '';
+        var row2 = '', payment_parts = '';
+
+        value.price_print = parseFloat(value.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         if (parseInt(value.price) > 1 && value.can_buy == "Y") {
-            row2 = old_price + '<div class="price">' + value.price + ' грн</div>';
+            row2 = old_price + '<div class="price">' + value.price_print + ' грн</div>';
             payment_parts = '<div class="catalog_payment_parts">Оплата частями</div>';
         } else if (parseInt(value.price) > 1) {
-            row2 = old_price + '<div class="price">' + value.price + ' грн</div><div class="status">' + value.can_buy_status + '</div>';
-        } else {
+            row2 = old_price + '<div class="price">' + value.price_print + ' грн</div><div class="status">' + value.can_buy_status + '</div>';
+        } else if(!!value.can_buy_status) {
             row2 = '<div class="status">' + value.can_buy_status + '</div>';;
         }
+
         var prop = (value.props != undefined) ? value.props : "",
             bonuses = (value.bonuses != undefined && parseInt(value.bonuses) > 5) ? '<div class="props">+' + parseInt(value.bonuses) + ' грн на бонусный счет</div>' : '';
             prop = (text_props!='') ? text_props : prop; 
 
-        return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td></tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new" item_id="'+value.id+'"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r"  link="' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-align:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2><div class="props">' + prop + '</div>' + row2 + bonuses + payment_parts + '</td><td style="width:25px"></td>'+delete_td+'</tr></table></a></li>';
     } else {
-        return '<li class="section-product-item section-product-item-new"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td></tr></table></a></li>';
+        return '<li class="section-product-item section-product-item-new" item_id="'+value.id+'"><a data-transition="slide" data-ajax=false class="vclick_d_link click_ajax_new_link ui-btn ui-btn-icon-right ui-icon-carat-r section-product-item" link="#products-list?' + url + '"><table style="width:100%"><tr><td style="vertical-align: middle;text-align:center;width:64px" class="first"><img src="' + value.image + '" ></td><td style="vertical-aling:middle;text-align:left;padding-left:1.1rem;"><div class="box_catalog_status">' + text_flag + ' </div><h2 class="item_name_only ' + dop_class + '">' + value.name + '</h2></td><td style="width:25px"></td>'+delete_td+'</tr></table></a></li>';
     }
 }
