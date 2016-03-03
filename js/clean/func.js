@@ -1777,7 +1777,7 @@ function LoadPromosPage(id, data) {
         promo_content = $('#promo-products-listview'),
         device = isIOS() ? "apple" : "3";
     $.ajax({
-        url: "http://m.citrus.ua/ajax/on/promo.php?app=" + device + "&bb=1&id=" + id + send_data,
+        url: "http://m.citrus.ua/ajax/on/promo.php?app=" + device + "&bb=1&vp=2&id=" + id + send_data,
         type: "POST",
         dataType: 'json',
         beforeSend: function(xhr) {
