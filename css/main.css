@@ -2862,3 +2862,13 @@ ul#filter-props-values-listview .ui-icon-carat-r:after, ul#sort-listview .ui-ico
     margin-top: 20px;
     padding: 20px 10px;
 }
+
+#promo-page-content{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#promo-page-content .promo-products-text{
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
